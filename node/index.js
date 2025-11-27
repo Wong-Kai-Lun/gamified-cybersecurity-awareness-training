@@ -1,14 +1,17 @@
 require('dotenv').config();
-const express = require('express');
+const { connectDB } = require('./src/config/db');
+const app = require('./src/app');
 
-const app = express();
-const port = 3000; // Port and Database in .env file later
+const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-    res.send('Hello World from Express!');
-});
+console.log(PORT);
+console.log(process.env.MONGO_ATLAS_URI);
 
+(async () => {
 
-app.listen(port, () => {
-    console.log(`Express app listening at http://localhost:${port}`);
-});
+    await connectDB();
+
+    app.listen(PORT, () => {
+        console.log(`Express app listening at http://localhost:${PORT}`);
+    });
+})();
