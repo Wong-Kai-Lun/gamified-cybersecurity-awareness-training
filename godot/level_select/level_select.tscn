@@ -1,0 +1,142 @@
+[gd_scene load_steps=5 format=3 uid="uid://qa8xtdsvt46c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4yrc4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbno2"]
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe004"]
+bg_color = Color(0.4, 0.4, 0.4, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xujpy"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Level Select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -276.0
+offset_right = 141.0
+offset_bottom = -207.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 56
+text = "Level Select"
+
+[node name="LevelButtonContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1000, 184)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -503.0
+offset_top = -73.0
+offset_right = 503.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Monday" type="Button" parent="LevelButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4yrc4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jbno2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qe004")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xujpy")
+text = "Monday"
+
+[node name="Tuesday" type="Button" parent="LevelButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4yrc4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jbno2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qe004")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xujpy")
+text = "Tuesday"
+
+[node name="Wednesday" type="Button" parent="LevelButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4yrc4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jbno2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qe004")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xujpy")
+text = "Wednesday"
+
+[node name="Thursday" type="Button" parent="LevelButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4yrc4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jbno2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qe004")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xujpy")
+text = "Thursday"
+
+[node name="Friday" type="Button" parent="LevelButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4yrc4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jbno2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qe004")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xujpy")
+text = "Friday"
