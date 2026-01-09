@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://2g3m0pmsw2tv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h371b"]
+bg_color = Color(0.733333, 0.733333, 0.733333, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0.533333, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rk7f4"]
+bg_color = Color(0, 0, 0.533333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0012c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5oxg"]
+bg_color = Color(0.866667, 0, 0, 1)
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgmv1"]
+bg_color = Color(0.733333, 0, 0, 1)
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glc75"]
+
+[node name="PopUpBase" type="Control"]
+custom_minimum_size = Vector2(350, 450)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -930.0
+offset_bottom = -270.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WindowPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h371b")
+
+[node name="Structure" type="VBoxContainer" parent="WindowPanel"]
+layout_mode = 2
+
+[node name="TitleBar" type="PanelContainer" parent="WindowPanel/Structure"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rk7f4")
+
+[node name="TitleBarContainer" type="HBoxContainer" parent="WindowPanel/Structure/TitleBar"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="WindowPanel/Structure/TitleBar/TitleBarContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 3
+
+[node name="Title" type="Label" parent="WindowPanel/Structure/TitleBar/TitleBarContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Window Title"
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="WindowPanel/Structure/TitleBar/TitleBarContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0012c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h5oxg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sgmv1")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_glc75")
+text = "    X    "
+
+[node name="Content" type="Control" parent="WindowPanel/Structure"]
+layout_mode = 2
+size_flags_vertical = 3
