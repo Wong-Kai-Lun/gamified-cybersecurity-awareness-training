@@ -17,7 +17,7 @@ func _on_back_pressed() -> void:
 
 func _on_monday_pressed() -> void:
 	print("The level Monday has been selected.")
-	get_tree().change_scene_to_file("res://game_scene/game_scene.tscn")
+	get_tree().change_scene_to_file("res://game_scene/email_client.tscn")
 	# create base game interface then load later
 
 

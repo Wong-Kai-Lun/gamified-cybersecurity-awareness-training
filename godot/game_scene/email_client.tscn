@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbgflyqj2urou"]
+
+[ext_resource type="Script" path="res://game_scene/email_client.gd" id="1_smk6c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld5jx"]
+bg_color = Color(0, 0, 0.533333, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ooe17"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwm1o"]
+bg_color = Color(0.866667, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0cdn"]
+bg_color = Color(0.733333, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxdt6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6kie"]
+bg_color = Color(0.866667, 0.866667, 0.866667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvtvm"]
+bg_color = Color(0.866667, 0.866667, 0.866667, 1)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="EmailClient" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_smk6c")
+
+[node name="ProgramVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TitleBar" type="PanelContainer" parent="ProgramVBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ld5jx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ProgramVBox/TitleBar"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ProgramVBox/TitleBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="WindowTitle" type="Label" parent="ProgramVBox/TitleBar/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Email App
+"
+
+[node name="Close" type="Button" parent="ProgramVBox/TitleBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ooe17")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kwm1o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b0cdn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bxdt6")
+text = "    X    "
+icon_alignment = 1
+
+[node name="EmailClientBG" type="PanelContainer" parent="ProgramVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_a6kie")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ProgramVBox/EmailClientBG"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="Categories" type="PanelContainer" parent="ProgramVBox/EmailClientBG/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_hvtvm")
+
+[node name="CategoriesContainer" type="VBoxContainer" parent="ProgramVBox/EmailClientBG/HBoxContainer/Categories"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ProgramVBox/EmailClientBG/HBoxContainer/Categories"]
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Categories (Non-functional)"
+selection_enabled = true
+drag_and_drop_selection_enabled = false
+
+[node name="IncomingEmail" type="PanelContainer" parent="ProgramVBox/EmailClientBG/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hvtvm")
+
+[node name="IncomingEmailContainer" type="VBoxContainer" parent="ProgramVBox/EmailClientBG/HBoxContainer/IncomingEmail"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmailBody" type="Control" parent="ProgramVBox/EmailClientBG/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ProgramVBox/EmailClientBG/HBoxContainer/EmailBody"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 180.0
+offset_right = -149.0
+offset_bottom = -172.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Hello, this is a prototype level for now."
+selection_enabled = true
+drag_and_drop_selection_enabled = false
+
+[connection signal="pressed" from="ProgramVBox/TitleBar/HBoxContainer/Close" to="." method="_on_close_pressed"]
