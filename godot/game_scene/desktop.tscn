@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0ag6c742vmi1"]
+
+[ext_resource type="Texture2D" uid="uid://cqw41ovssu3t3" path="res://game_scene/desktop_bg.jpg" id="1_nvliw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oeun7"]
+texture = ExtResource("1_nvliw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y22f8"]
+bg_color = Color(0, 0, 0.533333, 1)
+
+[node name="Desktop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DesktopBG" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oeun7")
+
+[node name="Desktop" type="VBoxContainer" parent="DesktopBG"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="DesktopBG/Desktop"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Taskbar" type="PanelContainer" parent="DesktopBG/Desktop"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_y22f8")
+
+[node name="TaskbarHBC" type="HBoxContainer" parent="DesktopBG/Desktop/Taskbar"]
+layout_mode = 2
+
+[node name="Power" type="Button" parent="DesktopBG/Desktop/Taskbar/TaskbarHBC"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "Pow"
+
+[node name="Settings" type="Button" parent="DesktopBG/Desktop/Taskbar/TaskbarHBC"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "Set"
+
+[node name="Inventory" type="Button" parent="DesktopBG/Desktop/Taskbar/TaskbarHBC"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+text = "Inv"
