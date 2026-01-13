@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://cukso6bnagbo1"]
+
+[ext_resource type="Script" path="res://game_scene/programs/components/title_bar.gd" id="1_xqduc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fmse"]
+bg_color = Color(0, 0, 0.533333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x1btf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kj3va"]
+bg_color = Color(0.866667, 0, 0, 1)
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_farh2"]
+bg_color = Color(0.733333, 0, 0, 1)
+corner_radius_top_right = 8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nar0"]
+
+[node name="TitleBar" type="Control"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xqduc")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 24.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2fmse")
+
+[node name="TitleBarContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/TitleBarContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 3
+
+[node name="Title" type="Label" parent="PanelContainer/TitleBarContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 13
+text = "Window Title"
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="PanelContainer/TitleBarContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x1btf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kj3va")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_farh2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2nar0")
+text = "    X    "
+
+[connection signal="pressed" from="PanelContainer/TitleBarContainer/CloseButton" to="." method="_on_close_button_pressed"]

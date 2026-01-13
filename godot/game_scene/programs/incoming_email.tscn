@@ -4,13 +4,13 @@
 bg_color = Color(0.8, 0.8, 0.8, 1)
 
 [node name="IncomingEmail" type="Control"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -980.0
-offset_bottom = -620.0
+offset_right = -1597.0
+offset_bottom = -980.0
 grow_horizontal = 2
 grow_vertical = 2
 

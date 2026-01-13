@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c52cj7jr22vuk"]
+
+[ext_resource type="PackedScene" uid="uid://2g3m0pmsw2tv" path="res://game_scene/programs/base.tscn" id="1_wo44u"]
+[ext_resource type="Script" path="res://game_scene/programs/settings/settings.gd" id="2_786u0"]
+
+[node name="PopUpBase" instance=ExtResource("1_wo44u")]
+script = ExtResource("2_786u0")
+
+[node name="TitleBar" parent="WindowPanel/Structure" index="0"]
+title = "Settings"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowPanel/Structure/Content" index="0"]
+layout_mode = 2
+offset_right = 346.0
+offset_bottom = 418.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="WindowPanel/Structure/Content/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 100
+
+[node name="Button" type="Button" parent="WindowPanel/Structure/Content/VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Quit Game"
+
+[connection signal="pressed" from="WindowPanel/Structure/Content/VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]

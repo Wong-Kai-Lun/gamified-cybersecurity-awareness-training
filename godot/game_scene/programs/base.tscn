@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://2g3m0pmsw2tv"]
+
+[ext_resource type="PackedScene" uid="uid://cukso6bnagbo1" path="res://game_scene/programs/components/title_bar.tscn" id="1_bw0lj"]
+
+[sub_resource type="GDScript" id="GDScript_te454"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h371b"]
+bg_color = Color(0.733333, 0.733333, 0.733333, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0.533333, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PopUpBase" type="Control"]
+custom_minimum_size = Vector2(350, 450)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1570.0
+offset_bottom = -630.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_te454")
+
+[node name="WindowPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h371b")
+
+[node name="Structure" type="VBoxContainer" parent="WindowPanel"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitleBar" parent="WindowPanel/Structure" instance=ExtResource("1_bw0lj")]
+layout_mode = 2
+title = "Based"
+
+[node name="Content" type="Control" parent="WindowPanel/Structure"]
+layout_mode = 2
+size_flags_vertical = 3

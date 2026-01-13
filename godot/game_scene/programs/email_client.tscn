@@ -1,20 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbgflyqj2urou"]
+[gd_scene load_steps=6 format=3 uid="uid://bbgflyqj2urou"]
 
-[ext_resource type="Script" path="res://game_scene/email_client.gd" id="1_smk6c"]
-[ext_resource type="PackedScene" uid="uid://teyfqe5jhxwj" path="res://game_scene/incoming_email.tscn" id="2_w5208"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld5jx"]
-bg_color = Color(0, 0, 0.533333, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ooe17"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwm1o"]
-bg_color = Color(0.866667, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0cdn"]
-bg_color = Color(0.733333, 0, 0, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxdt6"]
+[ext_resource type="Script" path="res://game_scene/programs/email_client.gd" id="1_smk6c"]
+[ext_resource type="PackedScene" uid="uid://cukso6bnagbo1" path="res://game_scene/programs/components/title_bar.tscn" id="2_6v7nm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6kie"]
 bg_color = Color(0.866667, 0.866667, 0.866667, 1)
@@ -47,36 +34,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="TitleBar" type="PanelContainer" parent="ProgramVBox"]
+[node name="TitleBar" parent="ProgramVBox" instance=ExtResource("2_6v7nm")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ld5jx")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ProgramVBox/TitleBar"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="ProgramVBox/TitleBar/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_bottom = 6
-
-[node name="WindowTitle" type="Label" parent="ProgramVBox/TitleBar/HBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "✉ 3Mail
-"
-
-[node name="Close" type="Button" parent="ProgramVBox/TitleBar/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ooe17")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kwm1o")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b0cdn")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_bxdt6")
-text = "    X    "
-icon_alignment = 1
+title = "✉ 3Mail"
 
 [node name="EmailClientPanelContainer" type="PanelContainer" parent="ProgramVBox"]
 layout_mode = 2
@@ -130,24 +90,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="IncomingEmail" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox" instance=ExtResource("2_w5208")]
-layout_mode = 2
-
-[node name="IncomingEmail2" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox" instance=ExtResource("2_w5208")]
-layout_mode = 2
-
-[node name="IncomingEmail3" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox" instance=ExtResource("2_w5208")]
-layout_mode = 2
-
-[node name="IncomingEmail4" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox" instance=ExtResource("2_w5208")]
-layout_mode = 2
-
-[node name="IncomingEmail5" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox" instance=ExtResource("2_w5208")]
-layout_mode = 2
-
-[node name="IncomingEmail6" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox" instance=ExtResource("2_w5208")]
-layout_mode = 2
-
 [node name="EmailBody" type="PanelContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -167,6 +109,7 @@ layout_mode = 2
 [node name="SubjectRTL" type="RichTextLabel" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBody/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
 text = "Subject Line"
 fit_content = true
 
@@ -177,12 +120,14 @@ layout_mode = 2
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = "From"
 
 [node name="ColonLbl" type="Label" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBody/MarginContainer/VBoxContainer/FromSection"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = ":"
 horizontal_alignment = 1
 
@@ -190,6 +135,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 18
 text = "example@3mail.com"
 fit_content = true
 
@@ -200,12 +146,14 @@ layout_mode = 2
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = "To"
 
 [node name="ColonLbl" type="Label" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBody/MarginContainer/VBoxContainer/ToSection"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = ":"
 horizontal_alignment = 1
 
@@ -213,6 +161,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 18
 text = "example@3mail.com"
 fit_content = true
 
@@ -223,12 +172,14 @@ layout_mode = 2
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = "CC"
 
 [node name="ColonLbl" type="Label" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBody/MarginContainer/VBoxContainer/CCSection"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = ":"
 horizontal_alignment = 1
 
@@ -236,23 +187,25 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 18
 text = "example@3mail.com"
 fit_content = true
 
-[node name="MarginContainer" type="MarginContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBody/MarginContainer/VBoxContainer"]
+[node name="BodySection" type="MarginContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBody/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 30
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBody/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBody/MarginContainer/VBoxContainer/BodySection"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBody/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBody/MarginContainer/VBoxContainer/BodySection/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "Testing. This is a sample email body.
 
@@ -263,5 +216,3 @@ text = "Testing. This is a sample email body.
 
 [img]res://main_menu/sample.jpg[/img]"
 fit_content = true
-
-[connection signal="pressed" from="ProgramVBox/TitleBar/HBoxContainer/Close" to="." method="_on_close_pressed"]
