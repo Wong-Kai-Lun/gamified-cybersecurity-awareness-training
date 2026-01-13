@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 func _on_new_game_pressed() -> void:
 	print("New Game Button pressed.")
 	get_tree().change_scene_to_file("res://level_select/level_select.tscn")
-
+	# Function to check if have existing save file. If no, proceed. If have, ask for confirmation.
 
 func _on_continue_pressed() -> void:
 	print("Continue Button pressed.")
