@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0ag6c742vmi1"]
+[gd_scene load_steps=6 format=3 uid="uid://d0ag6c742vmi1"]
 
 [ext_resource type="Texture2D" uid="uid://cqw41ovssu3t3" path="res://game_scene/desktop_bg.jpg" id="1_nvliw"]
-[ext_resource type="PackedScene" uid="uid://bbgflyqj2urou" path="res://game_scene/email_client.tscn" id="2_6ffpp"]
+[ext_resource type="Script" path="res://game_scene/desktop.gd" id="1_v1sjp"]
+[ext_resource type="PackedScene" uid="uid://bbgflyqj2urou" path="res://game_scene/programs/email_client.tscn" id="2_6ffpp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oeun7"]
 texture = ExtResource("1_nvliw")
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v1sjp")
 
 [node name="DesktopBG" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -59,3 +61,12 @@ text = "Set"
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 text = "Inv"
+
+[node name="3Mail" type="Button" parent="DesktopBG/Desktop/Taskbar/TaskbarHBC"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+text = "3M"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[connection signal="pressed" from="DesktopBG/Desktop/Taskbar/TaskbarHBC/Settings" to="." method="_on_settings_pressed"]
