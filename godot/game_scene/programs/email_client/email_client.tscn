@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbgflyqj2urou"]
+
+[ext_resource type="Script" path="res://game_scene/programs/email_client/email_client.gd" id="1_smk6c"]
+[ext_resource type="PackedScene" uid="uid://cukso6bnagbo1" path="res://game_scene/programs/common/title_bar.tscn" id="2_6v7nm"]
+[ext_resource type="PackedScene" uid="uid://teyfqe5jhxwj" path="res://game_scene/programs/email_client/incoming_email.tscn" id="3_eukrd"]
+[ext_resource type="PackedScene" uid="uid://c1qaukm3oef56" path="res://game_scene/programs/email_client/email_body_inbound.tscn" id="4_vevth"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6kie"]
+bg_color = Color(0.866667, 0.866667, 0.866667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvtvm"]
+bg_color = Color(0.866667, 0.866667, 0.866667, 1)
+border_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8trb"]
+bg_color = Color(0.866667, 0.866667, 0.866667, 1)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nkbe"]
+bg_color = Color(0.866667, 0.866667, 0.866667, 1)
+
+[node name="EmailClient" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_smk6c")
+
+[node name="ProgramVBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TitleBar" parent="ProgramVBox" instance=ExtResource("2_6v7nm")]
+layout_mode = 2
+title = "✉ 3Mail"
+
+[node name="EmailClientPanelContainer" type="PanelContainer" parent="ProgramVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_a6kie")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ProgramVBox/EmailClientPanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Categories" type="PanelContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hvtvm")
+
+[node name="CategoriesContainer" type="VBoxContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/Categories"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/Categories"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Inbox Categories 
+(Non-functional)"
+fit_content = true
+selection_enabled = true
+drag_and_drop_selection_enabled = false
+
+[node name="IncomingEmail" type="PanelContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_h8trb")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/IncomingEmail"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="IncomingEmailVBox" type="VBoxContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="IncomingEmail" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox" instance=ExtResource("3_eukrd")]
+layout_mode = 2
+
+[node name="EmailBodyContainer" type="PanelContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0nkbe")
+
+[node name="EmailBodyBase" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBodyContainer" instance=ExtResource("4_vevth")]
+layout_mode = 2

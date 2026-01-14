@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cqw41ovssu3t3" path="res://game_scene/desktop_bg.jpg" id="1_nvliw"]
 [ext_resource type="Script" path="res://game_scene/desktop.gd" id="1_v1sjp"]
-[ext_resource type="PackedScene" uid="uid://bbgflyqj2urou" path="res://game_scene/programs/email_client.tscn" id="2_6ffpp"]
+[ext_resource type="PackedScene" uid="uid://bbgflyqj2urou" path="res://game_scene/programs/email_client/email_client.tscn" id="2_6ffpp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oeun7"]
 texture = ExtResource("1_nvliw")
@@ -32,11 +32,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_oeun7")
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="DesktopBG/Desktop"]
+[node name="CurrentProgram" type="Control" parent="DesktopBG/Desktop"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="EmailClient" parent="DesktopBG/Desktop/Control" instance=ExtResource("2_6ffpp")]
+[node name="EmailClient" parent="DesktopBG/Desktop/CurrentProgram" instance=ExtResource("2_6ffpp")]
 layout_mode = 1
 
 [node name="Taskbar" type="PanelContainer" parent="DesktopBG/Desktop"]
