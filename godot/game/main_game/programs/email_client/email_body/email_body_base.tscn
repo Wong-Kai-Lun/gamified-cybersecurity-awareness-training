@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfiur4p5xsiyg"]
+[gd_scene load_steps=4 format=3 uid="uid://cfiur4p5xsiyg"]
+
+[ext_resource type="Script" path="res://game/main_game/programs/email_client/email_body/email_body_base.gd" id="1_kr646"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhqjc"]
 bg_color = Color(0.866667, 0.866667, 0.866667, 1)
@@ -13,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kr646")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -141,7 +144,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_llnxd")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="BodyRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -150,5 +153,5 @@ theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "Testing. This is a sample email body.
 
-[img]res://main_menu/sample.jpg[/img]"
+[img]res://game/main_menu/sample.jpg[/img]"
 fit_content = true

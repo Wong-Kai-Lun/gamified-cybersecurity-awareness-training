@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0ag6c742vmi1"]
+
+[ext_resource type="Texture2D" uid="uid://cqw41ovssu3t3" path="res://game/main_game/desktop_bg.jpg" id="1_nvliw"]
+[ext_resource type="Script" path="res://game/main_game/desktop.gd" id="1_v1sjp"]
+[ext_resource type="PackedScene" uid="uid://bbgflyqj2urou" path="res://game/main_game/programs/email_client/email_client.tscn" id="2_6ffpp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oeun7"]
+texture = ExtResource("1_nvliw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y22f8"]
+bg_color = Color(0, 0, 0.533333, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fhfqr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sp0o1"]
+bg_color = Color(0.627451, 0.627451, 0.627451, 0.392157)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apx54"]
+bg_color = Color(0.784314, 0.784314, 0.784314, 0.392157)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ba4hm"]
+
+[node name="Desktop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v1sjp")
+
+[node name="DesktopBG" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oeun7")
+
+[node name="Desktop" type="VBoxContainer" parent="DesktopBG"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CurrentProgram" type="Control" parent="DesktopBG/Desktop"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EmailClient" parent="DesktopBG/Desktop/CurrentProgram" instance=ExtResource("2_6ffpp")]
+layout_mode = 1
+
+[node name="Taskbar" type="PanelContainer" parent="DesktopBG/Desktop"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_y22f8")
+
+[node name="MarginContainer" type="MarginContainer" parent="DesktopBG/Desktop/Taskbar"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 5
+
+[node name="TaskbarHBC" type="HBoxContainer" parent="DesktopBG/Desktop/Taskbar/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Power" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fhfqr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sp0o1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_apx54")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ba4hm")
+text = "Pow"
+
+[node name="Settings" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fhfqr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sp0o1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_apx54")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ba4hm")
+text = "Set"
+
+[node name="Inventory" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fhfqr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sp0o1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_apx54")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ba4hm")
+text = "Inv"
+
+[node name="3Mail" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fhfqr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sp0o1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_apx54")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ba4hm")
+text = "3M"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Settings" to="." method="_on_settings_pressed"]

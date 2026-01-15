@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cukso6bnagbo1"]
 
-[ext_resource type="Script" path="res://game_scene/programs/common/title_bar.gd" id="1_xqduc"]
+[ext_resource type="Script" path="res://game/main_game/programs/common/title_bar.gd" id="1_xqduc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fmse"]
 bg_color = Color(0, 0, 0.533333, 1)

@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbgflyqj2urou"]
+[gd_scene load_steps=7 format=3 uid="uid://bbgflyqj2urou"]
 
-[ext_resource type="Script" path="res://game_scene/programs/email_client/email_client.gd" id="1_smk6c"]
-[ext_resource type="PackedScene" uid="uid://cukso6bnagbo1" path="res://game_scene/programs/common/title_bar.tscn" id="2_6v7nm"]
-[ext_resource type="PackedScene" uid="uid://teyfqe5jhxwj" path="res://game_scene/programs/email_client/incoming_email.tscn" id="3_eukrd"]
-[ext_resource type="PackedScene" uid="uid://c1qaukm3oef56" path="res://game_scene/programs/email_client/email_body_inbound.tscn" id="4_vevth"]
+[ext_resource type="Script" path="res://game/main_game/programs/email_client/email_client.gd" id="1_smk6c"]
+[ext_resource type="PackedScene" uid="uid://cukso6bnagbo1" path="res://game/main_game/programs/common/title_bar.tscn" id="2_6v7nm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6kie"]
 bg_color = Color(0.866667, 0.866667, 0.866667, 1)
@@ -95,14 +93,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="IncomingEmail" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox" instance=ExtResource("3_eukrd")]
-layout_mode = 2
-
 [node name="EmailBodyContainer" type="PanelContainer" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_0nkbe")
-
-[node name="EmailBodyBase" parent="ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBodyContainer" instance=ExtResource("4_vevth")]
-layout_mode = 2

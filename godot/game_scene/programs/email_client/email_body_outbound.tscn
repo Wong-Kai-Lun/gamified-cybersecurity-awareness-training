@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgyqqwlmtqcc5"]
-
-[ext_resource type="PackedScene" uid="uid://cfiur4p5xsiyg" path="res://game_scene/programs/email_client/email_body_base.tscn" id="1_wjdba"]
-
-[node name="EmailBodyBase" instance=ExtResource("1_wjdba")]

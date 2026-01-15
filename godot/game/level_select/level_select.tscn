@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://qa8xtdsvt46c"]
 
-[ext_resource type="Script" path="res://level_select/level_select.gd" id="1_bwkr3"]
+[ext_resource type="Script" path="res://game/level_select/level_select.gd" id="1_bwkr3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4yrc4"]
 

@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://teyfqe5jhxwj"]
+[gd_scene load_steps=3 format=3 uid="uid://teyfqe5jhxwj"]
+
+[ext_resource type="Script" path="res://game/main_game/programs/email_client/incoming_email.gd" id="1_8dbl0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjmih"]
 bg_color = Color(0.8, 0.8, 0.8, 1)
@@ -13,6 +15,7 @@ offset_right = -1597.0
 offset_bottom = -980.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8dbl0")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -52,10 +55,10 @@ size_flags_vertical = 6
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 14
 theme_override_font_sizes/bold_font_size = 15
-bbcode_enabled = true
 text = "Subject Line"
 fit_content = true
 scroll_active = false
+autowrap_mode = 1
 
 [node name="BodyPreviewRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -63,7 +66,7 @@ size_flags_vertical = 6
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 14
 theme_override_font_sizes/bold_font_size = 15
-bbcode_enabled = true
 text = "Email Body Preview"
 fit_content = true
 scroll_active = false
+autowrap_mode = 1

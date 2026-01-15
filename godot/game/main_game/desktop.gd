@@ -1,6 +1,6 @@
 extends Control
 
-@onready var settings_scene: PackedScene = preload("res://game_scene/programs/settings/settings.tscn")
+@onready var settings_scene: PackedScene = preload("res://game/main_game/programs/settings/settings.tscn")
 @onready var settings_spawn = $CanvasLayer
 
 # Called when the node enters the scene tree for the first time.

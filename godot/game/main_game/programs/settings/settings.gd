@@ -1,4 +1,5 @@
 extends Control
+class_name Settings
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,6 +11,11 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_close_pressed() -> void:
-	# Debug only, display settings or pause menu when clicked.
-	get_tree().change_scene_to_file("res://level_select/level_select.tscn")
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://game/level_select/level_select.tscn")
+	
+
+
+func _on_close_button_pressed() -> void:
+	queue_free()
+	

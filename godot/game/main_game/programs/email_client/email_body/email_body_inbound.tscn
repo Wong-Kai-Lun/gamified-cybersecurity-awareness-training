@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1qaukm3oef56"]
+
+[ext_resource type="PackedScene" uid="uid://cfiur4p5xsiyg" path="res://game/main_game/programs/email_client/email_body/email_body_base.tscn" id="1_qxwfy"]
+[ext_resource type="PackedScene" uid="uid://bgmb6acobtvn1" path="res://game/main_game/programs/email_client/inbound_file_container.tscn" id="2_amckw"]
+
+[node name="EmailBodyBase" instance=ExtResource("1_qxwfy")]
+
+[node name="Control" parent="PanelContainer/MarginContainer/VBoxContainer/AttachmentSlot" index="0" instance=ExtResource("2_amckw")]
+layout_mode = 2
