@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=2 format=3 uid="uid://dc8hwm4pawqob"]
+
+[ext_resource type="Script" path="res://data/email_data.gd" id="1_wq2hh"]
+
+[resource]
+script = ExtResource("1_wq2hh")
+email_type = "download"
+sender_name = "Ong Wei Zhe"
+sender_address = "ongweizhe@genius.com"
+to_address = "player@abc.com.my"
+cc_address = ""
+subject = "Purchase Order from Genius Stationery"
+email_body = "Hello, I'd like to place a purchase order for stationeries."
+flags = Array[String]([])
