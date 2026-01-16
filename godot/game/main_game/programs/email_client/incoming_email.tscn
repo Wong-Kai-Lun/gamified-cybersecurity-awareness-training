@@ -1,9 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://teyfqe5jhxwj"]
+[gd_scene load_steps=8 format=3 uid="uid://teyfqe5jhxwj"]
 
 [ext_resource type="Script" path="res://game/main_game/programs/email_client/incoming_email.gd" id="1_8dbl0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjmih"]
 bg_color = Color(0.8, 0.8, 0.8, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtfhq"]
+bg_color = Color(0.6, 0.6, 0.6, 0.733333)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6he3w"]
+bg_color = Color(0.733333, 0.733333, 0.733333, 0.666667)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4h60"]
+bg_color = Color(0.533333, 0.533333, 0.533333, 0.733333)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gog41"]
+
+[sub_resource type="FontVariation" id="FontVariation_r7t3n"]
 
 [node name="IncomingEmail" type="Control"]
 custom_minimum_size = Vector2(200, 100)
@@ -26,22 +43,36 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tjmih")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="Open" type="Button" parent="PanelContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_mtfhq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6he3w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y4h60")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gog41")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Open"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 0
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Open/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = -10
+mouse_filter = 2
 
-[node name="SenderNameRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SenderNameRTL" type="RichTextLabel" parent="PanelContainer/Open/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 14
 theme_override_font_sizes/bold_font_size = 15
 bbcode_enabled = true
 text = "[b]Sender Name"
@@ -49,24 +80,21 @@ fit_content = true
 scroll_active = false
 drag_and_drop_selection_enabled = false
 
-[node name="SubjectLineRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SubjectLbl" type="Label" parent="PanelContainer/Open/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 14
-theme_override_font_sizes/bold_font_size = 15
-text = "Subject Line"
-fit_content = true
-scroll_active = false
-autowrap_mode = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "Subject"
+text_overrun_behavior = 4
 
-[node name="BodyPreviewRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="BodyPreviewLbl" type="Label" parent="PanelContainer/Open/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 14
-theme_override_font_sizes/bold_font_size = 15
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_r7t3n")
+theme_override_font_sizes/font_size = 15
 text = "Email Body Preview"
-fit_content = true
-scroll_active = false
-autowrap_mode = 1
+text_overrun_behavior = 4
+
+[connection signal="pressed" from="PanelContainer/Open" to="." method="_on_open_pressed"]
