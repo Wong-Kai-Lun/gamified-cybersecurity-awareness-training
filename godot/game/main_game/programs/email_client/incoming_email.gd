@@ -1,5 +1,7 @@
 extends Control
 
+signal opened(email_data: EmailData)
+
 @onready var sender_label: RichTextLabel = $PanelContainer/Open/MarginContainer/VBoxContainer/SenderNameRTL
 @onready var subject_label: Label = $PanelContainer/Open/MarginContainer/VBoxContainer/SubjectLbl
 @onready var body_preview_label: Label = $PanelContainer/Open/MarginContainer/VBoxContainer/BodyPreviewLbl
@@ -15,4 +17,4 @@ func setup(data: EmailData) -> void:
 
 
 func _on_open_pressed() -> void:
-	pass # Replace with function body.
+	emit_signal("opened", email_data)

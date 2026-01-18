@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfiur4p5xsiyg"]
+[gd_scene load_steps=6 format=3 uid="uid://cfiur4p5xsiyg"]
 
 [ext_resource type="Script" path="res://game/main_game/programs/email_client/email_body/email_body_base.gd" id="1_kr646"]
+[ext_resource type="FontFile" uid="uid://ciw3y22042ycj" path="res://fonts/DroidSans-Bold.ttf" id="2_yim63"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhqjc"]
 bg_color = Color(0.866667, 0.866667, 0.866667, 1)
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_3y327"]
+base_font = ExtResource("2_yim63")
+variation_embolden = 1.5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_llnxd"]
 
@@ -39,27 +44,31 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Header" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="SubjectRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/Header"]
+[node name="Header" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubjectRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
-text = "Subject Line"
+theme_override_font_sizes/bold_font_size = 24
 fit_content = true
 
-[node name="FromSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Header"]
+[node name="FromSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header"]
 layout_mode = 2
 
-[node name="FromLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Header/FromSection"]
+[node name="FromLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/FromSection"]
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "From"
 
-[node name="ColonLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Header/FromSection"]
+[node name="ColonLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/FromSection"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -67,7 +76,7 @@ theme_override_font_sizes/font_size = 18
 text = ":"
 horizontal_alignment = 1
 
-[node name="FromRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/Header/FromSection"]
+[node name="FromRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/FromSection"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 2
@@ -78,17 +87,17 @@ fit_content = true
 selection_enabled = true
 drag_and_drop_selection_enabled = false
 
-[node name="ToSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Header"]
+[node name="ToSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header"]
 layout_mode = 2
 
-[node name="ToLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Header/ToSection"]
+[node name="ToLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/ToSection"]
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "To"
 
-[node name="ColonLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Header/ToSection"]
+[node name="ColonLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/ToSection"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -96,7 +105,7 @@ theme_override_font_sizes/font_size = 18
 text = ":"
 horizontal_alignment = 1
 
-[node name="ToRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/Header/ToSection"]
+[node name="ToRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/ToSection"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 2
@@ -107,17 +116,17 @@ fit_content = true
 selection_enabled = true
 drag_and_drop_selection_enabled = false
 
-[node name="CCSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Header"]
+[node name="CCSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header"]
 layout_mode = 2
 
-[node name="CCLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Header/CCSection"]
+[node name="CCLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/CCSection"]
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "CC"
 
-[node name="ColonLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Header/CCSection"]
+[node name="ColonLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/CCSection"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -125,7 +134,7 @@ theme_override_font_sizes/font_size = 18
 text = ":"
 horizontal_alignment = 1
 
-[node name="CCRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/Header/CCSection"]
+[node name="CCRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/CCSection"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 2
@@ -135,6 +144,18 @@ text = "example@3mail.com"
 fit_content = true
 selection_enabled = true
 drag_and_drop_selection_enabled = false
+
+[node name="MenuButton" type="MenuButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3y327")
+theme_override_font_sizes/font_size = 25
+text = "⋮"
 
 [node name="AttachmentSlot" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -151,7 +172,4 @@ size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "Testing. This is a sample email body.
-
-[img]res://game/main_menu/sample.jpg[/img]"
 fit_content = true
