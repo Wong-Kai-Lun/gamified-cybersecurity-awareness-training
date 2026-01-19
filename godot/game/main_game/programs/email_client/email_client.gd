@@ -33,7 +33,6 @@ func load_email_pack(pack: EmailPack) -> void:
 		var incoming_email_instance := incoming_email.instantiate()
 		incoming_email_vbox.add_child(incoming_email_instance)
 		incoming_email_instance.setup(email_data)
-		
 		incoming_email_instance.opened.connect(_on_email_selected)
 
 func _on_email_selected(email_data: EmailData) -> void:
