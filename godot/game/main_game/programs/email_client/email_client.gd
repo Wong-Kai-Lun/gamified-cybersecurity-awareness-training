@@ -1,20 +1,23 @@
 extends Control
 
-# Level Data change to set pack from selection, Game Manager
+@onready var title_bar: Control = $WindowPanel/Structure/TitleBar
+
+# ! Level Data change to set pack from selection, Game Manager !
 @onready var email_pack: EmailPack = preload("res://data/monday.tres")
 
 # Incoming Email
-@onready var incoming_email_vbox: VBoxContainer = $ProgramVBox/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox
+@onready var incoming_email_vbox: VBoxContainer = $WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox
 @onready var incoming_email: PackedScene = preload("res://game/main_game/programs/email_client/incoming_email.tscn")
 
 # Email Body
-@onready var email_body_container: PanelContainer = $ProgramVBox/EmailClientPanelContainer/HBoxContainer/EmailBodyContainer
+@onready var email_body_container: PanelContainer = $WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/EmailBodyContainer
 @onready var email_body_base: PackedScene = preload("res://game/main_game/programs/email_client/email_body/email_body_base.tscn")
 var email_body_instance: Control = null
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	title_bar.close_pressed.connect(_hide)
 	load_email_pack(email_pack)
 
 
@@ -23,9 +26,8 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func _on_close_pressed() -> void:
-	# Debug only, display settings or pause menu when clicked.
-	get_tree().change_scene_to_file("res://game/level_select/level_select.tscn")
+func _hide() -> void:
+	self.hide()
 
 
 func load_email_pack(pack: EmailPack) -> void:

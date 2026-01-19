@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1qaukm3oef56"]
 
 [ext_resource type="PackedScene" uid="uid://cfiur4p5xsiyg" path="res://game/main_game/programs/email_client/email_body/email_body_base.tscn" id="1_qxwfy"]
-[ext_resource type="PackedScene" uid="uid://bgmb6acobtvn1" path="res://game/main_game/programs/email_client/inbound_file_container.tscn" id="2_amckw"]
+[ext_resource type="PackedScene" uid="uid://bgmb6acobtvn1" path="res://game/main_game/programs/email_client/inbound_file.tscn" id="2_amckw"]
 
 [node name="EmailBodyBase" instance=ExtResource("1_qxwfy")]
 

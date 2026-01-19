@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0ag6c742vmi1"]
+[gd_scene load_steps=12 format=3 uid="uid://d0ag6c742vmi1"]
 
 [ext_resource type="Texture2D" uid="uid://cqw41ovssu3t3" path="res://game/main_game/desktop_bg.jpg" id="1_nvliw"]
 [ext_resource type="Script" path="res://game/main_game/desktop.gd" id="1_v1sjp"]
-[ext_resource type="PackedScene" uid="uid://bbgflyqj2urou" path="res://game/main_game/programs/email_client/email_client.tscn" id="2_6ffpp"]
 [ext_resource type="Texture2D" uid="uid://bg5mv1f75hk1j" path="res://game/main_game/gear_icon.png" id="4_s03b3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oeun7"]
@@ -59,9 +58,6 @@ theme_override_constants/separation = 0
 [node name="CurrentProgram" type="Control" parent="DesktopBG/Desktop"]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="EmailClient" parent="DesktopBG/Desktop/CurrentProgram" instance=ExtResource("2_6ffpp")]
-layout_mode = 1
 
 [node name="Taskbar" type="PanelContainer" parent="DesktopBG/Desktop"]
 layout_mode = 2
@@ -127,3 +123,4 @@ text = "3M"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/3Mail" to="." method="_on_3mail_pressed"]

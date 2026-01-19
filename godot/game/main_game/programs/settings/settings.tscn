@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://2g3m0pmsw2tv" path="res://game/main_game/programs/common/base.tscn" id="1_wo44u"]
 [ext_resource type="Script" path="res://game/main_game/programs/settings/settings.gd" id="2_786u0"]
 
-[node name="PopUpBase" instance=ExtResource("1_wo44u")]
+[node name="Settings" instance=ExtResource("1_wo44u")]
 script = ExtResource("2_786u0")
 
 [node name="TitleBar" parent="WindowPanel/Structure" index="0"]
