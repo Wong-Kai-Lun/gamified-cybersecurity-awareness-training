@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0ag6c742vmi1"]
+[gd_scene load_steps=13 format=3 uid="uid://d0ag6c742vmi1"]
 
 [ext_resource type="Texture2D" uid="uid://cqw41ovssu3t3" path="res://game/main_game/desktop_bg.jpg" id="1_nvliw"]
 [ext_resource type="Script" path="res://game/main_game/desktop.gd" id="1_v1sjp"]
 [ext_resource type="PackedScene" uid="uid://bbgflyqj2urou" path="res://game/main_game/programs/email_client/email_client.tscn" id="2_6ffpp"]
+[ext_resource type="Texture2D" uid="uid://bg5mv1f75hk1j" path="res://game/main_game/gear_icon.png" id="4_s03b3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oeun7"]
 texture = ExtResource("1_nvliw")
@@ -27,6 +28,11 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ba4hm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t23we"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vfkpi"]
+texture = ExtResource("4_s03b3")
 
 [node name="Desktop" type="Control"]
 layout_mode = 3
@@ -88,8 +94,17 @@ layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fhfqr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sp0o1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_apx54")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ba4hm")
-text = "Set"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t23we")
+
+[node name="SettingsIcon" type="Panel" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vfkpi")
 
 [node name="Inventory" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
 custom_minimum_size = Vector2(50, 50)
