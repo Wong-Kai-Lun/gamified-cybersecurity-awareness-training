@@ -41,6 +41,7 @@ func _on_email_selected(email_data: EmailData) -> void:
 	if email_body_instance:
 		email_body_instance.queue_free()
 		
+	# instantiate base, inbound and outbound once, just call setup when change
 	var email_body_instance := email_body_base.instantiate()
 	email_body_container.add_child(email_body_instance)
 	email_body_instance.setup(email_data)
