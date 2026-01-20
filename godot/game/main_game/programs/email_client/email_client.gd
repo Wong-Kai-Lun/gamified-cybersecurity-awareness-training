@@ -3,21 +3,28 @@ extends BaseWindow
 # ! Level Data change to set pack from selection, Game Manager !
 @onready var email_pack: EmailPack = preload("res://data/monday.tres")
 
-# Incoming Email
+# Incoming Email Chips
 @onready var incoming_email_vbox: VBoxContainer = $WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox
 @onready var incoming_email: PackedScene = preload("res://game/main_game/programs/email_client/incoming_email.tscn")
 
 # Email Body
 @onready var email_body_container: PanelContainer = $WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/EmailBodyContainer
-@onready var email_body_base: PackedScene = preload("res://game/main_game/programs/email_client/email_body/email_body_base.tscn")
-var email_body_instance: Control = null
 
+@onready var base_email_body: PackedScene = preload("res://game/main_game/programs/email_client/email_body/email_body_base.tscn")
+@onready var base_email_body_obj := base_email_body.instantiate()
+
+@onready var inbound_email_body: PackedScene = preload("res://game/main_game/programs/email_client/inbound/email_body_inbound.tscn")
+@onready var inbound_email_body_obj := inbound_email_body.instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	title_bar.close_pressed.connect(_hide)
 	load_email_pack(email_pack)
+	
+	email_body_container.add_child(base_email_body_obj)
+	email_body_container.add_child(inbound_email_body_obj)
+	base_email_body_obj.hide()
+	inbound_email_body_obj.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,11 +42,18 @@ func load_email_pack(pack: EmailPack) -> void:
 # later add change mail status from unread to read and change its colors
 # a reported email has everything inside it disabled
 func _on_email_selected(email_data: EmailData) -> void:
-	if email_body_instance:
-		print("Existing email body found! Removing...")
-		email_body_instance.queue_free()
+	for child in email_body_container.get_children():
+		if child.has_method("hide"):
+			child.hide()
 		
+	var email_type = email_data.email_type
 	# instantiate base, inbound and outbound once, just call setup when change
-	var email_body_instance := email_body_base.instantiate()
-	email_body_container.add_child(email_body_instance)
-	email_body_instance.setup(email_data)
+	match email_type:
+		"message":
+			base_email_body_obj.setup(email_data)
+			print("Base Email Setup Called")
+			base_email_body_obj.show()
+		"download":
+			inbound_email_body_obj.setup(email_data)
+			print("Inbound Email Setup Called")
+			inbound_email_body_obj.show()

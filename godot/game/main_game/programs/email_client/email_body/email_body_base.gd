@@ -19,14 +19,15 @@ func _ready() -> void:
 	pop_up_menu.add_item("Report phishing", 0)
 	pop_up_menu.id_pressed.connect(_on_report_pressed)
 
+
 func setup(data: EmailData) -> void:
 	email_data = data
 	
-	subject.append_text("[b]" + data.subject)
+	subject.bbcode_text = "[b]" + data.subject
 	from_rtl.text = data.sender_address
 	to_rtl.text = data.to_address
 	cc_rtl.text = data.cc_address
-	body_rtl.append_text(data.email_body)
+	body_rtl.bbcode_text = data.email_body
 
 func _on_report_pressed(id: int) -> void:
 	match id:
