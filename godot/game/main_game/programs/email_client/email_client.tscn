@@ -30,7 +30,7 @@ script = ExtResource("1_smk6c")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pke7l")
 
 [node name="TitleBar" parent="WindowPanel/Structure" index="0"]
-title = "✉ 3Mail"
+title = "✉️ 3Mail"
 
 [node name="EmailClientPanelContainer" type="PanelContainer" parent="WindowPanel/Structure/Content" index="0"]
 layout_mode = 1

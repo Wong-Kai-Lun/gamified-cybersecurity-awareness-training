@@ -4,15 +4,23 @@ class_name TitleBar
 
 signal close_pressed
 
+var _title := ""
+
 @export var title: String:
 	set(value):
-		title = value
-		if has_node("PanelContainer/TitleBarContainer/MarginContainer/Title"):
-			$PanelContainer/TitleBarContainer/MarginContainer/Title.text = value
+		_title = value
+		
+		var title_lbl := get_node_or_null("PanelContainer/TitleBarContainer/MarginContainer/Title")
+		if title_lbl:
+			title_lbl.text = value
+	get:
+		return _title
 		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var title_lbl := get_node_or_null("PanelContainer/TitleBarContainer/MarginContainer/Title")
+	if title_lbl:
+		title_lbl.text = _title
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
