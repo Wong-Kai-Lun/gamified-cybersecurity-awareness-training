@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bgmb6acobtvn1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_756x6"]
+[ext_resource type="PackedScene" uid="uid://c2nqg7wkytt1g" path="res://game/main_game/programs/common/file.tscn" id="1_2uhmb"]
 
-[node name="Control" type="Control"]
+[node name="InboundFileContainer" type="Control"]
 custom_minimum_size = Vector2(0, 140)
 layout_mode = 3
 anchors_preset = 15
@@ -16,9 +16,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-offset_right = 100.0
-offset_bottom = 100.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 180.0
+grow_horizontal = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -27,8 +29,8 @@ theme_override_constants/margin_bottom = 20
 [node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/HFlowContainer"]
-custom_minimum_size = Vector2(100, 100)
+[node name="File" parent="MarginContainer/HFlowContainer" instance=ExtResource("1_2uhmb")]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_756x6")
-text = "File"
+
+[node name="File2" parent="MarginContainer/HFlowContainer" instance=ExtResource("1_2uhmb")]
+layout_mode = 2
