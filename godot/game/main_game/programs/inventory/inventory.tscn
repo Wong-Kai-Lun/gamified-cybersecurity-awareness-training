@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcfq6thcskfvh"]
 
 [ext_resource type="PackedScene" uid="uid://2g3m0pmsw2tv" path="res://game/main_game/programs/common/base.tscn" id="1_bgldn"]
-[ext_resource type="PackedScene" uid="uid://c2nqg7wkytt1g" path="res://game/main_game/programs/inventory/file_inventory.tscn" id="2_ueieb"]
+[ext_resource type="PackedScene" uid="uid://c2nqg7wkytt1g" path="res://game/main_game/programs/common/file.tscn" id="2_ueieb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yghm"]
 bg_color = Color(1, 1, 1, 0)

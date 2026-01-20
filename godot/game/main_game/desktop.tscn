@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0ag6c742vmi1"]
+[gd_scene load_steps=14 format=3 uid="uid://d0ag6c742vmi1"]
 
 [ext_resource type="Texture2D" uid="uid://cqw41ovssu3t3" path="res://img/desktop_bg.jpg" id="1_nvliw"]
 [ext_resource type="Script" path="res://game/main_game/desktop.gd" id="1_v1sjp"]
+[ext_resource type="Texture2D" uid="uid://btsol5dcm77b4" path="res://img/pause_icon.png" id="3_0oaxt"]
 [ext_resource type="Texture2D" uid="uid://bg5mv1f75hk1j" path="res://img/gear_icon.png" id="4_s03b3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oeun7"]
@@ -27,6 +28,9 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ba4hm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v6l4c"]
+texture = ExtResource("3_0oaxt")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t23we"]
 
@@ -82,7 +86,24 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_fhfqr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sp0o1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_apx54")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ba4hm")
-text = "Pow"
+
+[node name="MarginContainer" type="MarginContainer" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Power"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PauseIcon" type="Panel" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Power/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_v6l4c")
 
 [node name="Settings" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
 custom_minimum_size = Vector2(50, 50)
@@ -131,4 +152,5 @@ text = "3M"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/3Mail" to="." method="_on_3mail_pressed"]

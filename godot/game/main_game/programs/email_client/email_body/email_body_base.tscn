@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfiur4p5xsiyg"]
+[gd_scene load_steps=7 format=3 uid="uid://cfiur4p5xsiyg"]
 
 [ext_resource type="Script" path="res://game/main_game/programs/email_client/email_body/email_body_base.gd" id="1_kr646"]
 [ext_resource type="FontFile" uid="uid://ciw3y22042ycj" path="res://fonts/DroidSans-Bold.ttf" id="2_yim63"]
@@ -6,6 +6,8 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhqjc"]
 bg_color = Color(0.866667, 0.866667, 0.866667, 1)
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u625m"]
 
 [sub_resource type="FontVariation" id="FontVariation_3y327"]
 base_font = ExtResource("2_yim63")
@@ -82,6 +84,7 @@ size_flags_horizontal = 3
 focus_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u625m")
 fit_content = true
 selection_enabled = true
 drag_and_drop_selection_enabled = false
@@ -110,6 +113,7 @@ size_flags_horizontal = 3
 focus_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u625m")
 fit_content = true
 selection_enabled = true
 drag_and_drop_selection_enabled = false
@@ -138,6 +142,7 @@ size_flags_horizontal = 3
 focus_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u625m")
 fit_content = true
 selection_enabled = true
 drag_and_drop_selection_enabled = false

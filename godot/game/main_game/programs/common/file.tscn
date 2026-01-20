@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2nqg7wkytt1g"]
 
-[ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://img/file.png" id="1_aj87u"]
+[ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://img/file.png" id="1_uaw8u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a0upq"]
 
@@ -13,7 +13,7 @@ bg_color = Color(0.466667, 0.8, 1, 0.4)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cmuuj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fkpoo"]
-texture = ExtResource("1_aj87u")
+texture = ExtResource("1_uaw8u")
 
 [sub_resource type="FontFile" id="FontFile_xusbe"]
 subpixel_positioning = 0

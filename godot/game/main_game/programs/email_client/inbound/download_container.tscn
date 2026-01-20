@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dee83v0r73n3y"]
+
+[ext_resource type="PackedScene" uid="uid://c2nqg7wkytt1g" path="res://game/main_game/programs/common/file.tscn" id="1_5fmy2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2a1u1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ii673"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s5tnh"]
+
+[node name="DownloadContainer" type="Control"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="FileContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2a1u1")
+
+[node name="File" parent="FileContainer" instance=ExtResource("1_5fmy2")]
+layout_mode = 2
+
+[node name="MenuButton" type="MenuButton" parent="FileContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ii673")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s5tnh")
+item_count = 1
+popup/item_0/text = "Download"
