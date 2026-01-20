@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcfq6thcskfvh"]
+[gd_scene load_steps=4 format=3 uid="uid://bcfq6thcskfvh"]
 
 [ext_resource type="PackedScene" uid="uid://2g3m0pmsw2tv" path="res://game/main_game/programs/common/base.tscn" id="1_bgldn"]
+[ext_resource type="PackedScene" uid="uid://c2nqg7wkytt1g" path="res://game/main_game/programs/inventory/file_inventory.tscn" id="2_ueieb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yghm"]
+bg_color = Color(1, 1, 1, 0)
+border_width_right = 3
+border_color = Color(0.6, 0.6, 0.6, 1)
 
 [node name="WindowBase" instance=ExtResource("1_bgldn")]
 custom_minimum_size = Vector2(700, 525)
@@ -15,4 +21,57 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="TitleBar" parent="WindowPanel/Structure" index="0"]
-title = "File Explorer"
+title = "Inventory"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowPanel/Structure/Content" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="WindowPanel/Structure/Content/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_6yghm")
+
+[node name="MarginContainer" type="MarginContainer" parent="WindowPanel/Structure/Content/HBoxContainer/PanelContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowPanel/Structure/Content/HBoxContainer/PanelContainer/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="WindowPanel/Structure/Content/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.2
+
+[node name="MarginContainer" type="MarginContainer" parent="WindowPanel/Structure/Content/HBoxContainer/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HFlowContainer" type="HFlowContainer" parent="WindowPanel/Structure/Content/HBoxContainer/ScrollContainer/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="File" parent="WindowPanel/Structure/Content/HBoxContainer/ScrollContainer/MarginContainer/HFlowContainer" index="0" instance=ExtResource("2_ueieb")]
+layout_mode = 2
+
+[node name="File2" parent="WindowPanel/Structure/Content/HBoxContainer/ScrollContainer/MarginContainer/HFlowContainer" index="1" instance=ExtResource("2_ueieb")]
+layout_mode = 2

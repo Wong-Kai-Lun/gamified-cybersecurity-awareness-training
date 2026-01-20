@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bgmb6acobtvn1"]
 
-[ext_resource type="PackedScene" uid="uid://c2nqg7wkytt1g" path="res://game/main_game/programs/common/file.tscn" id="1_2uhmb"]
+[ext_resource type="PackedScene" uid="uid://c2nqg7wkytt1g" path="res://game/main_game/programs/inventory/file_inventory.tscn" id="1_2uhmb"]
 
 [node name="InboundFileContainer" type="Control"]
 custom_minimum_size = Vector2(0, 140)

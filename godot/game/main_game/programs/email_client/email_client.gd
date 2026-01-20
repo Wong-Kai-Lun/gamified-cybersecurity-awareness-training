@@ -43,17 +43,14 @@ func load_email_pack(pack: EmailPack) -> void:
 # a reported email has everything inside it disabled
 func _on_email_selected(email_data: EmailData) -> void:
 	for child in email_body_container.get_children():
-		if child.has_method("hide"):
-			child.hide()
-		
+		child.hide()
+
 	var email_type = email_data.email_type
 	# instantiate base, inbound and outbound once, just call setup when change
 	match email_type:
 		"message":
 			base_email_body_obj.setup(email_data)
-			print("Base Email Setup Called")
 			base_email_body_obj.show()
 		"download":
 			inbound_email_body_obj.setup(email_data)
-			print("Inbound Email Setup Called")
 			inbound_email_body_obj.show()

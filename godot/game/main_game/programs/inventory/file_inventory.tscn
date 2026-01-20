@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2nqg7wkytt1g"]
 
-[ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://game/main_game/programs/common/file.png" id="1_5jcd2"]
+[ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://img/file.png" id="1_aj87u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a0upq"]
 
@@ -13,7 +13,7 @@ bg_color = Color(0.466667, 0.8, 1, 0.4)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cmuuj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fkpoo"]
-texture = ExtResource("1_5jcd2")
+texture = ExtResource("1_aj87u")
 
 [sub_resource type="FontFile" id="FontFile_xusbe"]
 subpixel_positioning = 0
@@ -44,6 +44,11 @@ cache/0/12/0/descent = 0.0
 cache/0/12/0/underline_position = 0.0
 cache/0/12/0/underline_thickness = 0.0
 cache/0/12/0/scale = 1.0
+cache/0/13/0/ascent = 0.0
+cache/0/13/0/descent = 0.0
+cache/0/13/0/underline_position = 0.0
+cache/0/13/0/underline_thickness = 0.0
+cache/0/13/0/scale = 1.0
 
 [node name="File" type="Control"]
 custom_minimum_size = Vector2(100, 140)
@@ -89,11 +94,11 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_fkpoo")
 
-[node name="Label" type="Label" parent="Button/MarginContainer/VBoxContainer"]
+[node name="FileName" type="Label" parent="Button/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_xusbe")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 13
 text = "Sample File"
 horizontal_alignment = 1
 vertical_alignment = 1
