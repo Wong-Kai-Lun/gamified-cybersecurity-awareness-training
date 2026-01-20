@@ -16,6 +16,9 @@ bg_color = Color(0.466667, 0.8, 1, 0.4)
 texture = ExtResource("1_5jcd2")
 
 [sub_resource type="FontFile" id="FontFile_xusbe"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/9/0/ascent = 0.0
 cache/0/9/0/descent = 0.0
 cache/0/9/0/underline_position = 0.0
