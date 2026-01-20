@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1qaukm3oef56"]
+[gd_scene load_steps=4 format=3 uid="uid://c1qaukm3oef56"]
 
 [ext_resource type="PackedScene" uid="uid://cfiur4p5xsiyg" path="res://game/main_game/programs/email_client/email_body/email_body_base.tscn" id="1_rxb7d"]
 [ext_resource type="PackedScene" uid="uid://bgmb6acobtvn1" path="res://game/main_game/programs/email_client/inbound/inbound_file_container.tscn" id="2_aony3"]
+[ext_resource type="Script" path="res://game/main_game/programs/email_client/inbound/email_body_inbound.gd" id="2_i7uxy"]
 
-[node name="EmailBodyBase" instance=ExtResource("1_rxb7d")]
+[node name="EmailBodyInbound" instance=ExtResource("1_rxb7d")]
+script = ExtResource("2_i7uxy")
 
 [node name="Control" parent="PanelContainer/MarginContainer/VBoxContainer/AttachmentSlot" index="0" instance=ExtResource("2_aony3")]
 layout_mode = 2

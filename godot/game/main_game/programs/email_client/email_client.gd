@@ -15,6 +15,7 @@ var email_body_instance: Control = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()
 	title_bar.close_pressed.connect(_hide)
 	load_email_pack(email_pack)
 
@@ -31,7 +32,8 @@ func load_email_pack(pack: EmailPack) -> void:
 		incoming_email_instance.setup(email_data)
 		incoming_email_instance.opened.connect(_on_email_selected)
 
-
+# later add change mail status from unread to read and change its colors
+# a reported email has everything inside it disabled
 func _on_email_selected(email_data: EmailData) -> void:
 	if email_body_instance:
 		print("Existing email body found! Removing...")
