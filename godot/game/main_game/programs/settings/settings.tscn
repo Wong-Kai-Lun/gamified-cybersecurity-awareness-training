@@ -4,6 +4,17 @@
 [ext_resource type="Script" path="res://game/main_game/programs/settings/settings.gd" id="2_786u0"]
 
 [node name="Settings" instance=ExtResource("1_wo44u")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -225.0
+offset_right = 175.0
+offset_bottom = 225.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("2_786u0")
 
 [node name="TitleBar" parent="WindowPanel/Structure" index="0"]

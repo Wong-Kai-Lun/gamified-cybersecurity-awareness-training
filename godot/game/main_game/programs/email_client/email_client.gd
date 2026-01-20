@@ -1,6 +1,4 @@
-extends Control
-
-@onready var title_bar: Control = $WindowPanel/Structure/TitleBar
+extends BaseWindow
 
 # ! Level Data change to set pack from selection, Game Manager !
 @onready var email_pack: EmailPack = preload("res://data/monday.tres")
@@ -26,10 +24,6 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func _hide() -> void:
-	self.hide()
-
-
 func load_email_pack(pack: EmailPack) -> void:
 	for email_data in pack.emails:
 		var incoming_email_instance := incoming_email.instantiate()
@@ -37,8 +31,10 @@ func load_email_pack(pack: EmailPack) -> void:
 		incoming_email_instance.setup(email_data)
 		incoming_email_instance.opened.connect(_on_email_selected)
 
+
 func _on_email_selected(email_data: EmailData) -> void:
 	if email_body_instance:
+		print("Existing email body found! Removing...")
 		email_body_instance.queue_free()
 		
 	# instantiate base, inbound and outbound once, just call setup when change
