@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqw41ovssu3t3"
-path="res://.godot/imported/desktop_bg.jpg-e368fc5f37627ba063a3cfde266badb4.ctex"
+uid="uid://bg5mv1f75hk1j"
+path="res://.godot/imported/gear_icon.png-7963a60e947f00a81be42f9377bfb81e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/main_game/desktop_bg.jpg"
-dest_files=["res://.godot/imported/desktop_bg.jpg-e368fc5f37627ba063a3cfde266badb4.ctex"]
+source_file="res://img/gear_icon.png"
+dest_files=["res://.godot/imported/gear_icon.png-7963a60e947f00a81be42f9377bfb81e.ctex"]
 
 [params]
 
