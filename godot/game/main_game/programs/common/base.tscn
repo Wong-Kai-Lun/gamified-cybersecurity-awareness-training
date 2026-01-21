@@ -15,7 +15,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="WindowBase" type="Control"]
+[node name="BaseWindow" type="Control"]
 custom_minimum_size = Vector2(350, 450)
 layout_mode = 3
 anchors_preset = 15

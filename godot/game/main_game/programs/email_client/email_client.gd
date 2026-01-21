@@ -1,4 +1,5 @@
 extends BaseWindow
+class_name EmailClientWindow
 
 # ! Level Data change to set pack from selection, Game Manager !
 @onready var email_pack: EmailPack = preload("res://data/monday.tres")
@@ -25,11 +26,6 @@ func _ready() -> void:
 	email_body_container.add_child(inbound_email_body_obj)
 	base_email_body_obj.hide()
 	inbound_email_body_obj.hide()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
 
 
 func load_email_pack(pack: EmailPack) -> void:
