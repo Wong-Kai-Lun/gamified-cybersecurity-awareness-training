@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2nqg7wkytt1g"]
 
+[ext_resource type="Script" path="res://game/main_game/programs/common/file.gd" id="1_f2806"]
 [ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://img/file.png" id="1_uaw8u"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fkpoo"]
-texture = ExtResource("1_uaw8u")
 
 [sub_resource type="FontFile" id="FontFile_xusbe"]
 subpixel_positioning = 0
@@ -43,9 +41,17 @@ cache/0/13/0/scale = 1.0
 [node name="File" type="Control"]
 custom_minimum_size = Vector2(100, 140)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 100.0
-offset_bottom = 140.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1820.0
+offset_bottom = -940.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_f2806")
+file_img = ExtResource("1_uaw8u")
+file_name = "File Name"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -54,30 +60,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="FileImg" type="Panel" parent="MarginContainer/VBoxContainer/AspectRatioContainer"]
+[node name="FileImg" type="TextureRect" parent="MarginContainer/VBoxContainer/AspectRatioContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_fkpoo")
+texture = ExtResource("1_uaw8u")
 
 [node name="FileName" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_xusbe")
 theme_override_font_sizes/font_size = 13
-text = "Sample File"
+text = "File Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 3
