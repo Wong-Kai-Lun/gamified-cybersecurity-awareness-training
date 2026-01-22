@@ -24,6 +24,8 @@ var _file_name: String = ""
 			name_label.text = value
 	get:
 		return _file_name
+		
+@export var is_draggable: bool = false
 
 func _ready() -> void:
 	if img_texture_rect:
@@ -39,26 +41,28 @@ func _ready() -> void:
 
 
 func _get_drag_data(at_position: Vector2) -> Variant:
-	var preview_texture = TextureRect.new()
-	preview_texture.texture = _file_img
-	preview_texture.expand = true
-	preview_texture.custom_minimum_size = Vector2(80, 80)
-	
-	var preview_text_label = Label.new()
-	preview_text_label.text = _file_name
-	preview_text_label.add_theme_color_override("font_color", Color("#000000"))
-	
-	var preview_container = VBoxContainer.new()
-	var aspect_ratio_container = AspectRatioContainer.new()
-	aspect_ratio_container.add_child(preview_texture)
-	preview_container.add_child(aspect_ratio_container)
-	preview_container.add_child(preview_text_label)
-	
-	set_drag_preview(preview_container)
-	
-	return {
-		"id": file_id,
-		"name": _file_name,
-		"icon": _file_img,
-		"source": self
-	}
+	if is_draggable:
+		var preview_texture = TextureRect.new()
+		preview_texture.texture = _file_img
+		preview_texture.expand = true
+		preview_texture.custom_minimum_size = Vector2(80, 80)
+		
+		var preview_text_label = Label.new()
+		preview_text_label.text = _file_name
+		preview_text_label.add_theme_color_override("font_color", Color("#000000"))
+		
+		var preview_container = VBoxContainer.new()
+		var aspect_ratio_container = AspectRatioContainer.new()
+		aspect_ratio_container.add_child(preview_texture)
+		preview_container.add_child(aspect_ratio_container)
+		preview_container.add_child(preview_text_label)
+		
+		set_drag_preview(preview_container)
+		
+		return {
+			"id": file_id,
+			"name": _file_name,
+			"icon": _file_img,
+			"source": self
+		}
+	return
