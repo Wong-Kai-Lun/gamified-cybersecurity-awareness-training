@@ -59,7 +59,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_oeun7")
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="CurrentProgram" type="Control" parent="DesktopBG/Desktop"]
+[node name="ProgramsContainer" type="Control" parent="DesktopBG/Desktop"]
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -148,6 +148,16 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_sp0o1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_apx54")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ba4hm")
 text = "3M"
+
+[node name="TRSH" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fhfqr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sp0o1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_apx54")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ba4hm")
+text = "TRSH
+"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
