@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://c3sa2jb3xuu7v"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_8koud"]
+[ext_resource type="Texture2D" uid="uid://cumkv3pldp2hj" path="res://assets/pdf.png" id="1_g05u2"]
+
+[resource]
+script = ExtResource("1_8koud")
+file_id = "1_genius_purchase_order"
+file_texture = ExtResource("1_g05u2")
+file_name = "Genius Purchase Order"
+file_context = 0
+file_type = 0
