@@ -2,7 +2,7 @@ extends BaseWindow
 class_name EmailClientWindow
 
 # ! Level Data change to set pack from selection, Game Manager !
-@onready var email_pack: EmailPack = preload("res://data/monday.tres")
+@onready var email_pack: EmailPack = preload("res://data/email_pack/monday.tres")
 
 # Incoming Email Chips
 @onready var incoming_email_vbox: VBoxContainer = $WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox
@@ -14,18 +14,13 @@ class_name EmailClientWindow
 @onready var base_email_body: PackedScene = preload("res://game/main_game/programs/email_client/email_body/email_body_base.tscn")
 @onready var base_email_body_obj := base_email_body.instantiate()
 
-@onready var inbound_email_body: PackedScene = preload("res://game/main_game/programs/email_client/inbound/email_body_inbound.tscn")
-@onready var inbound_email_body_obj := inbound_email_body.instantiate()
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
 	load_email_pack(email_pack)
 	
 	email_body_container.add_child(base_email_body_obj)
-	email_body_container.add_child(inbound_email_body_obj)
 	base_email_body_obj.hide()
-	inbound_email_body_obj.hide()
 
 
 func load_email_pack(pack: EmailPack) -> void:
@@ -44,9 +39,12 @@ func _on_email_selected(email_data: EmailData) -> void:
 	var email_type = email_data.email_type
 	# instantiate base, inbound and outbound once, just call setup when change
 	match email_type:
-		"message":
+		
+		email_data.EmailType.MESSAGE:
 			base_email_body_obj.setup(email_data)
 			base_email_body_obj.show()
-		"download":
-			inbound_email_body_obj.setup(email_data)
-			inbound_email_body_obj.show()
+			
+		email_data.EmailType.INBOUND:
+			base_email_body_obj.setup(email_data)
+			base_email_body_obj.setup_inbound(email_data)
+			base_email_body_obj.show()

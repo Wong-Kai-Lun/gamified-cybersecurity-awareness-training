@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgmb6acobtvn1"]
+[gd_scene load_steps=2 format=3 uid="uid://blfb0yut3xa32"]
 
-[ext_resource type="PackedScene" uid="uid://dee83v0r73n3y" path="res://game/main_game/programs/email_client/inbound/download_container.tscn" id="1_qrwm1"]
+[ext_resource type="PackedScene" uid="uid://c2nqg7wkytt1g" path="res://game/main_game/programs/file/file.tscn" id="1_imlae"]
 
-[node name="InboundFileContainer" type="Control"]
+[node name="OutboundFileContainer" type="Control"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 3
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -880.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -25,11 +28,10 @@ theme_override_constants/margin_bottom = 20
 
 [node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 4
 theme_override_constants/h_separation = 8
 
-[node name="DownloadContainer" parent="MarginContainer/HFlowContainer" instance=ExtResource("1_qrwm1")]
+[node name="File" parent="MarginContainer/HFlowContainer" instance=ExtResource("1_imlae")]
 layout_mode = 2
 
-[node name="DownloadContainer2" parent="MarginContainer/HFlowContainer" instance=ExtResource("1_qrwm1")]
+[node name="File2" parent="MarginContainer/HFlowContainer" instance=ExtResource("1_imlae")]
 layout_mode = 2
