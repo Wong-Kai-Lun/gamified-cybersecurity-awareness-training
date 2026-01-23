@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2nqg7wkytt1g"]
+
+[ext_resource type="Script" path="res://game/main_game/programs/file/file.gd" id="1_f2806"]
+[ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://assets/file.png" id="1_uaw8u"]
+
+[node name="File" type="Control"]
+custom_minimum_size = Vector2(125, 150)
+layout_mode = 3
+anchor_right = 0.065
+anchor_bottom = 0.139
+offset_right = 0.199989
+offset_bottom = -0.12001
+script = ExtResource("1_f2806")
+
+[node name="ActionMenuButton" type="MenuButton" parent="."]
+custom_minimum_size = Vector2(125, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+button_mask = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionMenuButton/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="ActionMenuButton/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="FileImg" type="TextureRect" parent="ActionMenuButton/MarginContainer/VBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_uaw8u")
+
+[node name="FileName" type="Label" parent="ActionMenuButton/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "File Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
