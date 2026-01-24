@@ -10,7 +10,6 @@ class_name EmailClientWindow
 
 # Email Body
 @onready var email_body_container: PanelContainer = $WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/EmailBodyContainer
-
 @onready var base_email_body: PackedScene = preload("res://game/main_game/programs/email_client/email_body/email_body_base.tscn")
 @onready var base_email_body_obj := base_email_body.instantiate()
 
@@ -29,6 +28,7 @@ func load_email_pack(pack: EmailPack) -> void:
 		incoming_email_vbox.add_child(incoming_email_instance)
 		incoming_email_instance.setup(email_data)
 		incoming_email_instance.opened.connect(_on_email_selected)
+
 
 # later add change mail status from unread to read and change its colors
 # a reported email has everything inside it disabled

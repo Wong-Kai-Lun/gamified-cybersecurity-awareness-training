@@ -14,8 +14,8 @@ class_name BaseEmailBody
 
 @onready var file_scene: PackedScene = preload("res://game/main_game/programs/file/file.tscn")
 
-
 var email_data: EmailData
+
 
 func _ready() -> void:
 	subject.bbcode_enabled = true
@@ -39,10 +39,14 @@ func setup(data: EmailData) -> void:
 	
 	
 func setup_inbound(email_data: EmailData) -> void:
+	for child in inbound_container_instance.get_children():
+		child.queue_free()
+	
 	var file_array = email_data.attached_files
 	
 	for file_data in file_array:
 		var file_instance := file_scene.instantiate()
+		
 		inbound_container_instance.add_child(file_instance)
 		file_instance.setup(file_data)
 	

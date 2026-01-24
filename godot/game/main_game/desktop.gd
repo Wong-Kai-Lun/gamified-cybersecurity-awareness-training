@@ -20,7 +20,6 @@ func _ready() -> void:
 	settings.hide()
 
 
-# change to preload and hide settings and inventory and show when clicked instead of destroy
 func _on_settings_pressed() -> void:
 	settings.visible = !settings.visible
 
