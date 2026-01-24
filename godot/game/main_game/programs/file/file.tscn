@@ -10,6 +10,7 @@ anchor_right = 0.065
 anchor_bottom = 0.139
 offset_right = 0.199989
 offset_bottom = -0.12001
+focus_mode = 1
 script = ExtResource("1_f2806")
 
 [node name="ActionMenuButton" type="MenuButton" parent="."]
@@ -52,6 +53,7 @@ mouse_filter = 2
 texture = ExtResource("1_uaw8u")
 
 [node name="FileName" type="Label" parent="ActionMenuButton/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 13

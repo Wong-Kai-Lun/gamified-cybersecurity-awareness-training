@@ -7,6 +7,7 @@ class_name File
 var file_data: FileData
 var is_draggable: bool = true
 
+# change visuals too, after that move on to game_manager or player stats/scoring
 func setup(data: FileData) -> void:
 	file_data = data
 	
@@ -15,39 +16,62 @@ func setup(data: FileData) -> void:
 	
 	match data.file_context:
 		FileData.FileContext.INBOUND:
-			print("File Context is INBOUND!")
+			print(data.file_name, "Context is INBOUND!")
+			_setup_inbound_file()
 		
 		FileData.FileContext.INVENTORY:
-			print("File Context is INVENTORY!")
+			print(data.file_name, "Context is INVENTORY!")
 			
 		FileData.FileContext.TRASH:
-			print("File Context is TRASH!")
+			print(data.file_name, "Context is TRASH!")
+			
+		_:
+			push_warning("Unknown FileContext: %s" % data.context)
 
-# setup actions menu button later
+func _setup_inbound_file() -> void:
+	is_draggable = false
+	
+	var action_menu_popup: PopupMenu = action_menu_button.get_popup()
+	action_menu_popup.add_item("Download", 0)
+	action_menu_popup.id_pressed.connect(file_action)
+	
+func _setup_inventory_file() -> void:
+	is_draggable = true
+	
+	var action_menu_popup: PopupMenu = action_menu_button.get_popup()
+	action_menu_popup.add_item("Delete", 1)
+	action_menu_popup.id_pressed.connect(file_action)
+	
+# setup the action menu here
+func file_action(id: int) -> void:
+	match id:
+		0:
+			print("Downloaded file: ", file_data.file_name)
+			GameManagerInstance.add_file_to_inventory(file_data)
+		
+		1:
+			print("Delete pressed!")
 
 func _get_drag_data(at_position: Vector2) -> Variant:
 	if is_draggable:
-		var preview_texture = TextureRect.new()
-		preview_texture.texture = file_data.file_texture
-		preview_texture.expand = true
-		preview_texture.custom_minimum_size = Vector2(80, 80)
-		
-		var preview_text_label = Label.new()
-		preview_text_label.text = file_data.file_name
-		preview_text_label.add_theme_color_override("font_color", Color("#000000"))
-		
-		var preview_container = VBoxContainer.new()
-		var aspect_ratio_container = AspectRatioContainer.new()
-		aspect_ratio_container.add_child(preview_texture)
-		preview_container.add_child(aspect_ratio_container)
-		preview_container.add_child(preview_text_label)
-		
-		set_drag_preview(preview_container)
-		
-		return {
-			"Test": "Hello World"
-			# "name": _file_name,
-			# "icon": _file_img,
-			# "source": self
-		}
+		set_drag_preview(_build_drag_preview())
+		return file_data
 	return
+
+func _build_drag_preview() -> VBoxContainer:
+	var preview_texture = TextureRect.new()
+	preview_texture.texture = file_data.file_texture
+	preview_texture.expand = true
+	preview_texture.custom_minimum_size = Vector2(80, 80)
+	
+	var preview_text_label = Label.new()
+	preview_text_label.text = file_data.file_name
+	preview_text_label.add_theme_color_override("font_color", Color("#000000"))
+	
+	var preview_container = VBoxContainer.new()
+	var aspect_ratio_container = AspectRatioContainer.new()
+	aspect_ratio_container.add_child(preview_texture)
+	preview_container.add_child(aspect_ratio_container)
+	preview_container.add_child(preview_text_label)
+	
+	return preview_container
