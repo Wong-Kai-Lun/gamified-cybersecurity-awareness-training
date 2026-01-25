@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://bgmb6acobtvn1"]
+[gd_scene load_steps=3 format=3 uid="uid://bgmb6acobtvn1"]
+
+[ext_resource type="Script" path="res://game/main_game/programs/email_client/email_body/inbound_file_container.gd" id="1_dfid1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50rcp"]
+bg_color = Color(0, 0, 0, 0.0666667)
 
 [node name="InboundFileContainer" type="Control"]
 custom_minimum_size = Vector2(0, 200)
@@ -8,20 +13,27 @@ anchor_right = 1.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_dfid1")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(100, 200)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_50rcp")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer"]
+[node name="FileHFlow" type="HFlowContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/h_separation = 8

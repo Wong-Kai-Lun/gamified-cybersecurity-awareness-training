@@ -10,16 +10,16 @@ class_name EmailClientWindow
 
 # Email Body
 @onready var email_body_container: PanelContainer = $WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/EmailBodyContainer
-@onready var base_email_body: PackedScene = preload("res://game/main_game/programs/email_client/email_body/email_body_base.tscn")
-@onready var base_email_body_obj := base_email_body.instantiate()
+@onready var email_body_scene: PackedScene = preload("res://game/main_game/programs/email_client/email_body/email_body.tscn")
+@onready var email_body_obj := email_body_scene.instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
 	load_email_pack(email_pack)
 	
-	email_body_container.add_child(base_email_body_obj)
-	base_email_body_obj.hide()
+	email_body_container.add_child(email_body_obj)
+	email_body_obj.hide()
 
 
 func load_email_pack(pack: EmailPack) -> void:
@@ -32,19 +32,6 @@ func load_email_pack(pack: EmailPack) -> void:
 
 # later add change mail status from unread to read and change its colors
 # a reported email has everything inside it disabled
-func _on_email_selected(email_data: EmailData) -> void:
-	for child in email_body_container.get_children():
-		child.hide()
-
-	var email_type = email_data.email_type
-	# instantiate base, inbound and outbound once, just call setup when change
-	match email_type:
-		
-		email_data.EmailType.MESSAGE:
-			base_email_body_obj.setup(email_data)
-			base_email_body_obj.show()
-			
-		email_data.EmailType.INBOUND:
-			base_email_body_obj.setup(email_data)
-			base_email_body_obj.setup_inbound(email_data)
-			base_email_body_obj.show()
+func _on_email_selected(data: EmailData) -> void:
+	email_body_obj.setup(data)
+	email_body_obj.show()

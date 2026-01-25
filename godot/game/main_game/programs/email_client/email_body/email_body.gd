@@ -1,5 +1,5 @@
 extends Control
-class_name BaseEmailBody
+class_name EmailBody
 
 @onready var subject: RichTextLabel = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/SubjectRTL
 @onready var from_rtl: RichTextLabel = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/FromSection/FromRTL
@@ -9,8 +9,8 @@ class_name BaseEmailBody
 @onready var menu_btn: MenuButton = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MenuButton
 @onready var attachment_slot: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/AttachmentSlot
 
-@onready var inbound_container_scene: PackedScene = preload("res://game/main_game/programs/email_client/email_body/inbound_file_container.tscn")
-@onready var inbound_container_instance = inbound_container_scene.instantiate()
+@onready var inbound_file_container_scene: PackedScene = preload("res://game/main_game/programs/email_client/email_body/inbound_file_container.tscn")
+@onready var inbound_file_container_instance = inbound_file_container_scene.instantiate()
 
 @onready var file_scene: PackedScene = preload("res://game/main_game/programs/file/file.tscn")
 
@@ -21,12 +21,30 @@ func _ready() -> void:
 	subject.bbcode_enabled = true
 	body_rtl.bbcode_enabled = true
 	
-	attachment_slot.add_child(inbound_container_instance)
-	inbound_container_instance.hide()
+	attachment_slot.add_child(inbound_file_container_instance)
+	inbound_file_container_instance.hide()
 	
-	menu_setup()
+	_menu_setup()
+
 
 func setup(data: EmailData) -> void:
+	var email_type = data.email_type
+	
+	match email_type:
+		data.EmailType.MESSAGE:
+			self._setup_message(data)
+			
+		data.EmailType.INBOUND:
+			self._setup_inbound(data)
+			
+		data.EmailType.OUTBOUND:
+			self._setup_outbound(data)
+		
+		_:
+			push_warning("Unhandled EmailType: %s" % data.email_type)
+
+
+func _setup_message(data: EmailData) -> void:
 	email_data = data
 	
 	subject.bbcode_text = "[b]" + data.subject
@@ -35,26 +53,22 @@ func setup(data: EmailData) -> void:
 	cc_rtl.text = data.cc_address
 	body_rtl.bbcode_text = data.email_body
 	
-	inbound_container_instance.hide()
-	
-	
-func setup_inbound(email_data: EmailData) -> void:
-	for child in inbound_container_instance.get_children():
-		child.queue_free()
-	
-	var file_array = email_data.attached_files
-	
-	for file_data in file_array:
-		var file_instance := file_scene.instantiate()
-		
-		inbound_container_instance.add_child(file_instance)
-		file_instance.setup(file_data)
-	
-	if !inbound_container_instance.visible:
-		inbound_container_instance.show()
+	inbound_file_container_instance.hide()
 
 
-func menu_setup() -> void:
+func _setup_inbound(data: EmailData) -> void:
+	_setup_message(data)
+	inbound_file_container_instance.populate(data.attached_files)
+	inbound_file_container_instance.show()
+
+
+# add outbound container and its functions later
+func _setup_outbound(data: EmailData) -> void:
+	_setup_message(data)
+	print("Setup Outbound called!")
+
+
+func _menu_setup() -> void:
 	var pop_up_menu: PopupMenu = menu_btn.get_popup()
 	pop_up_menu.add_item("Report phishing", 0)
 	pop_up_menu.id_pressed.connect(_on_report_pressed)
