@@ -26,6 +26,7 @@ func setup(data: FileData) -> void:
 		_:
 			push_warning("Unknown FileContext: %s" % data.context)
 
+
 # Abstract later.
 func _setup_inbound_file() -> void:
 	is_draggable = false

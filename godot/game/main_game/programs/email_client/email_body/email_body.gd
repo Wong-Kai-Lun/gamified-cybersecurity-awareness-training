@@ -12,6 +12,9 @@ class_name EmailBody
 @onready var inbound_file_container_scene: PackedScene = preload("res://game/main_game/programs/email_client/email_body/inbound_file_container.tscn")
 @onready var inbound_file_container_instance = inbound_file_container_scene.instantiate()
 
+@onready var outbound_file_container_scene: PackedScene = preload("res://game/main_game/programs/email_client/email_body/outbound_file_container.tscn")
+@onready var outbound_file_container_instance = outbound_file_container_scene.instantiate()
+
 @onready var file_scene: PackedScene = preload("res://game/main_game/programs/file/file.tscn")
 
 var email_data: EmailData
@@ -24,7 +27,10 @@ func _ready() -> void:
 	attachment_slot.add_child(inbound_file_container_instance)
 	inbound_file_container_instance.hide()
 	
-	_menu_setup()
+	attachment_slot.add_child(outbound_file_container_instance)
+	outbound_file_container_instance.hide()
+	
+	_menu_setup() # work on it later
 
 
 func setup(data: EmailData) -> void:
@@ -54,6 +60,7 @@ func _setup_message(data: EmailData) -> void:
 	body_rtl.bbcode_text = data.email_body
 	
 	inbound_file_container_instance.hide()
+	outbound_file_container_instance.hide()
 
 
 func _setup_inbound(data: EmailData) -> void:
@@ -62,10 +69,11 @@ func _setup_inbound(data: EmailData) -> void:
 	inbound_file_container_instance.show()
 
 
-# add outbound container and its functions later
+# Update it to show a drop zone arrow icon in can_drop_data func
 func _setup_outbound(data: EmailData) -> void:
 	_setup_message(data)
 	print("Setup Outbound called!")
+	outbound_file_container_instance.show()
 
 
 func _menu_setup() -> void:
