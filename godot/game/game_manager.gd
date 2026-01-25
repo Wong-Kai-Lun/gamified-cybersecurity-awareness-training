@@ -4,6 +4,7 @@ class_name GameManager
 signal inventory_changed(inventory: Array[FileData])
 
 var _inventory: Array[FileData] = []
+var _recycle_bin: Array[FileData] = []
 
 func _ready():
 	print("GameManager is online!")
