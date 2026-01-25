@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="EmailPack" load_steps=5 format=3 uid="uid://cuf0qptsyfugr"]
+[gd_resource type="Resource" script_class="EmailPack" load_steps=6 format=3 uid="uid://cuf0qptsyfugr"]
 
 [ext_resource type="Script" path="res://data/email_data.gd" id="1_krvfn"]
-[ext_resource type="Resource" uid="uid://bdngpu77vre0r" path="res://data/email/1_tutorial.tres" id="2_vhi5h"]
-[ext_resource type="Resource" uid="uid://dc8hwm4pawqob" path="res://data/email/1_genius_invoice.tres" id="3_r3rbc"]
+[ext_resource type="Resource" uid="uid://bdngpu77vre0r" path="res://data/email/1_1_tutorial.tres" id="2_qc7wd"]
+[ext_resource type="Resource" uid="uid://dc8hwm4pawqob" path="res://data/email/1_2_genius_p_o.tres" id="3_tqhmx"]
 [ext_resource type="Script" path="res://data/email_pack.gd" id="4_8j6wb"]
+[ext_resource type="Resource" uid="uid://cs65vjxte2oy1" path="res://data/email/1_3_submit_p_o.tres" id="4_aarsp"]
 
 [resource]
 script = ExtResource("4_8j6wb")
 pack_name = "Monday"
-emails = Array[ExtResource("1_krvfn")]([ExtResource("2_vhi5h"), ExtResource("3_r3rbc")])
+emails = Array[ExtResource("1_krvfn")]([ExtResource("2_qc7wd"), ExtResource("3_tqhmx"), ExtResource("4_aarsp")])

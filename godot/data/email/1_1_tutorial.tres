@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://bdngpu77vre0r"]
 
-[ext_resource type="Script" path="res://data/file_data.gd" id="1_i1dnx"]
-[ext_resource type="Script" path="res://data/email_data.gd" id="2_8vukg"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_rv21j"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_oktdq"]
 
 [resource]
-script = ExtResource("2_8vukg")
+script = ExtResource("2_oktdq")
 email_type = 0
 sender_name = "Blake"
 sender_address = "blake@abc.com.my"
-to_address = "player@abc.com.my"
+to_address = "{player_email}"
 cc_address = ""
 subject = "First Day Tutorial"
 email_body = "Hello! I am your assigned buddy to guide you through the basic tasks you will be doing!"
-attached_files = Array[ExtResource("1_i1dnx")]([])
+attached_files = Array[ExtResource("1_rv21j")]([])
 score = 0.0
