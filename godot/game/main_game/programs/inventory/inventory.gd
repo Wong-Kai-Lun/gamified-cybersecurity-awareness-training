@@ -9,13 +9,14 @@ func _ready() -> void:
 	super._ready()
 	GameManagerInstance.inventory_changed.connect(add_file_to_container)
 
+
 # GameManager changes state, UI redraw.
+# Activates when player inventory changes.
 func add_file_to_container(inventory: Array[FileData]) -> void:
 	for child in inventory_file_container.get_children():
 		child.queue_free()
-	
+		
 	for file in inventory:
 		var new_file_instance = file_scene.instantiate()
 		inventory_file_container.add_child(new_file_instance)
 		new_file_instance.setup(file)
-	

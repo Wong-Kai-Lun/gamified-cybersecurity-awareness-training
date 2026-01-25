@@ -7,43 +7,44 @@ class_name File
 var file_data: FileData
 var is_draggable: bool = true
 
-# change visuals too, after that move on to game_manager or player stats/scoring
+
 func setup(data: FileData) -> void:
 	file_data = data
-	
 	img_texture_rect.texture = data.file_texture
 	name_label.text = data.file_name
 	
 	match data.file_context:
 		FileData.FileContext.INBOUND:
-			print(data.file_name, "Context is INBOUND!")
 			_setup_inbound_file()
 		
 		FileData.FileContext.INVENTORY:
-			print(data.file_name, "Context is INVENTORY!")
+			_setup_inventory_file()
 			
 		FileData.FileContext.TRASH:
-			print(data.file_name, "Context is TRASH!")
+			pass
 			
 		_:
 			push_warning("Unknown FileContext: %s" % data.context)
 
+# Abstract later.
 func _setup_inbound_file() -> void:
 	is_draggable = false
 	
 	var action_menu_popup: PopupMenu = action_menu_button.get_popup()
 	action_menu_popup.add_item("Download", 0)
-	action_menu_popup.id_pressed.connect(file_action)
-	
+	action_menu_popup.id_pressed.connect(_file_action)
+
+
 func _setup_inventory_file() -> void:
 	is_draggable = true
 	
 	var action_menu_popup: PopupMenu = action_menu_button.get_popup()
 	action_menu_popup.add_item("Delete", 1)
-	action_menu_popup.id_pressed.connect(file_action)
-	
-# setup the action menu here
-func file_action(id: int) -> void:
+	action_menu_popup.id_pressed.connect(_file_action)
+
+
+# Action Menu Logic
+func _file_action(id: int) -> void:
 	match id:
 		0:
 			print("Downloaded file: ", file_data.file_name)
@@ -52,11 +53,13 @@ func file_action(id: int) -> void:
 		1:
 			print("Delete pressed!")
 
+
 func _get_drag_data(at_position: Vector2) -> Variant:
 	if is_draggable:
 		set_drag_preview(_build_drag_preview())
 		return file_data
 	return
+
 
 func _build_drag_preview() -> VBoxContainer:
 	var preview_texture = TextureRect.new()
