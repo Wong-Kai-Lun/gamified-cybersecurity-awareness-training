@@ -8,10 +8,8 @@ extends Control
 func clear_files() -> void:
 	for child in file_hflow.get_children():
 		child.queue_free()
-		
+
 func populate(attached_files: Array[FileData]) -> void:
-	clear_files()
-	
 	for file_data in attached_files:
 		var file_instance := file_scene.instantiate()
 		file_hflow.add_child(file_instance)

@@ -4,7 +4,7 @@ class_name InventoryWindow
 @onready var inventory_file_container: HFlowContainer = $WindowPanel/Structure/Content/HBoxContainer/ScrollContainer/MarginContainer/HFlowContainer
 @onready var file_scene: PackedScene = preload("res://game/main_game/programs/file/file.tscn")
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	super._ready()
 	GameManagerInstance.inventory_changed.connect(add_file_to_container)

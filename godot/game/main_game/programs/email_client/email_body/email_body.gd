@@ -14,6 +14,7 @@ class_name EmailBody
 
 @onready var outbound_file_container_scene: PackedScene = preload("res://game/main_game/programs/email_client/email_body/outbound_file_container.tscn")
 @onready var outbound_file_container_instance = outbound_file_container_scene.instantiate()
+@onready var send_button: Button = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/Send
 
 @onready var file_scene: PackedScene = preload("res://game/main_game/programs/file/file.tscn")
 
@@ -29,6 +30,7 @@ func _ready() -> void:
 	
 	attachment_slot.add_child(outbound_file_container_instance)
 	outbound_file_container_instance.hide()
+	send_button.hide()
 	
 	_menu_setup() # work on it later
 
@@ -61,10 +63,12 @@ func _setup_message(data: EmailData) -> void:
 	
 	inbound_file_container_instance.hide()
 	outbound_file_container_instance.hide()
+	send_button.hide()
 
 
 func _setup_inbound(data: EmailData) -> void:
 	_setup_message(data)
+	inbound_file_container_instance.clear_files()
 	inbound_file_container_instance.populate(data.attached_files)
 	inbound_file_container_instance.show()
 
@@ -72,7 +76,9 @@ func _setup_inbound(data: EmailData) -> void:
 # Update it to show a drop zone arrow icon in can_drop_data func
 func _setup_outbound(data: EmailData) -> void:
 	_setup_message(data)
+	outbound_file_container_instance.clear_files()
 	outbound_file_container_instance.show()
+	send_button.show()
 
 
 func _menu_setup() -> void:
@@ -81,13 +87,13 @@ func _menu_setup() -> void:
 	pop_up_menu.id_pressed.connect(_on_report_pressed)
 
 
-# work on this later
+func _on_send_pressed() -> void:
+	var attached_files = outbound_file_container_instance.get_outbound_array()
+	GameManagerInstance.validate_outbound_files(email_data, attached_files)
+
+
+# lock email after report
 func _on_report_pressed(id: int) -> void:
 	match id:
 		0:
 			print("Report Button Pressed!")
-				
-			for expected_attachment in email_data.expected_attachments:
-				for attached_attachment in outbound_file_container_instance.outbound_file_array:
-					if expected_attachment.file_id == attached_attachment.file_id:
-						print("Match!")

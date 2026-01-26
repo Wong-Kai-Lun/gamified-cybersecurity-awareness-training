@@ -13,4 +13,5 @@ cc_address = ""
 subject = "First Day Tutorial"
 email_body = "Hello! I am your assigned buddy to guide you through the basic tasks you will be doing!"
 attached_files = Array[ExtResource("1_rv21j")]([])
+expected_attachments = Array[ExtResource("1_rv21j")]([])
 score = 0.0

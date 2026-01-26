@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfiur4p5xsiyg"]
+[gd_scene load_steps=10 format=3 uid="uid://cfiur4p5xsiyg"]
 
 [ext_resource type="Script" path="res://game/main_game/programs/email_client/email_body/email_body.gd" id="1_3f7mv"]
 [ext_resource type="FontFile" uid="uid://ciw3y22042ycj" path="res://assets/DroidSans-Bold.ttf" id="2_hcm5s"]
@@ -6,6 +6,29 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhqjc"]
 bg_color = Color(0.866667, 0.866667, 0.866667, 1)
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o3oar"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07eb5"]
+bg_color = Color(0, 0, 0.4, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dow8o"]
+bg_color = Color(0, 0, 0.266667, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqcs8"]
+bg_color = Color(0, 0, 0.533333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u625m"]
 
@@ -47,12 +70,30 @@ theme_override_constants/separation = 15
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Send" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o3oar")
+theme_override_styles/hover = SubResource("StyleBoxFlat_07eb5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dow8o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lqcs8")
+text = "✉ Send"
+
 [node name="Header" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="SubjectRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
@@ -60,6 +101,7 @@ fit_content = true
 
 [node name="FromSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header"]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="FromLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/FromSection"]
 custom_minimum_size = Vector2(45, 0)
@@ -89,6 +131,7 @@ drag_and_drop_selection_enabled = false
 
 [node name="ToSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header"]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="ToLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/ToSection"]
 custom_minimum_size = Vector2(45, 0)
@@ -118,6 +161,7 @@ drag_and_drop_selection_enabled = false
 
 [node name="CCSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header"]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="CCLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/CCSection"]
 custom_minimum_size = Vector2(45, 0)
@@ -172,3 +216,5 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 fit_content = true
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/Send" to="." method="_on_send_pressed"]
