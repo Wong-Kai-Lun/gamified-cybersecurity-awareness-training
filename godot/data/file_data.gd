@@ -1,7 +1,7 @@
 extends Resource
 class_name FileData
 
-enum FileContext { INBOUND, INVENTORY, TRASH }
+enum FileContext { INBOUND, INVENTORY, OUTBOUND, TRASH }
 enum FileType { LEGIT, MALWARE, ADWARE, RANSOMWARE }
 
 @export var file_id: String

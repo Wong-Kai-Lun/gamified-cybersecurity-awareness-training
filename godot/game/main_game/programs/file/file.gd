@@ -1,6 +1,8 @@
 extends Control
 class_name File
 
+signal remove_requested(file_data: FileData)
+
 @onready var action_menu_button: MenuButton = $ActionMenuButton
 @onready var img_texture_rect: TextureRect = $ActionMenuButton/MarginContainer/VBoxContainer/AspectRatioContainer/FileImg
 @onready var name_label: Label = $ActionMenuButton/MarginContainer/VBoxContainer/FileName
@@ -19,6 +21,9 @@ func setup(data: FileData) -> void:
 		
 		FileData.FileContext.INVENTORY:
 			_setup_inventory_file()
+			
+		FileData.FileContext.OUTBOUND:
+			_setup_outbound_file()
 			
 		FileData.FileContext.TRASH:
 			pass
@@ -44,6 +49,14 @@ func _setup_inventory_file() -> void:
 	action_menu_popup.id_pressed.connect(_file_action)
 
 
+func _setup_outbound_file() -> void:
+	is_draggable = false
+	
+	var action_menu_popup: PopupMenu = action_menu_button.get_popup()
+	action_menu_popup.add_item("Remove Attachment", 2)
+	action_menu_popup.id_pressed.connect(_file_action)
+
+
 # Action Menu Logic
 func _file_action(id: int) -> void:
 	match id:
@@ -53,9 +66,18 @@ func _file_action(id: int) -> void:
 		
 		1:
 			print("Delete pressed!")
+			
+		2:
+			print("Remove Attachment pressed!")
+			_on_remove_requested()
 
 
-func _get_drag_data(at_position: Vector2) -> Variant:
+func _on_remove_requested() -> void:
+	remove_requested.emit(file_data)
+	queue_free()
+
+
+func _get_drag_data(at_position: Vector2) -> FileData:
 	if is_draggable:
 		set_drag_preview(_build_drag_preview())
 		return file_data
