@@ -72,7 +72,6 @@ func _setup_inbound(data: EmailData) -> void:
 # Update it to show a drop zone arrow icon in can_drop_data func
 func _setup_outbound(data: EmailData) -> void:
 	_setup_message(data)
-	print("Setup Outbound called!")
 	outbound_file_container_instance.show()
 
 
@@ -87,3 +86,8 @@ func _on_report_pressed(id: int) -> void:
 	match id:
 		0:
 			print("Report Button Pressed!")
+				
+			for expected_attachment in email_data.expected_attachments:
+				for attached_attachment in outbound_file_container_instance.outbound_file_array:
+					if expected_attachment.file_id == attached_attachment.file_id:
+						print("Match!")
