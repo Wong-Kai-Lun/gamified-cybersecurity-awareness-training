@@ -57,7 +57,10 @@ func _setup_message(data: EmailData) -> void:
 	
 	subject.bbcode_text = "[b]" + data.subject
 	from_rtl.text = data.sender_address
-	to_rtl.text = data.to_address
+	
+	var player_to_address = GameManagerInstance.replace_placeholder_email(data.to_address)
+	to_rtl.text = player_to_address
+	
 	cc_rtl.text = data.cc_address
 	body_rtl.bbcode_text = data.email_body
 	
@@ -76,7 +79,7 @@ func _setup_inbound(data: EmailData) -> void:
 # Update it to show a drop zone arrow icon in can_drop_data func
 func _setup_outbound(data: EmailData) -> void:
 	_setup_message(data)
-	outbound_file_container_instance.clear_files()
+	outbound_file_container_instance.draw_files()
 	outbound_file_container_instance.show()
 	send_button.show()
 

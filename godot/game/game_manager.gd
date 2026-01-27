@@ -3,11 +3,26 @@ class_name GameManager
 
 signal inventory_changed(inventory: Array[FileData])
 
+# Player Values
+var _COMPANY_DOMAIN = "@abc.com.my"
+var _player_name: String = "Placeholder"
+var _player_email: String = "place.holder" + _COMPANY_DOMAIN
+
 var _inventory: Array[FileData] = []
 var _recycle_bin: Array[FileData] = []
 
 func _ready():
 	print("GameManager is online!")
+
+
+func replace_placeholder_name(placeholder_name: String) -> String:
+	var replaced_name = placeholder_name.replace(placeholder_name, _player_name)
+	return replaced_name
+
+
+func replace_placeholder_email(placeholder_email: String) -> String:
+	var replaced_email = placeholder_email.replace(placeholder_email, _player_email)
+	return replaced_email
 
 func add_file_to_inventory(file: FileData) -> void:
 	var new_file := file.duplicate()

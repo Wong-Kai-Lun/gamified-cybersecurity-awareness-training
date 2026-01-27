@@ -18,12 +18,15 @@ func setup(data: FileData) -> void:
 	match data.file_context:
 		FileData.FileContext.INBOUND:
 			_setup_inbound_file()
+			action_menu_button.flat = true
 		
 		FileData.FileContext.INVENTORY:
 			_setup_inventory_file()
+			action_menu_button.flat = false
 			
 		FileData.FileContext.OUTBOUND:
 			_setup_outbound_file()
+			action_menu_button.flat = true
 			
 		FileData.FileContext.TRASH:
 			pass

@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2nqg7wkytt1g"]
+[gd_scene load_steps=7 format=3 uid="uid://c2nqg7wkytt1g"]
 
 [ext_resource type="Script" path="res://game/main_game/programs/file/file.gd" id="1_f2806"]
 [ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://assets/file.png" id="1_uaw8u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8kp7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ia3t"]
+bg_color = Color(0, 0.733333, 1, 0.2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiio6"]
+bg_color = Color(0, 0.733333, 1, 0.333333)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggat2"]
 
 [node name="File" type="Control"]
 custom_minimum_size = Vector2(125, 150)
@@ -22,7 +32,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w8kp7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8ia3t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qiio6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ggat2")
 button_mask = 2
+flat = false
 
 [node name="MarginContainer" type="MarginContainer" parent="ActionMenuButton"]
 layout_mode = 1
