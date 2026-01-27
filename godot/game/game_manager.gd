@@ -5,6 +5,8 @@ signal inventory_changed(inventory: Array[FileData])
 
 # Player Values
 var _COMPANY_DOMAIN = "@abc.com.my"
+var _PLACEHOLDER_NAME = "{player_name}"
+var _PLACEHOLDER_EMAIL = "{player_email}"
 var _player_name: String = "Placeholder"
 var _player_email: String = "place.holder" + _COMPANY_DOMAIN
 
@@ -16,13 +18,14 @@ func _ready():
 
 
 func replace_placeholder_name(placeholder_name: String) -> String:
-	var replaced_name = placeholder_name.replace(placeholder_name, _player_name)
+	var replaced_name = placeholder_name.replace(_PLACEHOLDER_NAME, _player_name)
 	return replaced_name
 
 
 func replace_placeholder_email(placeholder_email: String) -> String:
-	var replaced_email = placeholder_email.replace(placeholder_email, _player_email)
+	var replaced_email = placeholder_email.replace(_PLACEHOLDER_EMAIL, _player_email)
 	return replaced_email
+
 
 func add_file_to_inventory(file: FileData) -> void:
 	var new_file := file.duplicate()
@@ -30,10 +33,12 @@ func add_file_to_inventory(file: FileData) -> void:
 	_inventory.append(new_file)
 	inventory_changed.emit(_inventory.duplicate())
 
+
 func change_inventory_to_outbound(file: FileData) -> FileData:
 	var new_file := file.duplicate()
 	new_file.file_context = FileData.FileContext.OUTBOUND
 	return new_file
+
 
 func validate_outbound_files(email: EmailData, attached: Array[FileData]) -> void:
 	var expected_file_ids = []
