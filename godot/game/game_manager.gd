@@ -13,8 +13,13 @@ var _player_email: String = "place.holder" + _COMPANY_DOMAIN
 var _inventory: Array[FileData] = []
 var _recycle_bin: Array[FileData] = []
 
+# check save file, if have, load that, enable continue
 func _ready():
 	print("GameManager is online!")
+
+
+func get_player_inventory() -> Array[FileData]:
+	return _inventory.duplicate(true)
 
 
 func replace_placeholder_name(placeholder_name: String) -> String:
