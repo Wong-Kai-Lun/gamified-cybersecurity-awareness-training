@@ -37,8 +37,7 @@ texture = ExtResource("3_0oaxt")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vfkpi"]
 texture = ExtResource("4_s03b3")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryoen"]
-bg_color = Color(0.2, 0.2, 0.2, 0.2)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipicr"]
 
 [node name="Desktop" type="Control"]
 layout_mode = 3
@@ -170,20 +169,26 @@ anchors_preset = -1
 anchor_right = 0.182292
 anchor_bottom = 0.944444
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ryoen")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ipicr")
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="NotificationVBox" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+[node name="NotificationVBox" type="VBoxContainer" parent="CanvasLayer/PanelContainer/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 8
 alignment = 2
 
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Settings" to="." method="_on_settings_pressed"]

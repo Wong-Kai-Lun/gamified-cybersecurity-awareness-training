@@ -42,6 +42,8 @@ func setup(data: FileData) -> void:
 func _setup_inbound_file() -> void:
 	is_draggable = false
 	
+	NotificationManagerInstance.register_file(self)
+	
 	var action_menu_popup: PopupMenu = action_menu_button.get_popup()
 	action_menu_popup.add_item("Download", 0)
 	action_menu_popup.id_pressed.connect(_file_action)
@@ -68,7 +70,6 @@ func _file_action(id: int) -> void:
 	match id:
 		0:
 			GameManagerInstance.add_file_to_inventory(file_data)
-			NotificationManagerInstance.register_file(self)
 			file_downloaded.emit(file_data)
 		
 		1:
