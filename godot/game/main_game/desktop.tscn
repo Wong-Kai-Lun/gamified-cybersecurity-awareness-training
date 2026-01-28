@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0ag6c742vmi1"]
+[gd_scene load_steps=15 format=3 uid="uid://d0ag6c742vmi1"]
 
 [ext_resource type="Texture2D" uid="uid://cqw41ovssu3t3" path="res://assets/desktop_bg.jpg" id="1_nvliw"]
 [ext_resource type="Script" path="res://game/main_game/desktop.gd" id="1_v1sjp"]
 [ext_resource type="Texture2D" uid="uid://btsol5dcm77b4" path="res://assets/pause_icon.png" id="3_0oaxt"]
 [ext_resource type="Texture2D" uid="uid://bg5mv1f75hk1j" path="res://assets/gear_icon.png" id="4_s03b3"]
-[ext_resource type="PackedScene" uid="uid://cd5ivsateu3bh" path="res://game/notification_system/notification_toast.tscn" id="5_1vly5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oeun7"]
 texture = ExtResource("1_nvliw")
@@ -186,9 +185,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
-
-[node name="NotificationToast" parent="CanvasLayer/PanelContainer/MarginContainer/NotificationVBox" instance=ExtResource("5_1vly5")]
-layout_mode = 2
 
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Inventory" to="." method="_on_inventory_pressed"]

@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 
 
 func _on_close_button_pressed() -> void:
-	emit_signal("close_pressed")
+	close_pressed.emit()
 
 
 func _gui_input(event: InputEvent) -> void:

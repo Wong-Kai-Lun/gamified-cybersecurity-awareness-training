@@ -1,17 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd5ivsateu3bh"]
+[gd_scene load_steps=7 format=3 uid="uid://cd5ivsateu3bh"]
+
+[ext_resource type="Script" path="res://game/notification_system/notification_toast.gd" id="1_5xlne"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls8xu"]
-bg_color = Color(0.2, 0.2, 0.2, 0.933333)
+bg_color = Color(0.2, 0.2, 0.2, 0.666667)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m8ary"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dam5m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5kkj7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lpob1"]
+
 [node name="NotificationToast" type="Control"]
-custom_minimum_size = Vector2(300, 125)
+custom_minimum_size = Vector2(300, 120)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 200.0
+offset_right = 300.0
+offset_bottom = 120.0
+script = ExtResource("1_5xlne")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -33,20 +45,42 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="NotificationTitle" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 16
-text = "File Downloaded"
+text = "Title"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="CloseNotification" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m8ary")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dam5m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5kkj7")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lpob1")
+text = "X"
+
+[node name="NotificationBody" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(280, 70)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme_override_font_sizes/font_size = 14
-text = "Genius Purchase Order.pdf"
+text = "Notification Body"
 vertical_alignment = 1
 autowrap_mode = 3
 text_overrun_behavior = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseNotification" to="." method="_on_close_notification_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

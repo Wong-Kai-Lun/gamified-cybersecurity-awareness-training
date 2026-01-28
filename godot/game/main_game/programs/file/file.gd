@@ -2,6 +2,8 @@ extends Control
 class_name File
 
 signal remove_requested(file_data: FileData)
+signal file_downloaded(file_data: FileData)
+
 
 @onready var action_menu_button: MenuButton = $ActionMenuButton
 @onready var img_texture_rect: TextureRect = $ActionMenuButton/MarginContainer/VBoxContainer/AspectRatioContainer/FileImg
@@ -14,6 +16,7 @@ func setup(data: FileData) -> void:
 	file_data = data
 	img_texture_rect.texture = data.file_texture
 	name_label.text = data.file_name
+	self.tooltip_text = data.file_name
 	
 	match data.file_context:
 		FileData.FileContext.INBOUND:
@@ -64,8 +67,9 @@ func _setup_outbound_file() -> void:
 func _file_action(id: int) -> void:
 	match id:
 		0:
-			print("Downloaded file: ", file_data.file_name)
 			GameManagerInstance.add_file_to_inventory(file_data)
+			NotificationManagerInstance.register_file(self)
+			file_downloaded.emit(file_data)
 		
 		1:
 			print("Delete pressed!")
