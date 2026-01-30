@@ -12,6 +12,19 @@ var file_data: FileData
 var is_draggable: bool = true
 
 
+func _ready() -> void:
+	mouse_entered.connect(_on_mouse_entered)
+	mouse_exited.connect(_on_mouse_exited)
+
+func _on_mouse_entered() -> void:
+	name_label.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
+	name_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+
+func _on_mouse_exited() -> void:
+	name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	name_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+
+
 func setup(data: FileData) -> void:
 	file_data = data
 	img_texture_rect.texture = data.file_texture
