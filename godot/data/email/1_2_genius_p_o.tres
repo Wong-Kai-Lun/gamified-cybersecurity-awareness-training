@@ -8,10 +8,11 @@
 script = ExtResource("3_d5m7r")
 email_type = 1
 sender_name = "Ong Wei Zhe"
-sender_address = "ongweizhe@genius.com"
+sender_address = "ongweizhe@littlegenius.com"
 to_address = "{player_email}"
 cc_address = ""
-subject = "Purchase Order from Genius Stationery"
-email_body = "Hello, I'd like to place a purchase order for stationeries."
+subject = "Purchase Order from Little Genius Stationery"
+email_body = "Hello, I'd like to place a purchase order for stationeries.[p] [p] [p]Ong Wei Zhe[p]Store Owner[p]Little Genius Stationery[p]小天才文具店"
 attached_files = Array[ExtResource("1_fcb88")]([ExtResource("2_g5cpn")])
+expected_attachments = Array[ExtResource("1_fcb88")]([])
 score = 0.0
