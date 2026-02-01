@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://bnp8h7y8h3oht"]
+
+[ext_resource type="Texture2D" uid="uid://cumkv3pldp2hj" path="res://assets/pdf.png" id="1_ew508"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_hdsln"]
+
+[resource]
+script = ExtResource("1_hdsln")
+file_id = "1_8_happyminimarket_po"
+file_texture = ExtResource("1_ew508")
+file_name = "Happy Minimarket PO.pdf"
+file_context = 0
+file_type = 0

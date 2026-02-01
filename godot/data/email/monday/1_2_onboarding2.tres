@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://c4r7jjotgptir"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_5fhpi"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_cmem4"]
+
+[resource]
+script = ExtResource("2_cmem4")
+email_type = 0
+sender_name = "Blake"
+sender_address = "blake@abc.com.my"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Onboarding Guide 2"
+email_body = "Here is a list of emails our company employees, if you receive an email claiming to be a coworker but their email address doesn’t match this list, chances are they are an impersonator and need to be reported.[p] [p]nazrin.finance@abc.com.my[p]kaijie.it@abc.com.my[p]dallas@abc.com.my [p] [p] Have fun!"
+attached_files = Array[ExtResource("1_5fhpi")]([])
+expected_attachments = Array[ExtResource("1_5fhpi")]([])
+is_reported = false
+score = 0.0

@@ -12,4 +12,5 @@ enum EmailType { MESSAGE, INBOUND, OUTBOUND }
 @export var email_body: String
 @export var attached_files: Array[FileData] = []
 @export var expected_attachments: Array[FileData] = []
+@export var is_reported: bool = false
 @export var score: float

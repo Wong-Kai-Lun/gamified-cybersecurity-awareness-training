@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://dc8hwm4pawqob"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_fkxwx"]
+[ext_resource type="Resource" uid="uid://c3sa2jb3xuu7v" path="res://data/file/monday/1_4_littlegenius_po.tres" id="2_412vh"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="3_b4rem"]
+
+[resource]
+script = ExtResource("3_b4rem")
+email_type = 1
+sender_name = "Ong Wei Zhe"
+sender_address = "ongweizhe@littlegenius.com"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Purchase Order from Little Genius Stationery"
+email_body = "Good morning, I'd like to place a purchase order for stationeries.[p] [p]Please refer to the PO attached.[p] [p] [p]Ong Wei Zhe[p]Store Owner[p]Little Genius Stationery[p]小天才文具店"
+attached_files = Array[ExtResource("1_fkxwx")]([ExtResource("2_412vh")])
+expected_attachments = Array[ExtResource("1_fkxwx")]([])
+is_reported = false
+score = 0.0
