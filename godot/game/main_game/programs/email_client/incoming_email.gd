@@ -5,7 +5,7 @@ signal opened(email_data: EmailData)
 @onready var bg_panel_container: PanelContainer = $Background
 @onready var sender_label: RichTextLabel = $Background/Open/MarginContainer/VBoxContainer/SenderNameRTL
 @onready var subject_label: Label = $Background/Open/MarginContainer/VBoxContainer/SubjectLbl
-@onready var body_preview_label: Label = $Background/Open/MarginContainer/VBoxContainer/BodyPreviewLbl
+@onready var body_preview_label: RichTextLabel = $Background/Open/MarginContainer/VBoxContainer/BodyPreviewRTL
 
 enum ReadStatus { UNREAD, READ, IMPORTANT }
 

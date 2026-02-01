@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://teyfqe5jhxwj"]
+[gd_scene load_steps=7 format=3 uid="uid://teyfqe5jhxwj"]
 
 [ext_resource type="Script" path="res://game/main_game/programs/email_client/incoming_email.gd" id="1_8dbl0"]
 
@@ -19,8 +19,6 @@ bg_color = Color(0, 0, 0, 0.1)
 bg_color = Color(0, 0, 0, 0.12)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gog41"]
-
-[sub_resource type="FontVariation" id="FontVariation_r7t3n"]
 
 [node name="IncomingEmail" type="Control"]
 custom_minimum_size = Vector2(200, 100)
@@ -88,13 +86,18 @@ theme_override_font_sizes/font_size = 15
 text = "Subject"
 text_overrun_behavior = 4
 
-[node name="BodyPreviewLbl" type="Label" parent="Background/Open/MarginContainer/VBoxContainer"]
+[node name="BodyPreviewRTL" type="RichTextLabel" parent="Background/Open/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontVariation_r7t3n")
-theme_override_font_sizes/font_size = 15
-text = "Email Body Preview"
-text_overrun_behavior = 4
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "Body Preview"
+scroll_active = false
+autowrap_mode = 0
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
 [connection signal="pressed" from="Background/Open" to="." method="_on_open_pressed"]
