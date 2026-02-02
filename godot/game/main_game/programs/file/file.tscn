@@ -16,12 +16,11 @@ bg_color = Color(0, 0.733333, 1, 0.333333)
 [node name="File" type="Control"]
 custom_minimum_size = Vector2(125, 150)
 layout_mode = 3
-anchor_right = 0.065
-anchor_bottom = 0.139
-offset_right = 0.199989
-offset_bottom = -0.12001
+anchor_right = 0.0651042
+anchor_bottom = 0.138889
 focus_mode = 1
 script = ExtResource("1_f2806")
+metadata/_edit_use_anchors_ = true
 
 [node name="ActionMenuButton" type="MenuButton" parent="."]
 custom_minimum_size = Vector2(125, 150)

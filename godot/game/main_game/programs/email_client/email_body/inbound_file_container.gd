@@ -1,7 +1,6 @@
 extends Control
 
-@onready var panel_container: PanelContainer = $PanelContainer
-@onready var file_hflow: HFlowContainer = $PanelContainer/MarginContainer/FileHFlow
+@onready var file_hflow: HFlowContainer = $MarginContainer/FileHFlow
 @onready var file_scene: PackedScene = preload("res://game/main_game/programs/file/file.tscn")
 
 

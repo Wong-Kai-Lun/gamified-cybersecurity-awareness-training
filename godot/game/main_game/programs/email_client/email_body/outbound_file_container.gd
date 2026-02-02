@@ -1,10 +1,10 @@
 extends Control
 
-@onready var outbound_hflow: HFlowContainer = $PanelContainer/MarginContainer/OutboundHFlow
+@onready var outbound_hflow: HFlowContainer = $MarginContainer/OutboundHFlow
 @onready var file_scene: PackedScene = preload("res://game/main_game/programs/file/file.tscn")
 var outbound_file_array: Array[FileData] = []
 
-@onready var drop_icon: TextureRect = $PanelContainer/TextureRect
+@onready var drop_icon: TextureRect = $TextureRect
 
 func _process(delta: float) -> void:
 	if outbound_file_array.is_empty():

@@ -65,10 +65,13 @@ theme_override_constants/margin_bottom = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 25
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -94,7 +97,7 @@ size_flags_horizontal = 3
 
 [node name="SubjectRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header"]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
@@ -102,7 +105,7 @@ fit_content = true
 
 [node name="FromSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header"]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 3
 
 [node name="FromLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/FromSection"]
 custom_minimum_size = Vector2(45, 0)
@@ -133,7 +136,7 @@ drag_and_drop_selection_enabled = false
 
 [node name="ToSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header"]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 3
 
 [node name="ToLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/ToSection"]
 custom_minimum_size = Vector2(45, 0)
@@ -164,7 +167,7 @@ drag_and_drop_selection_enabled = false
 
 [node name="CCSection" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header"]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 3
 
 [node name="CCLbl" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/CCSection"]
 custom_minimum_size = Vector2(45, 0)
@@ -206,16 +209,21 @@ theme_override_font_sizes/font_size = 25
 text = "⋮"
 
 [node name="AttachmentSlot" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
 
 [node name="BodyRTL" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true

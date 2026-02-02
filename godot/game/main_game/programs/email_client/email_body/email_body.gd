@@ -32,6 +32,8 @@ func _ready() -> void:
 	outbound_file_container_instance.hide()
 	send_button.hide()
 	
+	attachment_slot.hide()
+	
 	_menu_setup() # work on it later
 
 
@@ -66,6 +68,7 @@ func _setup_message(data: EmailData) -> void:
 	inbound_file_container_instance.hide()
 	outbound_file_container_instance.hide()
 	send_button.hide()
+	attachment_slot.hide()
 
 
 func _setup_inbound(data: EmailData) -> void:
@@ -73,6 +76,7 @@ func _setup_inbound(data: EmailData) -> void:
 	inbound_file_container_instance.clear_files()
 	inbound_file_container_instance.populate(data.attached_files)
 	inbound_file_container_instance.show()
+	attachment_slot.show()
 
 
 # Update it to show a drop zone arrow icon in can_drop_data func
@@ -81,6 +85,7 @@ func _setup_outbound(data: EmailData) -> void:
 	outbound_file_container_instance.draw_files()
 	outbound_file_container_instance.show()
 	send_button.show()
+	attachment_slot.show()
 
 
 func _menu_setup() -> void:
