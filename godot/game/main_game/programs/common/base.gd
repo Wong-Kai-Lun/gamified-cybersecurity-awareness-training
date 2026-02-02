@@ -8,9 +8,8 @@ var drag_offset := Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	title_bar.close_pressed.connect(_hide)
+	title_bar.close_pressed.connect(_on_close_pressed)
 	set_process(true)
-	
 	title_bar.connect("drag_started", Callable(self, "_on_drag_started"))
 	title_bar.connect("drag_ended", Callable(self, "_on_drag_ended"))
 
@@ -29,3 +28,10 @@ func _on_drag_started(local_mouse_pos: Vector2) -> void:
 
 func _on_drag_ended() -> void:
 	is_dragging = false
+
+func _on_close_pressed() -> void:
+	_hide()
+	on_close_requested()
+
+func on_close_requested() -> void:
+	pass

@@ -1,0 +1,147 @@
+[gd_scene load_steps=9 format=3 uid="uid://dt6laao5ivfy4"]
+
+[ext_resource type="PackedScene" uid="uid://2g3m0pmsw2tv" path="res://game/main_game/programs/common/base.tscn" id="1_h3330"]
+[ext_resource type="Script" path="res://game/main_menu/new_player_window.gd" id="2_3b55p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scihp"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_llpx3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vp731"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2japh"]
+bg_color = Color(0, 0, 0.4, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcvrg"]
+bg_color = Color(0, 0, 0.266667, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2h8nh"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0.533333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="NewPlayerWindow" instance=ExtResource("1_h3330")]
+custom_minimum_size = Vector2(400, 300)
+anchors_preset = -1
+anchor_left = 0.386979
+anchor_top = 0.319444
+anchor_right = 0.595312
+anchor_bottom = 0.597222
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+script = ExtResource("2_3b55p")
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleBar" parent="WindowPanel/Structure" index="0"]
+title = "Welcome to ABC Stationeries!"
+
+[node name="MarginContainer" type="MarginContainer" parent="WindowPanel/Structure/Content" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowPanel/Structure/Content/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="UsernameVBox" type="VBoxContainer" parent="WindowPanel/Structure/Content/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="UsernameLbl" type="Label" parent="WindowPanel/Structure/Content/MarginContainer/VBoxContainer/UsernameVBox" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "Username:"
+
+[node name="UsernameInput" type="LineEdit" parent="WindowPanel/Structure/Content/MarginContainer/VBoxContainer/UsernameVBox" index="1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxFlat_scihp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_llpx3")
+max_length = 50
+
+[node name="EmailVBox" type="VBoxContainer" parent="WindowPanel/Structure/Content/MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EmailLbl" type="Label" parent="WindowPanel/Structure/Content/MarginContainer/VBoxContainer/EmailVBox" index="0"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "New Company Email:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowPanel/Structure/Content/MarginContainer/VBoxContainer/EmailVBox" index="1"]
+layout_mode = 2
+
+[node name="EmailInput" type="LineEdit" parent="WindowPanel/Structure/Content/MarginContainer/VBoxContainer/EmailVBox/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxFlat_scihp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_llpx3")
+max_length = 30
+
+[node name="DomainLbl" type="Label" parent="WindowPanel/Structure/Content/MarginContainer/VBoxContainer/EmailVBox/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "@abc.com.my"
+
+[node name="StartButton" type="Button" parent="WindowPanel/Structure/Content/MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vp731")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2japh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lcvrg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2h8nh")
+text = "Play"
+
+[node name="NoteLbl" type="Label" parent="WindowPanel/Structure/Content/MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "*Note: Do not enter your actual email address."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="WindowPanel/Structure/Content/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

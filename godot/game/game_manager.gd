@@ -18,6 +18,11 @@ func _ready():
 	print("GameManager is online!")
 
 
+func register_player(username: String, email: String) -> void:
+	_player_name = username
+	_player_email = email + _COMPANY_DOMAIN
+
+
 func get_player_inventory() -> Array[FileData]:
 	return _inventory.duplicate(true)
 
