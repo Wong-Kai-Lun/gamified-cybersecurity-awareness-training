@@ -35,6 +35,7 @@ func setup(data: FileData) -> void:
 		FileData.FileContext.INBOUND:
 			_setup_inbound_file()
 			action_menu_button.flat = true
+			action_menu_button.button_mask = MOUSE_BUTTON_MASK_LEFT | MOUSE_BUTTON_MASK_RIGHT
 		
 		FileData.FileContext.INVENTORY:
 			_setup_inventory_file()
@@ -43,6 +44,7 @@ func setup(data: FileData) -> void:
 		FileData.FileContext.OUTBOUND:
 			_setup_outbound_file()
 			action_menu_button.flat = true
+			action_menu_button.button_mask = MOUSE_BUTTON_MASK_LEFT | MOUSE_BUTTON_MASK_RIGHT
 			
 		FileData.FileContext.TRASH:
 			pass

@@ -10,6 +10,9 @@ extends Control
 @onready var settings = settings_scene.instantiate()
 @onready var inventory = inventory_scene.instantiate()
 
+@onready var input_blocker_scene: PackedScene = preload("res://game/main_game/programs/common/input_blocker.tscn")
+@onready var input_blocker = input_blocker_scene.instantiate()
+
 @onready var notif_vbox: VBoxContainer = $CanvasLayer/PanelContainer/ScrollContainer/MarginContainer/NotificationVBox
 @onready var notif_toast_scene: PackedScene = preload("res://game/notification_system/notification_toast.tscn")
 
@@ -18,13 +21,19 @@ func _ready() -> void:
 	programs_container.add_child(email_client)
 	programs_container.add_child(inventory)
 	inventory.hide()
+	canvas_layer.add_child(input_blocker)
 	canvas_layer.add_child(settings)
+	input_blocker.hide()
 	settings.hide()
 	NotificationManagerInstance.request_notification.connect(_create_notif)
-
+	settings.settings_window_closed.connect(_on_settings_closed)
 
 func _on_settings_pressed() -> void:
 	settings.visible = !settings.visible
+	input_blocker.visible = !input_blocker.visible
+
+func _on_settings_closed() -> void:
+	input_blocker.hide()
 
 func _on_3mail_pressed() -> void:
 	email_client.visible = !email_client.visible

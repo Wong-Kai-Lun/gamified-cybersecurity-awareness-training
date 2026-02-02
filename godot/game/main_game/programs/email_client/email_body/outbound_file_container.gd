@@ -33,6 +33,7 @@ func draw_files() -> void:
 func get_outbound_array() -> Array[FileData]:
 	return outbound_file_array
 
+
 # add some visual feedback
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return data is FileData
