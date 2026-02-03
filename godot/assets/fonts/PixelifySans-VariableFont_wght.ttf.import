@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ciw3y22042ycj"
-path="res://.godot/imported/DroidSans-Bold.ttf-1847876cf2897448bc971dc6fcccaad2.fontdata"
+uid="uid://ca2ceim567tvr"
+path="res://.godot/imported/PixelifySans-VariableFont_wght.ttf-e5e1ab46c22d34095a3cee415ea8e3ad.fontdata"
 
 [deps]
 
-source_file="res://assets/DroidSans-Bold.ttf"
-dest_files=["res://.godot/imported/DroidSans-Bold.ttf-1847876cf2897448bc971dc6fcccaad2.fontdata"]
+source_file="res://assets/fonts/PixelifySans-VariableFont_wght.ttf"
+dest_files=["res://.godot/imported/PixelifySans-VariableFont_wght.ttf-e5e1ab46c22d34095a3cee415ea8e3ad.fontdata"]
 
 [params]
 

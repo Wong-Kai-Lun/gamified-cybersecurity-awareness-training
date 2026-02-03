@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cfiur4p5xsiyg"]
 
 [ext_resource type="Script" path="res://game/main_game/programs/email_client/email_body/email_body.gd" id="1_3f7mv"]
-[ext_resource type="FontFile" uid="uid://ciw3y22042ycj" path="res://assets/DroidSans-Bold.ttf" id="2_hcm5s"]
+[ext_resource type="FontFile" uid="uid://ciw3y22042ycj" path="res://assets/fonts/DroidSans-Bold.ttf" id="2_hcm5s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhqjc"]
 bg_color = Color(0.866667, 0.866667, 0.866667, 1)
