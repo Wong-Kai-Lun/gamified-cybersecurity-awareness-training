@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt6laao5ivfy4"]
+[gd_scene load_steps=10 format=3 uid="uid://dt6laao5ivfy4"]
 
 [ext_resource type="PackedScene" uid="uid://2g3m0pmsw2tv" path="res://game/main_game/programs/common/base.tscn" id="1_h3330"]
 [ext_resource type="Script" path="res://game/main_menu/new_player_window.gd" id="2_3b55p"]
@@ -20,14 +20,33 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vp731"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2japh"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o01kq"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.533333, 0.533333, 0.533333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4a43y"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
 bg_color = Color(0, 0, 0.4, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcvrg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tg2rf"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
 bg_color = Color(0, 0, 0.266667, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
@@ -70,7 +89,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 17
+theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
@@ -129,10 +148,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(0.266667, 0.266667, 0.266667, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 17
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vp731")
-theme_override_styles/hover = SubResource("StyleBoxFlat_2japh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lcvrg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_o01kq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4a43y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tg2rf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2h8nh")
 text = "Play"
 
