@@ -1,6 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dcm4pi1ag7r1b"]
 
 [ext_resource type="Script" path="res://game/main_game/programs/common/title_bar.gd" id="1_xqduc"]
+[ext_resource type="Texture2D" uid="uid://ch3nciiiusy3k" path="res://assets/close_button_pressed.png" id="2_7wnen"]
 [ext_resource type="Texture2D" uid="uid://cfi6rjnlvpxfk" path="res://assets/close_button.png" id="2_hfau7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wej56"]
@@ -8,15 +9,12 @@ bg_color = Color(0, 0, 0.533333, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7m0qx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57886"]
-bg_color = Color(0.866667, 0, 0, 1)
-corner_radius_top_right = 8
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xbah5"]
+texture = ExtResource("2_hfau7")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwo78"]
-bg_color = Color(0.733333, 0, 0, 1)
-corner_radius_top_right = 8
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6kqmo"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7hmjf"]
+texture = ExtResource("2_7wnen")
+modulate_color = Color(0.533333, 0.533333, 0.533333, 1)
 
 [node name="TitleBar" type="PanelContainer"]
 anchors_preset = 10
@@ -44,7 +42,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 16
-text = "Test"
 vertical_alignment = 1
 
 [node name="CloseButton" type="Button" parent="MarginContainer/TitleBarContainer"]
@@ -54,10 +51,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 13
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7m0qx")
-theme_override_styles/hover = SubResource("StyleBoxFlat_57886")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_xwo78")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_6kqmo")
-icon = ExtResource("2_hfau7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xbah5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7hmjf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xbah5")
 icon_alignment = 1
 expand_icon = true
 
