@@ -12,7 +12,7 @@ signal drag_ended
 	set(value):
 		_title = value
 		
-		var title_lbl := get_node_or_null("PanelContainer/TitleBarContainer/MarginContainer/Title")
+		var title_lbl := get_node_or_null("MarginContainer/TitleBarContainer/Title")
 		if title_lbl:
 			title_lbl.text = value
 	get:
@@ -21,7 +21,7 @@ signal drag_ended
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var title_lbl := get_node_or_null("PanelContainer/TitleBarContainer/MarginContainer/Title")
+	var title_lbl := get_node_or_null("MarginContainer/TitleBarContainer/Title")
 	if title_lbl:
 		title_lbl.text = _title
 

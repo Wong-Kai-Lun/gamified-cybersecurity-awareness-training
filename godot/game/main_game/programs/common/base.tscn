@@ -1,19 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://2g3m0pmsw2tv"]
 
-[ext_resource type="PackedScene" uid="uid://cukso6bnagbo1" path="res://game/main_game/programs/common/title_bar.tscn" id="1_bw0lj"]
+[ext_resource type="PackedScene" uid="uid://dcm4pi1ag7r1b" path="res://game/main_game/programs/common/title_bar.tscn" id="1_bw0lj"]
 [ext_resource type="Script" path="res://game/main_game/programs/common/base.gd" id="1_kw8q4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h371b"]
 bg_color = Color(0.733333, 0.733333, 0.733333, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(0, 0, 0.533333, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
 
 [node name="BaseWindow" type="Control"]
 custom_minimum_size = Vector2(350, 450)
