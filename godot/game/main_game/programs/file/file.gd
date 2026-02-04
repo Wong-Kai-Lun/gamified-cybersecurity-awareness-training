@@ -84,8 +84,9 @@ func _setup_outbound_file() -> void:
 func _file_action(id: int) -> void:
 	match id:
 		0:
-			GameManagerInstance.add_file_to_inventory(file_data)
-			file_downloaded.emit(file_data)
+			var success := GameManagerInstance.add_file_to_inventory(file_data)
+			if success:
+				file_downloaded.emit(file_data)
 		
 		1:
 			print("Delete pressed!")
