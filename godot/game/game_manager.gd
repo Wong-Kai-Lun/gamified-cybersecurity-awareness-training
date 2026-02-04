@@ -19,7 +19,7 @@ var _recycle_bin: Array[FileData] = []
 func _ready():
 	print("GameManager is online!")
 
-
+# add more checks, mainly prevent bad language, return bool
 func register_player(username: String, email: String) -> void:
 	_player_name = username
 	_player_email = email + _COMPANY_DOMAIN
