@@ -16,6 +16,6 @@ func add_file_to_container(inventory: Array[FileData]) -> void:
 		child.queue_free()
 		
 	for file in inventory:
-		var new_file_instance = file_scene.instantiate()
-		inventory_file_container.add_child(new_file_instance)
-		new_file_instance.setup(file)
+		var new_file = file_scene.instantiate()
+		inventory_file_container.add_child(new_file)
+		new_file.setup(file)

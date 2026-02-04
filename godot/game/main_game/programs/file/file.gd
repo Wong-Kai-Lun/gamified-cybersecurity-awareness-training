@@ -4,7 +4,6 @@ class_name File
 signal remove_requested(file_data: FileData)
 signal file_downloaded(file_data: FileData)
 
-
 @onready var action_menu_button: MenuButton = $ActionMenuButton
 @onready var img_texture_rect: TextureRect = $ActionMenuButton/MarginContainer/VBoxContainer/AspectRatioContainer/FileImg
 @onready var name_label: Label = $ActionMenuButton/MarginContainer/VBoxContainer/FileName
@@ -90,6 +89,8 @@ func _file_action(id: int) -> void:
 		
 		1:
 			print("Delete pressed!")
+			GameManagerInstance.move_inventory_to_trash(file_data)
+			_on_delete_requested()
 			
 		2:
 			print("Remove Attachment pressed!")
@@ -98,6 +99,10 @@ func _file_action(id: int) -> void:
 
 func _on_remove_requested() -> void:
 	remove_requested.emit(file_data)
+	queue_free()
+
+
+func _on_delete_requested() -> void:
 	queue_free()
 
 

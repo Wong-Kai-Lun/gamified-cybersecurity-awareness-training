@@ -4,11 +4,13 @@ extends Control
 @onready var email_client_scene: PackedScene = preload("res://game/main_game/programs/email_client/email_client.tscn")
 @onready var inventory_scene: PackedScene = preload("res://game/main_game/programs/inventory/inventory.tscn")
 @onready var settings_scene: PackedScene = preload("res://game/main_game/programs/settings/settings.tscn")
+@onready var recycling_bin_scene: PackedScene = preload("res://game/main_game/programs/recycling_bin/recycling_bin.tscn")
 
 @onready var canvas_layer = $CanvasLayer
 @onready var email_client = email_client_scene.instantiate()
 @onready var settings = settings_scene.instantiate()
 @onready var inventory = inventory_scene.instantiate()
+@onready var recycling_bin = recycling_bin_scene.instantiate()
 
 @onready var input_blocker_scene: PackedScene = preload("res://game/main_game/programs/common/input_blocker.tscn")
 @onready var input_blocker = input_blocker_scene.instantiate()
@@ -21,12 +23,18 @@ func _ready() -> void:
 	programs_container.add_child(email_client)
 	programs_container.add_child(inventory)
 	inventory.hide()
+	
+	programs_container.add_child(recycling_bin)
+	recycling_bin.hide()
+	
 	canvas_layer.add_child(input_blocker)
 	canvas_layer.add_child(settings)
 	input_blocker.hide()
-	settings.hide()
-	NotificationManagerInstance.request_notification.connect(_create_notif)
 	settings.settings_window_closed.connect(_on_settings_closed)
+	settings.hide()
+	
+	NotificationManagerInstance.request_notification.connect(_create_notif)
+	
 
 func _on_settings_pressed() -> void:
 	settings.visible = !settings.visible
@@ -71,3 +79,7 @@ func _fade_and_slide_out(node) -> void:
 	t.set_parallel(false)
 	
 	await t.finished
+
+
+func _on_trash_pressed() -> void:
+	recycling_bin.visible = !recycling_bin.visible

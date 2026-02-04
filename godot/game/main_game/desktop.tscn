@@ -198,3 +198,4 @@ alignment = 2
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/3Mail" to="." method="_on_3mail_pressed"]
+[connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/TRSH" to="." method="_on_trash_pressed"]
