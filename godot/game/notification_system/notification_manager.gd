@@ -11,6 +11,7 @@ func register_file(file: File) -> void:
 
 func _notify_file_downloaded(file_data: FileData) -> void:
 	request_notification.emit({ "title": "File Downloaded", "body": file_data.file_name })
+	AntivirusManagerInstance.scan_player_inventory()
 
 func _notify_inventory_full() -> void:
 	request_notification.emit({ "title": "No more space", "body": "Please remove some files." })

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManagerInstance="*res://game/game_manager.gd"
 NotificationManagerInstance="*res://game/notification_system/notification_manager.gd"
+AntivirusManagerInstance="*res://game/notification_system/antivirus_manager.gd"
 
 [display]
 
