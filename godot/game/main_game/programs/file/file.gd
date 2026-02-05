@@ -98,7 +98,7 @@ func _file_action(id: int) -> void:
 		
 		1:
 			print("Delete pressed!")
-			GameManagerInstance.move_inventory_to_trash(file_data)
+			FileServiceInstance.move_inventory_to_trash(file_data)
 			_on_delete_requested()
 			
 		2:
@@ -107,7 +107,7 @@ func _file_action(id: int) -> void:
 			
 		3:
 			print("File Restored!")
-			GameManagerInstance.move_trash_to_inventory(file_data)
+			FileServiceInstance.move_trash_to_inventory(file_data)
 			_on_delete_requested()
 
 func _on_remove_requested() -> void:

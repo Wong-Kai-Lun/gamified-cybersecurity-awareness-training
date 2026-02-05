@@ -40,7 +40,7 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	var outbound_file_data = GameManagerInstance.change_inventory_to_outbound(data)
+	var outbound_file_data = FileServiceInstance.convert_file_context(data, FileData.FileContext.OUTBOUND)
 	outbound_file_array.append(outbound_file_data)
 	draw_files()
 

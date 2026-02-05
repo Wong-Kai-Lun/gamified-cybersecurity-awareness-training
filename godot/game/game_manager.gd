@@ -35,57 +35,29 @@ func get_player_inventory() -> Array[FileData]:
 func get_inventory_size() -> int:
 	return _inventory.size()
 
-
 func commit_add_to_inventory(file: FileData) -> void:
 	_inventory.append(file)
 	inventory_changed.emit(_inventory.duplicate(true))
 
-
-func change_inventory_to_outbound(file: FileData) -> FileData:
-	var new_file := file.duplicate()
-	new_file.file_context = FileData.FileContext.OUTBOUND
-	return new_file
-
-
-func move_inventory_to_trash(file: FileData) -> void:
-	_inventory.erase(file)
-	
-	var new_file := file.duplicate()
-	new_file.file_context = FileData.FileContext.TRASH
-	_recycling_bin.append(new_file)
+func commit_inventory_to_trash(inventory_file: FileData, trash_file: FileData) -> void:
+	_inventory.erase(inventory_file)
+	_recycling_bin.append(trash_file)
 	recycling_bin_changed.emit(_recycling_bin.duplicate(true))
-	
-	debug()
 
-
-func move_trash_to_inventory(file: FileData) -> void:
-	_recycling_bin.erase(file)
-	
-	var new_file := file.duplicate()
-	new_file.file_context = FileData.FileContext.INVENTORY
-	_inventory.append(new_file)
+func commit_trash_to_inventory(trash_file: FileData, inventory_file: FileData) -> void:
+	_recycling_bin.erase(trash_file)
+	_inventory.append(inventory_file)
 	inventory_changed.emit(_inventory.duplicate(true))
-	
-	debug()
-
 
 func empty_recycling_bin() -> void:
 	_recycling_bin.clear()
 	recycling_bin_changed.emit(_recycling_bin.duplicate(true))
-	
-	debug()
-
-
-func debug() -> void:
-	print("Player Inventory: ", _inventory)
-	print("Recycling Bin: ", _recycling_bin)
 
 
 # Email Body
 func replace_placeholder_name(placeholder_name: String) -> String:
 	var replaced_name = placeholder_name.replace(_PLACEHOLDER_NAME, _player_name)
 	return replaced_name
-
 
 func replace_placeholder_email(placeholder_email: String) -> String:
 	var replaced_email = placeholder_email.replace(_PLACEHOLDER_EMAIL, _player_email)

@@ -14,9 +14,16 @@ func try_add_to_inventory(file: FileData) -> bool:
 		GameManagerInstance.inventory_full.emit()
 		return false
 	
-	var inventory_file = convert_file_context(file, FileData.FileContext.INVENTORY)
+	var inventory_file := convert_file_context(file, FileData.FileContext.INVENTORY)
 	GameManagerInstance.commit_add_to_inventory(inventory_file)
 	return true
 
 
-# add more
+func move_inventory_to_trash(file: FileData) -> void:
+	var trash_file := convert_file_context(file, FileData.FileContext.TRASH)
+	GameManagerInstance.commit_inventory_to_trash(file, trash_file)
+
+
+func move_trash_to_inventory(file: FileData) -> void:
+	var restored_file := convert_file_context(file, FileData.FileContext.INVENTORY)
+	GameManagerInstance.commit_trash_to_inventory(file, restored_file)
