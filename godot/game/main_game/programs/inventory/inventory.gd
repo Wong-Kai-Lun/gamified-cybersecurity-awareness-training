@@ -7,15 +7,19 @@ class_name InventoryWindow
 
 func _ready() -> void:
 	super._ready()
-	GameManagerInstance.inventory_changed.connect(add_file_to_container)
+	GameManagerInstance.inventory_changed.connect(_draw_files)
 
 
 # Activates when player inventory changes.
-func add_file_to_container(inventory: Array[FileData]) -> void:
-	for child in inventory_file_container.get_children():
-		child.queue_free()
+func _draw_files(inventory: Array[FileData]) -> void:
+	_clear_files()
 		
 	for file in inventory:
 		var new_file = file_scene.instantiate()
 		inventory_file_container.add_child(new_file)
 		new_file.setup(file)
+
+
+func _clear_files() -> void:
+	for file in inventory_file_container.get_children():
+		file.queue_free()

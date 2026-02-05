@@ -63,6 +63,17 @@ func move_inventory_to_trash(file: FileData) -> void:
 	debug()
 
 
+func move_trash_to_inventory(file: FileData) -> void:
+	_recycling_bin.erase(file)
+	
+	var new_file := file.duplicate()
+	new_file.file_context = FileData.FileContext.INVENTORY
+	_inventory.append(new_file)
+	inventory_changed.emit(_inventory.duplicate(true))
+	
+	debug()
+
+
 func empty_recycling_bin() -> void:
 	_recycling_bin.clear()
 	recycling_bin_changed.emit(_recycling_bin.duplicate(true))

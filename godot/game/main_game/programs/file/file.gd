@@ -46,7 +46,8 @@ func setup(data: FileData) -> void:
 			action_menu_button.button_mask = MOUSE_BUTTON_MASK_LEFT | MOUSE_BUTTON_MASK_RIGHT
 			
 		FileData.FileContext.TRASH:
-			pass
+			_setup_deleted_file()
+			action_menu_button.flat = true
 			
 		_:
 			push_warning("Unknown FileContext: %s" % data.context)
@@ -79,6 +80,14 @@ func _setup_outbound_file() -> void:
 	action_menu_popup.id_pressed.connect(_file_action)
 
 
+func _setup_deleted_file() -> void:
+	is_draggable = false
+	
+	var action_menu_popup: PopupMenu = action_menu_button.get_popup()
+	action_menu_popup.add_item("Restore", 3)
+	action_menu_popup.id_pressed.connect(_file_action)
+
+
 # Action Menu Logic
 func _file_action(id: int) -> void:
 	match id:
@@ -95,13 +104,17 @@ func _file_action(id: int) -> void:
 		2:
 			print("Remove Attachment pressed!")
 			_on_remove_requested()
-
+			
+		3:
+			print("File Restored!")
+			GameManagerInstance.move_trash_to_inventory(file_data)
+			_on_delete_requested()
 
 func _on_remove_requested() -> void:
 	remove_requested.emit(file_data)
 	queue_free()
 
-
+# turn into common
 func _on_delete_requested() -> void:
 	queue_free()
 
