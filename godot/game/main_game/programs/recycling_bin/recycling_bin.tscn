@@ -17,6 +17,7 @@ offset_top = 489.0
 offset_right = 1318.0
 offset_bottom = 489.0
 script = ExtResource("2_bva4r")
+file_container_path = NodePath("WindowPanel/Structure/Content/VBoxContainer/MarginContainer/DeletedFilesHFlow")
 metadata/_edit_use_anchors_ = true
 
 [node name="TitleBar" parent="WindowPanel/Structure" index="0"]
