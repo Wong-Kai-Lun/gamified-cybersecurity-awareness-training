@@ -92,7 +92,7 @@ func _setup_deleted_file() -> void:
 func _file_action(id: int) -> void:
 	match id:
 		0:
-			var success := GameManagerInstance.add_file_to_inventory(file_data)
+			var success := FileServiceInstance.try_add_to_inventory(file_data)
 			if success:
 				file_downloaded.emit(file_data)
 		

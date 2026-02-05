@@ -10,7 +10,7 @@ signal recycling_bin_changed(recycling_bin: Array[FileData])
 var _COMPANY_DOMAIN = "@abc.com.my"
 var _PLACEHOLDER_NAME = "{player_name}"
 var _PLACEHOLDER_EMAIL = "{player_email}"
-var _MAX_INVENTORY_SIZE = 16
+var MAX_INVENTORY_SIZE = 16
 
 var _player_name: String = "Placeholder"
 var _player_email: String = "place.holder" + _COMPANY_DOMAIN
@@ -32,18 +32,13 @@ func get_player_inventory() -> Array[FileData]:
 	return _inventory.duplicate(true)
 
 
-func add_file_to_inventory(file: FileData) -> bool:
-	if _inventory.size() >= _MAX_INVENTORY_SIZE:
-		inventory_full.emit()
-		return false
-	
-	var new_file := file.duplicate()
-	new_file.file_context = FileData.FileContext.INVENTORY
-	_inventory.append(new_file)
-	inventory_changed.emit(_inventory.duplicate())
-	
-	debug()
-	return true
+func get_inventory_size() -> int:
+	return _inventory.size()
+
+
+func commit_add_to_inventory(file: FileData) -> void:
+	_inventory.append(file)
+	inventory_changed.emit(_inventory.duplicate(true))
 
 
 func change_inventory_to_outbound(file: FileData) -> FileData:
