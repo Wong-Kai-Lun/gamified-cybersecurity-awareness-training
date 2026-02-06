@@ -1,6 +1,8 @@
 extends Control
 class_name EmailBody
 
+signal email_reported
+
 @onready var subject: RichTextLabel = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/SubjectRTL
 @onready var from_rtl: RichTextLabel = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/FromSection/FromRTL
 @onready var to_rtl: RichTextLabel = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/ToSection/ToRTL
@@ -74,7 +76,7 @@ func _setup_message(data: EmailData) -> void:
 func _setup_inbound(data: EmailData) -> void:
 	_setup_message(data)
 	inbound_file_container_instance.clear_files()
-	inbound_file_container_instance.populate(data.attached_files)
+	inbound_file_container_instance.populate(data.inbound_attachments)
 	inbound_file_container_instance.show()
 	attachment_slot.show()
 
@@ -104,3 +106,4 @@ func _on_report_pressed(id: int) -> void:
 	match id:
 		0:
 			print("Report Button Pressed!")
+			email_data.is_reported = true

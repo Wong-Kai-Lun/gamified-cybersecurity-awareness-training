@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b27ihi80pjgu"]
+[gd_scene load_steps=9 format=3 uid="uid://b27ihi80pjgu"]
 
 [ext_resource type="PackedScene" uid="uid://2g3m0pmsw2tv" path="res://game/main_game/programs/common/base.tscn" id="1_2xond"]
 [ext_resource type="Script" path="res://game/main_game/programs/email_client/email_client.gd" id="1_smk6c"]
@@ -26,6 +26,9 @@ border_color = Color(0.2, 0.2, 0.2, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyaau"]
 bg_color = Color(0.866667, 0.866667, 0.866667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upufd"]
+bg_color = Color(0, 0, 0, 0.3)
 
 [node name="EmailClientWindow" instance=ExtResource("1_2xond")]
 offset_right = 0.0
@@ -100,3 +103,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uyaau")
+
+[node name="InputBlocker" type="Label" parent="WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/EmailBodyContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 0
+mouse_default_cursor_shape = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_upufd")
+text = "Thank you for reporting!
+We will look in to this case!"
+horizontal_alignment = 1
+vertical_alignment = 1

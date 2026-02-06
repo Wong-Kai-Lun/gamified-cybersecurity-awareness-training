@@ -12,6 +12,7 @@ class_name EmailClientWindow
 @onready var email_body_container: PanelContainer = $WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/EmailBodyContainer
 @onready var email_body_scene: PackedScene = preload("res://game/main_game/programs/email_client/email_body/email_body.tscn")
 @onready var email_body_obj := email_body_scene.instantiate()
+@onready var input_blocker: Label = $WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/EmailBodyContainer/InputBlocker
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,7 +20,10 @@ func _ready() -> void:
 	load_email_pack(email_pack)
 	
 	email_body_container.add_child(email_body_obj)
+	input_blocker.move_to_front()
+	
 	email_body_obj.hide()
+	input_blocker.hide()
 
 
 func load_email_pack(pack: EmailPack) -> void:
@@ -35,3 +39,7 @@ func load_email_pack(pack: EmailPack) -> void:
 func _on_email_selected(data: EmailData) -> void:
 	email_body_obj.setup(data)
 	email_body_obj.show()
+	input_blocker.hide()
+	
+	if data.is_reported:
+		input_blocker.show()

@@ -49,6 +49,7 @@ func _on_3mail_pressed() -> void:
 func _on_inventory_pressed() -> void:
 	inventory.visible = !inventory.visible
 
+
 # Notification System
 func _create_notif(data) -> void:
 	var new_notif = notif_toast_scene.instantiate()

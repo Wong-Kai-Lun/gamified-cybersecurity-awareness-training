@@ -10,7 +10,13 @@ enum EmailType { MESSAGE, INBOUND, OUTBOUND }
 @export var cc_address: String
 @export var subject: String
 @export var email_body: String
-@export var attached_files: Array[FileData] = []
+
+@export var inbound_attachments: Array[FileData] = []
 @export var expected_attachments: Array[FileData] = []
+
+@export var is_read: bool = false
+@export var is_important: bool = false
+@export var is_phishing: bool = false
 @export var is_reported: bool = false
+
 @export var score: float
