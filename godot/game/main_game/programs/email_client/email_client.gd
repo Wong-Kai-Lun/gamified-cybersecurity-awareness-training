@@ -34,8 +34,6 @@ func load_email_pack(pack: EmailPack) -> void:
 		incoming_email_instance.opened.connect(_on_email_selected)
 
 
-# later add change mail status from unread to read and change its colors
-# a reported email has everything inside it disabled
 func _on_email_selected(data: EmailData) -> void:
 	email_body_obj.setup(data)
 	email_body_obj.show()

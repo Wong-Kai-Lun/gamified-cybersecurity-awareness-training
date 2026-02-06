@@ -7,14 +7,19 @@ signal file_downloaded(file_data: FileData)
 @onready var action_menu_button: MenuButton = $ActionMenuButton
 @onready var img_texture_rect: TextureRect = $ActionMenuButton/MarginContainer/VBoxContainer/AspectRatioContainer/FileImg
 @onready var name_label: Label = $ActionMenuButton/MarginContainer/VBoxContainer/FileName
+
 var file_data: FileData
 var is_draggable: bool = true
+
+enum FileAction { DOWNLOAD, MOVE_TO_BIN, OUTBOUND_REMOVE, RESTORE }
 
 
 func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 
+
+# Visual Behaviour
 func _on_mouse_entered() -> void:
 	name_label.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
 	name_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -24,11 +29,11 @@ func _on_mouse_exited() -> void:
 	name_label.autowrap_mode = TextServer.AUTOWRAP_OFF
 
 
+# Game Data Behaviour
 func setup(data: FileData) -> void:
 	file_data = data
 	img_texture_rect.texture = data.file_texture
 	name_label.text = data.file_name
-	self.tooltip_text = data.file_name
 	
 	match data.file_context:
 		FileData.FileContext.INBOUND:
@@ -53,69 +58,60 @@ func setup(data: FileData) -> void:
 			push_warning("Unknown FileContext: %s" % data.context)
 
 
-# Abstract later.
+func _setup_action_menu(items: Dictionary) -> void:
+	var popup: PopupMenu = action_menu_button.get_popup()
+	popup.clear()
+	
+	for label in items:
+		popup.add_item(label, items[label])
+		
+	if not popup.id_pressed.is_connected(_file_action):
+		popup.id_pressed.connect(_file_action)
+
+
 func _setup_inbound_file() -> void:
 	is_draggable = false
-	
 	NotificationManagerInstance.register_file(self)
-	
-	var action_menu_popup: PopupMenu = action_menu_button.get_popup()
-	action_menu_popup.add_item("Download", 0)
-	action_menu_popup.id_pressed.connect(_file_action)
+	_setup_action_menu({ "Download": FileAction.DOWNLOAD })
 
 
 func _setup_inventory_file() -> void:
 	is_draggable = true
-	
-	var action_menu_popup: PopupMenu = action_menu_button.get_popup()
-	action_menu_popup.add_item("Delete", 1)
-	action_menu_popup.id_pressed.connect(_file_action)
+	_setup_action_menu({ "Delete": FileAction.MOVE_TO_BIN })
 
 
 func _setup_outbound_file() -> void:
 	is_draggable = false
-	
-	var action_menu_popup: PopupMenu = action_menu_button.get_popup()
-	action_menu_popup.add_item("Remove Attachment", 2)
-	action_menu_popup.id_pressed.connect(_file_action)
+	_setup_action_menu({ "Remove Attachment": FileAction.OUTBOUND_REMOVE })
 
 
 func _setup_deleted_file() -> void:
 	is_draggable = false
-	
-	var action_menu_popup: PopupMenu = action_menu_button.get_popup()
-	action_menu_popup.add_item("Restore", 3)
-	action_menu_popup.id_pressed.connect(_file_action)
+	_setup_action_menu({ "Restore": FileAction.RESTORE })
 
 
 # Action Menu Logic
 func _file_action(id: int) -> void:
 	match id:
-		0:
+		FileAction.DOWNLOAD:
 			var success := FileServiceInstance.try_add_to_inventory(file_data)
 			if success:
 				file_downloaded.emit(file_data)
 		
-		1:
-			print("Delete pressed!")
+		FileAction.MOVE_TO_BIN:
 			FileServiceInstance.move_inventory_to_trash(file_data)
-			_on_delete_requested()
+			queue_free()
 			
-		2:
-			print("Remove Attachment pressed!")
+		FileAction.OUTBOUND_REMOVE:
 			_on_remove_requested()
 			
-		3:
-			print("File Restored!")
+		FileAction.RESTORE:
 			FileServiceInstance.move_trash_to_inventory(file_data)
-			_on_delete_requested()
+			queue_free()
+
 
 func _on_remove_requested() -> void:
 	remove_requested.emit(file_data)
-	queue_free()
-
-# turn into common
-func _on_delete_requested() -> void:
 	queue_free()
 
 
