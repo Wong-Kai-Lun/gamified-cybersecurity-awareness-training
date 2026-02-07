@@ -23,6 +23,7 @@ signal email_reported(data: EmailData)
 var email_data: EmailData
 enum EmailAction { REPORT }
 
+
 func _ready() -> void:
 	subject.bbcode_enabled = true
 	body_rtl.bbcode_enabled = true
@@ -35,8 +36,7 @@ func _ready() -> void:
 	send_button.hide()
 	
 	attachment_slot.hide()
-	
-	_menu_setup() # work on it later
+	_menu_setup()
 
 
 func setup(data: EmailData) -> void:
