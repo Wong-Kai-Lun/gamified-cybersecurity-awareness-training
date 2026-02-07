@@ -112,9 +112,8 @@ mouse_default_cursor_shape = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_upufd")
-text = "Thank you for reporting!
-We will look in to this case!"
+text = "This email has been reported for phishing."
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -19,6 +19,7 @@ func _ready() -> void:
 	super._ready()
 	load_email_pack(email_pack)
 	
+	email_body_obj.email_reported.connect(_block_reported_email)
 	email_body_container.add_child(email_body_obj)
 	input_blocker.move_to_front()
 	
@@ -37,7 +38,11 @@ func load_email_pack(pack: EmailPack) -> void:
 func _on_email_selected(data: EmailData) -> void:
 	email_body_obj.setup(data)
 	email_body_obj.show()
-	input_blocker.hide()
-	
+	_block_reported_email(data)
+
+
+func _block_reported_email(data: EmailData) -> void:
 	if data.is_reported:
 		input_blocker.show()
+	else:
+		input_blocker.hide()

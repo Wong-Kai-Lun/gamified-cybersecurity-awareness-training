@@ -1,7 +1,7 @@
 extends Control
 class_name EmailBody
 
-signal email_reported
+signal email_reported(data: EmailData)
 
 @onready var subject: RichTextLabel = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/SubjectRTL
 @onready var from_rtl: RichTextLabel = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/FromSection/FromRTL
@@ -21,7 +21,7 @@ signal email_reported
 @onready var file_scene: PackedScene = preload("res://game/main_game/programs/file/file.tscn")
 
 var email_data: EmailData
-
+enum EmailAction { REPORT }
 
 func _ready() -> void:
 	subject.bbcode_enabled = true
@@ -92,7 +92,7 @@ func _setup_outbound(data: EmailData) -> void:
 
 func _menu_setup() -> void:
 	var pop_up_menu: PopupMenu = menu_btn.get_popup()
-	pop_up_menu.add_item("Report phishing", 0)
+	pop_up_menu.add_item("Report phishing", EmailAction.REPORT)
 	pop_up_menu.id_pressed.connect(_on_report_pressed)
 
 
@@ -103,7 +103,10 @@ func _on_send_pressed() -> void:
 
 # lock email after report
 func _on_report_pressed(id: int) -> void:
+	if email_data.is_reported:
+		return
+	
 	match id:
-		0:
-			print("Report Button Pressed!")
+		EmailAction.REPORT:
 			email_data.is_reported = true
+			email_reported.emit(email_data)
