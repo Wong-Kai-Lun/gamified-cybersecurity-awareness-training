@@ -17,7 +17,6 @@ func _on_back_pressed() -> void:
 
 func _on_monday_pressed() -> void:
 	get_tree().change_scene_to_file("res://game/main_game/desktop.tscn")
-	# create base game interface then load later
 
 
 func _on_tuesday_pressed() -> void:

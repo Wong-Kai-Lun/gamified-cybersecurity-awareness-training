@@ -21,6 +21,7 @@ GameManagerInstance="*res://game/game_manager.gd"
 NotificationManagerInstance="*res://game/notification_system/notification_manager.gd"
 AntivirusManagerInstance="*res://game/notification_system/antivirus_manager.gd"
 FileServiceInstance="*res://game/file_service.gd"
+EventServiceInstance="*res://game/event_service.gd"
 
 [display]
 

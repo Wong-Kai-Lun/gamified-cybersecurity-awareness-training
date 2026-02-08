@@ -12,10 +12,12 @@ var _PLACEHOLDER_NAME = "{player_name}"
 var _PLACEHOLDER_EMAIL = "{player_email}"
 var MAX_INVENTORY_SIZE = 16
 
+
 var _player_name: String = "Placeholder"
 var _player_email: String = "place.holder" + _COMPANY_DOMAIN
 var _inventory: Array[FileData] = []
 var _recycling_bin: Array[FileData] = []
+
 
 # check save file, if have, load that, enable continue
 func _ready():

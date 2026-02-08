@@ -1,7 +1,8 @@
 extends BaseWindow
 class_name EmailClientWindow
 
-# ! Level Data change to set pack from selection, Game Manager !
+# ! EmailPack determined by LevelService !
+# ! change after implement SaveLoadManager !
 @onready var email_pack: EmailPack = preload("res://data/email_pack/monday.tres")
 
 # Incoming Email Chips
@@ -33,6 +34,10 @@ func load_email_pack(pack: EmailPack) -> void:
 		incoming_email_vbox.add_child(incoming_email_instance)
 		incoming_email_instance.setup(email_data)
 		incoming_email_instance.opened.connect(_on_email_selected)
+
+
+func load_from_save(pack: EmailPack) -> void:
+	pass
 
 
 func _on_email_selected(data: EmailData) -> void:
