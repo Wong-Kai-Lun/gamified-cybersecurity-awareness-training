@@ -9,10 +9,12 @@ func _ready() -> void:
 
 
 func check_inventory() -> void:
-	var inventory_array = GameManagerInstance.get_player_inventory()
-	
+	var player_inventory = GameManagerInstance.get_player_inventory()
+	_calculate_malware(player_inventory)
+	print("EventService Malware Counter: ", _malware_count)
+
+
+func _calculate_malware(inventory_array: Array[FileData]) -> void:
 	for file in inventory_array:
 		if file.file_type == FileData.FileType.MALWARE:
 			_malware_count += 1
-	
-	print("EventService Malware Counter: ", _malware_count)
