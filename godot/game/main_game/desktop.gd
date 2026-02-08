@@ -44,10 +44,17 @@ func _on_settings_closed() -> void:
 	input_blocker.hide()
 
 func _on_3mail_pressed() -> void:
+	await EventServiceInstance.delay_input()
 	email_client.visible = !email_client.visible
 
 func _on_inventory_pressed() -> void:
+	await EventServiceInstance.delay_input()
 	inventory.visible = !inventory.visible
+
+
+func _on_trash_pressed() -> void:
+	await EventServiceInstance.delay_input()
+	recycling_bin.visible = !recycling_bin.visible
 
 
 # Notification System
@@ -80,7 +87,3 @@ func _fade_and_slide_out(node) -> void:
 	t.set_parallel(false)
 	
 	await t.finished
-
-
-func _on_trash_pressed() -> void:
-	recycling_bin.visible = !recycling_bin.visible
