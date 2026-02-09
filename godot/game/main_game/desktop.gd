@@ -19,6 +19,7 @@ extends Control
 @onready var notif_toast_scene: PackedScene = preload("res://game/notification_system/notification_toast.tscn")
 
 @onready var bsod_panel: PanelContainer = $CanvasLayer/BSODPanel
+@onready var ad_window_scene: PackedScene = preload("res://game/main_game/programs/events/ad_window.tscn")
 
 
 func _ready() -> void:
@@ -39,6 +40,8 @@ func _ready() -> void:
 	
 	bsod_panel.hide()
 	EventServiceInstance.bsod_triggered.connect(_on_malware_overload)
+	EventServiceInstance.adware_triggered.connect(_on_adware_triggered)
+
 
 func _on_settings_pressed() -> void:
 	settings.visible = !settings.visible
@@ -61,7 +64,6 @@ func _on_inventory_pressed() -> void:
 func _on_trash_pressed() -> void:
 	await EventServiceInstance.delay_input()
 	recycling_bin.visible = !recycling_bin.visible
-
 
 # Notification System
 func _create_notif(data) -> void:
@@ -99,3 +101,16 @@ func _fade_and_slide_out(node) -> void:
 # Consequences
 func _on_malware_overload() -> void:
 	bsod_panel.show()
+
+
+func _on_adware_triggered(ad_window_amount: int) -> void:
+	for ad_window in ad_window_amount:
+		var ad_window_instance = ad_window_scene.instantiate()
+		var container_size = programs_container.size
+		
+		var x = randf_range(0, container_size.x)
+		var y = randf_range(0, container_size.y)
+		
+		programs_container.add_child(ad_window_instance)
+		ad_window_instance.position = Vector2(x, y)
+		ad_window_instance.setup()

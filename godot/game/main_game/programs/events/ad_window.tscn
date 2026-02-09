@@ -7,12 +7,16 @@
 [node name="BaseWindow" instance=ExtResource("1_shch1")]
 custom_minimum_size = Vector2(350, 350)
 offset_bottom = -730.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("2_peycr")
 possible_textures = Array[Texture2D]([ExtResource("3_xtchl")])
+possible_sizes = Array[Vector2]([Vector2(350, 350), Vector2(400, 400)])
 
 [node name="TitleBar" parent="WindowPanel/Structure" index="0"]
 title = "Advertisement"
 
 [node name="AdTextureRect" type="TextureRect" parent="WindowPanel/Structure/Content" index="0"]
 layout_mode = 2
+expand_mode = 1
 stretch_mode = 5

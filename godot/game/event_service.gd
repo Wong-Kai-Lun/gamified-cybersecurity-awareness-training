@@ -2,7 +2,7 @@ extends Node
 class_name EventService
 
 signal severity_changed(level: Severity)
-signal adware_triggered(adware_count: int)
+signal adware_triggered(adwindow_amount: int)
 signal bsod_triggered
 signal ransomware_found
 
@@ -19,6 +19,7 @@ const SEVERITY_THRESHOLDS = {
 var severity_level: Severity = Severity.NONE
 var malware_count: int = 0
 var adware_count: int = 0
+var base_ad_window_amount: int = 4
 var adware_timer: Timer
 var total_malware_count: int = 0
 
@@ -112,5 +113,5 @@ func _start_adware_timer() -> void:
 
 func _on_adware_timer_timeout() -> void:
 	if adware_count > 0:
-		adware_triggered.emit(adware_count)
+		adware_triggered.emit(base_ad_window_amount + adware_count)
 		_start_adware_timer()
