@@ -40,6 +40,7 @@ func _update_background() -> void:
 
 
 func _on_open_pressed() -> void:
+	await EventServiceInstance.delay_input()
 	opened.emit(email_data)
 	_update_status_to_read()
 	_update_background()

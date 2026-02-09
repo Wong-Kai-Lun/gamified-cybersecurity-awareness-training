@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://bh6kb7wq6xc3b"]
+
+[ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://assets/file.png" id="1_1wjyo"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_yjx5e"]
+
+[resource]
+script = ExtResource("1_yjx5e")
+file_id = "sample_adware"
+file_texture = ExtResource("1_1wjyo")
+file_name = "totally not adware.exe"
+file_context = 0
+file_type = 2

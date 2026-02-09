@@ -15,8 +15,10 @@ extends Control
 @onready var input_blocker_scene: PackedScene = preload("res://game/main_game/programs/common/input_blocker.tscn")
 @onready var input_blocker = input_blocker_scene.instantiate()
 
-@onready var notif_vbox: VBoxContainer = $CanvasLayer/PanelContainer/ScrollContainer/MarginContainer/NotificationVBox
+@onready var notif_vbox: VBoxContainer = $CanvasLayer/NotificationPanel/ScrollContainer/MarginContainer/NotificationVBox
 @onready var notif_toast_scene: PackedScene = preload("res://game/notification_system/notification_toast.tscn")
+
+@onready var bsod_panel: PanelContainer = $CanvasLayer/BSODPanel
 
 
 func _ready() -> void:
@@ -35,6 +37,8 @@ func _ready() -> void:
 	
 	NotificationManagerInstance.request_notification.connect(_create_notif)
 	
+	bsod_panel.hide()
+	EventServiceInstance.bsod_triggered.connect(_on_malware_overload)
 
 func _on_settings_pressed() -> void:
 	settings.visible = !settings.visible
@@ -43,9 +47,11 @@ func _on_settings_pressed() -> void:
 func _on_settings_closed() -> void:
 	input_blocker.hide()
 
+
 func _on_3mail_pressed() -> void:
 	await EventServiceInstance.delay_input()
 	email_client.visible = !email_client.visible
+
 
 func _on_inventory_pressed() -> void:
 	await EventServiceInstance.delay_input()
@@ -67,8 +73,9 @@ func _create_notif(data) -> void:
 
 
 func _remove_notif(node) -> void:
-	await _fade_and_slide_out(node)
-	node.queue_free()
+	if node:
+		await _fade_and_slide_out(node)
+		node.queue_free()
 
 
 func _fade_in(node) -> void:
@@ -87,3 +94,8 @@ func _fade_and_slide_out(node) -> void:
 	t.set_parallel(false)
 	
 	await t.finished
+
+
+# Consequences
+func _on_malware_overload() -> void:
+	bsod_panel.show()

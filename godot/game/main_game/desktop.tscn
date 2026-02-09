@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0ag6c742vmi1"]
+[gd_scene load_steps=16 format=3 uid="uid://d0ag6c742vmi1"]
 
 [ext_resource type="Texture2D" uid="uid://cqw41ovssu3t3" path="res://assets/desktop_bg.jpg" id="1_nvliw"]
 [ext_resource type="Script" path="res://game/main_game/desktop.gd" id="1_v1sjp"]
@@ -38,6 +38,9 @@ texture = ExtResource("3_0oaxt")
 texture = ExtResource("4_s03b3")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipicr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npy2n"]
+bg_color = Color(0, 0, 0.666667, 1)
 
 [node name="Desktop" type="Control"]
 layout_mode = 3
@@ -163,7 +166,7 @@ text = "TRSH
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+[node name="NotificationPanel" type="PanelContainer" parent="CanvasLayer"]
 custom_minimum_size = Vector2(350, 0)
 anchors_preset = -1
 anchor_right = 0.182292
@@ -173,11 +176,11 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ipicr")
 metadata/_edit_use_anchors_ = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/NotificationPanel"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/NotificationPanel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -187,13 +190,48 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="NotificationVBox" type="VBoxContainer" parent="CanvasLayer/PanelContainer/ScrollContainer/MarginContainer"]
+[node name="NotificationVBox" type="VBoxContainer" parent="CanvasLayer/NotificationPanel/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 8
 alignment = 2
+
+[node name="BSODPanel" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_npy2n")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/BSODPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="ErrorMsgVBox" type="VBoxContainer" parent="CanvasLayer/BSODPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="CanvasLayer/BSODPanel/MarginContainer/ErrorMsgVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Uh oh!"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/BSODPanel/MarginContainer/ErrorMsgVBox"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+text = "Your PC ran into a problem it couldn't solve.
+Please restart the game.
+
+ERROR: NOT ENOUGH MEMORY"
+fit_content = true
 
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Inventory" to="." method="_on_inventory_pressed"]
