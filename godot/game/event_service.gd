@@ -107,7 +107,8 @@ func _get_delay_seconds() -> float:
 
 # Adware Related
 func _start_adware_timer() -> void:
-	var delay := randf_range(30.0, 45.0)
+	#var delay := randf_range(30.0, 45.0)
+	var delay := 10.0
 	adware_timer.start(delay)
 
 
