@@ -17,7 +17,7 @@ anchor_bottom = 0.869445
 offset_right = 0.0
 offset_bottom = 0.0
 script = ExtResource("2_bva4r")
-file_container_path = NodePath("WindowPanel/Structure/Content/VBoxContainer/MarginContainer/DeletedFilesHFlow")
+file_container_path = NodePath("WindowPanel/Structure/Content/VBoxContainer/ScrollContainer/MarginContainer/DeletedFilesHFlow")
 metadata/_edit_use_anchors_ = true
 
 [node name="TitleBar" parent="WindowPanel/Structure" index="0"]
@@ -32,15 +32,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="WindowPanel/Structure/Content/VBoxContainer" index="0"]
+[node name="ScrollContainer" type="ScrollContainer" parent="WindowPanel/Structure/Content/VBoxContainer" index="0"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="WindowPanel/Structure/Content/VBoxContainer/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="DeletedFilesHFlow" type="HFlowContainer" parent="WindowPanel/Structure/Content/VBoxContainer/MarginContainer" index="0"]
+[node name="DeletedFilesHFlow" type="HFlowContainer" parent="WindowPanel/Structure/Content/VBoxContainer/ScrollContainer/MarginContainer" index="0"]
 layout_mode = 2
 size_flags_vertical = 3
 

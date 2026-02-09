@@ -52,7 +52,7 @@ func setup(data: FileData) -> void:
 			
 		FileData.FileContext.TRASH:
 			_setup_deleted_file()
-			action_menu_button.flat = true
+			action_menu_button.flat = false
 			
 		_:
 			push_warning("Unknown FileContext: %s" % data.context)

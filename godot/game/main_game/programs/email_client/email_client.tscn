@@ -28,7 +28,7 @@ border_color = Color(0.2, 0.2, 0.2, 1)
 bg_color = Color(0.866667, 0.866667, 0.866667, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upufd"]
-bg_color = Color(0, 0, 0, 0.3)
+bg_color = Color(0, 0, 0, 0.5)
 
 [node name="EmailClientWindow" instance=ExtResource("1_2xond")]
 offset_right = 0.0
