@@ -39,7 +39,7 @@ func _ready() -> void:
 	NotificationManagerInstance.request_notification.connect(_create_notif)
 	
 	bsod_panel.hide()
-	EventServiceInstance.bsod_triggered.connect(_on_malware_overload)
+	EventServiceInstance.game_over.connect(_on_game_over)
 	EventServiceInstance.adware_triggered.connect(_on_adware_triggered)
 
 
@@ -99,8 +99,10 @@ func _fade_and_slide_out(node) -> void:
 
 
 # Consequences
-func _on_malware_overload() -> void:
-	bsod_panel.show()
+func _on_game_over(reason: EventServiceInstance.GameOverReason) -> void:
+	match reason:
+		EventServiceInstance.GameOverReason.OVERLOAD:
+			bsod_panel.show()
 
 
 func _on_adware_triggered(ad_window_amount: int) -> void:

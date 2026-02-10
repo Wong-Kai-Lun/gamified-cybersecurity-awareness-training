@@ -3,10 +3,11 @@ class_name EventService
 
 signal severity_changed(level: Severity)
 signal adware_triggered(adwindow_amount: int)
-signal bsod_triggered
-signal ransomware_found
+signal malware_cloned
+signal game_over(reason: GameOverReason)
 
 enum Severity { NONE, MINOR, MODERATE, SIGNIFICANT, EXTREME }
+enum GameOverReason { OVERLOAD, RANSOMWARE }
 
 const SEVERITY_THRESHOLDS = {
 	Severity.NONE: 0,
@@ -17,10 +18,14 @@ const SEVERITY_THRESHOLDS = {
 }
 
 var severity_level: Severity = Severity.NONE
+
 var malware_count: int = 0
+var malware_clone_timer: Timer
+
 var adware_count: int = 0
 var base_ad_window_amount: int = 4
 var adware_timer: Timer
+
 var total_malware_count: int = 0
 
 
@@ -67,7 +72,7 @@ func _calculate_malware(inventory_array: Array[FileData]) -> void:
 
 func _calculate_severity(count: int) -> Severity:
 	if count >= SEVERITY_THRESHOLDS[Severity.EXTREME]:
-		bsod_triggered.emit()
+		game_over.emit(GameOverReason.OVERLOAD)
 		return Severity.EXTREME
 	elif count >= SEVERITY_THRESHOLDS[Severity.SIGNIFICANT]:
 		return Severity.SIGNIFICANT
@@ -90,7 +95,6 @@ func delay_input() -> void:
 		
 	await get_tree().create_timer(delay).timeout
 
-
 func _get_delay_seconds() -> float:
 	match severity_level:
 		Severity.MINOR:
@@ -107,12 +111,16 @@ func _get_delay_seconds() -> float:
 
 # Adware Related
 func _start_adware_timer() -> void:
-	#var delay := randf_range(30.0, 45.0)
-	var delay := 10.0
+	var delay := randf_range(30.0, 45.0)
 	adware_timer.start(delay)
-
 
 func _on_adware_timer_timeout() -> void:
 	if adware_count > 0:
 		adware_triggered.emit(base_ad_window_amount + adware_count)
 		_start_adware_timer()
+
+
+# Malware Related
+func _start_malware_timer() -> void:
+	var delay := randf_range(30.0, 45.0)
+	malware_clone_timer.start(delay)
