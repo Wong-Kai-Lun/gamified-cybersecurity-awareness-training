@@ -5,6 +5,7 @@ class_name AdWindow
 @export var possible_sizes: Array[Vector2]
 @onready var ad_texture_rect: TextureRect = $WindowPanel/Structure/Content/AdTextureRect
 
+
 func _ready() -> void:
 	super._ready()
 

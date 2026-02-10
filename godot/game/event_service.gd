@@ -20,10 +20,10 @@ const SEVERITY_THRESHOLDS = {
 var severity_level: Severity = Severity.NONE
 
 var malware_count: int = 0
-var malware_clone_timer: Timer
+var malware_timer: Timer
 
 var adware_count: int = 0
-var base_ad_window_amount: int = 4
+var base_ad_window_amount: int = 3
 var adware_timer: Timer
 
 var total_malware_count: int = 0
@@ -36,10 +36,15 @@ func _ready() -> void:
 	adware_timer.one_shot = true
 	adware_timer.timeout.connect(_on_adware_timer_timeout)
 	add_child(adware_timer)
+	
+	malware_timer = Timer.new()
+	malware_timer.one_shot = false
+	malware_timer.timeout.connect(_on_malware_timer_timeout)
+	add_child(malware_timer)
 
 
 func check_inventory() -> void:
-	var player_inventory = GameManagerInstance.get_player_inventory()
+	var player_inventory := GameManagerInstance.get_player_inventory()
 	_calculate_malware(player_inventory)
 	
 	var new_severity = _calculate_severity(total_malware_count)
@@ -52,8 +57,10 @@ func check_inventory() -> void:
 	elif adware_count == 0:
 		adware_timer.stop()
 	
-	# print("EventService | Malware Count: ", malware_count)
-	# print("EventService | Severity Level: ", severity_level)
+	if malware_count > 0 and malware_timer.is_stopped():
+		_start_malware_timer()
+	elif malware_count == 0:
+		malware_timer.stop()
 
 
 func _calculate_malware(inventory_array: Array[FileData]) -> void:
@@ -111,7 +118,7 @@ func _get_delay_seconds() -> float:
 
 # Adware Related
 func _start_adware_timer() -> void:
-	var delay := randf_range(30.0, 45.0)
+	var delay := randf_range(30.0, 40.0)
 	adware_timer.start(delay)
 
 func _on_adware_timer_timeout() -> void:
@@ -122,5 +129,27 @@ func _on_adware_timer_timeout() -> void:
 
 # Malware Related
 func _start_malware_timer() -> void:
-	var delay := randf_range(30.0, 45.0)
-	malware_clone_timer.start(delay)
+	var delay := randf_range(15.0, 20.0)
+	malware_timer.start(delay)
+
+
+func _on_malware_timer_timeout() -> void:
+	var player_inventory := GameManagerInstance.get_player_inventory()
+	var malware_files := player_inventory.filter( 
+		func(a): return a.file_type == FileData.FileType.MALWARE )
+	
+	if malware_files.is_empty():
+		return
+	
+	for malware in malware_files:
+		_try_clone_malware(malware)
+
+
+func _try_clone_malware(file: FileData) -> void:
+	var roll := randf()
+	
+	if roll < file.clone_rate:
+		FileServiceInstance.try_add_to_inventory(file)
+		print("Malware Clone Success | ", "Roll: ", roll, " Clone Rate: ", file.clone_rate)
+	else:
+		print("Malware Clone Failed")
