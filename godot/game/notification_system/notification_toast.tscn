@@ -1,13 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd5ivsateu3bh"]
+[gd_scene load_steps=8 format=3 uid="uid://cd5ivsateu3bh"]
 
 [ext_resource type="Script" path="res://game/notification_system/notification_toast.gd" id="1_5xlne"]
+[ext_resource type="Texture2D" uid="uid://blu5dp4xqn65b" path="res://assets/close_x.png" id="2_wryof"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls8xu"]
-bg_color = Color(0.2, 0.2, 0.2, 0.666667)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqdy0"]
+bg_color = Color(1, 1, 0.921569, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.2, 0.2, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m8ary"]
 
@@ -15,62 +17,66 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5kkj7"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lpob1"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bb50y"]
 
-[node name="NotificationToast" type="Control"]
-custom_minimum_size = Vector2(300, 120)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 300.0
-offset_bottom = 120.0
+[node name="NotificationToast" type="PanelContainer"]
+custom_minimum_size = Vector2(150, 120)
+anchors_preset = -1
+anchor_right = 0.176042
+anchor_bottom = 0.112963
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tqdy0")
 script = ExtResource("1_5xlne")
+metadata/_edit_use_anchors_ = true
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ls8xu")
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+color = Color(0.666667, 0.666667, 0.666667, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="NotificationTitle" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="NotificationTitle" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Title"
 vertical_alignment = 1
 
-[node name="CloseNotification" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(30, 30)
+[node name="CloseNotification" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_m8ary")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_dam5m")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5kkj7")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_lpob1")
-text = "X"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bb50y")
+icon = ExtResource("2_wryof")
 
-[node name="NotificationBody" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="NotificationBody" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(280, 70)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
 text = "Notification Body"
 vertical_alignment = 1
@@ -82,5 +88,5 @@ wait_time = 8.0
 one_shot = true
 autostart = true
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseNotification" to="." method="_on_close_notification_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseNotification" to="." method="_on_close_notification_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

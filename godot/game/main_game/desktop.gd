@@ -15,7 +15,7 @@ extends Control
 @onready var input_blocker_scene: PackedScene = preload("res://game/main_game/programs/common/input_blocker.tscn")
 @onready var input_blocker = input_blocker_scene.instantiate()
 
-@onready var notif_vbox: VBoxContainer = $CanvasLayer/NotificationPanel/ScrollContainer/MarginContainer/NotificationVBox
+@onready var notif_vbox: VBoxContainer = $CanvasLayer/NotificationPanel/MarginContainer/ScrollContainer/NotificationVBox
 @onready var notif_toast_scene: PackedScene = preload("res://game/notification_system/notification_toast.tscn")
 
 @onready var bsod_panel: PanelContainer = $CanvasLayer/BSODPanel
