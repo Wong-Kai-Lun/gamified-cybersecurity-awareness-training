@@ -46,6 +46,8 @@ func _ready() -> void:
 func check_inventory() -> void:
 	var player_inventory := GameManagerInstance.get_player_inventory()
 	_calculate_malware(player_inventory)
+	_calculate_adware(player_inventory)
+	_calculate_total_malware()
 	
 	var new_severity = _calculate_severity(total_malware_count)
 	if new_severity != severity_level:
@@ -65,15 +67,22 @@ func check_inventory() -> void:
 
 func _calculate_malware(inventory_array: Array[FileData]) -> void:
 	malware_count = 0
-	adware_count = 0
 	
 	for file in inventory_array:
 		if file.file_type == FileData.FileType.MALWARE:
 			malware_count += 1
+
+
+func _calculate_adware(inventory_array: Array[FileData]) -> void:
+	adware_count = 0
+	
+	for file in inventory_array:
 			
 		if file.file_type == FileData.FileType.ADWARE:
 			adware_count += 1
-	
+
+
+func _calculate_total_malware() -> void:
 	total_malware_count = malware_count + adware_count
 
 
