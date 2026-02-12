@@ -111,9 +111,10 @@ func _file_action(id: int) -> void:
 			
 		FileAction.RESTORE:
 			await EventServiceInstance.delay_input()
-			FileServiceInstance.move_trash_to_inventory(file_data)
-			queue_free()
-			EventServiceInstance.check_inventory()
+			var success := FileServiceInstance.move_trash_to_inventory(file_data)
+			if success:
+				queue_free()
+				EventServiceInstance.check_inventory()
 
 
 func _on_remove_requested() -> void:

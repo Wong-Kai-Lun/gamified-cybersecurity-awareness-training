@@ -10,13 +10,8 @@ func convert_file_context(file: FileData, context: FileData.FileContext) -> File
 
 # Create a copy from inbound to inventory
 func try_add_to_inventory(file: FileData) -> bool:
-	if GameManagerInstance.get_inventory_size() >= GameManagerInstance.MAX_INVENTORY_SIZE:
-		GameManagerInstance.inventory_full.emit()
-		return false
-	
 	var inventory_file := convert_file_context(file, FileData.FileContext.INVENTORY)
-	GameManagerInstance.commit_add_to_inventory(inventory_file)
-	return true
+	return GameManagerInstance.commit_add_to_inventory(inventory_file)
 
 
 func move_inventory_to_trash(file: FileData) -> void:
@@ -24,6 +19,6 @@ func move_inventory_to_trash(file: FileData) -> void:
 	GameManagerInstance.commit_inventory_to_trash(file, trash_file)
 
 
-func move_trash_to_inventory(file: FileData) -> void:
+func move_trash_to_inventory(file: FileData) -> bool:
 	var restored_file := convert_file_context(file, FileData.FileContext.INVENTORY)
-	GameManagerInstance.commit_trash_to_inventory(file, restored_file)
+	return GameManagerInstance.commit_trash_to_inventory(file, restored_file)

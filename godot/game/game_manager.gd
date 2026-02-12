@@ -10,7 +10,7 @@ signal recycling_bin_changed(recycling_bin: Array[FileData])
 var _COMPANY_DOMAIN = "@abc.com.my"
 var _PLACEHOLDER_NAME = "{player_name}"
 var _PLACEHOLDER_EMAIL = "{player_email}"
-var MAX_INVENTORY_SIZE = 16
+var _MAX_INVENTORY_SIZE = 16
 
 
 var _player_name: String = "Placeholder"
@@ -33,23 +33,32 @@ func register_player(username: String, email: String) -> void:
 func get_player_inventory() -> Array[FileData]:
 	return _inventory.duplicate(true)
 
+func is_inventory_full() -> bool:
+	return _inventory.size() >= _MAX_INVENTORY_SIZE
 
-func get_inventory_size() -> int:
-	return _inventory.size()
-
-func commit_add_to_inventory(file: FileData) -> void:
+func commit_add_to_inventory(file: FileData) -> bool:
+	if is_inventory_full():
+		inventory_full.emit()
+		return false
+	
 	_inventory.append(file)
 	inventory_changed.emit(_inventory.duplicate(true))
+	return true
 
 func commit_inventory_to_trash(inventory_file: FileData, trash_file: FileData) -> void:
 	_inventory.erase(inventory_file)
 	_recycling_bin.append(trash_file)
 	recycling_bin_changed.emit(_recycling_bin.duplicate(true))
 
-func commit_trash_to_inventory(trash_file: FileData, inventory_file: FileData) -> void:
+func commit_trash_to_inventory(trash_file: FileData, inventory_file: FileData) -> bool:
+	if is_inventory_full():
+		inventory_full.emit()
+		return false
+	
 	_recycling_bin.erase(trash_file)
 	_inventory.append(inventory_file)
 	inventory_changed.emit(_inventory.duplicate(true))
+	return true
 
 func empty_recycling_bin() -> void:
 	_recycling_bin.clear()
