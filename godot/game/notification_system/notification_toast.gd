@@ -6,6 +6,7 @@ signal request_close(notif)
 @onready var notification_title: Label = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/NotificationTitle
 @onready var notification_body: Label = $HBoxContainer/MarginContainer/VBoxContainer/NotificationBody
 @onready var notification_color: ColorRect = $HBoxContainer/ColorRect
+@onready var close_button: Button = $HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseNotification
 
 
 func setup(data) -> void:

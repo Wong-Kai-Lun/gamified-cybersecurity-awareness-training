@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd5ivsateu3bh"]
+[gd_scene load_steps=9 format=3 uid="uid://cd5ivsateu3bh"]
 
 [ext_resource type="Script" path="res://game/notification_system/notification_toast.gd" id="1_5xlne"]
 [ext_resource type="Texture2D" uid="uid://blu5dp4xqn65b" path="res://assets/close_x.png" id="2_wryof"]
@@ -12,6 +12,8 @@ border_width_bottom = 1
 border_color = Color(0.2, 0.2, 0.2, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m8ary"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k55s6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dam5m"]
 
@@ -34,7 +36,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
-custom_minimum_size = Vector2(36, 0)
+custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 color = Color(0.666667, 0.666667, 0.666667, 1)
 
@@ -67,6 +69,7 @@ custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_m8ary")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k55s6")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_dam5m")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_5kkj7")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_bb50y")

@@ -75,9 +75,9 @@ func _create_notif(data) -> void:
 
 
 func _remove_notif(node) -> void:
-	if node:
-		await _fade_and_slide_out(node)
-		node.queue_free()
+	node.close_button.disabled = true
+	await _fade_and_slide_out(node)
+	node.queue_free()
 
 
 func _fade_in(node) -> void:
