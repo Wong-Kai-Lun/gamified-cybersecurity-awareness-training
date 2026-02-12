@@ -9,4 +9,4 @@ enum FileType { LEGIT, MALWARE, ADWARE, RANSOMWARE }
 @export var file_name: String
 @export var file_context: FileContext = FileContext.INBOUND
 @export var file_type: FileType = FileType.LEGIT 
-@export var clone_rate: float = 0.0
+@export var trigger_rate: float = 0.0

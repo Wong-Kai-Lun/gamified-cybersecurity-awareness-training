@@ -41,10 +41,12 @@ func _ready() -> void:
 	malware_timer.one_shot = false
 	malware_timer.timeout.connect(_on_malware_timer_timeout)
 	add_child(malware_timer)
+	
+	GameManagerInstance.inventory_changed.connect(_on_inventory_changed)
 
-
-func check_inventory() -> void:
-	var player_inventory := GameManagerInstance.get_player_inventory()
+# Check Inventory
+func _on_inventory_changed(player_inventory: Array[FileData]) -> void:
+	print("Check Inventory Fired!")
 	_calculate_malware(player_inventory)
 	_calculate_adware(player_inventory)
 	_calculate_total_malware()
@@ -77,7 +79,6 @@ func _calculate_adware(inventory_array: Array[FileData]) -> void:
 	adware_count = 0
 	
 	for file in inventory_array:
-			
 		if file.file_type == FileData.FileType.ADWARE:
 			adware_count += 1
 
@@ -151,14 +152,21 @@ func _on_malware_timer_timeout() -> void:
 		return
 	
 	for malware in malware_files:
-		_try_clone_malware(malware)
+		_try_malware_action(malware)
 
 
-func _try_clone_malware(file: FileData) -> void:
+func _try_malware_action(malware_file: FileData) -> void:
 	var roll := randf()
 	
-	if roll < file.clone_rate:
-		FileServiceInstance.try_add_to_inventory(file)
-		print("Malware Clone Success | ", "Roll: ", roll, " Clone Rate: ", file.clone_rate)
+	if roll >= malware_file.trigger_rate:
+		print("Malware Tick Failed | ", "Roll: ", roll, " Clone Rate: ", malware_file.trigger_rate)
+		return
+	
+	if GameManagerInstance.is_inventory_full():
+		GameManagerInstance.corrupt_random_inventory_file(malware_file)
+		print("Inventory Full! File Corruption Attempted.")
+		print("Malware Corruption Success | ", "Roll: ", roll, " Clone Rate: ", malware_file.trigger_rate)
 	else:
-		print("Malware Clone Failed")
+		FileServiceInstance.try_add_to_inventory(malware_file)
+		print("Inventory Not Full! File Cloning Attempted.")
+		print("Malware Clone Success | ", "Roll: ", roll, " Clone Rate: ", malware_file.trigger_rate)

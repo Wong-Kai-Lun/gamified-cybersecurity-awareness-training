@@ -98,13 +98,11 @@ func _file_action(id: int) -> void:
 			var success := FileServiceInstance.try_add_to_inventory(file_data)
 			if success:
 				file_downloaded.emit(file_data)
-			EventServiceInstance.check_inventory()
 		
 		FileAction.MOVE_TO_BIN:
 			await EventServiceInstance.delay_input()
 			FileServiceInstance.move_inventory_to_trash(file_data)
 			queue_free()
-			EventServiceInstance.check_inventory()
 			
 		FileAction.OUTBOUND_REMOVE:
 			_on_remove_requested()
@@ -114,7 +112,6 @@ func _file_action(id: int) -> void:
 			var success := FileServiceInstance.move_trash_to_inventory(file_data)
 			if success:
 				queue_free()
-				EventServiceInstance.check_inventory()
 
 
 func _on_remove_requested() -> void:

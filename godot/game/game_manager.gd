@@ -48,6 +48,8 @@ func commit_add_to_inventory(file: FileData) -> bool:
 func commit_inventory_to_trash(inventory_file: FileData, trash_file: FileData) -> void:
 	_inventory.erase(inventory_file)
 	_recycling_bin.append(trash_file)
+	
+	inventory_changed.emit(_inventory.duplicate(true))
 	recycling_bin_changed.emit(_recycling_bin.duplicate(true))
 
 func commit_trash_to_inventory(trash_file: FileData, inventory_file: FileData) -> bool:
@@ -57,12 +59,35 @@ func commit_trash_to_inventory(trash_file: FileData, inventory_file: FileData) -
 	
 	_recycling_bin.erase(trash_file)
 	_inventory.append(inventory_file)
+	
+	recycling_bin_changed.emit(_recycling_bin.duplicate(true))
 	inventory_changed.emit(_inventory.duplicate(true))
 	return true
 
 func empty_recycling_bin() -> void:
 	_recycling_bin.clear()
 	recycling_bin_changed.emit(_recycling_bin.duplicate(true))
+
+func corrupt_random_inventory_file(source_malware: FileData) -> bool:
+	if _inventory.is_empty():
+		return false
+		
+	var candidates := []
+	for file in _inventory:
+		if file.file_type == FileData.FileType.LEGIT:
+			candidates.append(file)
+		
+	if candidates.is_empty():
+		return false
+		
+	var victim: FileData = candidates.pick_random()
+	_inventory.erase(victim)
+	
+	var cloned_malware := source_malware.duplicate(true)
+	_inventory.append(cloned_malware)
+	
+	inventory_changed.emit(_inventory.duplicate(true))
+	return true
 
 
 # Email Body
