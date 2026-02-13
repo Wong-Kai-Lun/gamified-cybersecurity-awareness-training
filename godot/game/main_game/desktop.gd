@@ -18,7 +18,8 @@ extends Control
 @onready var notif_vbox: VBoxContainer = $CanvasLayer/NotificationPanel/MarginContainer/ScrollContainer/NotificationVBox
 @onready var notif_toast_scene: PackedScene = preload("res://game/notification_system/notification_toast.tscn")
 
-@onready var bsod_panel: PanelContainer = $CanvasLayer/BSODPanel
+@onready var bsod_panel_scene: PackedScene = preload("res://game/main_game/programs/events/bsod_panel.tscn")
+@onready var bsod_panel_instance = bsod_panel_scene.instantiate()
 @onready var ad_window_scene: PackedScene = preload("res://game/main_game/programs/events/ad_window.tscn")
 
 
@@ -38,7 +39,6 @@ func _ready() -> void:
 	
 	NotificationManagerInstance.request_notification.connect(_create_notif)
 	
-	bsod_panel.hide()
 	EventServiceInstance.game_over.connect(_on_game_over)
 	EventServiceInstance.adware_triggered.connect(_on_adware_triggered)
 
@@ -102,7 +102,7 @@ func _fade_and_slide_out(node) -> void:
 func _on_game_over(reason: EventServiceInstance.GameOverReason) -> void:
 	match reason:
 		EventServiceInstance.GameOverReason.OVERLOAD:
-			bsod_panel.show()
+			canvas_layer.add_child(bsod_panel_instance)
 
 
 func _on_adware_triggered(ad_window_amount: int) -> void:
