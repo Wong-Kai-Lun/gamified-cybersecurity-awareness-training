@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="EmailData" load_steps=5 format=3 uid="uid://bw0ct6dk7vmim"]
+[gd_resource type="Resource" script_class="EmailData" load_steps=6 format=3 uid="uid://bw0ct6dk7vmim"]
 
 [ext_resource type="Script" path="res://data/file_data.gd" id="1_6gnv5"]
 [ext_resource type="Resource" uid="uid://byh3yan6kmp14" path="res://data/file/monday/1_10_fake_po.tres" id="2_nxhl3"]
 [ext_resource type="Resource" uid="uid://bh6kb7wq6xc3b" path="res://data/file/test/sample_adware.tres" id="3_3ha24"]
 [ext_resource type="Script" path="res://data/email_data.gd" id="3_ams1v"]
+[ext_resource type="Resource" uid="uid://cpoikvh2p3m0r" path="res://data/file/test/sample_ransomware.tres" id="4_h8a3s"]
 
 [resource]
 script = ExtResource("3_ams1v")
@@ -14,7 +15,7 @@ to_address = "{player_email}"
 cc_address = ""
 subject = "purchase order"
 email_body = "Hello, I want to order some stationarys for my shop.[p] [p]PO is attached in this email.[p] [p]Johnn"
-inbound_attachments = Array[ExtResource("1_6gnv5")]([ExtResource("2_nxhl3"), ExtResource("3_3ha24")])
+inbound_attachments = Array[ExtResource("1_6gnv5")]([ExtResource("2_nxhl3"), ExtResource("3_3ha24"), ExtResource("4_h8a3s")])
 expected_attachments = Array[ExtResource("1_6gnv5")]([])
 is_read = false
 is_important = false
