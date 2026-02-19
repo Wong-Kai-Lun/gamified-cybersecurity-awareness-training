@@ -18,15 +18,16 @@ const SEVERITY_THRESHOLDS = {
 }
 
 var severity_level: Severity = Severity.NONE
-
 var malware_count: int = 0
-var malware_timer: Timer
-
 var adware_count: int = 0
-var base_ad_window_amount: int = 3
-var adware_timer: Timer
+var ransomware_present: bool = false
+var total_threat_count: int = 0
 
-var total_malware_count: int = 0
+var malware_timer: Timer
+var adware_timer: Timer
+var ransomware_timer: Timer
+
+const base_ad_window_amount: int = 3
 
 
 func _ready() -> void:
@@ -42,16 +43,18 @@ func _ready() -> void:
 	malware_timer.timeout.connect(_on_malware_timer_timeout)
 	add_child(malware_timer)
 	
+	ransomware_timer = Timer.new()
+	ransomware_timer.one_shot = true
+	ransomware_timer.timeout.connect(_on_ransomware_timer_timeout)
+	add_child(ransomware_timer)
+	
 	GameManagerInstance.inventory_changed.connect(_on_inventory_changed)
 
-# Check Inventory
+# Main
 func _on_inventory_changed(player_inventory: Array[FileData]) -> void:
-	print("Check Inventory Fired!")
-	_calculate_malware(player_inventory)
-	_calculate_adware(player_inventory)
-	_calculate_total_malware()
+	_analyse_threats(player_inventory)
 	
-	var new_severity = _calculate_severity(total_malware_count)
+	var new_severity = _calculate_severity(total_threat_count)
 	if new_severity != severity_level:
 		severity_level = new_severity
 		_on_severity_changed(severity_level)
@@ -65,26 +68,28 @@ func _on_inventory_changed(player_inventory: Array[FileData]) -> void:
 		_start_malware_timer()
 	elif malware_count == 0:
 		malware_timer.stop()
+	
+	if ransomware_present and ransomware_timer.is_stopped():
+		_start_ransomware_timer()
+	elif not ransomware_present:
+		ransomware_timer.stop()
 
 
-func _calculate_malware(inventory_array: Array[FileData]) -> void:
+func _analyse_threats(inventory: Array[FileData]) -> void:
 	malware_count = 0
-	
-	for file in inventory_array:
-		if file.file_type == FileData.FileType.MALWARE:
-			malware_count += 1
-
-
-func _calculate_adware(inventory_array: Array[FileData]) -> void:
 	adware_count = 0
+	total_threat_count = 0
 	
-	for file in inventory_array:
-		if file.file_type == FileData.FileType.ADWARE:
-			adware_count += 1
-
-
-func _calculate_total_malware() -> void:
-	total_malware_count = malware_count + adware_count
+	for file in inventory:
+		match file.file_type:
+			FileData.FileType.MALWARE:
+				malware_count += 1
+			FileData.FileType.ADWARE:
+				adware_count += 1
+			FileData.FileType.RANSOMWARE:
+				ransomware_present = true
+	
+	total_threat_count = malware_count + adware_count
 
 
 func _calculate_severity(count: int) -> Severity:
@@ -109,7 +114,6 @@ func delay_input() -> void:
 	var delay = _get_delay_seconds()
 	if delay <= 0.0:
 		return
-		
 	await get_tree().create_timer(delay).timeout
 
 func _get_delay_seconds() -> float:
@@ -126,7 +130,7 @@ func _get_delay_seconds() -> float:
 			return 0.0
 
 
-# Adware Related
+# Adware
 func _start_adware_timer() -> void:
 	var delay := randf_range(30.0, 40.0)
 	adware_timer.start(delay)
@@ -137,7 +141,7 @@ func _on_adware_timer_timeout() -> void:
 		_start_adware_timer()
 
 
-# Malware Related
+# Malware
 func _start_malware_timer() -> void:
 	var delay := randf_range(15.0, 20.0)
 	malware_timer.start(delay)
@@ -170,3 +174,13 @@ func _try_malware_action(malware_file: FileData) -> void:
 		FileServiceInstance.try_add_to_inventory(malware_file)
 		print("Inventory Not Full! File Cloning Attempted.")
 		print("Malware Clone Success | ", "Roll: ", roll, " Clone Rate: ", malware_file.trigger_rate)
+
+# Ransomware
+func _start_ransomware_timer() -> void:
+	print("Ransomware Detected! Starting Timer.")
+	var delay := 5.0
+	ransomware_timer.start(delay)
+
+func _on_ransomware_timer_timeout() -> void:
+	#game_over.emit(GameOverReason.RANSOMWARE)
+	print("Ransomware Triggered! Game Over.")
