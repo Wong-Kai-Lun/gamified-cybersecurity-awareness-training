@@ -132,7 +132,7 @@ func _get_delay_seconds() -> float:
 
 # Adware
 func _start_adware_timer() -> void:
-	var delay := randf_range(30.0, 40.0)
+	var delay := randf_range(20.0, 25.0)
 	adware_timer.start(delay)
 
 func _on_adware_timer_timeout() -> void:
@@ -177,10 +177,8 @@ func _try_malware_action(malware_file: FileData) -> void:
 
 # Ransomware
 func _start_ransomware_timer() -> void:
-	print("Ransomware Detected! Starting Timer.")
-	var delay := 5.0
+	var delay := 45.0
 	ransomware_timer.start(delay)
 
 func _on_ransomware_timer_timeout() -> void:
-	#game_over.emit(GameOverReason.RANSOMWARE)
-	print("Ransomware Triggered! Game Over.")
+	game_over.emit(GameOverReason.RANSOMWARE)

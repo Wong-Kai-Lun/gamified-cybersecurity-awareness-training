@@ -18,10 +18,6 @@ extends Control
 @onready var notif_vbox: VBoxContainer = $CanvasLayer/NotificationPanel/MarginContainer/ScrollContainer/NotificationVBox
 @onready var notif_toast_scene: PackedScene = preload("res://game/notification_system/notification_toast.tscn")
 
-@onready var bsod_panel_scene: PackedScene = preload("res://game/main_game/programs/events/bsod_panel.tscn")
-@onready var bsod_panel_instance = bsod_panel_scene.instantiate()
-@onready var ad_window_scene: PackedScene = preload("res://game/main_game/programs/events/ad_window.tscn")
-
 
 func _ready() -> void:
 	programs_container.add_child(email_client)
@@ -65,47 +61,33 @@ func _on_trash_pressed() -> void:
 	await EventServiceInstance.delay_input()
 	recycling_bin.visible = !recycling_bin.visible
 
+
 # Notification System
 func _create_notif(data) -> void:
 	var new_notif = notif_toast_scene.instantiate()
 	notif_vbox.add_child(new_notif)
 	new_notif.setup(data)
 	new_notif.request_close.connect(_remove_notif)
-	_fade_in(new_notif)
+	TweenUtils.fade_in(new_notif, 1.0, 0.1)
 
 
 func _remove_notif(node) -> void:
 	node.close_button.disabled = true
-	await _fade_and_slide_out(node)
+	await TweenUtils.fade_and_slide_out(node, -50, 0.2)
 	node.queue_free()
-
-
-func _fade_in(node) -> void:
-	node.modulate = Color.TRANSPARENT
-	var t := create_tween()
-	t.tween_property(node, "modulate:a", 1.0, 0.1)
-
-
-func _fade_and_slide_out(node) -> void:
-	var start_x : float = node.global_position.x
-	var t := create_tween()
-	
-	t.set_parallel(true)
-	t.tween_property(node, "modulate:a", 0.0, 0.2)
-	t.tween_property(node, "global_position:x", start_x - 50, 0.2)
-	t.set_parallel(false)
-	
-	await t.finished
 
 
 # Consequences
 func _on_game_over(reason: EventServiceInstance.GameOverReason) -> void:
 	match reason:
 		EventServiceInstance.GameOverReason.OVERLOAD:
-			canvas_layer.add_child(bsod_panel_instance)
+			_trigger_bsod()
+		EventServiceInstance.GameOverReason.RANSOMWARE:
+			_trigger_ransomware()
 
 
 func _on_adware_triggered(ad_window_amount: int) -> void:
+	var ad_window_scene: PackedScene = load("res://game/main_game/programs/events/ad_window.tscn")
 	for ad_window in ad_window_amount:
 		var ad_window_instance = ad_window_scene.instantiate()
 		var container_size = programs_container.size
@@ -116,3 +98,29 @@ func _on_adware_triggered(ad_window_amount: int) -> void:
 		programs_container.add_child(ad_window_instance)
 		ad_window_instance.position = Vector2(x, y)
 		ad_window_instance.setup()
+
+
+func _trigger_bsod() -> void:
+	var bsod_panel_scene: PackedScene = load("res://game/main_game/programs/events/bsod_panel.tscn")
+	var bsod_panel_instance = bsod_panel_scene.instantiate()
+	canvas_layer.add_child(bsod_panel_instance)
+	
+	# game over overlay + tween
+
+
+func _trigger_ransomware() -> void:
+	var background_img: PanelContainer = $DesktopBG
+	
+	var ransomware_texture: Texture2D = load("res://assets/ransomware.png")
+	if ransomware_texture == null:
+		push_warning("Ransomware Image not found.")
+	
+	var new_stylebox_texture = StyleBoxTexture.new()
+	new_stylebox_texture.texture = ransomware_texture
+	background_img.add_theme_stylebox_override("panel", new_stylebox_texture)
+	
+	email_client.hide()
+	inventory.hide()
+	recycling_bin.hide()
+	
+	# game over overlay + tween
