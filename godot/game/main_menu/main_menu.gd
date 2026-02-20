@@ -23,12 +23,12 @@ func _register_player_and_start(username: String, email: String) -> void:
 
 func _on_new_game_pressed() -> void:
 	input_blocker.show()
-	new_player_window.show()
+	new_player_window.open()
 	# Function to check if have existing save file. If no, proceed. If have, ask for confirmation.
 
 func _on_new_player_window_closed() -> void:
 	input_blocker.hide()
-	new_player_window.hide()
+	new_player_window.close()
 
 
 func _on_continue_pressed() -> void:

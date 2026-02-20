@@ -5,6 +5,8 @@ class_name BaseWindow
 
 var is_dragging := false
 var drag_offset := Vector2.ZERO
+var _is_animating := false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,8 +31,28 @@ func _on_drag_ended() -> void:
 	is_dragging = false
 
 
+func open() -> void:
+	if visible or _is_animating:
+		return
+	
+	_is_animating = true
+	visible = true
+	await TweenUtils.enlarge_and_fade_in(self, 0.05)
+	_is_animating = false
+
+
+func close() -> void:
+	if not visible or _is_animating:
+		return
+	
+	_is_animating = true
+	await TweenUtils.shrink_and_fade_out(self, 0.05)
+	visible = false
+	_is_animating = false
+
+
 func _on_close_pressed() -> void:
-	self.hide()
+	close()
 	on_close_requested()
 
 

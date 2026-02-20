@@ -40,7 +40,11 @@ func _ready() -> void:
 
 
 func _on_settings_pressed() -> void:
-	settings.visible = !settings.visible
+	if settings.visible:
+		settings.close()
+	else:
+		settings.open()
+	
 	input_blocker.visible = !input_blocker.visible
 
 func _on_settings_closed() -> void:
@@ -49,17 +53,26 @@ func _on_settings_closed() -> void:
 
 func _on_3mail_pressed() -> void:
 	await EventServiceInstance.delay_input()
-	email_client.visible = !email_client.visible
+	if email_client.visible:
+		email_client.close()
+	else:
+		email_client.open()
 
 
 func _on_inventory_pressed() -> void:
 	await EventServiceInstance.delay_input()
-	inventory.visible = !inventory.visible
+	if inventory.visible:
+		inventory.close()
+	else:
+		inventory.open()
 
 
 func _on_trash_pressed() -> void:
 	await EventServiceInstance.delay_input()
-	recycling_bin.visible = !recycling_bin.visible
+	if recycling_bin.visible:
+		recycling_bin.close()
+	else:
+		recycling_bin.open()
 
 
 # Notification System
@@ -68,7 +81,7 @@ func _create_notif(data) -> void:
 	notif_vbox.add_child(new_notif)
 	new_notif.setup(data)
 	new_notif.request_close.connect(_remove_notif)
-	TweenUtils.fade_in(new_notif, 1.0, 0.1)
+	await TweenUtils.fade_in(new_notif, 1.0, 0.1)
 
 
 func _remove_notif(node) -> void:
