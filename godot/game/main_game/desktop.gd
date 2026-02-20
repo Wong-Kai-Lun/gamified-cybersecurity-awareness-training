@@ -108,9 +108,13 @@ func _on_adware_triggered(ad_window_amount: int) -> void:
 		var x = randf_range(0, container_size.x)
 		var y = randf_range(0, container_size.y)
 		
+		ad_window_instance.visible = false
 		programs_container.add_child(ad_window_instance)
 		ad_window_instance.position = Vector2(x, y)
 		ad_window_instance.setup()
+		
+		await get_tree().create_timer(randf_range(0.10, 0.30)).timeout
+		ad_window_instance.open()
 
 
 func _trigger_bsod() -> void:
