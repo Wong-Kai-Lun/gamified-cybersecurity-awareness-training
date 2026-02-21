@@ -37,6 +37,7 @@ func _ready() -> void:
 	
 	EventServiceInstance.game_over.connect(_on_game_over)
 	EventServiceInstance.adware_triggered.connect(_on_adware_triggered)
+	EventServiceInstance.ransomware_downloaded.connect(_flash_cmd_window)
 
 
 func _on_settings_pressed() -> void:
@@ -141,3 +142,12 @@ func _trigger_ransomware() -> void:
 	recycling_bin.close()
 	
 	# game over overlay + tween
+
+
+func _flash_cmd_window() -> void:
+	var cmd_window_scene: PackedScene = load("res://game/main_game/programs/events/cmd_window.tscn")
+	var cmd_window_instance = cmd_window_scene.instantiate()
+	programs_container.add_child(cmd_window_instance)
+	cmd_window_instance.hide()
+	await cmd_window_instance.open()
+	await cmd_window_instance.close()

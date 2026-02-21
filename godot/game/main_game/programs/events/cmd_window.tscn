@@ -4,28 +4,20 @@
 
 [node name="CommandPromptWindow" instance=ExtResource("1_my4kw")]
 custom_minimum_size = Vector2(350, 400)
-offset_right = -1370.0
-offset_bottom = -680.0
+offset_left = 701.0
+offset_top = 433.0
+offset_right = -669.0
+offset_bottom = -247.0
 
 [node name="TitleBar" parent="WindowPanel/Structure" index="0"]
 title = "Command Prompt"
 
 [node name="ColorRect" type="ColorRect" parent="WindowPanel/Structure/Content" index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 color = Color(0.0666667, 0.0666667, 0.0666667, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="WindowPanel/Structure/Content" index="1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8

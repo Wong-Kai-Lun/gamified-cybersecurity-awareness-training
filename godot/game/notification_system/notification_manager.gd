@@ -19,4 +19,4 @@ func _notify_inventory_full() -> void:
 	request_notification.emit({ "type": NotificationType.ALERT, "title": "No more space", "body": "Please remove some files." })
 
 func _notify_malware_detected(file_name: String) -> void:
-	request_notification.emit({ "type": NotificationType.WARNING, "title": "Malware Detected!", "body": file_name })
+	request_notification.emit({ "type": NotificationType.WARNING, "title": "Threat Detected!", "body": file_name })

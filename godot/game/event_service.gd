@@ -5,6 +5,7 @@ signal severity_changed(level: Severity)
 signal adware_triggered(adwindow_amount: int)
 signal malware_cloned
 signal game_over(reason: GameOverReason)
+signal ransomware_downloaded
 
 enum Severity { NONE, MINOR, MODERATE, SIGNIFICANT, EXTREME }
 enum GameOverReason { OVERLOAD, RANSOMWARE }
@@ -87,7 +88,9 @@ func _analyse_threats(inventory: Array[FileData]) -> void:
 			FileData.FileType.ADWARE:
 				adware_count += 1
 			FileData.FileType.RANSOMWARE:
-				ransomware_present = true
+				if not ransomware_present:
+					ransomware_present = true
+					ransomware_downloaded.emit()
 	
 	total_threat_count = malware_count + adware_count
 
