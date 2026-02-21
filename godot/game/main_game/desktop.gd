@@ -136,8 +136,8 @@ func _trigger_ransomware() -> void:
 	new_stylebox_texture.texture = ransomware_texture
 	background_img.add_theme_stylebox_override("panel", new_stylebox_texture)
 	
-	email_client.hide()
-	inventory.hide()
-	recycling_bin.hide()
+	email_client.close()
+	inventory.close()
+	recycling_bin.close()
 	
 	# game over overlay + tween
