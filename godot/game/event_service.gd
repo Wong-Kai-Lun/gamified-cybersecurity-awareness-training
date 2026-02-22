@@ -135,7 +135,7 @@ func _get_delay_seconds() -> float:
 
 # Adware
 func _start_adware_timer() -> void:
-	var delay := randf_range(20.0, 25.0)
+	var delay := randf_range(5.0, 10.0)
 	adware_timer.start(delay)
 
 func _on_adware_timer_timeout() -> void:

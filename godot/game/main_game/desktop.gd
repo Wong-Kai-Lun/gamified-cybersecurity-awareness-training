@@ -92,6 +92,10 @@ func _remove_notif(node) -> void:
 
 
 # Consequences
+func _wait(duration: float) -> void:
+	await get_tree().create_timer(duration).timeout
+
+
 func _on_game_over(reason: EventServiceInstance.GameOverReason) -> void:
 	match reason:
 		EventServiceInstance.GameOverReason.OVERLOAD:
@@ -114,7 +118,7 @@ func _on_adware_triggered(ad_window_amount: int) -> void:
 		ad_window_instance.position = Vector2(x, y)
 		ad_window_instance.setup()
 		
-		await get_tree().create_timer(randf_range(0.10, 0.30)).timeout
+		await _wait(randf_range(0.10, 0.30))
 		ad_window_instance.open()
 
 
@@ -122,8 +126,7 @@ func _trigger_bsod() -> void:
 	var bsod_panel_scene: PackedScene = load("res://game/main_game/programs/events/bsod_panel.tscn")
 	var bsod_panel_instance = bsod_panel_scene.instantiate()
 	canvas_layer.add_child(bsod_panel_instance)
-	
-	# game over overlay + tween
+	_show_game_over_panel()
 
 
 func _trigger_ransomware() -> void:
@@ -140,8 +143,7 @@ func _trigger_ransomware() -> void:
 	email_client.close()
 	inventory.close()
 	recycling_bin.close()
-	
-	# game over overlay + tween
+	_show_game_over_panel()
 
 
 func _flash_cmd_window() -> void:
@@ -149,5 +151,17 @@ func _flash_cmd_window() -> void:
 	var cmd_window_instance = cmd_window_scene.instantiate()
 	programs_container.add_child(cmd_window_instance)
 	cmd_window_instance.hide()
+	
+	await _wait(2.0)
 	await cmd_window_instance.open()
+	await _wait(1.0)
 	await cmd_window_instance.close()
+
+
+func _show_game_over_panel() -> void:
+	var game_over_panel_scene: PackedScene = load("res://game/main_game/programs/events/game_over_panel.tscn")
+	var game_over_panel_instance = game_over_panel_scene.instantiate()
+	
+	await _wait(2.0)
+	canvas_layer.add_child(game_over_panel_instance)
+	await TweenUtils.fade_in(game_over_panel_instance, 1.0, 1.0)
