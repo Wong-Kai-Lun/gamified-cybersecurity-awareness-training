@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfvju7e7w5s6n"]
+
+[ext_resource type="PackedScene" uid="uid://dgpig05sc8ud2" path="res://game/main_game/programs/events/game_over/game_over_panel.tscn" id="1_7muvx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sp76a"]
+bg_color = Color(0, 0, 0.666667, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m84s5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsitk"]
+bg_color = Color(0, 0, 0, 0.2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_75qmg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wkwrk"]
+
+[node name="GameOverPanel" instance=ExtResource("1_7muvx")]
+theme_override_styles/panel = SubResource("StyleBoxFlat_sp76a")
+
+[node name="MarginContainer" parent="." index="0"]
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" parent="MarginContainer" index="0"]
+size_flags_vertical = 4
+theme_override_constants/separation = 72
+
+[node name="GameOverLabel" parent="MarginContainer/VBoxContainer" index="0"]
+text = "Uh oh!"
+horizontal_alignment = 0
+
+[node name="ErrorMessageLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 42
+text = "Your PC ran into a problem it couldn't solve.
+Please restart your device.
+
+ERROR: OUT OF MEMORY"
+fit_content = true
+
+[node name="RestartDayButton" parent="MarginContainer/VBoxContainer" index="2"]
+custom_minimum_size = Vector2(500, 50)
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m84s5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wsitk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_75qmg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wkwrk")
+text = "  RESTART DAY"
+alignment = 0
+
+[node name="MainMenuButton" parent="MarginContainer/VBoxContainer" index="3"]
+custom_minimum_size = Vector2(500, 50)
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m84s5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wsitk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_75qmg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wkwrk")
+text = "  RETURN TO MAIN MENU"
+alignment = 0

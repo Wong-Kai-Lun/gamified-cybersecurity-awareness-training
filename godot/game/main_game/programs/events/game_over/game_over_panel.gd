@@ -1,5 +1,5 @@
 extends PanelContainer
-class_name GameOverPanel
+class_name BaseGameOverPanel
 
 
 func _on_restart_day_button_pressed() -> void:

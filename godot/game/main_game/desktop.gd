@@ -123,10 +123,9 @@ func _on_adware_triggered(ad_window_amount: int) -> void:
 
 
 func _trigger_bsod() -> void:
-	var bsod_panel_scene: PackedScene = load("res://game/main_game/programs/events/bsod_panel.tscn")
+	var bsod_panel_scene: PackedScene = load("res://game/main_game/programs/events/game_over/bsod_panel.tscn")
 	var bsod_panel_instance = bsod_panel_scene.instantiate()
 	canvas_layer.add_child(bsod_panel_instance)
-	_show_game_over_panel()
 
 
 func _trigger_ransomware() -> void:

@@ -35,7 +35,7 @@ func load_email_pack(pack: EmailPack) -> void:
 		incoming_email_instance.setup(email_data)
 		incoming_email_instance.opened.connect(_on_email_selected)
 
-
+# ^^^ Modify to load
 func load_from_save(pack: EmailPack) -> void:
 	pass
 

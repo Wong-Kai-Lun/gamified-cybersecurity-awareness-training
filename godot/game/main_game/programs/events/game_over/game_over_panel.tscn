@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgpig05sc8ud2"]
 
-[ext_resource type="Script" path="res://game/main_game/programs/events/game_over_panel.gd" id="1_5iih1"]
+[ext_resource type="Script" path="res://game/main_game/programs/events/game_over/game_over_panel.gd" id="1_5iih1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3sqx"]
 bg_color = Color(0, 0, 0, 0.266667)
@@ -14,19 +14,22 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r3sqx")
 script = ExtResource("1_5iih1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 80
 alignment = 1
 
-[node name="GameOverLabel" type="Label" parent="VBoxContainer"]
+[node name="GameOverLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RestartDayButton" type="Button" parent="VBoxContainer"]
+[node name="RestartDayButton" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -35,7 +38,7 @@ mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 40
 text = "Restart Day"
 
-[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -44,5 +47,5 @@ mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 40
 text = "Main Menu"
 
-[connection signal="pressed" from="VBoxContainer/RestartDayButton" to="." method="_on_restart_day_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RestartDayButton" to="." method="_on_restart_day_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
