@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://bnp8h7y8h3oht"]
 
-[ext_resource type="Texture2D" uid="uid://cumkv3pldp2hj" path="res://assets/pdf.png" id="1_ew508"]
+[ext_resource type="Texture2D" uid="uid://cumkv3pldp2hj" path="res://assets/file_icons/pdf.png" id="1_ew508"]
 [ext_resource type="Script" path="res://data/file_data.gd" id="1_hdsln"]
 
 [resource]

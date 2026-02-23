@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2nqg7wkytt1g"]
 
 [ext_resource type="Script" path="res://game/main_game/programs/file/file.gd" id="1_f2806"]
-[ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://assets/file.png" id="1_uaw8u"]
+[ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://assets/file_icons/file.png" id="1_uaw8u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8kp7"]
 
