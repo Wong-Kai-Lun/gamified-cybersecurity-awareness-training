@@ -80,6 +80,7 @@ func _analyse_threats(inventory: Array[FileData]) -> void:
 	malware_count = 0
 	adware_count = 0
 	total_threat_count = 0
+	ransomware_present = false
 	
 	for file in inventory:
 		match file.file_type:
