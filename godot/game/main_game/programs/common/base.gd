@@ -52,7 +52,7 @@ func close() -> void:
 
 
 func _on_close_pressed() -> void:
-	close()
+	await close()
 	on_close_requested()
 
 

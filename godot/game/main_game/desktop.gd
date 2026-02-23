@@ -82,7 +82,7 @@ func _create_notif(data) -> void:
 	notif_vbox.add_child(new_notif)
 	new_notif.setup(data)
 	new_notif.request_close.connect(_remove_notif)
-	await TweenUtils.fade_in(new_notif, 1.0, 0.1)
+	TweenUtils.fade_in(new_notif, 1.0, 0.1)
 
 
 func _remove_notif(node) -> void:
@@ -163,4 +163,4 @@ func _show_game_over_panel() -> void:
 	
 	await _wait(2.0)
 	canvas_layer.add_child(game_over_panel_instance)
-	await TweenUtils.fade_in(game_over_panel_instance, 1.0, 1.0)
+	TweenUtils.fade_in(game_over_panel_instance, 1.0, 1.0)

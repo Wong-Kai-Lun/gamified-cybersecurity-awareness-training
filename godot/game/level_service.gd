@@ -8,7 +8,7 @@ enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY }
 const LEVELS = {
 	Day.MONDAY: {
 		"name" : "Monday",
-		"email_pack" : preload("res://data/email_pack/monday.tres")
+		# "email_pack" : preload("res://data/email_pack/monday.tres")
 	},
 	Day.TUESDAY: {
 		"name" : "Tuesday",
@@ -24,8 +24,9 @@ var current_day: Day = Day.MONDAY
 
 
 func _ready() -> void:
-	print("LevelService online!")
-	initialise()
+	# print("LevelService online!")
+	# initialise()
+	pass
 
 func advance_day() -> void:
 	current_day += 1
