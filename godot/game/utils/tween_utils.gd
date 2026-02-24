@@ -3,9 +3,16 @@ class_name TweenUtils
 
 
 static func fade_in(node: CanvasItem, final_transparency: float, duration: float) -> void:
-	node.modulate = Color.TRANSPARENT
+	node.modulate.a = 0.0
 	var t := node.create_tween()
 	t.tween_property(node, "modulate:a", final_transparency, duration)
+	await t.finished
+
+
+static func fade_out(node: CanvasItem, duration: float) -> void:
+	var t := node.create_tween()
+	t.tween_property(node, "modulate:a", 0.0, duration)
+	await t.finished
 
 
 static func fade_and_slide_out(node: Control, offset: float, duration: float) -> void:

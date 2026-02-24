@@ -18,23 +18,13 @@ extends Control
 @onready var notif_vbox: VBoxContainer = $CanvasLayer/NotificationPanel/MarginContainer/ScrollContainer/NotificationVBox
 @onready var notif_toast_scene: PackedScene = preload("res://game/notification_system/notification_toast.tscn")
 
+@onready var transition_bg: ColorRect = $CanvasLayer/TransitionPanel/ColorRect
+@onready var transition_lbl: Label = $CanvasLayer/TransitionPanel/Label
 
 func _ready() -> void:
-	programs_container.add_child(email_client)
-	programs_container.add_child(inventory)
-	inventory.hide()
-	
-	programs_container.add_child(recycling_bin)
-	recycling_bin.hide()
-	
-	canvas_layer.add_child(input_blocker)
-	canvas_layer.add_child(settings)
-	input_blocker.hide()
-	settings.settings_window_closed.connect(_on_settings_closed)
-	settings.hide()
+	_initialise_level()
 	
 	NotificationManagerInstance.request_notification.connect(_create_notif)
-	
 	EventServiceInstance.game_over.connect(_on_game_over)
 	EventServiceInstance.adware_triggered.connect(_on_adware_triggered)
 	EventServiceInstance.ransomware_downloaded.connect(_flash_cmd_window)
@@ -45,7 +35,6 @@ func _on_settings_pressed() -> void:
 		settings.close()
 	else:
 		settings.open()
-	
 	input_blocker.visible = !input_blocker.visible
 
 func _on_settings_closed() -> void:
@@ -74,6 +63,38 @@ func _on_trash_pressed() -> void:
 		recycling_bin.close()
 	else:
 		recycling_bin.open()
+
+
+# Level Transition
+func _initialise_level() -> void:
+	var programs := [email_client, inventory, recycling_bin]
+	for program in programs:
+		programs_container.add_child(program)
+		program.close()
+	
+	canvas_layer.add_child(input_blocker)
+	canvas_layer.add_child(settings)
+	settings.settings_window_closed.connect(_on_settings_closed)
+	input_blocker.hide()
+	settings.close()
+	
+	await _animate_enter_level()
+	await _wait(2.0)
+	email_client.open()
+
+
+func _animate_enter_level() -> void:
+	transition_bg.show()
+	transition_lbl.show()
+	
+	var t := create_tween()
+	await TweenUtils.fade_in(transition_lbl, 1.0, 2.0)
+	await _wait(2.0)
+	TweenUtils.fade_out(transition_bg, 2.0)
+	await TweenUtils.fade_out(transition_lbl, 2.0)
+	
+	transition_bg.hide()
+	transition_lbl.hide()
 
 
 # Notification System

@@ -98,7 +98,7 @@ func _menu_setup() -> void:
 
 func _on_send_pressed() -> void:
 	var attached_files = outbound_file_container_instance.get_outbound_array()
-	GameManagerInstance.validate_outbound_files(email_data, attached_files)
+	LevelServiceInstance.validate_outbound_files(email_data, attached_files)
 
 
 # lock email after report

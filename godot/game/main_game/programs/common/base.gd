@@ -37,7 +37,7 @@ func open() -> void:
 	
 	_is_animating = true
 	visible = true
-	await TweenUtils.enlarge_and_fade_in(self, 0.05)
+	await TweenUtils.enlarge_and_fade_in(self, 0.08)
 	_is_animating = false
 
 
@@ -46,7 +46,7 @@ func close() -> void:
 		return
 	
 	_is_animating = true
-	await TweenUtils.shrink_and_fade_out(self, 0.05)
+	await TweenUtils.shrink_and_fade_out(self, 0.08)
 	visible = false
 	_is_animating = false
 

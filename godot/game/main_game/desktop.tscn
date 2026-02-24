@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0ag6c742vmi1"]
+[gd_scene load_steps=16 format=3 uid="uid://d0ag6c742vmi1"]
 
 [ext_resource type="Texture2D" uid="uid://cqw41ovssu3t3" path="res://assets/desktop_bg.jpg" id="1_nvliw"]
 [ext_resource type="Script" path="res://game/main_game/desktop.gd" id="1_v1sjp"]
@@ -38,6 +38,8 @@ texture = ExtResource("3_0oaxt")
 texture = ExtResource("4_s03b3")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipicr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76g6a"]
 
 [node name="Desktop" type="Control"]
 layout_mode = 3
@@ -196,6 +198,29 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 8
 alignment = 2
+
+[node name="TransitionPanel" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_76g6a")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TransitionPanel"]
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/TransitionPanel"]
+visible = false
+layout_mode = 2
+mouse_filter = 0
+theme_override_font_sizes/font_size = 80
+text = "Monday"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Inventory" to="." method="_on_inventory_pressed"]

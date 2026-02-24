@@ -40,5 +40,32 @@ func initialise() -> void:
 	level_updated.emit(LEVELS[current_day])
 
 
+func get_current_level_name() -> String:
+	return LEVELS[current_day].get("name")
+
+
 func get_email_pack_of_day() -> EmailPack:
 	return LEVELS[current_day].get("email_pack")
+
+
+# Progression
+func validate_outbound_files(email: EmailData, attached: Array[FileData]) -> void:
+	var expected_file_ids = []
+	for file in email.expected_attachments:
+		expected_file_ids.append(file.file_id)
+	
+	var attached_file_ids = []
+	for file in attached:
+		attached_file_ids.append(file.file_id)
+	
+	var missing_file_count = 0
+	for id in expected_file_ids:
+		if not attached_file_ids.has(id):
+			print("An expected file is not attached!", id)
+			missing_file_count += 1
+	
+	print("Missing Files: ", missing_file_count)
+
+
+func end_day() -> void:
+	advance_day()
