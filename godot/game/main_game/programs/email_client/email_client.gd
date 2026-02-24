@@ -3,7 +3,7 @@ class_name EmailClientWindow
 
 # ! EmailPack determined by LevelService !
 # ! change after implement SaveLoadManager !
-@onready var email_pack: EmailPack = preload("res://data/email_pack/monday.tres")
+@onready var email_pack: EmailPack = LevelServiceInstance.get_email_pack_of_day()
 
 # Incoming Email Chips
 @onready var incoming_email_vbox: VBoxContainer = $WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox

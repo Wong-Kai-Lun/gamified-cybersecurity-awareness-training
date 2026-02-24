@@ -72,15 +72,17 @@ func _on_inventory_changed(player_inventory: Array[FileData]) -> void:
 	
 	if ransomware_present and ransomware_timer.is_stopped():
 		_start_ransomware_timer()
+		print("previous no ransomware but now got")
 	elif not ransomware_present:
 		ransomware_timer.stop()
+		print("previous have ransomware but now gone")
 
 
 func _analyse_threats(inventory: Array[FileData]) -> void:
 	malware_count = 0
 	adware_count = 0
 	total_threat_count = 0
-	ransomware_present = false
+	var ransomware_detected := false
 	
 	for file in inventory:
 		match file.file_type:
@@ -89,10 +91,12 @@ func _analyse_threats(inventory: Array[FileData]) -> void:
 			FileData.FileType.ADWARE:
 				adware_count += 1
 			FileData.FileType.RANSOMWARE:
-				if not ransomware_present:
-					ransomware_present = true
-					ransomware_downloaded.emit()
+				ransomware_detected = true
 	
+	if not ransomware_present and ransomware_detected:
+		ransomware_downloaded.emit()
+	
+	ransomware_present = ransomware_detected
 	total_threat_count = malware_count + adware_count
 
 
@@ -181,7 +185,7 @@ func _try_malware_action(malware_file: FileData) -> void:
 
 # Ransomware
 func _start_ransomware_timer() -> void:
-	var delay := 45.0
+	var delay := 10.0
 	ransomware_timer.start(delay)
 
 func _on_ransomware_timer_timeout() -> void:

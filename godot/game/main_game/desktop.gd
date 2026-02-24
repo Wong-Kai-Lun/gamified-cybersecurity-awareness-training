@@ -158,7 +158,7 @@ func _flash_cmd_window() -> void:
 
 
 func _show_game_over_panel() -> void:
-	var game_over_panel_scene: PackedScene = load("res://game/main_game/programs/events/game_over_panel.tscn")
+	var game_over_panel_scene: PackedScene = load("res://game/main_game/programs/events/game_over/game_over_panel.tscn")
 	var game_over_panel_instance = game_over_panel_scene.instantiate()
 	
 	await _wait(2.0)

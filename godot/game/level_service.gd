@@ -8,11 +8,11 @@ enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY }
 const LEVELS = {
 	Day.MONDAY: {
 		"name" : "Monday",
-		# "email_pack" : preload("res://data/email_pack/monday.tres")
+		"email_pack" : preload("res://data/email_pack/monday.tres")
 	},
 	Day.TUESDAY: {
 		"name" : "Tuesday",
-		# "email_pack" : preload("res://data/email_pack/tuesday.tres")
+		"email_pack" : preload("res://data/email_pack/tuesday.tres")
 	},
 	Day.WEDNESDAY: {
 		"name" : "Wednesday",
@@ -20,13 +20,14 @@ const LEVELS = {
 	}
 }
 
+# Player Value
 var current_day: Day = Day.MONDAY
 
 
 func _ready() -> void:
-	# print("LevelService online!")
-	# initialise()
-	pass
+	print("LevelService online!")
+	get_email_pack_of_day()
+	
 
 func advance_day() -> void:
 	current_day += 1
@@ -37,4 +38,7 @@ func initialise() -> void:
 	current_day = Day.MONDAY
 	#change current_day if save file exists
 	level_updated.emit(LEVELS[current_day])
-	print(LEVELS[current_day])
+
+
+func get_email_pack_of_day() -> EmailPack:
+	return LEVELS[current_day].get("email_pack")
