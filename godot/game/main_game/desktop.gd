@@ -84,10 +84,12 @@ func _initialise_level() -> void:
 
 
 func _animate_enter_level() -> void:
+	var level_name := LevelServiceInstance.get_current_level_name()
+	transition_lbl.text = level_name
+	
 	transition_bg.show()
 	transition_lbl.show()
 	
-	var t := create_tween()
 	await TweenUtils.fade_in(transition_lbl, 1.0, 2.0)
 	await _wait(2.0)
 	TweenUtils.fade_out(transition_bg, 2.0)

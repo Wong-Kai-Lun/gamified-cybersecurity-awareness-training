@@ -29,6 +29,14 @@ func register_player(username: String, email: String) -> void:
 	_player_email = email + _COMPANY_DOMAIN
 
 
+func get_files_for_save(files: Array[FileData]) -> Array:
+	var result := []
+	for file in files:
+		result.append(file.get_save_data())
+	print(result)
+	return result
+
+
 # Player Inventory
 func get_player_inventory() -> Array[FileData]:
 	return _inventory.duplicate(true)

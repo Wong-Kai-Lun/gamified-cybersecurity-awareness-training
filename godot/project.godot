@@ -23,6 +23,7 @@ AntivirusManagerInstance="*res://game/notification_system/antivirus_manager.gd"
 FileServiceInstance="*res://game/file_service.gd"
 EventServiceInstance="*res://game/event_service.gd"
 LevelServiceInstance="*res://game/level_service.gd"
+SaveloadServiceInstance="*res://game/saveload_service.gd"
 
 [display]
 
