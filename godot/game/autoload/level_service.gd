@@ -6,18 +6,9 @@ signal level_updated(level: Dictionary)
 enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY }
 
 const LEVELS = {
-	Day.MONDAY: {
-		"name" : "Monday",
-		"email_pack" : preload("res://data/email_pack/monday.tres")
-	},
-	Day.TUESDAY: {
-		"name" : "Tuesday",
-		"email_pack" : preload("res://data/email_pack/tuesday.tres")
-	},
-	Day.WEDNESDAY: {
-		"name" : "Wednesday",
-		# "email_pack" : preload("res://data/email_pack/wednesday.tres")
-	}
+	Day.MONDAY: "res://data/email_pack/monday.tres",
+	Day.TUESDAY: "res://data/email_pack/tuesday.tres"
+	# Day.WEDNESDAY: preload("res://data/email_pack/monday.tres")
 }
 
 # Player Value
@@ -26,7 +17,20 @@ var _current_day: Day = Day.MONDAY
 
 func _ready() -> void:
 	print("LevelService online!")
-	initialise() # new game or load
+
+
+func get_current_day() -> Day:
+	return _current_day
+
+
+func get_current_level_name(day: Day) -> String:
+	var email_pack := load(LEVELS[day])
+	return email_pack.pack_name
+
+
+func get_email_pack_of_day(day: Day) -> EmailPack:
+	var email_pack := load(LEVELS[day])
+	return email_pack
 
 
 func get_data_for_save() -> Dictionary:
@@ -40,18 +44,10 @@ func advance_day() -> void:
 	#level_updated.emit(current_day)
 
 
-func initialise() -> void:
+func reset() -> void:
 	_current_day = Day.MONDAY
-	#change current_day if save file exists
+	# change current_day if save file exists
 	#level_updated.emit(LEVELS[_current_day])
-
-
-func get_current_level_name() -> String:
-	return LEVELS[_current_day].get("name")
-
-
-func get_email_pack_of_day() -> EmailPack:
-	return LEVELS[_current_day].get("email_pack")
 
 
 # Progression
@@ -71,7 +67,3 @@ func validate_outbound_files(email: EmailData, attached: Array[FileData]) -> voi
 			missing_file_count += 1
 	
 	print("Missing Files: ", missing_file_count)
-
-
-func end_day() -> void:
-	advance_day()

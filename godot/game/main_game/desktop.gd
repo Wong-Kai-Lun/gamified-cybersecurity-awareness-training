@@ -78,13 +78,14 @@ func _initialise_level() -> void:
 	input_blocker.hide()
 	settings.close()
 	
-	#await _animate_enter_level()
-	await _wait(0.5)
+	await _animate_enter_level()
+	await _wait(1.0)
 	email_client.open()
 
 
 func _animate_enter_level() -> void:
-	var level_name := LevelServiceInstance.get_current_level_name()
+	var day := LevelServiceInstance.get_current_day()
+	var level_name := LevelServiceInstance.get_current_level_name(day)
 	transition_lbl.text = level_name
 	
 	transition_bg.show()

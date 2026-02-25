@@ -1,9 +1,17 @@
 extends Node
 class_name EmailService
 
+signal emails_updated
+
 var _COMPANY_DOMAIN = "@abc.com.my"
 var _PLACEHOLDER_NAME = "{player_name}"
 var _PLACEHOLDER_EMAIL = "{player_email}"
+
+var _player_emails: Array[EmailData] = []
+
+
+func reset() -> void:
+	_player_emails = []
 
 
 # Updates placeholders in email_body
@@ -18,3 +26,14 @@ func replace_placeholder_name(email_body: String) -> String:
 	var player_info := GameManagerInstance.get_player_info()
 	var updated_email_body = email_body.replace(_PLACEHOLDER_NAME, player_info["name"])
 	return updated_email_body
+
+
+func get_all_emails() -> Array[EmailData]:
+	return _player_emails
+
+
+func append_latest_email_data(email_pack: EmailPack) -> void:
+	var latest_email_array := email_pack.emails
+	for email_data in latest_email_array:
+		_player_emails.append(email_data)
+	emails_updated.emit()

@@ -116,6 +116,12 @@ func _on_severity_changed(level: Severity) -> void:
 	severity_changed.emit(level)
 
 
+func stop():
+	for timer in get_children():
+		timer.stop()
+	print("Game Quitted! Stopping timers...")
+
+
 # Input Delay
 func delay_input() -> void:
 	var delay = _get_delay_seconds()

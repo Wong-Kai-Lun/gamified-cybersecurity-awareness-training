@@ -19,6 +19,7 @@ var _recycling_bin: Array[FileData] = []
 # check save file, if have, load that, enable continue
 func _ready():
 	print("GameManager is online!")
+	start_new_game()
 
 
 # Player Data
@@ -31,6 +32,18 @@ func get_player_info() -> Dictionary:
 		"name": _player_name,
 		"email_username": _player_email_username
 	}
+
+
+func start_new_game() -> void:
+	LevelServiceInstance.reset()
+	EmailServiceInstance.reset()
+	_inventory = []
+	_recycling_bin = []
+	
+	var day := LevelServiceInstance.get_current_day()
+	var pack := LevelServiceInstance.get_email_pack_of_day(day)
+	EmailServiceInstance.append_latest_email_data(pack)
+	LevelServiceInstance.get_email_pack_of_day(day)
 
 
 # Save Data

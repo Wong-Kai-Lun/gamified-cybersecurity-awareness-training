@@ -9,9 +9,8 @@ var found_threats: Array[String] = []
 
 
 func _ready() -> void:
-	print("Antivirus online!")
 	add_child(scan_timer)
-	scan_timer.wait_time = 16.0
+	scan_timer.wait_time = 15.0
 	scan_timer.one_shot = false
 	scan_timer.timeout.connect(scan_player_inventory)
 	scan_timer.start()

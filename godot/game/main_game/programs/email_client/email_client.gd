@@ -1,9 +1,6 @@
 extends BaseWindow
 class_name EmailClientWindow
 
-
-@onready var email_pack: EmailPack = LevelServiceInstance.get_email_pack_of_day()
-
 # Incoming Email Chips
 @onready var incoming_email_vbox: VBoxContainer = $WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/IncomingEmail/ScrollContainer/MarginContainer/IncomingEmailVBox
 @onready var incoming_email: PackedScene = preload("res://game/main_game/programs/email_client/incoming_email.tscn")
@@ -17,7 +14,8 @@ class_name EmailClientWindow
 
 func _ready() -> void:
 	super._ready()
-	load_email_pack(email_pack)
+	EmailServiceInstance.emails_updated.connect(refresh)
+	refresh()
 	
 	email_body_obj.email_reported.connect(_block_reported_email)
 	email_body_container.add_child(email_body_obj)
@@ -27,16 +25,16 @@ func _ready() -> void:
 	input_blocker.hide()
 
 
-func load_email_pack(pack: EmailPack) -> void:
-	for email_data in pack.emails:
+func refresh() -> void:
+	load_emails(EmailServiceInstance.get_all_emails())
+
+
+func load_emails(email_array: Array[EmailData]) -> void:
+	for email_data in email_array:
 		var incoming_email_instance := incoming_email.instantiate()
 		incoming_email_vbox.add_child(incoming_email_instance)
 		incoming_email_instance.setup(email_data)
 		incoming_email_instance.opened.connect(_on_email_selected)
-
-# ^^^ Modify to load
-func load_from_save(pack: EmailPack) -> void:
-	pass
 
 
 func _on_email_selected(data: EmailData) -> void:
