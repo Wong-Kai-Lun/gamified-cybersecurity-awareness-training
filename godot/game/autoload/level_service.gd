@@ -26,7 +26,7 @@ var _current_day: Day = Day.MONDAY
 
 func _ready() -> void:
 	print("LevelService online!")
-	get_email_pack_of_day()
+	initialise() # new game or load
 
 
 func get_data_for_save() -> Dictionary:
@@ -43,7 +43,7 @@ func advance_day() -> void:
 func initialise() -> void:
 	_current_day = Day.MONDAY
 	#change current_day if save file exists
-	level_updated.emit(LEVELS[_current_day])
+	#level_updated.emit(LEVELS[_current_day])
 
 
 func get_current_level_name() -> String:

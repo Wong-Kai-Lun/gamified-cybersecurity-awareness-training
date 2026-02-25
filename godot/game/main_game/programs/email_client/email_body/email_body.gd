@@ -101,7 +101,6 @@ func _on_send_pressed() -> void:
 	LevelServiceInstance.validate_outbound_files(email_data, attached_files)
 
 
-# lock email after report
 func _on_report_pressed(id: int) -> void:
 	if email_data.flags["reported"]:
 		return

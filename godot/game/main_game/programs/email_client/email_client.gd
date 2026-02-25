@@ -1,8 +1,7 @@
 extends BaseWindow
 class_name EmailClientWindow
 
-# ! EmailPack determined by LevelService !
-# ! change after implement SaveLoadManager !
+
 @onready var email_pack: EmailPack = LevelServiceInstance.get_email_pack_of_day()
 
 # Incoming Email Chips
@@ -15,7 +14,7 @@ class_name EmailClientWindow
 @onready var email_body_obj := email_body_scene.instantiate()
 @onready var input_blocker: Label = $WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/EmailBodyContainer/InputBlocker
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	super._ready()
 	load_email_pack(email_pack)

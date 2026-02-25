@@ -16,5 +16,6 @@
 
 [resource]
 script = ExtResource("4_8j6wb")
+pack_id = "monday"
 pack_name = "Monday"
 emails = Array[ExtResource("1_krvfn")]([ExtResource("2_o2iop"), ExtResource("3_j2tub"), ExtResource("4_3xoli"), ExtResource("5_abn0v"), ExtResource("6_icons"), ExtResource("7_llu7q"), ExtResource("8_uphov"), ExtResource("9_ma25n"), ExtResource("10_jxkmj"), ExtResource("11_qtkjp"), ExtResource("12_epuxh")])

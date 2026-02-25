@@ -6,5 +6,6 @@
 
 [resource]
 script = ExtResource("2_x77k0")
+pack_id = "tuesday"
 pack_name = "Tuesday"
 emails = Array[ExtResource("1_jub6e")]([ExtResource("2_r73j4")])
