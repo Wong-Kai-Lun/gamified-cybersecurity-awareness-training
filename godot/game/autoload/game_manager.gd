@@ -19,7 +19,6 @@ var _recycling_bin: Array[FileData] = []
 # check save file, if have, load that, enable continue
 func _ready():
 	print("GameManager is online!")
-	start_new_game()
 
 
 # Player Data

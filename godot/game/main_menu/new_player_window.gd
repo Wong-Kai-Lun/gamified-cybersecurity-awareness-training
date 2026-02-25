@@ -22,6 +22,7 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 	start_button.disabled = is_username_empty or is_email_empty
 	#insert regex logic here?
 
+
 func on_close_requested() -> void:
 	new_player_window_closed.emit()
 

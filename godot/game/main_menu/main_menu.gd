@@ -18,6 +18,7 @@ func _ready() -> void:
 
 func _register_player_and_start(username: String, email: String) -> void:
 	GameManagerInstance.register_player(username, email)
+	GameManagerInstance.start_new_game()
 	get_tree().change_scene_to_file("res://game/main_game/desktop.tscn")
 
 
