@@ -24,6 +24,7 @@ FileServiceInstance="*res://game/autoload/file_service.gd"
 EventServiceInstance="*res://game/autoload/event_service.gd"
 LevelServiceInstance="*res://game/autoload/level_service.gd"
 SaveloadServiceInstance="*res://game/autoload/saveload_service.gd"
+EmailServiceInstance="*res://game/autoload/email_service.gd"
 
 [display]
 

@@ -13,7 +13,7 @@ func setup(data: EmailData) -> void:
 	email_data = data
 	sender_label.text = "[b]" + data.sender_name
 	subject_label.text = data.subject
-	var modified_body_text = GameManagerInstance.replace_placeholder_name(data.email_body)
+	var modified_body_text = EmailServiceInstance.replace_placeholder_name(data.email_body)
 	body_preview_label.text = modified_body_text
 	_update_background()
 

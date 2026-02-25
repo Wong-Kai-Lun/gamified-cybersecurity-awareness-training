@@ -61,10 +61,10 @@ func _setup_message(data: EmailData) -> void:
 	
 	subject.bbcode_text = "[b]" + data.subject
 	from_rtl.text = data.sender_address
-	var modified_to_address = GameManagerInstance.replace_placeholder_email(data.to_address)
+	var modified_to_address = EmailServiceInstance.replace_placeholder_email_address(data.to_address)
 	to_rtl.text = modified_to_address
 	cc_rtl.text = data.cc_address
-	var modified_body_text = GameManagerInstance.replace_placeholder_name(data.email_body)
+	var modified_body_text = EmailServiceInstance.replace_placeholder_name(data.email_body)
 	body_rtl.bbcode_text = modified_body_text
 	
 	inbound_file_container_instance.hide()

@@ -7,12 +7,9 @@ signal recycling_bin_changed(recycling_bin: Array[FileData])
 
 
 # Constant Values
-var _COMPANY_DOMAIN = "@abc.com.my"
-var _PLACEHOLDER_NAME = "{player_name}"
-var _PLACEHOLDER_EMAIL = "{player_email}"
 var _MAX_INVENTORY_SIZE = 16
 
-
+# Default Values
 var _player_name: String = "Placeholder"
 var _player_email_username: String = "place.holder"
 var _inventory: Array[FileData] = []
@@ -23,14 +20,17 @@ var _recycling_bin: Array[FileData] = []
 func _ready():
 	print("GameManager is online!")
 
+
 # Player Data
 func register_player(username: String, email: String) -> void:
 	_player_name = username
 	_player_email_username = email
 
-
-func get_player_name() -> String:
-	return _player_name
+func get_player_info() -> Dictionary:
+	return {
+		"name": _player_name,
+		"email_username": _player_email_username
+	}
 
 
 # Save Data
@@ -51,7 +51,7 @@ func get_data_for_save() -> Dictionary:
 	}
 
 
-# Player Inventory
+# Player File Mutations
 func get_player_inventory() -> Array[FileData]:
 	return _inventory.duplicate(true)
 
@@ -110,14 +110,3 @@ func corrupt_random_inventory_file(source_malware: FileData) -> bool:
 	
 	inventory_changed.emit(_inventory.duplicate(true))
 	return true
-
-
-# Email Body
-func replace_placeholder_name(placeholder_name: String) -> String:
-	var replaced_name = placeholder_name.replace(_PLACEHOLDER_NAME, _player_name)
-	return replaced_name
-
-func replace_placeholder_email(placeholder_email: String) -> String:
-	var player_email_address = _player_email_username + _COMPANY_DOMAIN
-	var replaced_email = placeholder_email.replace(_PLACEHOLDER_EMAIL, player_email_address)
-	return replaced_email

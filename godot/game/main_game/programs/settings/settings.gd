@@ -14,4 +14,6 @@ func on_close_requested() -> void:
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://game/main_menu/main_menu.tscn")
-	SaveloadServiceInstance.test()
+	# SaveloadServiceInstance.test()
+	var test := GameManagerInstance.get_player_info()
+	print(test)
