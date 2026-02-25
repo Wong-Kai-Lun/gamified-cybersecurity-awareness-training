@@ -21,31 +21,37 @@ const LEVELS = {
 }
 
 # Player Value
-var current_day: Day = Day.MONDAY
+var _current_day: Day = Day.MONDAY
 
 
 func _ready() -> void:
 	print("LevelService online!")
 	get_email_pack_of_day()
-	
+
+
+func get_data_for_save() -> Dictionary:
+	return {
+		"current_day": _current_day
+	}
+
 
 func advance_day() -> void:
-	current_day += 1
+	_current_day += 1
 	#level_updated.emit(current_day)
 
 
 func initialise() -> void:
-	current_day = Day.MONDAY
+	_current_day = Day.MONDAY
 	#change current_day if save file exists
-	level_updated.emit(LEVELS[current_day])
+	level_updated.emit(LEVELS[_current_day])
 
 
 func get_current_level_name() -> String:
-	return LEVELS[current_day].get("name")
+	return LEVELS[_current_day].get("name")
 
 
 func get_email_pack_of_day() -> EmailPack:
-	return LEVELS[current_day].get("email_pack")
+	return LEVELS[_current_day].get("email_pack")
 
 
 # Progression

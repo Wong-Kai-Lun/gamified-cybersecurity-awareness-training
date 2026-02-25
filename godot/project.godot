@@ -17,13 +17,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManagerInstance="*res://game/game_manager.gd"
+GameManagerInstance="*res://game/autoload/game_manager.gd"
 NotificationManagerInstance="*res://game/notification_system/notification_manager.gd"
 AntivirusManagerInstance="*res://game/notification_system/antivirus_manager.gd"
-FileServiceInstance="*res://game/file_service.gd"
-EventServiceInstance="*res://game/event_service.gd"
-LevelServiceInstance="*res://game/level_service.gd"
-SaveloadServiceInstance="*res://game/saveload_service.gd"
+FileServiceInstance="*res://game/autoload/file_service.gd"
+EventServiceInstance="*res://game/autoload/event_service.gd"
+LevelServiceInstance="*res://game/autoload/level_service.gd"
+SaveloadServiceInstance="*res://game/autoload/saveload_service.gd"
 
 [display]
 

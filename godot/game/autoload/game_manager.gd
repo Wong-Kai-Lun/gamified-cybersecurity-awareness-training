@@ -14,7 +14,7 @@ var _MAX_INVENTORY_SIZE = 16
 
 
 var _player_name: String = "Placeholder"
-var _player_email: String = "place.holder" + _COMPANY_DOMAIN
+var _player_email_username: String = "place.holder"
 var _inventory: Array[FileData] = []
 var _recycling_bin: Array[FileData] = []
 
@@ -23,18 +23,32 @@ var _recycling_bin: Array[FileData] = []
 func _ready():
 	print("GameManager is online!")
 
-# add more checks, mainly prevent bad language, return bool
+# Player Data
 func register_player(username: String, email: String) -> void:
 	_player_name = username
-	_player_email = email + _COMPANY_DOMAIN
+	_player_email_username = email
 
 
-func get_files_for_save(files: Array[FileData]) -> Array:
+func get_player_name() -> String:
+	return _player_name
+
+
+# Save Data
+func _get_files_for_save(array: Array[FileData]) -> Array:
 	var result := []
-	for file in files:
+	for file in array:
 		result.append(file.get_save_data())
-	print(result)
 	return result
+
+func get_data_for_save() -> Dictionary:
+	return {
+		"player": {
+			"player_name": _player_name,
+			"player_email_username": _player_email_username
+		},
+		"inventory": _get_files_for_save(_inventory),
+		"recycling_bin": _get_files_for_save(_recycling_bin)
+	}
 
 
 # Player Inventory
@@ -104,5 +118,6 @@ func replace_placeholder_name(placeholder_name: String) -> String:
 	return replaced_name
 
 func replace_placeholder_email(placeholder_email: String) -> String:
-	var replaced_email = placeholder_email.replace(_PLACEHOLDER_EMAIL, _player_email)
+	var player_email_address = _player_email_username + _COMPANY_DOMAIN
+	var replaced_email = placeholder_email.replace(_PLACEHOLDER_EMAIL, player_email_address)
 	return replaced_email

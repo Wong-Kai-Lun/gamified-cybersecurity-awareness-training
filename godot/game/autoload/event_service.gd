@@ -51,6 +51,7 @@ func _ready() -> void:
 	
 	GameManagerInstance.inventory_changed.connect(_on_inventory_changed)
 
+
 # Main
 func _on_inventory_changed(player_inventory: Array[FileData]) -> void:
 	_analyse_threats(player_inventory)
@@ -72,10 +73,8 @@ func _on_inventory_changed(player_inventory: Array[FileData]) -> void:
 	
 	if ransomware_present and ransomware_timer.is_stopped():
 		_start_ransomware_timer()
-		print("previous no ransomware but now got")
 	elif not ransomware_present:
 		ransomware_timer.stop()
-		print("previous have ransomware but now gone")
 
 
 func _analyse_threats(inventory: Array[FileData]) -> void:
