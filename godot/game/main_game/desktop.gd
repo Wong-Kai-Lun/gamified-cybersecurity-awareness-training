@@ -78,8 +78,8 @@ func _initialise_level() -> void:
 	input_blocker.hide()
 	settings.close()
 	
-	await _animate_enter_level()
-	await _wait(2.0)
+	#await _animate_enter_level()
+	await _wait(0.5)
 	email_client.open()
 
 

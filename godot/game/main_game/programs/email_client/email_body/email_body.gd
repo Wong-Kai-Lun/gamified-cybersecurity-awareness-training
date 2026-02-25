@@ -103,10 +103,10 @@ func _on_send_pressed() -> void:
 
 # lock email after report
 func _on_report_pressed(id: int) -> void:
-	if email_data.is_reported:
+	if email_data.flags["reported"]:
 		return
 	
 	match id:
 		EmailAction.REPORT:
-			email_data.is_reported = true
+			email_data.flags["reported"] = true
 			email_reported.emit(email_data)

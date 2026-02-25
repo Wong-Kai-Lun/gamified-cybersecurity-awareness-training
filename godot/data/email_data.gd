@@ -14,9 +14,15 @@ enum EmailType { MESSAGE, INBOUND, OUTBOUND }
 @export var inbound_attachments: Array[FileData] = []
 @export var expected_attachments: Array[FileData] = []
 
-@export var is_read: bool = false
+@export var score: float
+
+#@export var is_read: bool = false
 @export var is_important: bool = false
 @export var is_phishing: bool = false
-@export var is_reported: bool = false
+#@export var is_reported: bool = false
 
-@export var score: float
+var flags := {
+	"read": false,
+	"reported": false,
+	"sent": false
+}

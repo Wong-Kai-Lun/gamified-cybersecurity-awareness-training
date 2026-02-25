@@ -19,7 +19,7 @@ func setup(data: EmailData) -> void:
 
 
 func _update_status_to_read() -> void:
-	email_data.is_read = true
+	email_data.flags["read"] = true
 
 
 func _update_background() -> void:
@@ -28,12 +28,12 @@ func _update_background() -> void:
 		new_stylebox.bg_color = Color(0.88, 0.79, 0.44, 1)
 		bg_panel_container.add_theme_stylebox_override("panel", new_stylebox)
 	
-	if email_data.is_read:
+	if email_data.flags["read"]:
 		var new_stylebox = StyleBoxFlat.new()
 		new_stylebox.bg_color = Color(0.6, 0.6, 0.6, 1)
 		bg_panel_container.add_theme_stylebox_override("panel", new_stylebox)
 		
-	if email_data.is_important and email_data.is_read:
+	if email_data.is_important and email_data.flags["read"]:
 		var new_stylebox = StyleBoxFlat.new()
 		new_stylebox.bg_color = Color(0.78, 0.69, 0.34, 1)
 		bg_panel_container.add_theme_stylebox_override("panel", new_stylebox)

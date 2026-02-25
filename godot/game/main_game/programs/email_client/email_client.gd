@@ -47,7 +47,7 @@ func _on_email_selected(data: EmailData) -> void:
 
 
 func _block_reported_email(data: EmailData) -> void:
-	if data.is_reported:
+	if data.flags["reported"]:
 		input_blocker.show()
 	else:
 		input_blocker.hide()
