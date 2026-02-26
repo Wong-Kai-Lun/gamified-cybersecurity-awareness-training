@@ -85,7 +85,7 @@ func _initialise_level() -> void:
 
 func _animate_enter_level() -> void:
 	var day := LevelServiceInstance.get_current_day()
-	var level_name := LevelServiceInstance.get_current_level_name(day)
+	var level_name := LevelServiceInstance.get_current_level_name()
 	transition_lbl.text = level_name
 	
 	transition_bg.show()

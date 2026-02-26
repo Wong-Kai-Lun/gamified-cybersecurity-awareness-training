@@ -1,9 +1,11 @@
 extends Node
 class_name GameManager
 
+#region Saveable Data
 # Default Values
 var _player_name: String = "Placeholder"
 var _player_email_username: String = "place.holder"
+#endregion
 
 
 func register_player(username: String, email: String) -> void:
@@ -22,19 +24,15 @@ func start_new_game() -> void:
 	EmailServiceInstance.reset()
 	FileServiceInstance.reset()
 	
-	var day := LevelServiceInstance.get_current_day()
-	var pack := LevelServiceInstance.get_email_pack_of_day(day)
+	var pack := LevelServiceInstance.get_email_pack_of_day()
 	EmailServiceInstance.append_latest_email_data(pack)
-	LevelServiceInstance.get_email_pack_of_day(day)
 
 
 #region Save / Load Data
 func get_data_for_save() -> Dictionary:
 	return {
-		"player": {
-			"player_name": _player_name,
-			"player_email_username": _player_email_username
-		}
+		"player_name": _player_name,
+		"player_email_username": _player_email_username
 	}
 
 func load_data() -> void:

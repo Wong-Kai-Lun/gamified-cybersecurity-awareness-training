@@ -29,12 +29,18 @@ func empty_recycling_bin() -> void:
 	recycling_bin_changed.emit(_recycling_bin.duplicate(true))
 
 
-func get_save_data(array: Array[FileData]) -> Array:
-	var result := []
+func get_files_for_save(array: Array[FileData]) -> Array:
+	var collected_files := []
 	for file in array:
-		result.append(file.get_save_data())
-	return result
-# add get_save_data inv and recy
+		collected_files.append(file.get_save_data())
+	return collected_files
+
+
+func get_data_for_save() -> Dictionary:
+	return {
+		"inventory": get_files_for_save(_inventory),
+		"recycling_bin": get_files_for_save(_recycling_bin)
+	}
 
 
 #region Player Inventory Mutation

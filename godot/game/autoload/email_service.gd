@@ -14,16 +14,14 @@ var _player_emails: Array[EmailData] = []
 func reset() -> void:
 	_player_emails = []
 
-func get_data_for_save() -> Dictionary:
+func get_data_for_save() -> Array:
 	var result := []
 	
 	for email in _player_emails:
 		var save_data := email.get_save_data()
 		result.append(save_data)
 	
-	return {
-		"emails": result
-	}
+	return result
 
 
 # Updates placeholders in email_body

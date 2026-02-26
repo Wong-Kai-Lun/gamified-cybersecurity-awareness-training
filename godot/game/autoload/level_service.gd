@@ -11,8 +11,9 @@ const LEVELS = {
 	# Day.WEDNESDAY: preload("res://data/email_pack/monday.tres")
 }
 
-# Player Value
+#region Saveable Data
 var _current_day: Day = Day.MONDAY
+#endregion
 
 
 func _ready() -> void:
@@ -23,13 +24,13 @@ func get_current_day() -> Day:
 	return _current_day
 
 
-func get_current_level_name(day: Day) -> String:
-	var email_pack := load(LEVELS[day])
+func get_current_level_name() -> String:
+	var email_pack := load(LEVELS[_current_day])
 	return email_pack.pack_name
 
 
-func get_email_pack_of_day(day: Day) -> EmailPack:
-	var email_pack := load(LEVELS[day])
+func get_email_pack_of_day() -> EmailPack:
+	var email_pack := load(LEVELS[_current_day])
 	return email_pack
 
 
