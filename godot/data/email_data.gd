@@ -3,6 +3,7 @@ class_name EmailData
 
 enum EmailType { MESSAGE, INBOUND, OUTBOUND }
 
+@export var email_id: String
 @export var email_type: EmailType = EmailType.MESSAGE
 @export var sender_name: String
 @export var sender_address: String
@@ -16,13 +17,17 @@ enum EmailType { MESSAGE, INBOUND, OUTBOUND }
 
 @export var score: float
 
-#@export var is_read: bool = false
 @export var is_important: bool = false
 @export var is_phishing: bool = false
-#@export var is_reported: bool = false
 
 var flags := {
 	"read": false,
 	"reported": false,
 	"sent": false
 }
+
+func get_save_data() -> Dictionary:
+	return {
+		"id": email_id,
+		"flags": flags
+	}

@@ -45,7 +45,7 @@ func start_new_game() -> void:
 	LevelServiceInstance.get_email_pack_of_day(day)
 
 
-# Save Data
+#region Save / Load Data
 func _get_files_for_save(array: Array[FileData]) -> Array:
 	var result := []
 	for file in array:
@@ -62,8 +62,12 @@ func get_data_for_save() -> Dictionary:
 		"recycling_bin": _get_files_for_save(_recycling_bin)
 	}
 
+func load_data() -> void:
+	pass
 
-# Player File Mutations
+#endregion
+
+#region Inventory & Recycling Bin
 func get_player_inventory() -> Array[FileData]:
 	return _inventory.duplicate(true)
 
@@ -122,3 +126,5 @@ func corrupt_random_inventory_file(source_malware: FileData) -> bool:
 	
 	inventory_changed.emit(_inventory.duplicate(true))
 	return true
+
+#endregion

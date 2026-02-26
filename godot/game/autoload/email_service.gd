@@ -10,8 +10,20 @@ var _PLACEHOLDER_EMAIL = "{player_email}"
 var _player_emails: Array[EmailData] = []
 
 
+# Save / Load
 func reset() -> void:
 	_player_emails = []
+
+func get_data_for_save() -> Dictionary:
+	var result := []
+	
+	for email in _player_emails:
+		var save_data := email.get_save_data()
+		result.append(save_data)
+	
+	return {
+		"emails": result
+	}
 
 
 # Updates placeholders in email_body

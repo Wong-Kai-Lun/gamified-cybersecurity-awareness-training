@@ -5,6 +5,7 @@ extends Control
 @onready var new_player_window = new_player_window_scene.instantiate()
 @onready var input_blocker_scene: PackedScene = preload("res://game/main_game/programs/common/input_blocker.tscn")
 @onready var input_blocker = input_blocker_scene.instantiate()
+@onready var continue_button = $HBoxContainer/MarginContainer/ButtonContainer/Continue
 
 
 func _ready() -> void:
@@ -14,6 +15,9 @@ func _ready() -> void:
 	new_player_window.hide()
 	new_player_window.start_pressed.connect(_register_player_and_start)
 	new_player_window.new_player_window_closed.connect(_on_new_player_window_closed)
+	
+	if FileAccess.file_exists("user://save_file.json"):
+		continue_button.disabled = false
 
 
 func _register_player_and_start(username: String, email: String) -> void:

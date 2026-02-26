@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("3_b4rem")
+email_id = "1_4_little_genius_po"
 email_type = 1
 sender_name = "Ong Wei Zhe"
 sender_address = "ongweizhe@littlegenius.com"
@@ -15,8 +16,6 @@ subject = "Purchase Order from Little Genius Stationery"
 email_body = "Good morning, I'd like to place a purchase order for stationeries.[p] [p]Please refer to the PO attached.[p] [p] [p]Ong Wei Zhe[p]Store Owner[p]Little Genius Stationery[p]小天才文具店"
 inbound_attachments = Array[ExtResource("1_fkxwx")]([ExtResource("2_412vh")])
 expected_attachments = Array[ExtResource("1_fkxwx")]([])
-is_read = false
+score = 0.0
 is_important = false
 is_phishing = false
-is_reported = false
-score = 0.0

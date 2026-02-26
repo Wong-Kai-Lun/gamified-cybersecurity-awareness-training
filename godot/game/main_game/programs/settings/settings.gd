@@ -16,3 +16,4 @@ func _on_button_pressed() -> void:
 	EventServiceInstance.stop()
 	# add save game function here
 	get_tree().change_scene_to_file("res://game/main_menu/main_menu.tscn")
+	SaveloadServiceInstance.save_game()

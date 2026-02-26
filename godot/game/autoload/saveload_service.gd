@@ -1,16 +1,21 @@
 extends Node
 class_name SaveLoadService
 
-var is_new_game := true
 
-
-func gather_save_data() -> Dictionary:
-	return {
-		"level": LevelServiceInstance.get_data_for_save(),
-		"game": GameManagerInstance.get_data_for_save()
+func save_game() -> void:
+	var save_data := {
+		"player_info": GameManagerInstance.get_data_for_save(),
+		"level_info": LevelServiceInstance.get_data_for_save(),
+		"player_emails": EmailServiceInstance.get_data_for_save()
 	}
+	
+	var file = FileAccess.open("user://save_file.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(save_data, "\t"))
+	file.close()
 
 
-func test() -> void:
-	var test_dict := gather_save_data()
-	print(test_dict)
+func load_game() -> void:
+	var file := FileAccess.open("user://save_file.json", FileAccess.READ)
+	var content = file.get_as_text()
+	var loaded_dict = JSON.parse_string(content)
+	print(loaded_dict)
