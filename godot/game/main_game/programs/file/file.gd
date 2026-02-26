@@ -119,7 +119,7 @@ func _on_remove_requested() -> void:
 	queue_free()
 
 
-func _get_drag_data(at_position: Vector2) -> FileData:
+func _get_drag_data(_at_position: Vector2) -> FileData:
 	if is_draggable:
 		set_drag_preview(_build_drag_preview())
 		return file_data

@@ -2,7 +2,7 @@ extends Node
 class_name AntivirusManager
 
 signal threat_found(file_name: String)
-signal list_changed
+# signal list_changed
 
 @onready var scan_timer: Timer = Timer.new()
 var found_threats: Array[String] = []
@@ -28,5 +28,3 @@ func scan_player_inventory() -> void:
 	
 	if has_malware:
 		threat_found.emit(caught_file)
-		# emit number of files instead, and move the file names into its own window
-		# You have ? malware in your inventory!

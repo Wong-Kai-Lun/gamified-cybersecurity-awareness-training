@@ -12,7 +12,8 @@ var _player_emails: Array[EmailData] = []
 
 # Save / Load
 func reset() -> void:
-	_player_emails = []
+	_player_emails.clear()
+	emails_updated.emit()
 
 func get_data_for_save() -> Array:
 	var result := []

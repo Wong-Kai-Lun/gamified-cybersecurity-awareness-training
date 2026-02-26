@@ -6,7 +6,7 @@ var outbound_file_array: Array[FileData] = []
 
 @onready var drop_icon: TextureRect = $TextureRect
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if outbound_file_array.is_empty():
 		drop_icon.show()
 	else:
@@ -35,11 +35,11 @@ func get_outbound_array() -> Array[FileData]:
 
 
 # add some visual feedback
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	return data is FileData
 
 
-func _drop_data(at_position: Vector2, data: Variant) -> void:
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var outbound_file_data = FileServiceInstance.convert_file_context(data, FileData.FileContext.OUTBOUND)
 	outbound_file_array.append(outbound_file_data)
 	draw_files()

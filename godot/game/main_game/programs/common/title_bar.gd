@@ -26,11 +26,6 @@ func _ready() -> void:
 		title_lbl.text = _title
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_close_button_pressed() -> void:
 	close_pressed.emit()
 
@@ -39,6 +34,5 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			emit_signal("drag_started", event.position)
-			
 		else:
 			emit_signal("drag_ended")
