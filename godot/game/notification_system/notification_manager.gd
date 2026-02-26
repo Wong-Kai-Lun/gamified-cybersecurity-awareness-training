@@ -6,7 +6,7 @@ signal request_notification(data)
 enum NotificationType { NEUTRAL, ALERT, WARNING }
 
 func _ready() -> void:
-	GameManagerInstance.inventory_full.connect(_notify_inventory_full)
+	FileServiceInstance.inventory_full.connect(_notify_inventory_full)
 	AntivirusManagerInstance.threat_found.connect(_notify_malware_detected)
 
 func register_file(file: File) -> void:

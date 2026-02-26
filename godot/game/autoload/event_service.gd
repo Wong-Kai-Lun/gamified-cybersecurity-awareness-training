@@ -49,7 +49,7 @@ func _ready() -> void:
 	ransomware_timer.timeout.connect(_on_ransomware_timer_timeout)
 	add_child(ransomware_timer)
 	
-	GameManagerInstance.inventory_changed.connect(_on_inventory_changed)
+	FileServiceInstance.inventory_changed.connect(_on_inventory_changed)
 
 
 # Main
@@ -161,7 +161,7 @@ func _start_malware_timer() -> void:
 
 
 func _on_malware_timer_timeout() -> void:
-	var player_inventory := GameManagerInstance.get_player_inventory()
+	var player_inventory := FileServiceInstance.get_player_inventory()
 	var malware_files := player_inventory.filter( 
 		func(a): return a.file_type == FileData.FileType.MALWARE )
 	
@@ -179,12 +179,12 @@ func _try_malware_action(malware_file: FileData) -> void:
 		print("Malware Tick Failed | ", "Roll: ", roll, " Clone Rate: ", malware_file.trigger_rate)
 		return
 	
-	if GameManagerInstance.is_inventory_full():
-		GameManagerInstance.corrupt_random_inventory_file(malware_file)
+	if FileServiceInstance.is_inventory_full():
+		FileServiceInstance.corrupt_random_inventory_file(malware_file)
 		print("Inventory Full! File Corruption Attempted.")
 		print("Malware Corruption Success | ", "Roll: ", roll, " Clone Rate: ", malware_file.trigger_rate)
 	else:
-		FileServiceInstance.try_add_to_inventory(malware_file)
+		FileServiceInstance.copy_source_to_inventory(malware_file)
 		print("Inventory Not Full! File Cloning Attempted.")
 		print("Malware Clone Success | ", "Roll: ", roll, " Clone Rate: ", malware_file.trigger_rate)
 

@@ -95,7 +95,7 @@ func _file_action(id: int) -> void:
 	match id:
 		FileAction.DOWNLOAD:
 			await EventServiceInstance.delay_input()
-			var success := FileServiceInstance.try_add_to_inventory(file_data)
+			var success := FileServiceInstance.copy_source_to_inventory(file_data)
 			if success:
 				file_downloaded.emit(file_data)
 		

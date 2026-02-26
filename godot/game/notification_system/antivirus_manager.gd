@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 func scan_player_inventory() -> void:
-	var player_inventory = GameManagerInstance.get_player_inventory()
+	var player_inventory = FileServiceInstance.get_player_inventory()
 	var has_malware = false
 	var caught_file = ""
 	
