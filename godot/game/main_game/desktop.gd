@@ -44,7 +44,6 @@ func _on_settings_pressed() -> void:
 func _on_settings_closed() -> void:
 	input_blocker.hide()
 
-
 func _on_3mail_pressed() -> void:
 	await EventServiceInstance.delay_input()
 	if email_client.visible:
@@ -52,14 +51,12 @@ func _on_3mail_pressed() -> void:
 	else:
 		email_client.open()
 
-
 func _on_inventory_pressed() -> void:
 	await EventServiceInstance.delay_input()
 	if inventory.visible:
 		inventory.close()
 	else:
 		inventory.open()
-
 
 func _on_trash_pressed() -> void:
 	await EventServiceInstance.delay_input()

@@ -32,8 +32,6 @@ const base_ad_window_amount: int = 3
 
 
 func _ready() -> void:
-	print("EventService online!")
-	
 	adware_timer = Timer.new()
 	adware_timer.one_shot = true
 	adware_timer.timeout.connect(_on_adware_timer_timeout)
@@ -145,7 +143,7 @@ func _get_delay_seconds() -> float:
 
 # Adware
 func _start_adware_timer() -> void:
-	var delay := randf_range(5.0, 10.0)
+	var delay := randf_range(30.0, 40.0)
 	adware_timer.start(delay)
 
 func _on_adware_timer_timeout() -> void:
@@ -156,7 +154,7 @@ func _on_adware_timer_timeout() -> void:
 
 # Malware
 func _start_malware_timer() -> void:
-	var delay := randf_range(15.0, 20.0)
+	var delay := randf_range(30.0, 35.0)
 	malware_timer.start(delay)
 
 
@@ -190,7 +188,7 @@ func _try_malware_action(malware_file: FileData) -> void:
 
 # Ransomware
 func _start_ransomware_timer() -> void:
-	var delay := 10.0
+	var delay := 60.0
 	ransomware_timer.start(delay)
 
 func _on_ransomware_timer_timeout() -> void:

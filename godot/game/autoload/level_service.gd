@@ -11,6 +11,11 @@ const LEVELS = {
 	# Day.WEDNESDAY: preload("res://data/email_pack/monday.tres")
 }
 
+const SPECIAL = {
+	# path to special triggered emails here
+	# emit signal or something
+}
+
 #region Saveable Data
 var _current_day: Day = Day.MONDAY
 #endregion
