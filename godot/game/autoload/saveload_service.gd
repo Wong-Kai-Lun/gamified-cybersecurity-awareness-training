@@ -1,6 +1,7 @@
 extends Node
 class_name SaveLoadService
 
+var _pending_load: bool = false
 
 func save_game() -> void:
 	var save_data := {
@@ -19,6 +20,20 @@ func load_game() -> void:
 	var file := FileAccess.open("user://save_file.json", FileAccess.READ)
 	var content = file.get_as_text()
 	var loaded_dict = JSON.parse_string(content)
-	print(loaded_dict["player_info"])
-	print(loaded_dict["level_info"])
-	print(loaded_dict["player_files"])
+	
+	GameManagerInstance.load_from_save(loaded_dict["player_info"])
+	LevelServiceInstance.load_from_save(loaded_dict["level_info"])
+	EmailServiceInstance.load_from_save(loaded_dict["player_emails"])
+	FileServiceInstance.load_from_save(loaded_dict["player_files"])
+
+
+func continue_game() -> void:
+	_pending_load = true
+	get_tree().change_scene_to_file("res://game/main_game/desktop.tscn")
+
+func should_finish_loading() -> bool:
+	return _pending_load
+
+func finish_loading() -> void:
+	load_game()
+	_pending_load = false

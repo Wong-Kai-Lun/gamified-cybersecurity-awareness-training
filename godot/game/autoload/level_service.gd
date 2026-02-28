@@ -34,11 +34,15 @@ func get_email_pack_of_day() -> EmailPack:
 	return email_pack
 
 
+#region Save / Load
 func get_data_for_save() -> Dictionary:
 	return {
 		"current_day": _current_day
 	}
 
+func load_from_save(save_dict: Dictionary) -> void:
+	_current_day = save_dict["current_day"]
+#endregion
 
 func advance_day() -> void:
 	_current_day = min(_current_day + 1, Day.FRIDAY)

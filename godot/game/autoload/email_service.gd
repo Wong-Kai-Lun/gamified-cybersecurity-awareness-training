@@ -15,6 +15,7 @@ func reset() -> void:
 	_player_emails.clear()
 	emails_updated.emit()
 
+#region Save / Load
 func get_data_for_save() -> Array:
 	var result := []
 	
@@ -24,6 +25,10 @@ func get_data_for_save() -> Array:
 	
 	return result
 
+func load_from_save(save_dict: Array) -> void:
+	#_player_emails = save_dict["player_emails"]
+	print(save_dict)
+#endregion
 
 # Updates placeholders in email_body
 func replace_placeholder_email_address(to_address: String) -> String:

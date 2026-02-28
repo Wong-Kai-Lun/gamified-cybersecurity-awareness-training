@@ -35,6 +35,7 @@ func get_data_for_save() -> Dictionary:
 		"player_email_username": _player_email_username
 	}
 
-func load_data() -> void:
-	pass
+func load_from_save(save_dict: Dictionary) -> void:
+	_player_name = save_dict["player_name"]
+	_player_email_username = save_dict["player_email_username"]
 #endregion

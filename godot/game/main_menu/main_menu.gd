@@ -37,7 +37,7 @@ func _on_new_player_window_closed() -> void:
 
 
 func _on_continue_pressed() -> void:
-	SaveloadServiceInstance.load_game()
+	SaveloadServiceInstance.continue_game()
 
 
 func _on_settings_pressed() -> void:

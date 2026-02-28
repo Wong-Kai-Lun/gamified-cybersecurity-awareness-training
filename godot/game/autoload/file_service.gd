@@ -29,6 +29,7 @@ func empty_recycling_bin() -> void:
 	recycling_bin_changed.emit(_recycling_bin.duplicate(true))
 
 
+#region Save / Load
 func get_files_for_save(array: Array[FileData]) -> Array:
 	var collected_files := []
 	for file in array:
@@ -42,6 +43,30 @@ func get_data_for_save() -> Dictionary:
 		"recycling_bin": get_files_for_save(_recycling_bin)
 	}
 
+func load_from_save(file_dict: Dictionary) -> void:
+	empty_inventory()
+	empty_recycling_bin()
+	
+	for file_data in file_dict["inventory"]:
+		var instance = _rebuild_file_from_save(file_data, FileData.FileContext.INVENTORY)
+		_inventory.append(instance)
+		
+	for file_data in file_dict["recycling_bin"]:
+		var instance = _rebuild_file_from_save(file_data, FileData.FileContext.TRASH)
+		_recycling_bin.append(instance)
+	
+	inventory_changed.emit(_inventory.duplicate(true))
+	recycling_bin_changed.emit(_recycling_bin.duplicate(true))
+
+func _rebuild_file_from_save(file_array: Dictionary, context: FileData.FileContext) -> FileData:
+	var file_id = file_array["id"]
+	var path = FileDatabase.get_file_path_by_id(file_id)
+	var file_def = load(path) as FileData
+	
+	var instance = file_def.duplicate(true)
+	instance = convert_file_context(instance, context)
+	return instance
+#endregion
 
 #region Player Inventory Mutation
 func get_player_inventory() -> Array[FileData]:

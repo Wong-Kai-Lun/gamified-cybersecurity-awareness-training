@@ -24,6 +24,10 @@ extends Control
 func _ready() -> void:
 	_initialise_level()
 	
+	if SaveloadServiceInstance.should_finish_loading():
+		await get_tree().process_frame
+		SaveloadServiceInstance.finish_loading()
+	
 	NotificationManagerInstance.request_notification.connect(_create_notif)
 	EventServiceInstance.game_over.connect(_on_game_over)
 	EventServiceInstance.adware_triggered.connect(_on_adware_triggered)
