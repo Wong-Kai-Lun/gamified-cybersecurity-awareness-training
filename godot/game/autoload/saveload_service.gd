@@ -25,6 +25,7 @@ func load_game() -> void:
 	LevelServiceInstance.load_from_save(loaded_dict["level_info"])
 	EmailServiceInstance.load_from_save(loaded_dict["player_emails"])
 	FileServiceInstance.load_from_save(loaded_dict["player_files"])
+	file.close()
 
 
 func continue_game() -> void:

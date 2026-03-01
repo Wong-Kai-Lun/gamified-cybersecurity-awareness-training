@@ -96,6 +96,7 @@ func _menu_setup() -> void:
 	pop_up_menu.id_pressed.connect(_on_report_pressed)
 
 
+# Level progression
 func _on_send_pressed() -> void:
 	var attached_files = outbound_file_container_instance.get_outbound_array()
 	LevelServiceInstance.validate_outbound_files(email_data, attached_files)

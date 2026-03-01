@@ -7,13 +7,10 @@ enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY }
 
 const LEVELS = {
 	Day.MONDAY: "res://data/email_pack/monday.tres",
-	Day.TUESDAY: "res://data/email_pack/tuesday.tres"
-	# Day.WEDNESDAY: preload("res://data/email_pack/monday.tres")
-}
-
-const SPECIAL = {
-	# path to special triggered emails here
-	# emit signal or something
+	Day.TUESDAY: "res://data/email_pack/tuesday.tres",
+	Day.WEDNESDAY: "res://data/email_pack/wednesday.tres",
+	Day.THURSDAY: "res://data/email_pack/thursday.tres",
+	Day.FRIDAY: "res://data/email_pack/friday.tres"
 }
 
 #region Saveable Data

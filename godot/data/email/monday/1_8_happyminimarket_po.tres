@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("2_qcl8x")
+email_id = "1_8_happyminimarket_po"
 email_type = 1
 sender_name = "Ravi"
 sender_address = "happyminimarket@email.com "
@@ -15,8 +16,6 @@ subject = "Purchase Order for Stationeries - Happy Mini Market"
 email_body = "Good day, I'd like to order some stationeries for my store.[p] [p]PO is attached in this email.[p] [p]Ravi[p]Happy Mini Market[p]Owner"
 inbound_attachments = Array[ExtResource("1_ok1r2")]([ExtResource("2_yn7dh")])
 expected_attachments = Array[ExtResource("1_ok1r2")]([])
-is_read = false
+score = 0.0
 is_important = false
 is_phishing = false
-is_reported = false
-score = 0.0

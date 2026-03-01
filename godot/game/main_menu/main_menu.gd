@@ -41,7 +41,7 @@ func _on_continue_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	print("Settings Button pressed.")
+	pass
 
 
 func _on_quit_game_pressed() -> void:

@@ -44,8 +44,7 @@ func get_data_for_save() -> Dictionary:
 	}
 
 func load_from_save(file_dict: Dictionary) -> void:
-	empty_inventory()
-	empty_recycling_bin()
+	reset()
 	
 	for file_data in file_dict["inventory"]:
 		var instance = _rebuild_file_from_save(file_data, FileData.FileContext.INVENTORY)
@@ -58,8 +57,8 @@ func load_from_save(file_dict: Dictionary) -> void:
 	inventory_changed.emit(_inventory.duplicate(true))
 	recycling_bin_changed.emit(_recycling_bin.duplicate(true))
 
-func _rebuild_file_from_save(file_array: Dictionary, context: FileData.FileContext) -> FileData:
-	var file_id = file_array["id"]
+func _rebuild_file_from_save(file_dict: Dictionary, context: FileData.FileContext) -> FileData:
+	var file_id = file_dict["id"]
 	var path = FileDatabase.get_file_path_by_id(file_id)
 	var file_def = load(path) as FileData
 	

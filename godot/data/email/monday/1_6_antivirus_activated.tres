@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_gnr7e")
+email_id = "1_6_antivirus_activated"
 email_type = 0
 sender_name = "Orbit Antivirus"
 sender_address = "donotreply@orbit.com.my"
@@ -12,7 +13,8 @@ to_address = "{player_email}"
 cc_address = ""
 subject = "Orbit Antivirus Activated"
 email_body = "Orbit Antivirus Service is activated on your device: DESKTOP-BCKPG7B21L.[p] [p] [p] [p][center]Thank you for choosing Orbit Antivirus![/center][p] [p][center][img]assets/orbit_logo.png[/img][/center]"
-attached_files = Array[ExtResource("1_u2h8f")]([])
+inbound_attachments = Array[ExtResource("1_u2h8f")]([])
 expected_attachments = Array[ExtResource("1_u2h8f")]([])
-is_reported = false
 score = 0.0
+is_important = false
+is_phishing = false

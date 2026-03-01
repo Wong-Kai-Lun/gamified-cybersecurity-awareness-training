@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("2_k1pfw")
+email_id = "1_11_printpro_po"
 email_type = 1
 sender_name = "Dallas"
 sender_address = "dallas@abc.com.my"
@@ -15,8 +16,6 @@ subject = "Purchase Order - PrintingPro.pdf"
 email_body = "Hi {player_name}![p] [p]This is a Purchase Order from PrintingPro. Please help me send this to finance. Thanks!"
 inbound_attachments = Array[ExtResource("1_koka1")]([ExtResource("2_6ggsi")])
 expected_attachments = Array[ExtResource("1_koka1")]([])
-is_read = false
+score = 0.0
 is_important = false
 is_phishing = false
-is_reported = false
-score = 0.0

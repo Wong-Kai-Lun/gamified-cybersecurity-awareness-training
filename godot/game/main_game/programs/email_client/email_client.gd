@@ -14,8 +14,7 @@ class_name EmailClientWindow
 
 func _ready() -> void:
 	super._ready()
-	EmailServiceInstance.emails_updated.connect(refresh)
-	refresh()
+	EmailServiceInstance.emails_updated.connect(_draw_emails)
 	
 	email_body_obj.email_reported.connect(_block_reported_email)
 	email_body_container.add_child(email_body_obj)
@@ -25,16 +24,19 @@ func _ready() -> void:
 	input_blocker.hide()
 
 
-func refresh() -> void:
-	load_emails(EmailServiceInstance.get_all_emails())
-
-
-func load_emails(email_array: Array[EmailData]) -> void:
+func _draw_emails(email_array: Array[EmailData]) -> void:
+	_clear_emails()
+	
 	for email_data in email_array:
 		var incoming_email_instance := incoming_email.instantiate()
 		incoming_email_vbox.add_child(incoming_email_instance)
 		incoming_email_instance.setup(email_data)
 		incoming_email_instance.opened.connect(_on_email_selected)
+
+
+func _clear_emails() -> void:
+	for child in incoming_email_vbox.get_children():
+		child.queue_free()
 
 
 func _on_email_selected(data: EmailData) -> void:

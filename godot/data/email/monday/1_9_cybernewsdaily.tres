@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("2_m3utr")
+email_id = "1_9_cybernewsdaily"
 email_type = 0
 sender_name = "Cyber News Daily"
 sender_address = "dailynews@cnd.com.my"
@@ -12,7 +13,8 @@ to_address = "{player_email}"
 cc_address = ""
 subject = "Phishing Emails and How to Spot Them!"
 email_body = "Phishing emails are designed to trick you into downloading malicious attachments or revealing sensitive information.[p] [p]Be extra careful with emails that:[p] - Feel urgent or threatening[p] - Have poor grammar (but not always!)[p] - Include attachments with extensions that does not match (Example: Invoice.pdf.exe <- this is an .exe file, not .pdf) *add images[p] [p]If you’re unsure, report the email and do not download or send any files.[p] [p]Stay alert and stay safe!"
-attached_files = Array[ExtResource("1_p8jlp")]([])
+inbound_attachments = Array[ExtResource("1_p8jlp")]([])
 expected_attachments = Array[ExtResource("1_p8jlp")]([])
-is_reported = false
 score = 0.0
+is_important = false
+is_phishing = false
