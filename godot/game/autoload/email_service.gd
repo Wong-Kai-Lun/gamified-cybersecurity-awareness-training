@@ -67,4 +67,3 @@ func append_latest_email_data(email_pack: EmailPack) -> void:
 	var latest_email_array := email_pack.emails
 	for email_data in latest_email_array:
 		_player_emails.append(email_data)
-	emails_updated.emit(_player_emails.duplicate(true))

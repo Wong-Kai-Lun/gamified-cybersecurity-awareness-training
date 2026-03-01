@@ -76,6 +76,7 @@ func _initialise_level() -> void:
 	canvas_layer.add_child(input_blocker)
 	canvas_layer.add_child(settings)
 	settings.settings_window_closed.connect(_on_settings_closed)
+	
 	input_blocker.hide()
 	settings.close()
 	

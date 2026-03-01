@@ -15,6 +15,7 @@ class_name EmailClientWindow
 func _ready() -> void:
 	super._ready()
 	EmailServiceInstance.emails_updated.connect(_draw_emails)
+	_draw_emails(EmailServiceInstance.get_all_emails())
 	
 	email_body_obj.email_reported.connect(_block_reported_email)
 	email_body_container.add_child(email_body_obj)
