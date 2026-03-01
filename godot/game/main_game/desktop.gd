@@ -20,6 +20,7 @@ extends Control
 
 @onready var transition_bg: ColorRect = $CanvasLayer/TransitionPanel/ColorRect
 @onready var transition_lbl: Label = $CanvasLayer/TransitionPanel/Label
+@onready var shutdown_panel: PanelContainer = $CanvasLayer/ShutdownPanel
 
 func _ready() -> void:
 	_initialise_level()
@@ -32,6 +33,7 @@ func _ready() -> void:
 	EventServiceInstance.game_over.connect(_on_game_over)
 	EventServiceInstance.adware_triggered.connect(_on_adware_triggered)
 	EventServiceInstance.ransomware_downloaded.connect(_flash_cmd_window)
+	LevelServiceInstance.day_ended.connect(_animate_shutdown)
 
 
 func _on_settings_pressed() -> void:
@@ -68,6 +70,7 @@ func _on_trash_pressed() -> void:
 
 # Level Transition
 func _initialise_level() -> void:
+	notif_vbox.show()
 	var programs := [email_client, inventory, recycling_bin]
 	for program in programs:
 		programs_container.add_child(program)
@@ -100,6 +103,19 @@ func _animate_enter_level() -> void:
 	transition_bg.hide()
 	transition_lbl.hide()
 
+
+func _animate_shutdown() -> void:
+	email_client.close()
+	inventory.close()
+	recycling_bin.close()
+	
+	await _wait(1.0)
+	shutdown_panel.show()
+	await _wait(2.0)
+	transition_bg.show()
+	TweenUtils.fade_in(transition_bg, 1.0, 0.0)
+	await TweenUtils.fade_out(shutdown_panel, 1.0)
+	shutdown_panel.hide()
 
 # Notification System
 func _create_notif(data) -> void:

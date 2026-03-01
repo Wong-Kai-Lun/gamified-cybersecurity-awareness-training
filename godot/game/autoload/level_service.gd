@@ -2,6 +2,7 @@ extends Node
 class_name LevelService
 
 signal level_updated(day: Day)
+signal day_ended
 
 enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY }
 
@@ -46,9 +47,10 @@ func load_from_save(save_dict: Dictionary) -> void:
 	_current_day = save_dict["current_day"]
 #endregion
 
+
 func advance_day() -> void:
 	_current_day = min(_current_day + 1, Day.FRIDAY)
-		#level_updated.emit(current_day)
+	#level_updated.emit(current_day)
 
 
 func reset() -> void:
@@ -69,7 +71,7 @@ func validate_outbound_files(email: EmailData, attached: Array[FileData]) -> voi
 	var missing_file_count = 0
 	for id in expected_file_ids:
 		if not attached_file_ids.has(id):
-			print("An expected file is not attached!", id)
 			missing_file_count += 1
 	
 	print("Missing Files: ", missing_file_count)
+	day_ended.emit()

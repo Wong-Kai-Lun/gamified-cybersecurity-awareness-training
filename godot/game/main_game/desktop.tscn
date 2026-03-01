@@ -222,6 +222,28 @@ text = "Label"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ShutdownPanel" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_76g6a")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ShutdownPanel"]
+layout_mode = 2
+color = Color(0, 0.466667, 1, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/ShutdownPanel"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_font_sizes/font_size = 40
+text = "Shutting down..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="pressed" from="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/3Mail" to="." method="_on_3mail_pressed"]
