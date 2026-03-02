@@ -1,7 +1,7 @@
 extends Node
 class_name LevelService
 
-signal level_updated(day: Day)
+signal level_updated
 signal day_ended
 
 enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY }
@@ -19,8 +19,13 @@ var _current_day: Day = Day.MONDAY
 #endregion
 
 
-func _ready() -> void:
-	print("LevelService online!")
+func reset() -> void:
+	_current_day = Day.MONDAY
+
+
+func advance_day() -> void:
+	if _current_day < Day.FRIDAY:
+		_current_day += 1
 
 
 func get_current_day() -> Day:
@@ -46,16 +51,6 @@ func get_data_for_save() -> Dictionary:
 func load_from_save(save_dict: Dictionary) -> void:
 	_current_day = save_dict["current_day"]
 #endregion
-
-
-func advance_day() -> void:
-	_current_day = min(_current_day + 1, Day.FRIDAY)
-	#level_updated.emit(current_day)
-
-
-func reset() -> void:
-	_current_day = Day.MONDAY
-	# change current_day if save file exists
 
 
 # Progression

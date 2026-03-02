@@ -23,9 +23,7 @@ func start_new_game() -> void:
 	LevelServiceInstance.reset()
 	EmailServiceInstance.reset()
 	FileServiceInstance.reset()
-	
-	var pack := LevelServiceInstance.get_email_pack_of_day()
-	EmailServiceInstance.append_latest_email_data(pack)
+	EmailServiceInstance.append_latest_email_data()
 
 
 #region Save / Load Data

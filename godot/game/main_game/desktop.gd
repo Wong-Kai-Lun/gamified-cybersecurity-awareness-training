@@ -23,7 +23,8 @@ extends Control
 @onready var shutdown_panel: PanelContainer = $CanvasLayer/ShutdownPanel
 
 func _ready() -> void:
-	_initialise_level()
+	_initialise()
+	_animate_start_day()
 	
 	if SaveloadServiceInstance.should_finish_loading():
 		await get_tree().process_frame
@@ -33,7 +34,23 @@ func _ready() -> void:
 	EventServiceInstance.game_over.connect(_on_game_over)
 	EventServiceInstance.adware_triggered.connect(_on_adware_triggered)
 	EventServiceInstance.ransomware_downloaded.connect(_flash_cmd_window)
-	LevelServiceInstance.day_ended.connect(_animate_shutdown)
+	
+	LevelServiceInstance.day_ended.connect(_on_day_ended)
+
+
+func _initialise() -> void:
+	notif_vbox.show()
+	var programs := [email_client, inventory, recycling_bin]
+	for program in programs:
+		programs_container.add_child(program)
+		program.close()
+	
+	canvas_layer.add_child(input_blocker)
+	canvas_layer.add_child(settings)
+	settings.settings_window_closed.connect(_on_settings_closed)
+	
+	input_blocker.hide()
+	settings.close()
 
 
 func _on_settings_pressed() -> void:
@@ -69,26 +86,7 @@ func _on_trash_pressed() -> void:
 
 
 # Level Transition
-func _initialise_level() -> void:
-	notif_vbox.show()
-	var programs := [email_client, inventory, recycling_bin]
-	for program in programs:
-		programs_container.add_child(program)
-		program.close()
-	
-	canvas_layer.add_child(input_blocker)
-	canvas_layer.add_child(settings)
-	settings.settings_window_closed.connect(_on_settings_closed)
-	
-	input_blocker.hide()
-	settings.close()
-	
-	await _animate_enter_level()
-	await _wait(1.0)
-	email_client.open()
-
-
-func _animate_enter_level() -> void:
+func _animate_start_day() -> void:
 	var level_name := LevelServiceInstance.get_current_level_name()
 	transition_lbl.text = level_name
 	
@@ -102,6 +100,9 @@ func _animate_enter_level() -> void:
 	
 	transition_bg.hide()
 	transition_lbl.hide()
+	
+	await _wait(1.0)
+	email_client.open()
 
 
 func _animate_shutdown() -> void:
@@ -116,6 +117,21 @@ func _animate_shutdown() -> void:
 	TweenUtils.fade_in(transition_bg, 1.0, 0.0)
 	await TweenUtils.fade_out(shutdown_panel, 1.0)
 	shutdown_panel.hide()
+
+
+func _on_day_ended() -> void:
+	await _animate_shutdown()
+	LevelServiceInstance.advance_day()
+	
+	# If Friday was just completed → win
+	if LevelServiceInstance.get_current_day() == LevelService.Day.FRIDAY:
+		# _show_victory_panel()
+		print("Player reached Friday and won!")
+		return
+	
+	EmailServiceInstance.append_latest_email_data()
+	await _animate_start_day()
+
 
 # Notification System
 func _create_notif(data) -> void:

@@ -10,10 +10,10 @@ const _PLACEHOLDER_EMAIL = "{player_email}"
 var _player_emails: Array[EmailData] = []
 
 
-# Save / Load
 func reset() -> void:
 	_player_emails.clear()
 	emails_updated.emit(_player_emails.duplicate(true))
+
 
 #region Save / Load
 func get_data_for_save() -> Array:
@@ -25,6 +25,7 @@ func get_data_for_save() -> Array:
 	
 	return result
 
+
 func load_from_save(email_array: Array) -> void:
 	reset()
 	
@@ -33,6 +34,7 @@ func load_from_save(email_array: Array) -> void:
 		_player_emails.append(instance)
 	
 	emails_updated.emit(_player_emails.duplicate(true))
+
 
 func _rebuild_email_from_save(email_dict: Dictionary) -> EmailData:
 	var email_id = email_dict["id"]
@@ -44,6 +46,7 @@ func _rebuild_email_from_save(email_dict: Dictionary) -> EmailData:
 	instance.flags = flags
 	return instance
 #endregion
+
 
 # Updates placeholders in email_body
 func replace_placeholder_email_address(to_address: String) -> String:
@@ -63,7 +66,11 @@ func get_all_emails() -> Array[EmailData]:
 	return _player_emails
 
 
-func append_latest_email_data(email_pack: EmailPack) -> void:
+func append_latest_email_data() -> void:
+	var email_pack := LevelServiceInstance.get_email_pack_of_day()
 	var latest_email_array := email_pack.emails
+	
 	for email_data in latest_email_array:
 		_player_emails.append(email_data)
+	
+	emails_updated.emit(_player_emails.duplicate(true))
