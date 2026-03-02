@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0ag6c742vmi1"]
+[gd_scene load_steps=18 format=3 uid="uid://d0ag6c742vmi1"]
 
 [ext_resource type="Texture2D" uid="uid://cqw41ovssu3t3" path="res://assets/desktop_bg.jpg" id="1_nvliw"]
 [ext_resource type="Script" path="res://game/main_game/desktop.gd" id="1_v1sjp"]
-[ext_resource type="Texture2D" uid="uid://btsol5dcm77b4" path="res://assets/pause_icon.png" id="3_0oaxt"]
 [ext_resource type="Texture2D" uid="uid://bg5mv1f75hk1j" path="res://assets/gear_icon.png" id="4_s03b3"]
+[ext_resource type="Texture2D" uid="uid://cf0s11ouqcywc" path="res://assets/folder_icon.png" id="4_wxhr2"]
+[ext_resource type="Texture2D" uid="uid://b27dov07fyuyp" path="res://assets/email_icon.png" id="5_u6npt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oeun7"]
 texture = ExtResource("1_nvliw")
@@ -27,15 +28,18 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ba4hm"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v6l4c"]
-texture = ExtResource("3_0oaxt")
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t23we"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vfkpi"]
 texture = ExtResource("4_s03b3")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ba4hm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3f7tp"]
+texture = ExtResource("4_wxhr2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jlcp7"]
+texture = ExtResource("5_u6npt")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipicr"]
 
@@ -83,32 +87,6 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Power" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fhfqr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_sp0o1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_apx54")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ba4hm")
-
-[node name="MarginContainer" type="MarginContainer" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Power"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="PauseIcon" type="Panel" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Power/MarginContainer"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_v6l4c")
-
 [node name="Settings" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
@@ -144,6 +122,24 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_apx54")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ba4hm")
 text = "Inv"
 
+[node name="MarginContainer" type="MarginContainer" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SettingsIcon" type="Panel" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/Inventory/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3f7tp")
+
 [node name="3Mail" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
@@ -152,6 +148,24 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_sp0o1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_apx54")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ba4hm")
 text = "3M"
+
+[node name="MarginContainer" type="MarginContainer" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/3Mail"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SettingsIcon" type="Panel" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC/3Mail/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jlcp7")
 
 [node name="TRSH" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
 custom_minimum_size = Vector2(50, 50)
