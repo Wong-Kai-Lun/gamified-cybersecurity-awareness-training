@@ -26,6 +26,13 @@ func start_new_game() -> void:
 	EmailServiceInstance.append_latest_email_data()
 
 
+func stop_game() -> void:
+	print("Stopping & Saving Game...")
+	EventServiceInstance.stop()
+	SaveloadServiceInstance.save_game()
+	get_tree().change_scene_to_file("res://game/main_menu/main_menu.tscn")
+
+
 #region Save / Load Data
 func get_data_for_save() -> Dictionary:
 	return {

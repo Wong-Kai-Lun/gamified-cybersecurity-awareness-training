@@ -113,11 +113,10 @@ func _calculate_severity(count: int) -> Severity:
 func _on_severity_changed(level: Severity) -> void:
 	severity_changed.emit(level)
 
-
+# connect signal game exited
 func stop():
 	for timer in get_children():
 		timer.stop()
-	print("Game Quitted! Stopping timers...")
 
 
 # Input Delay

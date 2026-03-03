@@ -49,6 +49,7 @@ func _initialise() -> void:
 	canvas_layer.add_child(input_blocker)
 	canvas_layer.add_child(settings)
 	settings.settings_window_closed.connect(_on_settings_closed)
+	settings.game_exited.connect(GameManagerInstance.stop_game)
 	
 	input_blocker.hide()
 	settings.close()

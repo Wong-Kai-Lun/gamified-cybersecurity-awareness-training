@@ -2,8 +2,9 @@ extends BaseWindow
 class_name SettingsWindow
 
 signal settings_window_closed
+signal game_exited
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	super._ready()
 
@@ -13,6 +14,4 @@ func on_close_requested() -> void:
 
 
 func _on_button_pressed() -> void:
-	EventServiceInstance.stop()
-	SaveloadServiceInstance.save_game()
-	get_tree().change_scene_to_file("res://game/main_menu/main_menu.tscn")
+	game_exited.emit()
