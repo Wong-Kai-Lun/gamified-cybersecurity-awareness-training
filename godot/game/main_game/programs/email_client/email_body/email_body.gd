@@ -2,6 +2,7 @@ extends Control
 class_name EmailBody
 
 signal email_reported(data: EmailData)
+signal email_sent(data: EmailData)
 
 @onready var subject: RichTextLabel = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/SubjectRTL
 @onready var from_rtl: RichTextLabel = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/FromSection/FromRTL
@@ -100,6 +101,8 @@ func _menu_setup() -> void:
 func _on_send_pressed() -> void:
 	var attached_files = outbound_file_container_instance.get_outbound_array()
 	LevelServiceInstance.validate_outbound_files(email_data, attached_files)
+	email_data.flags["sent"] = true
+	email_sent.emit(email_data)
 
 
 func _on_report_pressed(id: int) -> void:

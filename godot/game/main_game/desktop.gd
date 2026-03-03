@@ -21,6 +21,7 @@ extends Control
 @onready var transition_bg: ColorRect = $CanvasLayer/TransitionPanel/ColorRect
 @onready var transition_lbl: Label = $CanvasLayer/TransitionPanel/Label
 @onready var shutdown_panel: PanelContainer = $CanvasLayer/ShutdownPanel
+@onready var shutdown_lbl: Label = $CanvasLayer/ShutdownPanel/Label
 
 func _ready() -> void:
 	_initialise()
@@ -35,7 +36,6 @@ func _ready() -> void:
 	EventServiceInstance.game_over.connect(_on_game_over)
 	EventServiceInstance.adware_triggered.connect(_on_adware_triggered)
 	EventServiceInstance.ransomware_downloaded.connect(_flash_cmd_window)
-	
 	LevelServiceInstance.day_ended.connect(_on_day_ended)
 
 
@@ -113,7 +113,10 @@ func _animate_shutdown() -> void:
 	recycling_bin.close()
 	
 	await _wait(1.0)
+	shutdown_lbl.text = "Day completed!"
 	shutdown_panel.show()
+	await _wait(2.0)
+	shutdown_lbl.text = "Shutting down..."
 	await _wait(2.0)
 	transition_bg.show()
 	TweenUtils.fade_in(transition_bg, 1.0, 0.0)
@@ -214,7 +217,7 @@ func _flash_cmd_window() -> void:
 	await _wait(2.0)
 	await cmd_window_instance.open()
 	await _wait(1.0)
-	await cmd_window_instance.close()
+	cmd_window_instance.close()
 
 
 func _show_game_over_panel() -> void:

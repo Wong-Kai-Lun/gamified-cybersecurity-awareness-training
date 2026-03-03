@@ -18,6 +18,7 @@ func _ready() -> void:
 	_draw_emails(EmailServiceInstance.get_all_emails())
 	
 	email_body_obj.email_reported.connect(_block_reported_email)
+	email_body_obj.email_sent.connect(_block_reported_email)
 	email_body_container.add_child(email_body_obj)
 	input_blocker.move_to_front()
 	
@@ -48,6 +49,10 @@ func _on_email_selected(data: EmailData) -> void:
 
 func _block_reported_email(data: EmailData) -> void:
 	if data.flags["reported"]:
+		input_blocker.text = "This email has been reported for phishing."
+		input_blocker.show()
+	elif data.flags["sent"]:
+		input_blocker.text = "Email sent."
 		input_blocker.show()
 	else:
 		input_blocker.hide()

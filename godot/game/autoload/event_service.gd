@@ -173,17 +173,12 @@ func _try_malware_action(malware_file: FileData) -> void:
 	var roll := randf()
 	
 	if roll >= malware_file.trigger_rate:
-		print("Malware Tick Failed | ", "Roll: ", roll, " Clone Rate: ", malware_file.trigger_rate)
 		return
 	
 	if FileServiceInstance.is_inventory_full():
 		FileServiceInstance.corrupt_random_inventory_file(malware_file)
-		print("Inventory Full! File Corruption Attempted.")
-		print("Malware Corruption Success | ", "Roll: ", roll, " Clone Rate: ", malware_file.trigger_rate)
 	else:
 		FileServiceInstance.copy_source_to_inventory(malware_file)
-		print("Inventory Not Full! File Cloning Attempted.")
-		print("Malware Clone Success | ", "Roll: ", roll, " Clone Rate: ", malware_file.trigger_rate)
 
 # Ransomware
 func _start_ransomware_timer() -> void:
