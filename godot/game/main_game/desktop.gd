@@ -24,11 +24,12 @@ extends Control
 
 func _ready() -> void:
 	_initialise()
-	_animate_start_day()
 	
 	if SaveloadServiceInstance.should_finish_loading():
 		await get_tree().process_frame
 		SaveloadServiceInstance.finish_loading()
+	
+	_animate_start_day()
 	
 	NotificationManagerInstance.request_notification.connect(_create_notif)
 	EventServiceInstance.game_over.connect(_on_game_over)
@@ -117,6 +118,7 @@ func _animate_shutdown() -> void:
 	TweenUtils.fade_in(transition_bg, 1.0, 0.0)
 	await TweenUtils.fade_out(shutdown_panel, 1.0)
 	shutdown_panel.hide()
+	TweenUtils.reset(shutdown_panel)
 
 
 func _on_day_ended() -> void:

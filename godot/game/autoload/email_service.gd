@@ -74,3 +74,8 @@ func append_latest_email_data() -> void:
 		_player_emails.append(email_data)
 	
 	emails_updated.emit(_player_emails.duplicate(true))
+
+
+func append_email(email_instance: EmailData) -> void:
+	_player_emails.append(email_instance)
+	emails_updated.emit(_player_emails.duplicate(true))

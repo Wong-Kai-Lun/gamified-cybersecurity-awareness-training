@@ -2,6 +2,10 @@ extends Node
 class_name TweenUtils
 
 
+static func reset(node: CanvasItem) -> void:
+	node.modulate.a = 1.0
+
+
 static func fade_in(node: CanvasItem, final_transparency: float, duration: float) -> void:
 	node.modulate.a = 0.0
 	var t := node.create_tween()

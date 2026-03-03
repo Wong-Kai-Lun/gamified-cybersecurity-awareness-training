@@ -13,7 +13,7 @@ func _ready() -> void:
 func setup() -> void:
 	ad_texture_rect.texture = possible_textures.pick_random()
 	ad_texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	ad_texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	ad_texture_rect.stretch_mode = TextureRect.STRETCH_SCALE
 	custom_minimum_size = possible_sizes.pick_random()
 
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://2dmuyovvnbwk"]
+[gd_scene load_steps=6 format=3 uid="uid://2dmuyovvnbwk"]
 
 [ext_resource type="PackedScene" uid="uid://2g3m0pmsw2tv" path="res://game/main_game/programs/common/base.tscn" id="1_shch1"]
 [ext_resource type="Script" path="res://game/main_game/programs/events/ad_window.gd" id="2_peycr"]
 [ext_resource type="Texture2D" uid="uid://cr53vpck74qeg" path="res://assets/adware/sample_ad_img.png" id="3_gwg2g"]
-[ext_resource type="Texture2D" uid="uid://ddldknhjgwhj6" path="res://assets/orbit_logo.png" id="3_xtchl"]
+[ext_resource type="Texture2D" uid="uid://cta5uostwhnrk" path="res://assets/adware/lighthouse_ad.jpg" id="4_i4f4l"]
+[ext_resource type="Texture2D" uid="uid://btdjc84kl4xey" path="res://assets/adware/trippo_ad.jpg" id="5_w383a"]
 
 [node name="BaseWindow" instance=ExtResource("1_shch1")]
 custom_minimum_size = Vector2(350, 350)
@@ -11,7 +12,7 @@ offset_bottom = -730.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("2_peycr")
-possible_textures = Array[Texture2D]([ExtResource("3_gwg2g"), ExtResource("3_xtchl")])
+possible_textures = Array[Texture2D]([ExtResource("3_gwg2g"), ExtResource("4_i4f4l"), ExtResource("5_w383a")])
 possible_sizes = Array[Vector2]([Vector2(350, 350), Vector2(400, 400)])
 
 [node name="TitleBar" parent="WindowPanel/Structure" index="0"]
@@ -20,4 +21,3 @@ title = "Advertisement"
 [node name="AdTextureRect" type="TextureRect" parent="WindowPanel/Structure/Content" index="0"]
 layout_mode = 2
 expand_mode = 1
-stretch_mode = 5

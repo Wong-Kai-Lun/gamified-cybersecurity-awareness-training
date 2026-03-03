@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="EmailPack" load_steps=4 format=3 uid="uid://drmlvvvdj5yru"]
+[gd_resource type="Resource" script_class="EmailPack" load_steps=5 format=3 uid="uid://drmlvvvdj5yru"]
 
 [ext_resource type="Script" path="res://data/email_data.gd" id="1_jub6e"]
 [ext_resource type="Resource" uid="uid://bw0ct6dk7vmim" path="res://data/email/monday/1_10_fake_po.tres" id="2_r73j4"]
 [ext_resource type="Script" path="res://data/email_pack.gd" id="2_x77k0"]
+[ext_resource type="Resource" uid="uid://cs65vjxte2oy1" path="res://data/email/monday/1_3_submit_po.tres" id="3_so5j6"]
 
 [resource]
 script = ExtResource("2_x77k0")
 pack_id = "tuesday"
 pack_name = "Tuesday"
-emails = Array[ExtResource("1_jub6e")]([ExtResource("2_r73j4")])
+emails = Array[ExtResource("1_jub6e")]([ExtResource("2_r73j4"), ExtResource("3_so5j6")])
