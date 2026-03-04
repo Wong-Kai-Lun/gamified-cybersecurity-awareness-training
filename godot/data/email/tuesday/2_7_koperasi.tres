@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://51ddeu1l00cj"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_hdbh5"]
+[ext_resource type="Resource" uid="uid://durytso52my1v" path="res://data/file/tuesday/2_7_koperasi.tres" id="2_7egfx"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_o6og3"]
+
+[resource]
+script = ExtResource("2_o6og3")
+email_id = "2_7_koperasi"
+email_type = 1
+sender_name = "MengHong Chan"
+sender_address = "menghong23@email.com"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Buying Stationeries for Koperasi"
+email_body = "Dear ABC Stationeries,[p] [p]Attached in this email is a purchase order for Black, Blue and Red pens 100 each. Correction Tape 50 units.[p] [p]Please contact me if there are any issues.[p] [p]- Chan Meng Hong[p]SMJKC Poi Lam"
+inbound_attachments = Array[ExtResource("1_hdbh5")]([ExtResource("2_7egfx")])
+expected_attachments = Array[ExtResource("1_hdbh5")]([])
+score = 0.0
+is_important = false
+is_phishing = false

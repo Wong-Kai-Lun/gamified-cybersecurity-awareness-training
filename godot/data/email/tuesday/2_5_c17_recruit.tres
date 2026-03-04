@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://4jtusdxhla4l"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_7xsfe"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_hgfo0"]
+
+[resource]
+script = ExtResource("2_hgfo0")
+email_id = "2_5_c17_recruit"
+email_type = 0
+sender_name = "C17 Stationeries"
+sender_address = "recruiting@c17.com"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Work at C17 Stationeries!"
+email_body = "[center][img=500x500]assets/adware/c17_recruit.jpg[/img][/center]"
+inbound_attachments = Array[ExtResource("1_7xsfe")]([])
+expected_attachments = Array[ExtResource("1_7xsfe")]([])
+score = 0.0
+is_important = false
+is_phishing = false

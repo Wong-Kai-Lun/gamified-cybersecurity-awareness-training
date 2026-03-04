@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://durytso52my1v"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_f8mbb"]
+[ext_resource type="Texture2D" uid="uid://dtbasgtyr0hj1" path="res://assets/file_icons/docx.png" id="1_xglg1"]
+
+[resource]
+script = ExtResource("1_f8mbb")
+file_id = "2_7_koperasi"
+file_texture = ExtResource("1_xglg1")
+file_name = "stationery order (poi lam).docx"
+file_context = 0
+file_type = 0
+trigger_rate = 0.0

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://cglk7tnutwvq7"]
+
+[ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://assets/file_icons/file.png" id="1_2xl72"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_t35pc"]
+
+[resource]
+script = ExtResource("1_t35pc")
+file_id = "2_9_fake_po"
+file_texture = ExtResource("1_2xl72")
+file_name = "Mike Purchase Order.exe"
+file_context = 0
+file_type = 1
+trigger_rate = 0.15

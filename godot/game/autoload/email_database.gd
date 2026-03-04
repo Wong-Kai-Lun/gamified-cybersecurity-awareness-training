@@ -15,6 +15,16 @@ const _email_paths_by_id := {
 	"1_10_printpro_po": "res://data/email/monday/1_10_printpro_po.tres",
 	
 	# Tuesday
+	"2_1_impersonation": "res://data/email/tuesday/2_1_impersonation.tres",
+	"2_2_submit_po": "res://data/email/tuesday/2_2_submit_po.tres",
+	"2_3_cybernewsdaily": "res://data/email/tuesday/2_3_cybernewsdaily.tres",
+	"2_4_jusco_po": "res://data/email/tuesday/2_4_jusco_po.tres",
+	"2_5_c17_recruit": "res://data/email/tuesday/2_5_c17_recruit.tres",
+	"2_6_fake_mike_1": "res://data/email/tuesday/2_6_fake_mike_1.tres",
+	"2_7_koperasi": "res://data/email/tuesday/2_7_koperasi.tres",
+	"2_8_lighthouse": "res://data/email/tuesday/2_8_lighthouse.tres",
+	"2_9_fake_mike_2": "res://data/email/tuesday/2_9_fake_mike_2.tres",
+	"2_10_real_mike": "res://data/email/tuesday/2_10_real_mike.tres",
 }
 
 static func get_email_path_by_id(id: String) -> String:

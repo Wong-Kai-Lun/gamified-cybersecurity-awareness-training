@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://bei6av82gukl7"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_d8gpj"]
+[ext_resource type="Texture2D" uid="uid://cumkv3pldp2hj" path="res://assets/file_icons/pdf.png" id="1_snj8o"]
+
+[resource]
+script = ExtResource("1_d8gpj")
+file_id = "2_4_jusco_po"
+file_texture = ExtResource("1_snj8o")
+file_name = "Jusco Purchase Order.pdf"
+file_context = 0
+file_type = 0
+trigger_rate = 0.0

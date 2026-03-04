@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=5 format=3 uid="uid://vu7svatrk634"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_2b1s5"]
+[ext_resource type="Resource" uid="uid://cp4s20eg7kj2c" path="res://data/file/tuesday/2_10_inkspirations_po.tres" id="2_2mkep"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_7bqqv"]
+[ext_resource type="Resource" uid="uid://brmd6agxjvqky" path="res://data/file/tuesday/2_10_lina_po.tres" id="3_uvm8j"]
+
+[resource]
+script = ExtResource("2_7bqqv")
+email_id = "2_10_real_mike"
+email_type = 1
+sender_name = "Mike"
+sender_address = "mike@abc.com.my"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Multiple Purchase Orders"
+email_body = "Hey {player_name}![p] [p]Was really busy today and found a lot of new clients! Here are the purchase orders, like usual please help me send them to Finance. Thanks!"
+inbound_attachments = Array[ExtResource("1_2b1s5")]([ExtResource("2_2mkep"), ExtResource("3_uvm8j")])
+expected_attachments = Array[ExtResource("1_2b1s5")]([])
+score = 0.0
+is_important = false
+is_phishing = false

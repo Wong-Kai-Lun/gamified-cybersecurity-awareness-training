@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://civi5f8c68fs5"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_5mafo"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_7lbkj"]
+
+[resource]
+script = ExtResource("2_7lbkj")
+email_id = "2_1_impersonation"
+email_type = 0
+sender_name = "Blake"
+sender_address = "blake@abc.com.my"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Watch out for Impersonations"
+email_body = "Good morning, {player_name}![p] [p]Yesterday one of our HR team received an email from an unknown sender impersonating a co-worker, and almost handed over some pretty sensitive data![p] [p]Learning from that incident, we have to look very closely at the sender’s email address if they are legitimate. Those malicious actors have sneaky tricks up their sleeves![p] [p]Fear not! I also have a trick to share: Hover over the email address. Click, hold and slowly drag over each letter, sometimes they’ll reveal some spelling tricks the malicious actors used![p] [p] IMG"
+inbound_attachments = Array[ExtResource("1_5mafo")]([])
+expected_attachments = Array[ExtResource("1_5mafo")]([])
+score = 0.0
+is_important = false
+is_phishing = false

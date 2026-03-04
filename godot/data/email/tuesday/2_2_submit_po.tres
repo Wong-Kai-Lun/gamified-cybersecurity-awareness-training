@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=8 format=3 uid="uid://d0ydqiipwvbyi"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_8dxdo"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_2rie0"]
+[ext_resource type="Resource" uid="uid://bei6av82gukl7" path="res://data/file/tuesday/2_4_jusco_po.tres" id="2_s76ey"]
+[ext_resource type="Resource" uid="uid://durytso52my1v" path="res://data/file/tuesday/2_7_koperasi.tres" id="3_ewatw"]
+[ext_resource type="Resource" uid="uid://bwbimgobf014d" path="res://data/file/tuesday/2_8_lighthouse.tres" id="4_ueu68"]
+[ext_resource type="Resource" uid="uid://cp4s20eg7kj2c" path="res://data/file/tuesday/2_10_inkspirations_po.tres" id="5_nhnqg"]
+[ext_resource type="Resource" uid="uid://brmd6agxjvqky" path="res://data/file/tuesday/2_10_lina_po.tres" id="6_ow1x8"]
+
+[resource]
+script = ExtResource("2_2rie0")
+email_id = "2_2_submit_po"
+email_type = 2
+sender_name = "Nazrin"
+sender_address = "nazrin.finance@abc.com.my"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Submit Today's Purchase Orders"
+email_body = "Please be careful, there are people impersonating us by using email addresses with similar spelling.[p] [p]Remember, our email domain is (name)@abc.com.my, if you received an email from someone claiming to be a co-worker but their domain is different, report them."
+inbound_attachments = Array[ExtResource("1_8dxdo")]([])
+expected_attachments = Array[ExtResource("1_8dxdo")]([ExtResource("2_s76ey"), ExtResource("3_ewatw"), ExtResource("4_ueu68"), ExtResource("5_nhnqg"), ExtResource("6_ow1x8")])
+score = 0.0
+is_important = true
+is_phishing = false

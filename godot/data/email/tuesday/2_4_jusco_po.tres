@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://dycr3tmapoyoy"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_tiol1"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_bowda"]
+[ext_resource type="Resource" uid="uid://bei6av82gukl7" path="res://data/file/tuesday/2_4_jusco_po.tres" id="2_papwm"]
+
+[resource]
+script = ExtResource("2_bowda")
+email_id = "2_4_jusco_po"
+email_type = 1
+sender_name = "Jusco Kinta City"
+sender_address = "kinta@jusco.com"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Order for Stationeries"
+email_body = "Dear ABC Stationeries,[p] [p]Our Purchase Order for various stationeries is attached in this email. If there are any issues with fulfilling this request, please contact us immediately.[p] [p] [p]Regards,[p] [p]Jane Navarednam[p]Purchasing Officer"
+inbound_attachments = Array[ExtResource("1_tiol1")]([ExtResource("2_papwm")])
+expected_attachments = Array[ExtResource("1_tiol1")]([])
+score = 0.0
+is_important = false
+is_phishing = true

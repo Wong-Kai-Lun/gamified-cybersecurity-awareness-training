@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://cqwx6we0sfb1a"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_owqpq"]
+[ext_resource type="Resource" uid="uid://d38aab2hwyvtk" path="res://data/file/tuesday/2_6_fake_po.tres" id="2_rswj3"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_x0x7x"]
+
+[resource]
+script = ExtResource("2_x0x7x")
+email_id = "2_6_fake_mike_1"
+email_type = 1
+sender_name = "Mike"
+sender_address = "mike17856@email.com"
+to_address = "{player_email}"
+cc_address = ""
+subject = "New Purchase Order"
+email_body = "Hi {player_name}! I am Mike![p] [p]Please download and send the purchas order attach in this email and send to finance.[p] [p]Regards,[p]Mike"
+inbound_attachments = Array[ExtResource("1_owqpq")]([ExtResource("2_rswj3")])
+expected_attachments = Array[ExtResource("1_owqpq")]([])
+score = 0.0
+is_important = false
+is_phishing = true

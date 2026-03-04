@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://h4x1r5kbxbpu"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_uxiwd"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_bj6ti"]
+[ext_resource type="Resource" uid="uid://bwbimgobf014d" path="res://data/file/tuesday/2_8_lighthouse.tres" id="2_ojwc6"]
+
+[resource]
+script = ExtResource("2_bj6ti")
+email_id = "2_8_lighthouse"
+email_type = 1
+sender_name = "Jackson"
+sender_address = "jackson@lighthouse.com"
+to_address = "{player_email}"
+cc_address = "alex.ng@lighthouse.com"
+subject = "Order for Office Supplies"
+email_body = "We would like to order the Office Supplies listed below:[p] [p]Blue Pens = 100 units[p]Red Pens = 100 units[p]Liquid Paper = 80 units[p]Stapler = 30 units[p]Stapler Refills = 10 boxes[p] [p]The Purchase Order is attached in this email. Please forward it to the appropriate recipient. Thank you in advance.[p] [p] [p]-Jackson"
+inbound_attachments = Array[ExtResource("1_uxiwd")]([ExtResource("2_ojwc6")])
+expected_attachments = Array[ExtResource("1_uxiwd")]([])
+score = 0.0
+is_important = false
+is_phishing = false

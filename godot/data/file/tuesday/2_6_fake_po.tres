@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://d38aab2hwyvtk"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_lkiuo"]
+[ext_resource type="Texture2D" uid="uid://day45rgnunapn" path="res://assets/file_icons/xlsx.png" id="1_nkui3"]
+
+[resource]
+script = ExtResource("1_lkiuo")
+file_id = "2_6_fake_po"
+file_texture = ExtResource("1_nkui3")
+file_name = "Purchase Order.xlsx.exe"
+file_context = 0
+file_type = 2
+trigger_rate = 0.0

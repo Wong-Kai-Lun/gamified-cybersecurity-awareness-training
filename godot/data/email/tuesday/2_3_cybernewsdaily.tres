@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://io8naanf1x4h"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_1ny53"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_vjem1"]
+
+[resource]
+script = ExtResource("2_vjem1")
+email_id = "2_3_cybernewsdaily"
+email_type = 0
+sender_name = "Cyber News Daily"
+sender_address = "dailynews@cnd.com"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Malwares: What are they?"
+email_body = "Malware, short for ‘Malicious Software’, is a file containing scripts or commands that would run on your device after you downloaded it.[p] Today we will talk about 3 types of malwares:[p] [p][b]Malware[/b] : Software that runs in the background silently. They have various goals, such as recording what you type, stealing personal information or spy on you.[p] [p][b]Adware[/b] : If it exists in your device, you will get spammed by various advertisements which can be very distracting.[p] [p][b]Ransomware[/b] : One of the most dangerous software to have in your device. It will lock your files and demand a large sum of money to unlock your files. Do not pay the ransom, it will not guarantee your files return.[p] [p]Be careful of what you download, and act quickly if your antivirus found any threats!"
+inbound_attachments = Array[ExtResource("1_1ny53")]([])
+expected_attachments = Array[ExtResource("1_1ny53")]([])
+score = 0.0
+is_important = false
+is_phishing = false

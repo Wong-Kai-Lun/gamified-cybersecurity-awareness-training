@@ -1,12 +1,20 @@
-[gd_resource type="Resource" script_class="EmailPack" load_steps=5 format=3 uid="uid://drmlvvvdj5yru"]
+[gd_resource type="Resource" script_class="EmailPack" load_steps=13 format=3 uid="uid://drmlvvvdj5yru"]
 
 [ext_resource type="Script" path="res://data/email_data.gd" id="1_jub6e"]
-[ext_resource type="Resource" uid="uid://bw0ct6dk7vmim" path="res://data/email/monday/1_9_fake_po.tres" id="2_r73j4"]
+[ext_resource type="Resource" uid="uid://civi5f8c68fs5" path="res://data/email/tuesday/2_1_impersonation.tres" id="2_smk4b"]
 [ext_resource type="Script" path="res://data/email_pack.gd" id="2_x77k0"]
-[ext_resource type="Resource" uid="uid://cs65vjxte2oy1" path="res://data/email/monday/1_2_submit_po.tres" id="3_so5j6"]
+[ext_resource type="Resource" uid="uid://d0ydqiipwvbyi" path="res://data/email/tuesday/2_2_submit_po.tres" id="3_krrj6"]
+[ext_resource type="Resource" uid="uid://io8naanf1x4h" path="res://data/email/tuesday/2_3_cybernewsdaily.tres" id="4_o3rkd"]
+[ext_resource type="Resource" uid="uid://dycr3tmapoyoy" path="res://data/email/tuesday/2_4_jusco_po.tres" id="5_iwgb6"]
+[ext_resource type="Resource" uid="uid://4jtusdxhla4l" path="res://data/email/tuesday/2_5_c17_recruit.tres" id="6_6opos"]
+[ext_resource type="Resource" uid="uid://cqwx6we0sfb1a" path="res://data/email/tuesday/2_6_fake_mike_1.tres" id="7_p70l0"]
+[ext_resource type="Resource" uid="uid://51ddeu1l00cj" path="res://data/email/tuesday/2_7_koperasi.tres" id="8_eml5e"]
+[ext_resource type="Resource" uid="uid://h4x1r5kbxbpu" path="res://data/email/tuesday/2_8_lighthouse.tres" id="9_yv0xd"]
+[ext_resource type="Resource" uid="uid://f74enjhhtd66" path="res://data/email/tuesday/2_9_fake_mike_2.tres" id="10_dgyor"]
+[ext_resource type="Resource" uid="uid://vu7svatrk634" path="res://data/email/tuesday/2_10_real_mike.tres" id="11_g0r74"]
 
 [resource]
 script = ExtResource("2_x77k0")
 pack_id = "tuesday"
 pack_name = "Tuesday"
-emails = Array[ExtResource("1_jub6e")]([ExtResource("2_r73j4"), ExtResource("3_so5j6")])
+emails = Array[ExtResource("1_jub6e")]([ExtResource("2_smk4b"), ExtResource("3_krrj6"), ExtResource("4_o3rkd"), ExtResource("5_iwgb6"), ExtResource("6_6opos"), ExtResource("7_p70l0"), ExtResource("8_eml5e"), ExtResource("9_yv0xd"), ExtResource("10_dgyor"), ExtResource("11_g0r74")])
