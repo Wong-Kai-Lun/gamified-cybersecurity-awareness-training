@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://bw0ct6dk7vmim"]
 
 [ext_resource type="Script" path="res://data/file_data.gd" id="1_438ff"]
-[ext_resource type="Resource" uid="uid://byh3yan6kmp14" path="res://data/file/monday/1_10_fake_po.tres" id="2_agfyf"]
+[ext_resource type="Resource" uid="uid://byh3yan6kmp14" path="res://data/file/monday/1_9_fake_po.tres" id="2_ifa02"]
 [ext_resource type="Script" path="res://data/email_data.gd" id="3_4rxte"]
 
 [resource]
@@ -14,7 +14,7 @@ to_address = "{player_email}"
 cc_address = ""
 subject = "purchase order"
 email_body = "Hello, I want to order some stationarys for my shop.[p] [p]PO is attached, please download to view.[p] [p]Johnn"
-inbound_attachments = Array[ExtResource("1_438ff")]([ExtResource("2_agfyf")])
+inbound_attachments = Array[ExtResource("1_438ff")]([ExtResource("2_ifa02")])
 expected_attachments = Array[ExtResource("1_438ff")]([])
 score = 0.0
 is_important = false

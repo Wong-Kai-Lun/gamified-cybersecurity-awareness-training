@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_tjefr")
-file_id = "1_4_littlegenius_po"
+file_id = "1_5_littlegenius_po"
 file_texture = ExtResource("1_kvyrw")
 file_name = "Little Genius Purchase Order.pdf"
 file_context = 0
 file_type = 0
+trigger_rate = 0.0

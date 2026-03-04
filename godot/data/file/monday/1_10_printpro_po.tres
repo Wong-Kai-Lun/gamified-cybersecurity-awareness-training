@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_a6n8p")
-file_id = "1_11_printpro_po"
+file_id = "1_10_printpro_po"
 file_texture = ExtResource("1_fy3vk")
-file_name = "PrintPro Purchase Order"
+file_name = "PrintPro Purchase Order.pdf"
 file_context = 0
 file_type = 0
+trigger_rate = 0.0

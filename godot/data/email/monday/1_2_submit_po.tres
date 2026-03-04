@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="EmailData" load_steps=6 format=3 uid="uid://cs65vjxte2oy1"]
 
 [ext_resource type="Script" path="res://data/file_data.gd" id="1_2af5r"]
-[ext_resource type="Resource" uid="uid://c3sa2jb3xuu7v" path="res://data/file/monday/1_4_littlegenius_po.tres" id="2_5ygpx"]
-[ext_resource type="Resource" uid="uid://bnp8h7y8h3oht" path="res://data/file/monday/1_8_happyminimarket_po.tres" id="3_cg1ki"]
-[ext_resource type="Resource" uid="uid://s75e3jcq264b" path="res://data/file/monday/1_11_printpro_po.tres" id="4_fmdw2"]
+[ext_resource type="Resource" uid="uid://c3sa2jb3xuu7v" path="res://data/file/monday/1_5_littlegenius_po.tres" id="2_5ygpx"]
+[ext_resource type="Resource" uid="uid://bnp8h7y8h3oht" path="res://data/file/monday/1_7_happyminimarket_po.tres" id="3_cg1ki"]
+[ext_resource type="Resource" uid="uid://s75e3jcq264b" path="res://data/file/monday/1_10_printpro_po.tres" id="4_fmdw2"]
 [ext_resource type="Script" path="res://data/email_data.gd" id="5_mwv56"]
 
 [resource]

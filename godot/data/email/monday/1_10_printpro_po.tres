@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://bgjk1te7mq4r7"]
 
 [ext_resource type="Script" path="res://data/file_data.gd" id="1_laina"]
-[ext_resource type="Resource" uid="uid://s75e3jcq264b" path="res://data/file/monday/1_11_printpro_po.tres" id="2_o6sny"]
+[ext_resource type="Resource" uid="uid://s75e3jcq264b" path="res://data/file/monday/1_10_printpro_po.tres" id="2_o6sny"]
 [ext_resource type="Script" path="res://data/email_data.gd" id="3_o0aq6"]
 
 [resource]
