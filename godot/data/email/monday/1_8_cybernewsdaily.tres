@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://byx16nifoxwdy"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_r8u6t"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_kdv6c"]
+
+[resource]
+script = ExtResource("2_kdv6c")
+email_id = "1_8_cybernewsdaily"
+email_type = 0
+sender_name = "Cyber News Daily"
+sender_address = "dailynews@cnd.com.my"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Phishing Emails and How to Spot Them!"
+email_body = "Phishing emails are designed to trick you into downloading malicious attachments or revealing sensitive information.[p] [p]Be extra careful with emails that:[p] - Sounds urgent or threatening.[p] - Have poor grammar (but not always).[p] - Include attachments with extensions that does not match (Example: Invoice.pdf.exe <- this is an .exe file, not .pdf)[p] *add images[p] [p]Report any suspicious emails you come across and do not download or send any files.[p] [p]Stay alert and stay safe!"
+inbound_attachments = Array[ExtResource("1_r8u6t")]([])
+expected_attachments = Array[ExtResource("1_r8u6t")]([])
+score = 0.0
+is_important = false
+is_phishing = false

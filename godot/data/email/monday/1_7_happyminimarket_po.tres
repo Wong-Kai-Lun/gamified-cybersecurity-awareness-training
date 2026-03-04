@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://qhouxggrs1da"]
 
-[ext_resource type="Script" path="res://data/file_data.gd" id="1_ok1r2"]
-[ext_resource type="Script" path="res://data/email_data.gd" id="2_qcl8x"]
-[ext_resource type="Resource" uid="uid://bnp8h7y8h3oht" path="res://data/file/monday/1_8_happyminimarket_po.tres" id="2_yn7dh"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_hmruj"]
+[ext_resource type="Resource" uid="uid://bnp8h7y8h3oht" path="res://data/file/monday/1_8_happyminimarket_po.tres" id="2_lys6f"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="3_c4dfd"]
 
 [resource]
-script = ExtResource("2_qcl8x")
-email_id = "1_8_happyminimarket_po"
+script = ExtResource("3_c4dfd")
+email_id = "1_7_happyminimarket_po"
 email_type = 1
 sender_name = "Ravi"
 sender_address = "happyminimarket@email.com "
@@ -14,8 +14,8 @@ to_address = "{player_email}"
 cc_address = ""
 subject = "Purchase Order for Stationeries - Happy Mini Market"
 email_body = "Good day, I'd like to order some stationeries for my store.[p] [p]PO is attached in this email.[p] [p]Ravi[p]Happy Mini Market[p]Owner"
-inbound_attachments = Array[ExtResource("1_ok1r2")]([ExtResource("2_yn7dh")])
-expected_attachments = Array[ExtResource("1_ok1r2")]([])
+inbound_attachments = Array[ExtResource("1_hmruj")]([ExtResource("2_lys6f")])
+expected_attachments = Array[ExtResource("1_hmruj")]([])
 score = 0.0
 is_important = false
 is_phishing = false

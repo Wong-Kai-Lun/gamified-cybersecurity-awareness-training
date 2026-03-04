@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://b54yvm5parmh5"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_i6ljt"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_a3dmg"]
+
+[resource]
+script = ExtResource("2_a3dmg")
+email_id = "1_6_trippo_ad"
+email_type = 0
+sender_name = "Trippo"
+sender_address = "advertising@trippo.com"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Looking for a special place for a lovely holiday?"
+email_body = "Join us and enjoy the wonderful offers for a trip you'll definitely remember![p] [p][center][img]assets/adware/trippo_ad.jpg[/img][/center]"
+inbound_attachments = Array[ExtResource("1_i6ljt")]([])
+expected_attachments = Array[ExtResource("1_i6ljt")]([])
+score = 0.0
+is_important = false
+is_phishing = false

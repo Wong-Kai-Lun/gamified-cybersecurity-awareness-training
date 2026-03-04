@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://bgjk1te7mq4r7"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_laina"]
+[ext_resource type="Resource" uid="uid://s75e3jcq264b" path="res://data/file/monday/1_11_printpro_po.tres" id="2_o6sny"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="3_o0aq6"]
+
+[resource]
+script = ExtResource("3_o0aq6")
+email_id = "1_10_printpro_po"
+email_type = 1
+sender_name = "Mike"
+sender_address = "mike@abc.com.my"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Purchase Order - PrintingPro.pdf"
+email_body = "Hi {player_name}! It’s Mike! I’m usually out of office doing visits looking for potential clients.[p] [p]This is a Purchase Order from PrintingPro. Please help me send this to finance. Thanks!"
+inbound_attachments = Array[ExtResource("1_laina")]([ExtResource("2_o6sny")])
+expected_attachments = Array[ExtResource("1_laina")]([])
+score = 0.0
+is_important = false
+is_phishing = false

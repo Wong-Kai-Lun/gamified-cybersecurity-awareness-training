@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="EmailData" load_steps=6 format=3 uid="uid://cs65vjxte2oy1"]
 
-[ext_resource type="Script" path="res://data/file_data.gd" id="1_ya4w7"]
-[ext_resource type="Resource" uid="uid://c3sa2jb3xuu7v" path="res://data/file/monday/1_4_littlegenius_po.tres" id="2_x0loj"]
-[ext_resource type="Resource" uid="uid://bnp8h7y8h3oht" path="res://data/file/monday/1_8_happyminimarket_po.tres" id="3_6yc1u"]
-[ext_resource type="Resource" uid="uid://s75e3jcq264b" path="res://data/file/monday/1_11_printpro_po.tres" id="4_lojil"]
-[ext_resource type="Script" path="res://data/email_data.gd" id="5_mkd6c"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_2af5r"]
+[ext_resource type="Resource" uid="uid://c3sa2jb3xuu7v" path="res://data/file/monday/1_4_littlegenius_po.tres" id="2_5ygpx"]
+[ext_resource type="Resource" uid="uid://bnp8h7y8h3oht" path="res://data/file/monday/1_8_happyminimarket_po.tres" id="3_cg1ki"]
+[ext_resource type="Resource" uid="uid://s75e3jcq264b" path="res://data/file/monday/1_11_printpro_po.tres" id="4_fmdw2"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="5_mwv56"]
 
 [resource]
-script = ExtResource("5_mkd6c")
-email_id = "1_3_submit_po"
+script = ExtResource("5_mwv56")
+email_id = "1_2_submit_po"
 email_type = 2
 sender_name = "Nazrin"
 sender_address = "nazrin.finance@abc.com.my"
@@ -16,8 +16,8 @@ to_address = "{player_email}"
 cc_address = ""
 subject = "Submit Today's Purchase Order"
 email_body = "Hello and welcome to ABC Stationeries, {player_name}![p] [p]I am Nazrin from Finance Department, and my email address is where you submit Purchase Orders you have received today from our clients.[p] [p]To make things easier for you, I'll send you a request email like this every day and you can just drop the files in and click send![p] [p][b]Make sure that you have collected all the Purchase Orders sent to you today before submitting. A missed order is a missed opportunity![/b][p] [p]*[b]Tip[/b]: Open your File Explorer, drag the file over and drop it in this email. Once you've made sure all files are attached. Click send![p] [p]**[b]Tip[/b]: Expected file extensions: .pdf, .docx, .xlsx"
-inbound_attachments = Array[ExtResource("1_ya4w7")]([])
-expected_attachments = Array[ExtResource("1_ya4w7")]([ExtResource("2_x0loj"), ExtResource("3_6yc1u"), ExtResource("4_lojil")])
+inbound_attachments = Array[ExtResource("1_2af5r")]([])
+expected_attachments = Array[ExtResource("1_2af5r")]([ExtResource("2_5ygpx"), ExtResource("3_cg1ki"), ExtResource("4_fmdw2")])
 score = 0.0
 is_important = true
 is_phishing = false

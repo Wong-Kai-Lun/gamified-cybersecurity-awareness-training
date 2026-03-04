@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://d4blbi7274728"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_jg2w7"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_5wq82"]
+
+[resource]
+script = ExtResource("2_5wq82")
+email_id = "1_3_antivirus_introduction"
+email_type = 0
+sender_name = "Kai Jie"
+sender_address = "kaijie.it@abc.com.my"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Antivirus Introduction"
+email_body = "Nice to meet you, {player_name}![p] [p]I am Kai Jie from IT Department. Our company has antivirus subscriptions for company devices to help scan and find any suspicious files it comes across.[p] [p]*[b]Tip[/b]: Find the file with the name pointed out by the antivirus and delete it."
+inbound_attachments = Array[ExtResource("1_jg2w7")]([])
+expected_attachments = Array[ExtResource("1_jg2w7")]([])
+score = 0.0
+is_important = false
+is_phishing = false

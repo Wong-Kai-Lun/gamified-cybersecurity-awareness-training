@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://ds1vk7cjk2xfn"]
 
-[ext_resource type="Script" path="res://data/file_data.gd" id="1_u2h8f"]
-[ext_resource type="Script" path="res://data/email_data.gd" id="2_gnr7e"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_wsub7"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_pmoif"]
 
 [resource]
-script = ExtResource("2_gnr7e")
-email_id = "1_6_antivirus_activated"
+script = ExtResource("2_pmoif")
+email_id = "1_4_antivirus_activated"
 email_type = 0
 sender_name = "Orbit Antivirus"
 sender_address = "donotreply@orbit.com.my"
@@ -13,8 +13,8 @@ to_address = "{player_email}"
 cc_address = ""
 subject = "Orbit Antivirus Activated"
 email_body = "Orbit Antivirus Service is activated on your device: DESKTOP-BCKPG7B21L.[p] [p] [p] [p][center]Thank you for choosing Orbit Antivirus![/center][p] [p][center][img]assets/orbit_logo.png[/img][/center]"
-inbound_attachments = Array[ExtResource("1_u2h8f")]([])
-expected_attachments = Array[ExtResource("1_u2h8f")]([])
+inbound_attachments = Array[ExtResource("1_wsub7")]([])
+expected_attachments = Array[ExtResource("1_wsub7")]([])
 score = 0.0
 is_important = false
 is_phishing = false

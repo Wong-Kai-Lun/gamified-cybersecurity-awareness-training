@@ -1,21 +1,20 @@
-[gd_resource type="Resource" script_class="EmailPack" load_steps=14 format=3 uid="uid://f3mpkfjg5dos"]
+[gd_resource type="Resource" script_class="EmailPack" load_steps=13 format=3 uid="uid://f3mpkfjg5dos"]
 
 [ext_resource type="Script" path="res://data/email_data.gd" id="1_krvfn"]
 [ext_resource type="Resource" uid="uid://bdngpu77vre0r" path="res://data/email/monday/1_1_onboarding.tres" id="2_o2iop"]
-[ext_resource type="Resource" uid="uid://c4r7jjotgptir" path="res://data/email/monday/1_2_onboarding2.tres" id="3_j2tub"]
-[ext_resource type="Resource" uid="uid://cs65vjxte2oy1" path="res://data/email/monday/1_3_submit_po.tres" id="4_3xoli"]
+[ext_resource type="Resource" uid="uid://cs65vjxte2oy1" path="res://data/email/monday/1_2_submit_po.tres" id="3_56vst"]
 [ext_resource type="Script" path="res://data/email_pack.gd" id="4_8j6wb"]
-[ext_resource type="Resource" uid="uid://dc8hwm4pawqob" path="res://data/email/monday/1_4_littlegenius_po.tres" id="5_abn0v"]
-[ext_resource type="Resource" uid="uid://d4blbi7274728" path="res://data/email/monday/1_5_antivirus_introduction.tres" id="6_icons"]
-[ext_resource type="Resource" uid="uid://ds1vk7cjk2xfn" path="res://data/email/monday/1_6_antivirus_activated.tres" id="7_llu7q"]
-[ext_resource type="Resource" uid="uid://b54yvm5parmh5" path="res://data/email/monday/1_7_trippo_ad.tres" id="8_uphov"]
-[ext_resource type="Resource" uid="uid://qhouxggrs1da" path="res://data/email/monday/1_8_happyminimarket_po.tres" id="9_ma25n"]
-[ext_resource type="Resource" uid="uid://byx16nifoxwdy" path="res://data/email/monday/1_9_cybernewsdaily.tres" id="10_jxkmj"]
-[ext_resource type="Resource" uid="uid://bw0ct6dk7vmim" path="res://data/email/monday/1_10_fake_po.tres" id="11_qtkjp"]
-[ext_resource type="Resource" uid="uid://bgjk1te7mq4r7" path="res://data/email/monday/1_11_printpro_po.tres" id="12_epuxh"]
+[ext_resource type="Resource" uid="uid://d4blbi7274728" path="res://data/email/monday/1_3_antivirus_introduction.tres" id="4_v4y8w"]
+[ext_resource type="Resource" uid="uid://ds1vk7cjk2xfn" path="res://data/email/monday/1_4_antivirus_activated.tres" id="5_wje80"]
+[ext_resource type="Resource" uid="uid://dc8hwm4pawqob" path="res://data/email/monday/1_5_littlegenius_po.tres" id="6_dm2k3"]
+[ext_resource type="Resource" uid="uid://b54yvm5parmh5" path="res://data/email/monday/1_6_trippo_ad.tres" id="7_lc0ap"]
+[ext_resource type="Resource" uid="uid://qhouxggrs1da" path="res://data/email/monday/1_7_happyminimarket_po.tres" id="8_iwo8m"]
+[ext_resource type="Resource" uid="uid://byx16nifoxwdy" path="res://data/email/monday/1_8_cybernewsdaily.tres" id="9_8u01q"]
+[ext_resource type="Resource" uid="uid://bw0ct6dk7vmim" path="res://data/email/monday/1_9_fake_po.tres" id="10_nq4tg"]
+[ext_resource type="Resource" uid="uid://bgjk1te7mq4r7" path="res://data/email/monday/1_10_printpro_po.tres" id="11_p6kug"]
 
 [resource]
 script = ExtResource("4_8j6wb")
 pack_id = "monday"
 pack_name = "Monday"
-emails = Array[ExtResource("1_krvfn")]([ExtResource("2_o2iop"), ExtResource("3_j2tub"), ExtResource("4_3xoli"), ExtResource("5_abn0v"), ExtResource("6_icons"), ExtResource("7_llu7q"), ExtResource("8_uphov"), ExtResource("9_ma25n"), ExtResource("10_jxkmj"), ExtResource("11_qtkjp"), ExtResource("12_epuxh")])
+emails = Array[ExtResource("1_krvfn")]([ExtResource("2_o2iop"), ExtResource("3_56vst"), ExtResource("4_v4y8w"), ExtResource("5_wje80"), ExtResource("6_dm2k3"), ExtResource("7_lc0ap"), ExtResource("8_iwo8m"), ExtResource("9_8u01q"), ExtResource("10_nq4tg"), ExtResource("11_p6kug")])
