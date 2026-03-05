@@ -1,6 +1,8 @@
 extends Resource
 class_name EmailData
 
+signal outbound_updated(outbound_array: Array[FileData])
+
 enum EmailType { MESSAGE, INBOUND, OUTBOUND }
 
 @export var email_id: String
@@ -14,6 +16,7 @@ enum EmailType { MESSAGE, INBOUND, OUTBOUND }
 
 @export var inbound_attachments: Array[FileData] = []
 @export var expected_attachments: Array[FileData] = []
+var outbound_attachments: Array[FileData] = []
 
 @export var score: float
 
@@ -25,6 +28,17 @@ var flags := {
 	"reported": false,
 	"sent": false
 }
+
+
+func append_file_to_outbound(file_data: FileData):
+	outbound_attachments.append(file_data)
+	outbound_updated.emit(outbound_attachments.duplicate(true))
+
+
+func remove_file_from_outbound(file_data: FileData):
+	outbound_attachments.erase(file_data)
+	outbound_updated.emit(outbound_attachments.duplicate(true))
+
 
 func get_save_data() -> Dictionary:
 	return {

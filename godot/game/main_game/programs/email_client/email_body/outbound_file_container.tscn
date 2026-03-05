@@ -17,6 +17,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_sextw")
 script = ExtResource("1_pqt3o")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.133333)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

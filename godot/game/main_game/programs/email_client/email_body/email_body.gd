@@ -85,7 +85,7 @@ func _setup_inbound(data: EmailData) -> void:
 # Update it to show a drop zone arrow icon in can_drop_data func
 func _setup_outbound(data: EmailData) -> void:
 	_setup_message(data)
-	outbound_file_container_instance.draw_files()
+	outbound_file_container_instance.setup(data)
 	outbound_file_container_instance.show()
 	send_button.show()
 	attachment_slot.show()

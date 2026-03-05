@@ -105,7 +105,9 @@ func _file_action(id: int) -> void:
 			queue_free()
 			
 		FileAction.OUTBOUND_REMOVE:
-			_on_remove_requested()
+			await EventServiceInstance.delay_input()
+			remove_requested.emit(file_data)
+			queue_free()
 			
 		FileAction.RESTORE:
 			await EventServiceInstance.delay_input()

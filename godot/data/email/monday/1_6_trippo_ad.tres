@@ -12,7 +12,7 @@ sender_address = "advertising@trippo.com"
 to_address = "{player_email}"
 cc_address = ""
 subject = "Looking for a special place for a lovely holiday?"
-email_body = "Join us and enjoy the wonderful offers for a trip you'll definitely remember![p] [p][center][img]assets/adware/trippo_ad.jpg[/img][/center]"
+email_body = "Join us and enjoy the wonderful offers for a trip you'll definitely remember![p] [p][center][img=750x750]assets/adware/trippo_ad.jpg[/img][/center]"
 inbound_attachments = Array[ExtResource("1_i6ljt")]([])
 expected_attachments = Array[ExtResource("1_i6ljt")]([])
 score = 0.0
