@@ -30,6 +30,10 @@ var flags := {
 }
 
 
+func get_outbound() -> Array[FileData]:
+	return outbound_attachments
+
+
 func append_file_to_outbound(file_data: FileData):
 	outbound_attachments.append(file_data)
 	outbound_updated.emit(outbound_attachments.duplicate(true))
@@ -41,7 +45,13 @@ func remove_file_from_outbound(file_data: FileData):
 
 
 func get_save_data() -> Dictionary:
+	var outbound_ids := []
+	
+	for file in outbound_attachments:
+		outbound_ids.append(file.get_save_data())
+	
 	return {
 		"id": email_id,
-		"flags": flags
+		"flags": flags,
+		"outbound_files": outbound_ids
 	}

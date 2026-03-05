@@ -38,12 +38,18 @@ func load_from_save(email_array: Array) -> void:
 
 func _rebuild_email_from_save(email_dict: Dictionary) -> EmailData:
 	var email_id = email_dict["id"]
-	var flags = email_dict["flags"]
+	var outbound_files = email_dict["outbound_files"]
+	
 	var path = EmailDatabase.get_email_path_by_id(email_id)
 	var email_def = load(path) as EmailData
-	
 	var instance = email_def.duplicate(true)
-	instance.flags = flags
+	
+	for file_id in outbound_files:
+		var file_instance = FileServiceInstance.rebuild_file_from_save(file_id, FileData.FileContext.OUTBOUND)
+		instance.outbound_attachments.append(file_instance)
+	
+	instance.flags = email_dict["flags"]
+	
 	return instance
 #endregion
 

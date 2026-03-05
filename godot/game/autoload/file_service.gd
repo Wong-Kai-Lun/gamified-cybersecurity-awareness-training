@@ -47,17 +47,17 @@ func load_from_save(file_dict: Dictionary) -> void:
 	reset()
 	
 	for file_data in file_dict["inventory"]:
-		var instance = _rebuild_file_from_save(file_data, FileData.FileContext.INVENTORY)
+		var instance = rebuild_file_from_save(file_data, FileData.FileContext.INVENTORY)
 		_inventory.append(instance)
 		
 	for file_data in file_dict["recycling_bin"]:
-		var instance = _rebuild_file_from_save(file_data, FileData.FileContext.TRASH)
+		var instance = rebuild_file_from_save(file_data, FileData.FileContext.TRASH)
 		_recycling_bin.append(instance)
 	
 	inventory_changed.emit(_inventory.duplicate(true))
 	recycling_bin_changed.emit(_recycling_bin.duplicate(true))
 
-func _rebuild_file_from_save(file_id: String, context: FileData.FileContext) -> FileData:
+func rebuild_file_from_save(file_id: String, context: FileData.FileContext) -> FileData:
 	var path = FileDatabase.get_file_path_by_id(file_id)
 	var file_def = load(path) as FileData
 	
