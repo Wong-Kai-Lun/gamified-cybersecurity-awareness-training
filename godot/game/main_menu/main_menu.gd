@@ -38,6 +38,7 @@ func _on_new_player_window_closed() -> void:
 
 func _on_continue_pressed() -> void:
 	SaveloadServiceInstance.continue_game()
+	get_tree().change_scene_to_file("res://game/main_game/desktop.tscn")
 
 
 func _on_settings_pressed() -> void:

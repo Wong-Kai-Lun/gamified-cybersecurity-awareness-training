@@ -39,6 +39,15 @@ func _ready() -> void:
 	LevelServiceInstance.day_ended.connect(_on_day_ended)
 
 
+func _restart_game() -> void:
+	if SaveloadServiceInstance.has_save():
+		SaveloadServiceInstance.continue_game()
+	else:
+		GameManagerInstance.start_new_game()
+	
+	get_tree().reload_current_scene()
+
+
 func _initialise() -> void:
 	notif_vbox.show()
 	var programs := [email_client, inventory, recycling_bin]
@@ -188,6 +197,7 @@ func _on_adware_triggered(ad_window_amount: int) -> void:
 func _trigger_bsod() -> void:
 	var bsod_panel_scene: PackedScene = load("res://game/main_game/programs/events/game_over/bsod_panel.tscn")
 	var bsod_panel_instance = bsod_panel_scene.instantiate()
+	bsod_panel_instance.game_restarted.connect(_restart_game)
 	canvas_layer.add_child(bsod_panel_instance)
 
 

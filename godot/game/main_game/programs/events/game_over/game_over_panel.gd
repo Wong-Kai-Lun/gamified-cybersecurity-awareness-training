@@ -1,9 +1,10 @@
 extends PanelContainer
 class_name BaseGameOverPanel
 
+signal game_restarted
 
 func _on_restart_day_button_pressed() -> void:
-	pass # Replace with function body.
+	game_restarted.emit()
 
 
 func _on_main_menu_button_pressed() -> void:

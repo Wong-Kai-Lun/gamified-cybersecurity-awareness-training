@@ -28,9 +28,17 @@ func load_game() -> void:
 	file.close()
 
 
+func has_save() -> bool:
+	var file_path = "user://save_file.json"
+	
+	if FileAccess.file_exists(file_path):
+		return true
+	
+	return false
+
+
 func continue_game() -> void:
 	_pending_load = true
-	get_tree().change_scene_to_file("res://game/main_game/desktop.tscn")
 
 func should_finish_loading() -> bool:
 	return _pending_load
