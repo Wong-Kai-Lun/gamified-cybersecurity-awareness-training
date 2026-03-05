@@ -16,6 +16,7 @@ const LEVELS = {
 
 #region Saveable Data
 var _current_day: Day = Day.MONDAY
+var _missed_purchase_orders: int = 0
 #endregion
 
 
@@ -70,3 +71,9 @@ func validate_outbound_files(email: EmailData, attached: Array[FileData]) -> voi
 	
 	print("Missing Files: ", missing_file_count)
 	day_ended.emit()
+
+
+# Check for any abuse of report functions
+func check_behaviour():
+	# get emails, check for number of legit emails as reported, trigger game over on condition, maybe this should be in email service?
+	pass

@@ -1,31 +1,37 @@
 extends Node
 class_name EmailDatabase
 
-const _email_paths_by_id := {
-	# Monday
-	"1_1_onboarding": "res://data/email/monday/1_1_onboarding.tres",
-	"1_2_submit_po": "res://data/email/monday/1_2_submit_po.tres",
-	"1_3_antivirus_introduction": "res://data/email/monday/1_3_antivirus_introduction.tres",
-	"1_4_antivirus_activated": "res://data/email/monday/1_4_antivirus_activated.tres",
-	"1_5_littlegenius_po": "res://data/email/monday/1_5_littlegenius_po.tres",
-	"1_6_trippo_ad": "res://data/email/monday/1_6_trippo_ad.tres",
-	"1_7_happyminimarket_po": "res://data/email/monday/1_7_happyminimarket_po.tres",
-	"1_8_cybernewsdaily": "res://data/email/monday/1_8_cybernewsdaily.tres",
-	"1_9_fake_po": "res://data/email/monday/1_9_fake_po.tres",
-	"1_10_printpro_po": "res://data/email/monday/1_10_printpro_po.tres",
-	
-	# Tuesday
-	"2_1_impersonation": "res://data/email/tuesday/2_1_impersonation.tres",
-	"2_2_submit_po": "res://data/email/tuesday/2_2_submit_po.tres",
-	"2_3_cybernewsdaily": "res://data/email/tuesday/2_3_cybernewsdaily.tres",
-	"2_4_jusco_po": "res://data/email/tuesday/2_4_jusco_po.tres",
-	"2_5_c17_recruit": "res://data/email/tuesday/2_5_c17_recruit.tres",
-	"2_6_fake_mike_1": "res://data/email/tuesday/2_6_fake_mike_1.tres",
-	"2_7_koperasi": "res://data/email/tuesday/2_7_koperasi.tres",
-	"2_8_lighthouse": "res://data/email/tuesday/2_8_lighthouse.tres",
-	"2_9_fake_mike_2": "res://data/email/tuesday/2_9_fake_mike_2.tres",
-	"2_10_real_mike": "res://data/email/tuesday/2_10_real_mike.tres",
-}
+var _email_paths := {}
 
-static func get_email_path_by_id(id: String) -> String:
-	return _email_paths_by_id[id]
+const EMAIL_DIRECTORIES := [
+	"res://data/email/monday",
+	"res://data/email/tuesday"
+]
+
+
+func _ready():
+	_build_database()
+	print(_email_paths)
+
+
+func _build_database() -> void:
+	for dir_path in EMAIL_DIRECTORIES:
+		var dir := DirAccess.open(dir_path)
+		
+		if dir == null:
+			push_warning("Email folder not found: %s" % dir_path)
+			continue
+		
+		dir.list_dir_begin()
+		var file_name := dir.get_next()
+		while file_name != "":
+			if file_name.ends_with(".tres"):
+				var id := file_name.get_basename()
+				var full_path = dir_path + "/" + file_name
+				_email_paths[id] = full_path
+			file_name = dir.get_next()
+		dir.list_dir_end()
+
+
+func get_email_path_by_id(email_id: String) -> String:
+	return _email_paths.get(email_id, "")

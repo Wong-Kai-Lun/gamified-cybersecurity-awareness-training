@@ -40,7 +40,7 @@ func _rebuild_email_from_save(email_dict: Dictionary) -> EmailData:
 	var email_id = email_dict["id"]
 	var outbound_files = email_dict["outbound_files"]
 	
-	var path = EmailDatabase.get_email_path_by_id(email_id)
+	var path = EmailDatabaseInstance.get_email_path_by_id(email_id)
 	var email_def = load(path) as EmailData
 	var instance = email_def.duplicate(true)
 	
