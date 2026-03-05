@@ -57,8 +57,7 @@ func load_from_save(file_dict: Dictionary) -> void:
 	inventory_changed.emit(_inventory.duplicate(true))
 	recycling_bin_changed.emit(_recycling_bin.duplicate(true))
 
-func _rebuild_file_from_save(file_dict: Dictionary, context: FileData.FileContext) -> FileData:
-	var file_id = file_dict["id"]
+func _rebuild_file_from_save(file_id: String, context: FileData.FileContext) -> FileData:
 	var path = FileDatabase.get_file_path_by_id(file_id)
 	var file_def = load(path) as FileData
 	

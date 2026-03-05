@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_5i1jl")
-file_id = "1_10_fake_po"
+file_id = "1_9_fake_po"
 file_texture = ExtResource("1_yt1a0")
 file_name = "purchase order.pdf.exe"
 file_context = 0

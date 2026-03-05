@@ -12,7 +12,5 @@ enum FileType { LEGIT, MALWARE, ADWARE, RANSOMWARE }
 @export var trigger_rate: float = 0.0
 
 
-func get_save_data() -> Dictionary:
-	return {
-		"id": file_id
-	}
+func get_save_data() -> String:
+	return file_id
