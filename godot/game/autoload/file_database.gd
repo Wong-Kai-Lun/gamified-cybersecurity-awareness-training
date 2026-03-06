@@ -1,26 +1,36 @@
 extends Node
 class_name FileDatabase
 
-const _file_paths_by_id := {
-	# Monday
-	"1_5_littlegenius_po": "res://data/file/monday/1_5_littlegenius_po.tres",
-	"1_7_happyminimarket_po": "res://data/file/monday/1_7_happyminimarket_po.tres",
-	"1_9_fake_po": "res://data/file/monday/1_9_fake_po.tres",
-	"1_10_printpro_po": "res://data/file/monday/1_10_printpro_po.tres",
-	
-	# Tuesday
-	"2_4_jusco_po": "res://data/file/tuesday/2_4_jusco_po.tres",
-	"2_6_fake_po": "res://data/file/tuesday/2_6_fake_po.tres",
-	"2_7_koperasi": "res://data/file/tuesday/2_7_koperasi.tres",
-	"2_8_lighthouse": "res://data/file/tuesday/2_8_lighthouse.tres",
-	"2_9_fake_po": "res://data/file/tuesday/2_9_fake_po.tres",
-	"2_10_inkspirations_po": "res://data/file/tuesday/2_10_inkspirations_po.tres",
-	"2_10_lina_po": "res://data/file/tuesday/2_10_lina_po.tres",
-	
-	"sample_adware": "res://data/file/test/sample_adware.tres",
-	"sample_ransomware": "res://data/file/test/sample_ransomware.tres"
-}
+var _file_paths := {}
+
+const FILE_DIRECTORIES := [
+	"res://data/file/monday",
+	"res://data/file/tuesday"
+]
 
 
-static func get_file_path_by_id(id: String) -> String:
-	return _file_paths_by_id[id]
+func _ready():
+	_build_database()
+
+
+func _build_database() -> void:
+	for dir_path in FILE_DIRECTORIES:
+		var dir := DirAccess.open(dir_path)
+		
+		if dir == null:
+			push_warning("File folder not found: %s" % dir_path)
+			continue
+		
+		dir.list_dir_begin()
+		var file_name := dir.get_next()
+		while file_name != "":
+			if file_name.ends_with(".tres"):
+				var id := file_name.get_basename()
+				var full_path = dir_path + "/" + file_name
+				_file_paths[id] = full_path
+			file_name = dir.get_next()
+		dir.list_dir_end()
+
+
+func get_file_path_by_id(file_id: String) -> String:
+	return _file_paths.get(file_id, "")

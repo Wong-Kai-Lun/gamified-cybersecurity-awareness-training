@@ -11,7 +11,6 @@ const EMAIL_DIRECTORIES := [
 
 func _ready():
 	_build_database()
-	print(_email_paths)
 
 
 func _build_database() -> void:
