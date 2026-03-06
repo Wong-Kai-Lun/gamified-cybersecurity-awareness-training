@@ -39,14 +39,32 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6yghm")
 [node name="MarginContainer" type="MarginContainer" parent="WindowPanel/Structure/Content/HBoxContainer/PanelContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WindowPanel/Structure/Content/HBoxContainer/PanelContainer/MarginContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WindowPanel/Structure/Content/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[b]Controls[/b] :
+
+
+Hover to read full file name.
+
+
+Hold Left Click + Drag to upload files.
+
+
+Right Click to delete files."
+fit_content = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="WindowPanel/Structure/Content/HBoxContainer" index="1"]
 layout_mode = 2
