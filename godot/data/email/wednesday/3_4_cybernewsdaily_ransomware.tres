@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://dun6y8r13ov7l"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_ny8x6"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_ybmbs"]
+
+[resource]
+script = ExtResource("2_ybmbs")
+email_id = "3_4_cybernewsdaily_ransomware"
+email_type = 0
+sender_name = "Cyber News Daily"
+sender_address = "dailynews@cnd.com"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Recent Ransomware Attacks"
+email_body = "Recently a few companies were hit by ransomware attacks. Please pay attention to email addresses and the files attached in the emails they sent.[p] [p]These are currently the identified email addresses suspected of conducting ransomware attacks.[p] [p]888lottery@email.com[p]anth0ny41@email.com [p]audit.gov.admin@email.com [p]bon@cyberfuntech.com [p]super.prize.asia@supalotto.com [p] [p]If you are a recipient of the emails listed above. Do not download anything or attempt to contact the sender. Report the email immediately."
+inbound_attachments = Array[ExtResource("1_ny8x6")]([])
+expected_attachments = Array[ExtResource("1_ny8x6")]([])
+score = 0.0
+is_important = false
+is_phishing = false

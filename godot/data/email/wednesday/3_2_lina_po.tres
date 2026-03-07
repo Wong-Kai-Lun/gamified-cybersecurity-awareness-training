@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://dl06j71saeryr"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_fhmc0"]
+[ext_resource type="Resource" uid="uid://da75rv17mrb7t" path="res://data/file/wednesday/3_2_lina_po.tres" id="2_0yqvq"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_db8cl"]
+
+[resource]
+script = ExtResource("2_db8cl")
+email_id = "3_2_lina_po"
+email_type = 1
+sender_name = "Lina Zahra"
+sender_address = "linaArts821@email.com"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Revised Purchase Order"
+email_body = "Good morning![p] [p]Yesterday someone from your company, Mr. Mike submitted a purchase order on my behalf. After some considerations I want to add on some items in the purchase order. Please notify them to refer to this revised purchase order. Sorry for the inconvenience![p] [p] [p]Lina Zahra[p]Lina Arts & Crafts Store Manager"
+inbound_attachments = Array[ExtResource("1_fhmc0")]([ExtResource("2_0yqvq")])
+expected_attachments = Array[ExtResource("1_fhmc0")]([])
+score = 0.0
+is_important = false
+is_phishing = false

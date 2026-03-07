@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://4x8si7j1bpln"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_yhgax"]
+[ext_resource type="Texture2D" uid="uid://dtbasgtyr0hj1" path="res://assets/file_icons/docx.png" id="1_yyfec"]
+
+[resource]
+script = ExtResource("1_yhgax")
+file_id = "3_8_anth0ny"
+file_texture = ExtResource("1_yyfec")
+file_name = "Ceria Mall PO.docm"
+file_context = 0
+file_type = 3
+trigger_rate = 0.0

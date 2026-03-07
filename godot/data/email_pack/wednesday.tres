@@ -1,11 +1,20 @@
-[gd_resource type="Resource" script_class="EmailPack" load_steps=4 format=3 uid="uid://dx8dgayhi3u44"]
+[gd_resource type="Resource" script_class="EmailPack" load_steps=13 format=3 uid="uid://dx8dgayhi3u44"]
 
 [ext_resource type="Script" path="res://data/email_data.gd" id="1_mh6u5"]
-[ext_resource type="Resource" uid="uid://bgjk1te7mq4r7" path="res://data/email/monday/1_10_printpro_po.tres" id="2_aqvlt"]
+[ext_resource type="Resource" uid="uid://b4w7hu4gccbds" path="res://data/email/wednesday/3_1_ransomware_warning_it.tres" id="2_8ftxp"]
 [ext_resource type="Script" path="res://data/email_pack.gd" id="2_kf5v3"]
+[ext_resource type="Resource" uid="uid://dl06j71saeryr" path="res://data/email/wednesday/3_2_lina_po.tres" id="3_d5yo0"]
+[ext_resource type="Resource" uid="uid://dqkg1pkjc2ee5" path="res://data/email/wednesday/3_3_submit_po.tres" id="4_hwm4e"]
+[ext_resource type="Resource" uid="uid://dun6y8r13ov7l" path="res://data/email/wednesday/3_4_cybernewsdaily_ransomware.tres" id="5_sj3h3"]
+[ext_resource type="Resource" uid="uid://cgh37gm3nrf2s" path="res://data/email/wednesday/3_5_joystore_po.tres" id="6_4a71h"]
+[ext_resource type="Resource" uid="uid://coc24u0vww2g2" path="res://data/email/wednesday/3_6_faiq_sponsor_request.tres" id="7_yb6a2"]
+[ext_resource type="Resource" uid="uid://cb007n2hi1ubu" path="res://data/email/wednesday/3_7_c17_recruit.tres" id="8_4imbq"]
+[ext_resource type="Resource" uid="uid://b7bddyljbnfvu" path="res://data/email/wednesday/3_8_anth0ny.tres" id="9_10tx6"]
+[ext_resource type="Resource" uid="uid://clnsvhdwm74ao" path="res://data/email/wednesday/3_9_fake_blake.tres" id="10_4xfvn"]
+[ext_resource type="Resource" uid="uid://dcehtyeyg0vac" path="res://data/email/wednesday/3_10_senghin_po.tres" id="11_6lrkc"]
 
 [resource]
 script = ExtResource("2_kf5v3")
 pack_id = "wednesday"
 pack_name = "Wednesday"
-emails = Array[ExtResource("1_mh6u5")]([ExtResource("2_aqvlt")])
+emails = Array[ExtResource("1_mh6u5")]([ExtResource("2_8ftxp"), ExtResource("3_d5yo0"), ExtResource("4_hwm4e"), ExtResource("5_sj3h3"), ExtResource("6_4a71h"), ExtResource("7_yb6a2"), ExtResource("8_4imbq"), ExtResource("9_10tx6"), ExtResource("10_4xfvn"), ExtResource("11_6lrkc")])

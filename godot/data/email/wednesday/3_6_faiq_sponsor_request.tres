@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://coc24u0vww2g2"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_a04al"]
+[ext_resource type="Resource" uid="uid://c24yigre4730y" path="res://data/file/wednesday/3_6_faiq_sponsor_request.tres" id="2_0oppw"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_1ljfm"]
+
+[resource]
+script = ExtResource("2_1ljfm")
+email_id = "3_6_faiq_sponsor_request"
+email_type = 1
+sender_name = "Faiq Hazim"
+sender_address = "faiq.hazim@skcahaya.com.my"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Sponsorship Request for School Opening Event"
+email_body = "Dear Sir/Madam,[p] [p]My name is Faiq Hazim. I am a teacher from Sekolah Kebangsaan Cahaya. Our school is having a school starting event and would like to request a sponsorship of school supplies. The supplies are intended to be distributed among new students coming from families facing financial hardship.[p] [p]The details are in the file attached. I look forward to hearing your thoughts and please do not hesitate to contact me if there are any inquiries.[p] [p] [p]Sincerely,[p]Faiq Hazim"
+inbound_attachments = Array[ExtResource("1_a04al")]([ExtResource("2_0oppw")])
+expected_attachments = Array[ExtResource("1_a04al")]([])
+score = 0.0
+is_important = false
+is_phishing = false

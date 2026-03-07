@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=7 format=3 uid="uid://dqkg1pkjc2ee5"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_iw0im"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_7dlka"]
+[ext_resource type="Resource" uid="uid://da75rv17mrb7t" path="res://data/file/wednesday/3_2_lina_po.tres" id="2_h3hpi"]
+[ext_resource type="Resource" uid="uid://dm01s5l7hruu" path="res://data/file/wednesday/3_5_joystore_po.tres" id="3_ps4v4"]
+[ext_resource type="Resource" uid="uid://c24yigre4730y" path="res://data/file/wednesday/3_6_faiq_sponsor_request.tres" id="4_555m8"]
+[ext_resource type="Resource" uid="uid://dj33ux0f061md" path="res://data/file/wednesday/3_10_senghin_po.tres" id="5_ckw3e"]
+
+[resource]
+script = ExtResource("2_7dlka")
+email_id = "3_3_submit_po"
+email_type = 2
+sender_name = "Nazrin"
+sender_address = "nazrin.finance@abc.com.my"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Submission Point for Purchase Orders"
+email_body = "We have to be extra careful these days. Recently a company was hit by a ransomware attack and had their files locked. Even worse is that they did not do any data backups, recovery is going to be difficult unless they kept hard copies of files.[p] [p]By the way, Blake is on leave. So, you will not be seeing emails from him today."
+inbound_attachments = Array[ExtResource("1_iw0im")]([])
+expected_attachments = Array[ExtResource("1_iw0im")]([ExtResource("2_h3hpi"), ExtResource("3_ps4v4"), ExtResource("4_555m8"), ExtResource("5_ckw3e")])
+score = 0.0
+is_important = true
+is_phishing = false

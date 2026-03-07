@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://dj33ux0f061md"]
+
+[ext_resource type="Texture2D" uid="uid://cn5aulvhyw4iq" path="res://assets/file_icons/img.png" id="1_3fcv1"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_e8ri4"]
+
+[resource]
+script = ExtResource("1_e8ri4")
+file_id = "3_10_senghin_po"
+file_texture = ExtResource("1_3fcv1")
+file_name = "senghin purchase order.png"
+file_context = 0
+file_type = 0
+trigger_rate = 0.0

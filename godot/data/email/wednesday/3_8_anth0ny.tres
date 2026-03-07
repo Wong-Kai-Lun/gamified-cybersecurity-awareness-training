@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://b7bddyljbnfvu"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_07fc2"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_r4tsl"]
+[ext_resource type="Resource" uid="uid://4x8si7j1bpln" path="res://data/file/wednesday/3_8_anth0ny.tres" id="2_s1yvc"]
+
+[resource]
+script = ExtResource("2_r4tsl")
+email_id = "3_8_anth0ny"
+email_type = 1
+sender_name = "Ceria Mall"
+sender_address = "anth0ny41@email.com"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Ceria Mall Purchase Order"
+email_body = "Hello, I’d like to place an order for a variety of office supplies for my company, Ceria Mall’s soon-to-be-opened latest branch.[p] [p]Please forward this email to the person-in-charge if you are not the intended recipient.[p] [p] [p]Sincerely,[p]Anthony, Ceria Mall Purchasing Officer"
+inbound_attachments = Array[ExtResource("1_07fc2")]([ExtResource("2_s1yvc")])
+expected_attachments = Array[ExtResource("1_07fc2")]([])
+score = 0.0
+is_important = false
+is_phishing = true

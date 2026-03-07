@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://c24yigre4730y"]
+
+[ext_resource type="Texture2D" uid="uid://dtbasgtyr0hj1" path="res://assets/file_icons/docx.png" id="1_dab4b"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_rj3us"]
+
+[resource]
+script = ExtResource("1_rj3us")
+file_id = "3_6_faiq_sponsor_request"
+file_texture = ExtResource("1_dab4b")
+file_name = "SK Cahaya School Sponsorship Request Letter.docx"
+file_context = 0
+file_type = 0
+trigger_rate = 0.0

@@ -5,7 +5,8 @@ var _email_paths := {}
 
 const EMAIL_DIRECTORIES := [
 	"res://data/email/monday",
-	"res://data/email/tuesday"
+	"res://data/email/tuesday",
+	"res://data/email/wednesday"
 ]
 
 

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://dcehtyeyg0vac"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_rfw13"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_ad7xc"]
+[ext_resource type="Resource" uid="uid://dj33ux0f061md" path="res://data/file/wednesday/3_10_senghin_po.tres" id="2_n2u14"]
+
+[resource]
+script = ExtResource("2_ad7xc")
+email_id = ""
+email_type = 1
+sender_name = "Ng Seng Hin"
+sender_address = "senghin1943@email.com"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Order for pens and more"
+email_body = "Hello, I want to order pens and other writing items. I am told I should submit the form in a specific file format but my software for that has some issues, so I wrote the order any my store information down on a piece of paper and took a picture of it. I apologise in advance but it is rather urgent that the order is made first."
+inbound_attachments = Array[ExtResource("1_rfw13")]([ExtResource("2_n2u14")])
+expected_attachments = Array[ExtResource("1_rfw13")]([])
+score = 0.0
+is_important = false
+is_phishing = false

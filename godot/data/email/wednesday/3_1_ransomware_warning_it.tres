@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://b4w7hu4gccbds"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_lc3yq"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_5y4hm"]
+
+[resource]
+script = ExtResource("2_5y4hm")
+email_id = "3_1_ransomware_warning_it"
+email_type = 0
+sender_name = "Kai Jie"
+sender_address = "kaijie.it@abc.com.my"
+to_address = "{player_email}"
+cc_address = "blake@abc.com.my, mike@abc.com.my, nazrin.finance@abc.com.my "
+subject = "Ransomware Alert"
+email_body = "Attention, everyone![p] [p]There has been targeted attacks against businesses by unknown parties using malwares. Some fell victim to a very dangerous Ransomware spreading around lately.[p] [p]Here is a list of email addresses that were reported to be behind the ransomware attacks, [b]if you see them, report the email immediately[/b].[p] [p]Please be aware this list is not complete. There could be others.[p] [p]anth0ny41@email.com[p]888lottery@email.com [p]audit.gov.admin@email.com "
+inbound_attachments = Array[ExtResource("1_lc3yq")]([])
+expected_attachments = Array[ExtResource("1_lc3yq")]([])
+score = 0.0
+is_important = false
+is_phishing = false
