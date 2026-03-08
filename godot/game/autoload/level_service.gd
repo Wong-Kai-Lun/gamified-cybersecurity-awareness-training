@@ -74,6 +74,6 @@ func validate_outbound_files(email: EmailData, attached: Array[FileData]) -> voi
 
 
 # Check for any abuse of report functions
-func check_behaviour():
+func check_actions():
 	# get emails, check for number of legit emails as reported, trigger game over on condition, maybe this should be in email service?
 	pass

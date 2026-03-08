@@ -12,7 +12,7 @@ sender_address = "recruiting.north@c17.com"
 to_address = "{player_email}"
 cc_address = ""
 subject = "Join the C17 Family"
-email_body = "[center][img=500x500]assets/adware/??.png[/img][/center]"
+email_body = "[center][img=750x750]assets/adware/c17_recruit_1.jpg[/img][/center]"
 inbound_attachments = Array[ExtResource("1_6luj5")]([])
 expected_attachments = Array[ExtResource("1_6luj5")]([])
 score = 0.0
