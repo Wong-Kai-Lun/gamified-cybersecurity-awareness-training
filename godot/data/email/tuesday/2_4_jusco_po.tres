@@ -18,4 +18,4 @@ inbound_attachments = Array[ExtResource("1_tiol1")]([ExtResource("2_papwm")])
 expected_attachments = Array[ExtResource("1_tiol1")]([])
 score = 0.0
 is_important = false
-is_phishing = true
+is_phishing = false

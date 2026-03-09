@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://l22bqy46agui"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_bq53h"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_6tq4w"]
+
+[resource]
+script = ExtResource("2_6tq4w")
+email_id = "abuse_report_warning"
+email_type = 0
+sender_name = "Blake"
+sender_address = ""
+to_address = ""
+cc_address = ""
+subject = ""
+email_body = ""
+inbound_attachments = Array[ExtResource("1_bq53h")]([])
+expected_attachments = Array[ExtResource("1_bq53h")]([])
+score = 0.0
+is_important = false
+is_phishing = false

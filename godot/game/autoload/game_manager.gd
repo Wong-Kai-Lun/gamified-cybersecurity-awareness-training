@@ -24,6 +24,7 @@ func start_new_game() -> void:
 	EmailServiceInstance.reset()
 	FileServiceInstance.reset()
 	EmailServiceInstance.append_latest_email_data()
+	SaveloadServiceInstance.save_game()
 
 
 func stop_game() -> void:
