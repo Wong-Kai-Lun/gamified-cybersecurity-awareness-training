@@ -4,6 +4,7 @@ class_name TitleBar
 
 signal close_pressed
 var _title := ""
+@onready var close_button: Button = $MarginContainer/TitleBarContainer/CloseButton
 
 signal drag_started(offset: Vector2)
 signal drag_ended

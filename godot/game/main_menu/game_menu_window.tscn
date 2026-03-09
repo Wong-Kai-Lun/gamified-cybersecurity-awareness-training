@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://r2rhgowob6vr"]
+
+[ext_resource type="PackedScene" uid="uid://2g3m0pmsw2tv" path="res://game/main_game/programs/common/base.tscn" id="1_cs3wq"]
+[ext_resource type="Script" path="res://game/main_menu/game_menu_window.gd" id="2_7k30f"]
+
+[node name="BaseWindow" instance=ExtResource("1_cs3wq")]
+custom_minimum_size = Vector2(900, 900)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+script = ExtResource("2_7k30f")
+
+[node name="TitleBar" parent="WindowPanel/Structure" index="0"]
+title = "Gamified Cyber Awareness Training"
