@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("2_ad7xc")
-email_id = ""
+email_id = "3_10_senghin_po"
 email_type = 1
 sender_name = "Ng Seng Hin"
 sender_address = "senghin1943@email.com"
