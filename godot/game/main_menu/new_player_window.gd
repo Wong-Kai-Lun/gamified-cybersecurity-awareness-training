@@ -20,7 +20,6 @@ func _on_line_edit_text_changed(_new_text: String) -> void:
 	var is_username_empty = username_input.text.strip_edges().is_empty()
 	var is_email_empty = email_input.text.strip_edges().is_empty()
 	start_button.disabled = is_username_empty or is_email_empty
-	#insert regex logic here?
 
 
 func on_close_requested() -> void:
