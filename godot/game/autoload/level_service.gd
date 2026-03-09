@@ -70,10 +70,18 @@ func validate_outbound_files(email: EmailData, attached: Array[FileData]) -> voi
 			missing_file_count += 1
 	
 	print("Missing Files: ", missing_file_count)
+	check_actions()
 	day_ended.emit()
 
 
 # Check for any abuse of report functions
 func check_actions():
 	# get emails, check for number of legit emails as reported, trigger game over on condition, maybe this should be in email service?
-	pass
+	var player_emails := EmailServiceInstance.get_all_emails()
+	var false_reports = 0
+	
+	for email in player_emails:
+		if not email.is_phishing and email.flags["reported"]:
+			false_reports += 1
+	
+	print("Number of false reports: ", false_reports)

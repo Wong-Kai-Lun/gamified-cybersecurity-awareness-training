@@ -69,7 +69,7 @@ func replace_placeholder_name(email_body: String) -> String:
 
 
 func get_all_emails() -> Array[EmailData]:
-	return _player_emails
+	return _player_emails.duplicate(true)
 
 
 func append_latest_email_data() -> void:
