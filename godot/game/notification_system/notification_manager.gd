@@ -12,6 +12,9 @@ func _ready() -> void:
 func register_file(file: File) -> void:
 	file.file_downloaded.connect(_notify_file_downloaded)
 
+func register_email(email: EmailBody):
+	email.important_reported.connect(_notify_important_reported)
+
 func _notify_file_downloaded(file_data: FileData) -> void:
 	request_notification.emit({ "type": NotificationType.NEUTRAL, "title": "File Downloaded", "body": file_data.file_name })
 
@@ -20,3 +23,6 @@ func _notify_inventory_full() -> void:
 
 func _notify_malware_detected(file_name: String) -> void:
 	request_notification.emit({ "type": NotificationType.WARNING, "title": "Threat Detected!", "body": file_name })
+
+func _notify_important_reported() -> void:
+	request_notification.emit({ "type": NotificationType.ALERT, "title": "Cannot Report Important Email", "body": "You cannot report an important email!." })

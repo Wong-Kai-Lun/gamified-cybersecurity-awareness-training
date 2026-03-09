@@ -3,6 +3,7 @@ class_name EmailBody
 
 signal email_reported(data: EmailData)
 signal email_sent(data: EmailData)
+signal important_reported
 
 @onready var subject: RichTextLabel = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/SubjectRTL
 @onready var from_rtl: RichTextLabel = $PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Header/FromSection/FromRTL
@@ -38,6 +39,8 @@ func _ready() -> void:
 	
 	attachment_slot.hide()
 	_menu_setup()
+	
+	NotificationManagerInstance.register_email(self)
 
 
 func setup(data: EmailData) -> void:
@@ -111,5 +114,9 @@ func _on_report_pressed(id: int) -> void:
 	
 	match id:
 		EmailAction.REPORT:
+			if email_data.is_important:
+				important_reported.emit()
+				return
+			
 			email_data.flags["reported"] = true
 			email_reported.emit(email_data)
