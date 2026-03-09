@@ -85,3 +85,9 @@ func append_latest_email_data() -> void:
 func append_email(email_instance: EmailData) -> void:
 	_player_emails.append(email_instance)
 	emails_updated.emit(_player_emails.duplicate(true))
+
+
+# add special event/email here
+# first malware attached email > final warning, second > termination
+func trigger_special_email():
+	pass
