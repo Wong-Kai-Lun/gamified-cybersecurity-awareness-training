@@ -60,12 +60,12 @@ anchor_right = 1.0
 offset_left = 2.0
 offset_top = 96.0
 offset_right = -3.0
-offset_bottom = 275.0
+offset_bottom = 357.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 68
 text = "Gamified
 Cyber Awareness Training"
 horizontal_alignment = 1
