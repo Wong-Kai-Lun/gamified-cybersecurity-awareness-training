@@ -36,6 +36,11 @@ window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+theme/custom_font="res://assets/fonts/ms-sans-serif-1.ttf"
+
 [input]
 
 left_click={
