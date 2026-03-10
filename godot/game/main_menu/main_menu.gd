@@ -5,7 +5,7 @@ extends Control
 @onready var new_player_window = new_player_window_scene.instantiate()
 @onready var input_blocker_scene: PackedScene = preload("res://game/main_game/programs/common/input_blocker.tscn")
 @onready var input_blocker = input_blocker_scene.instantiate()
-@onready var continue_button = $HBoxContainer/MarginContainer/BaseWindow/ButtonContainer/Continue
+@onready var continue_button = $HBoxContainer/MarginContainer/BaseWindow/MarginContainer/VBoxContainer/ButtonContainer/Continue
 
 
 func _ready() -> void:

@@ -92,6 +92,7 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Settings" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
+modulate = Color(0.716297, 0.716296, 0.716296, 1)
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fhfqr")
@@ -118,6 +119,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vfkpi")
 
 [node name="Inventory" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
+modulate = Color(1, 0.878268, 0.591173, 1)
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fhfqr")
@@ -172,6 +174,7 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jlcp7")
 
 [node name="TRSH" type="Button" parent="DesktopBG/Desktop/Taskbar/MarginContainer/TaskbarHBC"]
+modulate = Color(1, 0.617402, 0.45515, 1)
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fhfqr")
