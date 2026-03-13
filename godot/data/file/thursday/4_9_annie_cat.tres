@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://ghcm55nan5kb"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_axnuy"]
+[ext_resource type="Texture2D" uid="uid://cn5aulvhyw4iq" path="res://assets/file_icons/img.png" id="1_bvpqv"]
+
+[resource]
+script = ExtResource("1_axnuy")
+file_id = "4_9_annie_cat"
+file_texture = ExtResource("1_bvpqv")
+file_name = "cute_cat.jpg.exe"
+file_context = 0
+file_type = 3
+trigger_rate = 0.0

@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="EmailPack" load_steps=3 format=3 uid="uid://cjtv3nphh1qnh"]
+[gd_resource type="Resource" script_class="EmailPack" load_steps=13 format=3 uid="uid://cjtv3nphh1qnh"]
 
 [ext_resource type="Script" path="res://data/email_data.gd" id="1_n0kj0"]
+[ext_resource type="Resource" uid="uid://bc4ooca6w5gpu" path="res://data/email/thursday/4_1_blake.tres" id="2_fpnsw"]
 [ext_resource type="Script" path="res://data/email_pack.gd" id="2_nesan"]
+[ext_resource type="Resource" uid="uid://y05jjklevjdc" path="res://data/email/thursday/4_2_nazrin.tres" id="3_d06yd"]
+[ext_resource type="Resource" uid="uid://dijjjbqhsbghi" path="res://data/email/thursday/4_3_fake_blake.tres" id="4_s3r1n"]
+[ext_resource type="Resource" uid="uid://br2ylsvh7pkcl" path="res://data/email/thursday/4_4_littlegenius_po.tres" id="5_or8uh"]
+[ext_resource type="Resource" uid="uid://cwjhiogl8x54x" path="res://data/email/thursday/4_5_cnd.tres" id="6_tlhp3"]
+[ext_resource type="Resource" uid="uid://dskgg10jd40a0" path="res://data/email/thursday/4_6_fake_mike.tres" id="7_rf2p7"]
+[ext_resource type="Resource" uid="uid://c7yx2kvi0ecdc" path="res://data/email/thursday/4_7_fake_happyminimarket_po.tres" id="8_qo3nd"]
+[ext_resource type="Resource" uid="uid://dfcw647sb6kim" path="res://data/email/thursday/4_8_happyminimarket_po.tres" id="9_62w24"]
+[ext_resource type="Resource" uid="uid://bgx0d5kkurbjt" path="res://data/email/thursday/4_9_annie_cat.tres" id="10_aftym"]
+[ext_resource type="Resource" uid="uid://bhsef2g1hcit" path="res://data/email/thursday/4_10_mike.tres" id="11_ht3q3"]
 
 [resource]
 script = ExtResource("2_nesan")
-pack_id = ""
-pack_name = ""
-emails = Array[ExtResource("1_n0kj0")]([])
+pack_id = "thursday"
+pack_name = "Thursday"
+emails = Array[ExtResource("1_n0kj0")]([ExtResource("2_fpnsw"), ExtResource("3_d06yd"), ExtResource("4_s3r1n"), ExtResource("5_or8uh"), ExtResource("6_tlhp3"), ExtResource("7_rf2p7"), ExtResource("8_qo3nd"), ExtResource("9_62w24"), ExtResource("10_aftym"), ExtResource("11_ht3q3")])

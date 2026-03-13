@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://dijjjbqhsbghi"]
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://dijjjbqhsbghi"]
 
 [ext_resource type="Script" path="res://data/file_data.gd" id="1_6qex2"]
 [ext_resource type="Script" path="res://data/email_data.gd" id="2_mnbqq"]
+[ext_resource type="Resource" uid="uid://316gq1wfecdt" path="res://data/file/thursday/4_3_fake_blake.tres" id="2_xvtgu"]
 
 [resource]
 script = ExtResource("2_mnbqq")
@@ -13,8 +14,8 @@ to_address = "{player_email}"
 cc_address = ""
 subject = "Updated Employee Handbook"
 email_body = "Hi {player_name}![p] [p]I forgot to attach this in the last email. This is an updated employee handbook that came out recently. Download a copy [b]now[/b] and read through it when you have the time."
-inbound_attachments = Array[ExtResource("1_6qex2")]([])
+inbound_attachments = Array[ExtResource("1_6qex2")]([ExtResource("2_xvtgu")])
 expected_attachments = Array[ExtResource("1_6qex2")]([])
 score = 0.0
 is_important = false
-is_phishing = false
+is_phishing = true

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://bjx25j4txcc3l"]
+
+[ext_resource type="Texture2D" uid="uid://day45rgnunapn" path="res://assets/file_icons/xlsx.png" id="1_jnd1v"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_kl43o"]
+
+[resource]
+script = ExtResource("1_kl43o")
+file_id = "4_8_happyminimarket_po"
+file_texture = ExtResource("1_jnd1v")
+file_name = "Happy MiniMarket PO.xlsx"
+file_context = 0
+file_type = 0
+trigger_rate = 0.0

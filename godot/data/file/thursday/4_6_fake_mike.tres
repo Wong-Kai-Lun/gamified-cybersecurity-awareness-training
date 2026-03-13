@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://ccui40m1l461h"]
+
+[ext_resource type="Texture2D" uid="uid://cumkv3pldp2hj" path="res://assets/file_icons/pdf.png" id="1_47v1a"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_em2gj"]
+
+[resource]
+script = ExtResource("1_em2gj")
+file_id = "4_6_fake_mike"
+file_texture = ExtResource("1_47v1a")
+file_name = "Kluarga Mrt PO.pdf.exe"
+file_context = 0
+file_type = 1
+trigger_rate = 0.3

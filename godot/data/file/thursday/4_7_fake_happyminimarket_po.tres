@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://bgmwx5t8vgdv0"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_am2ab"]
+[ext_resource type="Texture2D" uid="uid://day45rgnunapn" path="res://assets/file_icons/xlsx.png" id="1_nf4iv"]
+
+[resource]
+script = ExtResource("1_am2ab")
+file_id = "4_7_fake_happyminimarket_po"
+file_texture = ExtResource("1_nf4iv")
+file_name = "Happy MiniMarket.xlsx.exe"
+file_context = 0
+file_type = 1
+trigger_rate = 0.4

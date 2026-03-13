@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://cri2s1sysvmtt"]
+
+[ext_resource type="Texture2D" uid="uid://cumkv3pldp2hj" path="res://assets/file_icons/pdf.png" id="1_d587f"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_fe484"]
+
+[resource]
+script = ExtResource("1_fe484")
+file_id = "4_10_mike"
+file_texture = ExtResource("1_d587f")
+file_name = "Keluarga Mart PO.pdf"
+file_context = 0
+file_type = 0
+trigger_rate = 0.0

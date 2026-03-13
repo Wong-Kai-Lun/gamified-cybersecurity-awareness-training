@@ -145,6 +145,7 @@ func _on_day_ended() -> void:
 		return
 	
 	EmailServiceInstance.append_latest_email_data()
+	SaveloadServiceInstance.save_game()
 	await _animate_start_day()
 
 
@@ -233,6 +234,7 @@ func _flash_cmd_window() -> void:
 func _show_game_over_panel() -> void:
 	var game_over_panel_scene: PackedScene = load("res://game/main_game/programs/events/game_over/game_over_panel.tscn")
 	var game_over_panel_instance = game_over_panel_scene.instantiate()
+	game_over_panel_instance.game_restarted.connect(_restart_game)
 	
 	await _wait(2.0)
 	canvas_layer.add_child(game_over_panel_instance)
