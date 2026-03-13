@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://br2ylsvh7pkcl"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_euax1"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_aig7x"]
+
+[resource]
+script = ExtResource("2_aig7x")
+email_id = "4_4_littlegenius_po"
+email_type = 1
+sender_name = "Ong Wei Zhe"
+sender_address = "ongweizhe@littlegenius.com.my"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Purchase Order from Little Genius Stationery"
+email_body = "Good morning, I'd like to place a purchase order. By the way, does your company sell those flexible plastic rulers? I have some customers looking for them. They said something about how it’s easier to draw graphs with it.[p] [p]Please refer to the PO attached for further details. Thank you.[p] [p] [p]Ong Wei Zhe[p]Store Owner[p]Little Genius Stationery[p]小天才文具店"
+inbound_attachments = Array[ExtResource("1_euax1")]([])
+expected_attachments = Array[ExtResource("1_euax1")]([])
+score = 0.0
+is_important = false
+is_phishing = false

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://y05jjklevjdc"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_35may"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_xvw55"]
+
+[resource]
+script = ExtResource("2_xvw55")
+email_id = "4_2_nazrin"
+email_type = 2
+sender_name = "Nazrin"
+sender_address = "nazrin.finance@abc.com.my "
+to_address = "{player_email}"
+cc_address = ""
+subject = "Submission Point for Purchase Orders"
+email_body = "Like usual, submit any Purchase Orders or related documents here.[p] [p]Remember, our domain is @abc.com.my, anything that isn’t this domain is not from our company and should be reported."
+inbound_attachments = Array[ExtResource("1_35may")]([])
+expected_attachments = Array[ExtResource("1_35may")]([])
+score = 0.0
+is_important = true
+is_phishing = false

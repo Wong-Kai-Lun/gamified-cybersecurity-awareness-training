@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://bgx0d5kkurbjt"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_bjeu7"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_46rtl"]
+
+[resource]
+script = ExtResource("2_46rtl")
+email_id = "4_8_annie_cat"
+email_type = 0
+sender_name = "Annie"
+sender_address = "annie2849603@email.com "
+to_address = "{player_email}"
+cc_address = ""
+subject = "Cute Cat Pictures"
+email_body = "Hi stranger! This is a picture of my pet cat, Cookie!"
+inbound_attachments = Array[ExtResource("1_bjeu7")]([])
+expected_attachments = Array[ExtResource("1_bjeu7")]([])
+score = 0.0
+is_important = false
+is_phishing = false

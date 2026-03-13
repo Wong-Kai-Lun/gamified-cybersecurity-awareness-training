@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://bc4ooca6w5gpu"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_micjq"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_asgoo"]
+
+[resource]
+script = ExtResource("2_asgoo")
+email_id = "4_1_blake"
+email_type = 0
+sender_name = "Blake"
+sender_address = "blake@abc.com.my"
+to_address = "(player_email)"
+cc_address = ""
+subject = "It wasn’t me yesterday"
+email_body = "Good morning, {player_name}![p] [p]I heard about the emails, that wasn’t sent by me! Looks like someone is not only copying our names, but our email domains too! Remember to use what I’ve taught you, highlight the addresses letter by letter to reveal spelling tricks! Also report any copycat email addresses you come across!"
+inbound_attachments = Array[ExtResource("1_micjq")]([])
+expected_attachments = Array[ExtResource("1_micjq")]([])
+score = 0.0
+is_important = false
+is_phishing = false

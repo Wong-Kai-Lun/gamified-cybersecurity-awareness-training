@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EmailPack" load_steps=3 format=3 uid="uid://cjtv3nphh1qnh"]
+
+[ext_resource type="Script" path="res://data/email_data.gd" id="1_n0kj0"]
+[ext_resource type="Script" path="res://data/email_pack.gd" id="2_nesan"]
+
+[resource]
+script = ExtResource("2_nesan")
+pack_id = ""
+pack_name = ""
+emails = Array[ExtResource("1_n0kj0")]([])

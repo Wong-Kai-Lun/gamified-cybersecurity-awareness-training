@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://bhsef2g1hcit"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_g5enu"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_8pk2l"]
+
+[resource]
+script = ExtResource("2_8pk2l")
+email_id = "4_10_mike"
+email_type = 1
+sender_name = "Mike"
+sender_address = "mike@abc.com.my"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Thursday Purchase Orders"
+email_body = "Hi {player_name}![p] [p]Just stopped at a coffee shop to send you these purchase orders. By the way, there is some guy that kept walking up and down past my table and staring at my screen a few minutes ago… guess he never learned about basic etiquette huh?"
+inbound_attachments = Array[ExtResource("1_g5enu")]([])
+expected_attachments = Array[ExtResource("1_g5enu")]([])
+score = 0.0
+is_important = false
+is_phishing = false

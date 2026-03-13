@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://cwjhiogl8x54x"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_ado7b"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_ufs10"]
+
+[resource]
+script = ExtResource("2_ufs10")
+email_id = "4_5_cnd"
+email_type = 0
+sender_name = "Cyber News Daily"
+sender_address = "dailynews@cnd.com   "
+to_address = "{player_email}"
+cc_address = ""
+subject = "URGENT: Fake Cyber News Daily"
+email_body = "Attention![p] [p]There is a malicious party using many addresses spelt slightly different from ours. For the time being, [b]avoid believing in any tips or instructions[/b] sent by Cyber News Daily [b]other than this email[/b].[p] [p]We are cooperating with Email.com for a solution. Stay safe out there."
+inbound_attachments = Array[ExtResource("1_ado7b")]([])
+expected_attachments = Array[ExtResource("1_ado7b")]([])
+score = 0.0
+is_important = false
+is_phishing = false

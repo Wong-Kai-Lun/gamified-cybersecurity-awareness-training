@@ -6,7 +6,8 @@ var _file_paths := {}
 const FILE_DIRECTORIES := [
 	"res://data/file/monday",
 	"res://data/file/tuesday",
-	"res://data/file/wednesday"
+	"res://data/file/wednesday",
+	"res://data/file/thursday"
 ]
 
 

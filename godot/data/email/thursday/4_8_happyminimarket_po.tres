@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://dfcw647sb6kim"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_dxscl"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_5egug"]
+
+[resource]
+script = ExtResource("2_5egug")
+email_id = "4_8_happyminimarket_po"
+email_type = 1
+sender_name = "Ravi"
+sender_address = "happyminimarket@email.com "
+to_address = "{player_email}"
+cc_address = ""
+subject = "Purchase Order for Stationeries - Happy Mini Market"
+email_body = "Good day, I'd like to order some stationeries for my store.[p] [p]PO is attached in this email.[p] [p]Ravi[p]Happy Mini Market[p]Owner"
+inbound_attachments = Array[ExtResource("1_dxscl")]([])
+expected_attachments = Array[ExtResource("1_dxscl")]([])
+score = 0.0
+is_important = false
+is_phishing = false
