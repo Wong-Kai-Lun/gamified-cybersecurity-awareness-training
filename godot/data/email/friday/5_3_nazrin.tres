@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://dhmg2ntu41gw4"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_43u8v"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_cltok"]
+
+[resource]
+script = ExtResource("2_cltok")
+email_id = "5_3_nazrin"
+email_type = 2
+sender_name = "Nazrin"
+sender_address = "nazrin.finance@abc.com.my "
+to_address = "{player_email}"
+cc_address = ""
+subject = "Purchase Orders Submission (Friday)"
+email_body = "One more day. You can do it! After this I will be meeting up with the others to investigate further."
+inbound_attachments = Array[ExtResource("1_43u8v")]([])
+expected_attachments = Array[ExtResource("1_43u8v")]([])
+score = 0.0
+is_important = true
+is_phishing = false

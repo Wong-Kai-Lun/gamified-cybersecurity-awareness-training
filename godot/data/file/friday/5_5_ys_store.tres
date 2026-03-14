@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://btj1v6uhtfvpc"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_aaodj"]
+[ext_resource type="Texture2D" uid="uid://day45rgnunapn" path="res://assets/file_icons/xlsx.png" id="1_sogof"]
+
+[resource]
+script = ExtResource("1_aaodj")
+file_id = "5_5_ys_store"
+file_texture = ExtResource("1_sogof")
+file_name = "ys_store_po.xlsx.bat"
+file_context = 0
+file_type = 3
+trigger_rate = 0.0

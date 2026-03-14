@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EmailPack" load_steps=12 format=3 uid="uid://bc8c4r55s08m2"]
+
+[ext_resource type="Script" path="res://data/email_data.gd" id="1_oj8dv"]
+[ext_resource type="Script" path="res://data/email_pack.gd" id="2_4hvy1"]
+[ext_resource type="Resource" uid="uid://dox5y5111e0iq" path="res://data/email/friday/5_1_c17.tres" id="2_hdymv"]
+[ext_resource type="Resource" uid="uid://gde0eg5820pl" path="res://data/email/friday/5_2_blake.tres" id="3_pdenl"]
+[ext_resource type="Resource" uid="uid://dhmg2ntu41gw4" path="res://data/email/friday/5_3_nazrin.tres" id="4_tu2bi"]
+[ext_resource type="Resource" uid="uid://d06e7i1pwp6u1" path="res://data/email/friday/5_4_fake_cnd.tres" id="5_41dd4"]
+[ext_resource type="Resource" uid="uid://yeldutq3fshj" path="res://data/email/friday/5_5_ys_store.tres" id="6_tst85"]
+[ext_resource type="Resource" uid="uid://vfoa464wkw72" path="res://data/email/friday/5_6_fake_kaijie.tres" id="7_0248f"]
+[ext_resource type="Resource" uid="uid://clue1snttn31b" path="res://data/email/friday/5_7_hobbyart.tres" id="8_y244t"]
+[ext_resource type="Resource" uid="uid://brqr3pdo7rqke" path="res://data/email/friday/5_8_fake_mike.tres" id="9_4vyhk"]
+[ext_resource type="Resource" uid="uid://cm0im8exuiw4t" path="res://data/email/friday/5_9_ywju.tres" id="10_voprw"]
+
+[resource]
+script = ExtResource("2_4hvy1")
+pack_id = "friday"
+pack_name = "Friday"
+emails = Array[ExtResource("1_oj8dv")]([ExtResource("2_hdymv"), ExtResource("3_pdenl"), ExtResource("4_tu2bi"), ExtResource("5_41dd4"), ExtResource("6_tst85"), ExtResource("7_0248f"), ExtResource("8_y244t"), ExtResource("9_4vyhk"), ExtResource("10_voprw")])

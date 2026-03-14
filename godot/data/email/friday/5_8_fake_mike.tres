@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://brqr3pdo7rqke"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_gmuyu"]
+[ext_resource type="Resource" uid="uid://m1e8qv1ua5mp" path="res://data/file/friday/5_8_fake_mike.tres" id="2_afxg1"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_ve27o"]
+
+[resource]
+script = ExtResource("2_ve27o")
+email_id = "5_8_fake_mike"
+email_type = 1
+sender_name = "Mike"
+sender_address = "mIke@abc.com.ny "
+to_address = "{player_email}"
+cc_address = "blake@abc.com.my "
+subject = "Purchase Orders for Friday"
+email_body = "Hi {player_name}![p] [p]Today is rather slow, only got 1 purchase order. Please send it to finance dept. like usual![p] [p]From,[p]Mike"
+inbound_attachments = Array[ExtResource("1_gmuyu")]([ExtResource("2_afxg1")])
+expected_attachments = Array[ExtResource("1_gmuyu")]([])
+score = 0.0
+is_important = false
+is_phishing = false

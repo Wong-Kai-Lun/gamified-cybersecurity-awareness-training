@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://m7g4o7xbyg6l"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_m6v4i"]
+[ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://assets/file_icons/file.png" id="1_u7s6b"]
+
+[resource]
+script = ExtResource("1_m6v4i")
+file_id = "5_6_fake_kaijie"
+file_texture = ExtResource("1_u7s6b")
+file_name = "ABC Login Software.exe"
+file_context = 0
+file_type = 2
+trigger_rate = 0.0

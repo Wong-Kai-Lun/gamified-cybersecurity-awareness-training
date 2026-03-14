@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://dox5y5111e0iq"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_2fheh"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_p2pc1"]
+
+[resource]
+script = ExtResource("2_p2pc1")
+email_id = "5_1_c17"
+email_type = 0
+sender_name = "C17"
+sender_address = "recruiting@c17.com"
+to_address = "{player_email}"
+cc_address = "blake@abc.com.my"
+subject = "Join Us, Join C17"
+email_body = "Test"
+inbound_attachments = Array[ExtResource("1_2fheh")]([])
+expected_attachments = Array[ExtResource("1_2fheh")]([])
+score = 0.0
+is_important = false
+is_phishing = false

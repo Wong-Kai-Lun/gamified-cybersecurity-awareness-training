@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://yeldutq3fshj"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_47g5i"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_2x7ak"]
+[ext_resource type="Resource" uid="uid://btj1v6uhtfvpc" path="res://data/file/friday/5_5_ys_store.tres" id="2_x5124"]
+
+[resource]
+script = ExtResource("2_2x7ak")
+email_id = "5_5_ys_store"
+email_type = 1
+sender_name = "YS Store"
+sender_address = "ys1143@email.com  "
+to_address = "{player_email}"
+cc_address = ""
+subject = "YS Store Purchase Order"
+email_body = "Hi I want to place an order for products from your company. Please refer to the attached file for further details. Thank you.[p] [p]-YS Store Manager"
+inbound_attachments = Array[ExtResource("1_47g5i")]([ExtResource("2_x5124")])
+expected_attachments = Array[ExtResource("1_47g5i")]([])
+score = 0.0
+is_important = false
+is_phishing = false

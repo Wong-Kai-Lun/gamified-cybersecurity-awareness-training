@@ -136,14 +136,15 @@ func _animate_shutdown() -> void:
 
 func _on_day_ended() -> void:
 	await _animate_shutdown()
-	LevelServiceInstance.advance_day()
 	
 	# If Friday was just completed → win
 	if LevelServiceInstance.get_current_day() == LevelService.Day.FRIDAY:
-		# _show_victory_panel()
 		print("Player reached Friday and won!")
+		# _animate_game_end()
+		# show final score, maybe modify game over panel
 		return
 	
+	LevelServiceInstance.advance_day()
 	EmailServiceInstance.append_latest_email_data()
 	SaveloadServiceInstance.save_game()
 	await _animate_start_day()

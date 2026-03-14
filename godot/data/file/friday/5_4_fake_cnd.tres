@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://fgey6idt1xag"]
+
+[ext_resource type="Texture2D" uid="uid://0sxhrordswji" path="res://assets/file_icons/file.png" id="1_30p2p"]
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_lkp6w"]
+
+[resource]
+script = ExtResource("1_lkp6w")
+file_id = "5_4_fake_cnd"
+file_texture = ExtResource("1_30p2p")
+file_name = "PROtect Antivirus.exe"
+file_context = 0
+file_type = 1
+trigger_rate = 0.5

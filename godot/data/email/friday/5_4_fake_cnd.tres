@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://d06e7i1pwp6u1"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_u1y1i"]
+[ext_resource type="Resource" uid="uid://fgey6idt1xag" path="res://data/file/friday/5_4_fake_cnd.tres" id="2_4brjp"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_plnip"]
+
+[resource]
+script = ExtResource("2_plnip")
+email_id = "5_4_fake_cnd"
+email_type = 1
+sender_name = "Cyber News Daily"
+sender_address = "dailysnew@cnd.corn "
+to_address = "{player_email}"
+cc_address = ""
+subject = "The Best Antivirus Defense"
+email_body = "Worry no more! The best defense against the frequent cyber attacks is here! Download the file attached now, install the application and carry on without ever worrying about attacks!"
+inbound_attachments = Array[ExtResource("1_u1y1i")]([ExtResource("2_4brjp")])
+expected_attachments = Array[ExtResource("1_u1y1i")]([])
+score = 0.0
+is_important = false
+is_phishing = false

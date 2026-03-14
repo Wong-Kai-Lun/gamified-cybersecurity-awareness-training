@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=4 format=3 uid="uid://clue1snttn31b"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_d0gde"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_hansu"]
+[ext_resource type="Resource" uid="uid://cwh1oyqiipbru" path="res://data/file/friday/5_7_hobbyart.tres" id="2_s6vro"]
+
+[resource]
+script = ExtResource("2_hansu")
+email_id = "5_7_hobbyart"
+email_type = 1
+sender_name = "HOBBYART"
+sender_address = "shafie@hobbyart.com"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Order for Stationeries"
+email_body = "Hello ABC Stationeries. I’d like to place an order for stationeries for HOBBYART Art Supplies Store.[p] [p]The order file is attached in this email. Please refer to it for details and contact us if there are any issues.[p] [p] [p]We look forward to hear from you.[p] [p]-Shafie"
+inbound_attachments = Array[ExtResource("1_d0gde")]([ExtResource("2_s6vro")])
+expected_attachments = Array[ExtResource("1_d0gde")]([])
+score = 0.0
+is_important = false
+is_phishing = false

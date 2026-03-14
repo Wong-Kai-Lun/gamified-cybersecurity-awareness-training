@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FileData" load_steps=3 format=3 uid="uid://cwh1oyqiipbru"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_et6d2"]
+[ext_resource type="Texture2D" uid="uid://cumkv3pldp2hj" path="res://assets/file_icons/pdf.png" id="1_k00kv"]
+
+[resource]
+script = ExtResource("1_et6d2")
+file_id = "5_7_hobbyart"
+file_texture = ExtResource("1_k00kv")
+file_name = "HOBBYART Purchase Order.pdf"
+file_context = 0
+file_type = 0
+trigger_rate = 0.0

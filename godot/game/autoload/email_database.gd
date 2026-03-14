@@ -7,7 +7,8 @@ const EMAIL_DIRECTORIES := [
 	"res://data/email/monday",
 	"res://data/email/tuesday",
 	"res://data/email/wednesday",
-	"res://data/email/thursday"
+	"res://data/email/thursday",
+	"res://data/email/friday",
 ]
 
 

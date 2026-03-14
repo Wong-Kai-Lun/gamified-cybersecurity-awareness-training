@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EmailData" load_steps=3 format=3 uid="uid://gde0eg5820pl"]
+
+[ext_resource type="Script" path="res://data/file_data.gd" id="1_cc84j"]
+[ext_resource type="Script" path="res://data/email_data.gd" id="2_aied0"]
+
+[resource]
+script = ExtResource("2_aied0")
+email_id = "5_2_blake"
+email_type = 0
+sender_name = "Blake"
+sender_address = "blake@abc.com.my"
+to_address = "{player_email}"
+cc_address = ""
+subject = "Things are getting worse"
+email_body = "Hi {player_name}.[p] [p]Things has gotten really suspicious lately. Have you been receiving these recruiting ads? Those C17 posters calling you to join them? I got those too.[p] [p]Many companies reported they have been under cyber attack, but not a single report from C17…[p] [p]I’m going to do some digging with Mike, Nazrin and Kai Jie. For now, do your best to avoid the phishing emails. I’ll let you know if we find something."
+inbound_attachments = Array[ExtResource("1_cc84j")]([])
+expected_attachments = Array[ExtResource("1_cc84j")]([])
+score = 0.0
+is_important = false
+is_phishing = false

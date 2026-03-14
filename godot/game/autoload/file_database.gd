@@ -7,7 +7,8 @@ const FILE_DIRECTORIES := [
 	"res://data/file/monday",
 	"res://data/file/tuesday",
 	"res://data/file/wednesday",
-	"res://data/file/thursday"
+	"res://data/file/thursday",
+	"res://data/file/friday"
 ]
 
 
