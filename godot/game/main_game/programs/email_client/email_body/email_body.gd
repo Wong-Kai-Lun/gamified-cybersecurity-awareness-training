@@ -103,7 +103,7 @@ func _menu_setup() -> void:
 # Level progression
 func _on_send_pressed() -> void:
 	var attached_files = email_data.get_outbound()
-	LevelServiceInstance.validate_outbound_files(email_data, attached_files)
+	LevelServiceInstance.on_day_ended(email_data, attached_files)
 	email_data.flags["sent"] = true
 	email_sent.emit(email_data)
 

@@ -18,6 +18,9 @@ const LEVELS = {
 var _current_day: Day = Day.MONDAY
 var _missed_purchase_orders: int = 0
 var _total_false_reports: int = 0
+
+var _correct_purchase_orders: int = 0
+var _total_correct_reports: int = 0
 #endregion
 
 
@@ -51,17 +54,28 @@ func get_data_for_save() -> Dictionary:
 	return {
 		"current_day": _current_day,
 		"missed_purchase_orders": _missed_purchase_orders,
-		"total_false_reports": _total_false_reports
+		"total_false_reports": _total_false_reports,
+		"correct_purchase_orders": _correct_purchase_orders,
+		"total_correct_reports": _total_correct_reports
 	}
 
 func load_from_save(save_dict: Dictionary) -> void:
 	_current_day = save_dict["current_day"]
 	_missed_purchase_orders = save_dict["missed_purchase_orders"]
-	_total_false_reports = save_dict["total_false_reports"] 
+	_total_false_reports = save_dict["total_false_reports"]
+	_correct_purchase_orders = save_dict["correct_purchase_orders"]
+	_total_correct_reports = save_dict["total_correct_reports"]
 #endregion
 
 
 # Progression
+# email = Outbound EmailData, attached = the attached files
+func on_day_ended(email: EmailData, attached: Array[FileData]):
+	validate_outbound_files(email, attached)
+	check_reports()
+	day_ended.emit()
+
+
 func validate_outbound_files(email: EmailData, attached: Array[FileData]) -> void:
 	
 	var expected_file_ids = []
@@ -73,22 +87,27 @@ func validate_outbound_files(email: EmailData, attached: Array[FileData]) -> voi
 		attached_file_ids.append(file.file_id)
 	
 	for id in expected_file_ids:
-		if not attached_file_ids.has(id):
+		if attached_file_ids.has(id):
+			_correct_purchase_orders += 1
+		else:
 			_missed_purchase_orders += 1
 	
 	print("Missing Files: ", _missed_purchase_orders)
-	check_actions()
-	day_ended.emit()
+	print("Correct File Attached: ", _correct_purchase_orders)
 
 
 # Check for any abuse of report functions
-func check_actions():
+func check_reports():
 	# get emails, check for number of legit emails as reported, trigger game over on condition, maybe this should be in email service?
 	var player_emails := EmailServiceInstance.get_all_emails()
 	
+	_total_correct_reports = 0
 	_total_false_reports = 0
 	for email in player_emails:
-		if not email.is_phishing and email.flags["reported"]:
+		if email.is_phishing and email.flags["reported"]:
+			_total_correct_reports += 1
+		elif not email.is_phishing and email.flags["reported"]:
 			_total_false_reports += 1
 	
+	print("Number of correct reports: ", _total_correct_reports)
 	print("Number of false reports: ", _total_false_reports)
