@@ -7,6 +7,7 @@ signal day_ended
 enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY }
 
 const _BASE_CORRECT_FILE_SCORE = 500
+const _BASE_CORRECT_REPORT_MULT = 1
 const LEVELS = {
 	Day.MONDAY: "res://data/email_pack/monday.tres",
 	Day.TUESDAY: "res://data/email_pack/tuesday.tres",
@@ -78,7 +79,6 @@ func on_day_ended(email: EmailData, attached: Array[FileData]):
 
 
 func validate_outbound_files(email: EmailData, attached: Array[FileData]) -> void:
-	
 	var expected_file_ids = []
 	for file in email.expected_attachments:
 		expected_file_ids.append(file.file_id)
@@ -92,9 +92,6 @@ func validate_outbound_files(email: EmailData, attached: Array[FileData]) -> voi
 			_correct_purchase_orders += 1
 		else:
 			_missed_purchase_orders += 1
-	
-	print("Missing Files: ", _missed_purchase_orders)
-	print("Correct File Attached: ", _correct_purchase_orders)
 
 
 # Check for any abuse of report functions
@@ -109,6 +106,27 @@ func check_reports():
 			_total_correct_reports += 1
 		elif not email.is_phishing and email.flags["reported"]:
 			_total_false_reports += 1
+
+
+func getCorrectFiles() -> int:
+	return _correct_purchase_orders
+
+
+func getCorrectReports() -> int:
+	if _total_correct_reports == 0:
+		return _BASE_CORRECT_REPORT_MULT
+	else:
+		return _total_correct_reports
+
+
+func calcCorrectFilesScore() -> int:
+	return _correct_purchase_orders * _BASE_CORRECT_FILE_SCORE
+
+
+func calcFinalScore() -> int:
+	var cfs = calcCorrectFilesScore()
 	
-	print("Number of correct reports: ", _total_correct_reports)
-	print("Number of false reports: ", _total_false_reports)
+	if _total_correct_reports == 0:
+		return  cfs * _BASE_CORRECT_REPORT_MULT
+	else:
+		return  cfs * _total_correct_reports

@@ -137,14 +137,14 @@ theme_override_font_sizes/font_size = 64
 text = "="
 horizontal_alignment = 1
 
-[node name="EqualSign2" type="Label" parent="VBoxContainer/MarginContainer2/GridContainer"]
+[node name="FinalScore" type="Label" parent="VBoxContainer/MarginContainer2/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 100
 text = "{?}"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="ToMenu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -157,3 +157,5 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_v107h")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p5my0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_v107h")
 text = "See you next week...?"
+
+[connection signal="pressed" from="VBoxContainer/ToMenu" to="." method="_on_to_menu_pressed"]
