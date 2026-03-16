@@ -6,6 +6,7 @@ signal day_ended
 
 enum Day { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY }
 
+const _BASE_CORRECT_FILE_SCORE = 500
 const LEVELS = {
 	Day.MONDAY: "res://data/email_pack/monday.tres",
 	Day.TUESDAY: "res://data/email_pack/tuesday.tres",
