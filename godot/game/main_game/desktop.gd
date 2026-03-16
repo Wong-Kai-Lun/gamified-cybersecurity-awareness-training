@@ -140,7 +140,7 @@ func _on_day_ended() -> void:
 	# If Friday was just completed → win
 	if LevelServiceInstance.get_current_day() == LevelService.Day.FRIDAY:
 		print("Player reached Friday and won!")
-		# _animate_game_end()
+		_animate_game_end()
 		# show final score, maybe modify game over panel
 		return
 	
@@ -148,6 +148,16 @@ func _on_day_ended() -> void:
 	EmailServiceInstance.append_latest_email_data()
 	SaveloadServiceInstance.save_game()
 	await _animate_start_day()
+
+
+func _animate_game_end():
+	EventServiceInstance.stop()
+	var friday_end_scene: PackedScene = load("res://game/main_game/programs/events/friday_end/friday_end_panel.tscn")
+	var friday_end_instance = friday_end_scene.instantiate()
+	
+	await _wait(2.0)
+	canvas_layer.add_child(friday_end_instance)
+	TweenUtils.fade_in(friday_end_instance, 1.0, 1.0)
 
 
 # Notification System

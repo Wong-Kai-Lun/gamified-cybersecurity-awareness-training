@@ -1,0 +1,159 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxcl0e77utkv4"]
+
+[ext_resource type="Texture2D" uid="uid://brcxnk1awrurp" path="res://assets/long_button_pressed.png" id="1_0bkc5"]
+[ext_resource type="Script" path="res://game/main_game/programs/events/friday_end/friday_end_panel.gd" id="1_soufe"]
+[ext_resource type="Texture2D" uid="uid://73ppwh1j4qud" path="res://assets/long_button.png" id="2_mhnw5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8815"]
+bg_color = Color(0, 0, 0, 0.266667)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v107h"]
+texture = ExtResource("2_mhnw5")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5my0"]
+texture = ExtResource("1_0bkc5")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="FridayEndPanel" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_b8815")
+script = ExtResource("1_soufe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 96
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+text = "You survived until Friday!"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="CorrectFilesLbl" type="Label" parent="VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Correct Files"
+horizontal_alignment = 1
+
+[node name="EqualSign" type="Label" parent="VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "="
+horizontal_alignment = 1
+
+[node name="CFCount" type="Label" parent="VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "?"
+horizontal_alignment = 1
+
+[node name="CorrectReportsLbl" type="Label" parent="VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Correct Reports"
+horizontal_alignment = 1
+
+[node name="EqualSign2" type="Label" parent="VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "="
+horizontal_alignment = 1
+
+[node name="CRCount" type="Label" parent="VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "?"
+horizontal_alignment = 1
+
+[node name="FinalScoreLbl" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+text = "Final Score"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+columns = 5
+
+[node name="FSCalcCF" type="Label" parent="VBoxContainer/MarginContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "( {?} x 500 )"
+horizontal_alignment = 1
+
+[node name="MultSign" type="Label" parent="VBoxContainer/MarginContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "x"
+horizontal_alignment = 1
+
+[node name="FSCR" type="Label" parent="VBoxContainer/MarginContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "{?}"
+horizontal_alignment = 1
+
+[node name="EqualSign" type="Label" parent="VBoxContainer/MarginContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "="
+horizontal_alignment = 1
+
+[node name="EqualSign2" type="Label" parent="VBoxContainer/MarginContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "{?}"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_v107h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p5my0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_v107h")
+text = "See you next week...?"
