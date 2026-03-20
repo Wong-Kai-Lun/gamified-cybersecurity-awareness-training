@@ -16,7 +16,6 @@ func _wait(duration: float) -> void:
 
 
 func _animate_score_calc():
-	# calculate score in levelmanager
 	await _wait(2.0)
 	correct_files_count.text = str(LevelServiceInstance.getCorrectFiles())
 	await _wait(1.0)

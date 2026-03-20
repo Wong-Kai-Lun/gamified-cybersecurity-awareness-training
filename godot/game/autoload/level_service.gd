@@ -25,7 +25,6 @@ var _correct_purchase_orders: int = 0
 var _total_correct_reports: int = 0
 #endregion
 
-
 func reset() -> void:
 	_current_day = Day.MONDAY
 	_missed_purchase_orders = 0
