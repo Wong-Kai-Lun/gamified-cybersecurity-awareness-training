@@ -11,7 +11,7 @@ console.log(process.env.MONGO_ATLAS_URI);
 
     await connectDB();
 
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
         console.log(`Express app listening at http://localhost:${PORT}`);
     });
 })();
