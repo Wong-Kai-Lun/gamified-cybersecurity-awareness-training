@@ -20,6 +20,20 @@ app.get('/leaderboard', async (req, res) => {
     }
 });
 
-// app.post('/post')
+app.post('/submitPlayerInfo', async (req, res) => {
+    const { player_name, score } = req.body
+
+    try {
+        const createdPlayer = await Player.create({
+            player_name: player_name,
+            score: score
+        })
+
+        res.status(201).json(createdPlayer);
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 
 module.exports = app;

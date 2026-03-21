@@ -26,7 +26,8 @@ func _animate_score_calc():
 	final_cr_label.text = str(LevelServiceInstance.getCorrectReports())
 	await _wait(1.0)
 	final_score.text = str(LevelServiceInstance.calcFinalScore())
-
+	
+	GameManagerInstance.post_player_result()
 
 func _on_to_menu_pressed() -> void:
 	GameManagerInstance.stop_game()

@@ -139,9 +139,7 @@ func _on_day_ended() -> void:
 	
 	# If Friday was just completed → win
 	if LevelServiceInstance.get_current_day() == LevelService.Day.FRIDAY:
-		print("Player reached Friday and won!")
 		_animate_game_end()
-		# show final score, maybe modify game over panel
 		return
 	
 	LevelServiceInstance.advance_day()

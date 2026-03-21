@@ -21,7 +21,7 @@ func _on_request_completed(result, response_code, headers, body):
 
 # add a guard for no internet, same with get_leaderboard()
 func post_player_result(player_name: String, score: int):
-	var url = "http://localhost:3000/submit" # change to custom url
+	var url = "https://gamified-cybersecurity-awareness-training.onrender.com/submitPlayerInfo"
 	var body = JSON.stringify({
 		"player_name": player_name,
 		"score": score
