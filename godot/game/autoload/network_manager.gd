@@ -1,4 +1,7 @@
 extends Node
+class_name NetworkManager
+
+signal leaderboard_received(data: Array)
 
 var http_request: HTTPRequest
 
@@ -6,13 +9,14 @@ func _ready() -> void:
 	http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(_on_request_completed)
-	
-	get_leaderboard()
 
 
 func _on_request_completed(result, response_code, headers, body):
-	var res = body.get_string_from_utf8()
-	print(res)
+	var json = JSON.new()
+	json.parse(body.get_string_from_utf8())
+	var res = json.get_data()
+	
+	leaderboard_received.emit(res)
 
 
 # add a guard for no internet, same with get_leaderboard()

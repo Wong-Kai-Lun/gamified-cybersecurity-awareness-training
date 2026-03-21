@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dveuenjaoj1w3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pnfw0"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+
+[node name="Leaderboard Label" type="Label"]
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pnfw0")
+text = "Leaderboard Label"
+horizontal_alignment = 1
+vertical_alignment = 1

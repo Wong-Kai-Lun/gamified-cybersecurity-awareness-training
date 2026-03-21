@@ -6,6 +6,7 @@ extends Control
 @onready var input_blocker_scene: PackedScene = preload("res://game/main_game/programs/common/input_blocker.tscn")
 @onready var input_blocker = input_blocker_scene.instantiate()
 @onready var continue_button = $HBoxContainer/MarginContainer/BaseWindow/MarginContainer/VBoxContainer/ButtonContainer/Continue
+@onready var leaderboard_grid = $HBoxContainer/Scoreboard/PanelContainer/LeaderboardVBox/PlayerScores
 
 
 func _ready() -> void:
@@ -18,6 +19,9 @@ func _ready() -> void:
 	
 	if FileAccess.file_exists("user://save_file.json"):
 		continue_button.disabled = false
+	
+	NetworkManagerInstance.leaderboard_received.connect(_update_leaderboard)
+	NetworkManagerInstance.get_leaderboard()
 
 
 func _register_player_and_start(username: String, email: String) -> void:
@@ -26,10 +30,26 @@ func _register_player_and_start(username: String, email: String) -> void:
 	get_tree().change_scene_to_file("res://game/main_game/desktop.tscn")
 
 
+func _update_leaderboard(leaderboard: Array):
+	var leaderboard_label_scene: PackedScene = load("res://game/main_menu/leaderboard_label.tscn")
+	
+	for child in leaderboard_grid.get_children():
+		child.queue_free()
+	
+	for player_info in leaderboard:
+		var player_name = leaderboard_label_scene.instantiate()
+		player_name.text = player_info["player_name"]
+		leaderboard_grid.add_child(player_name)
+		
+		var score = leaderboard_label_scene.instantiate()
+		score.text = str(player_info["score"])
+		leaderboard_grid.add_child(score)
+
+
 func _on_new_game_pressed() -> void:
 	input_blocker.show()
 	new_player_window.open()
-	# Function to check if have existing save file. If no, proceed. If have, ask for confirmation.
+
 
 func _on_new_player_window_closed() -> void:
 	input_blocker.hide()

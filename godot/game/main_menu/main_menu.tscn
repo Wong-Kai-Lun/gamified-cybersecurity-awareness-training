@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgvloukq3otmr"]
+[gd_scene load_steps=11 format=3 uid="uid://dgvloukq3otmr"]
 
 [ext_resource type="Script" path="res://game/main_menu/main_menu.gd" id="1_ey7l3"]
 [ext_resource type="Texture2D" uid="uid://beigxce3jdbtr" path="res://assets/main_menu_bg.jpg" id="2_e5mim"]
@@ -16,6 +16,10 @@ texture = ExtResource("2_e5mim")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8a73"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bu578"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mf1hs"]
+content_margin_top = 24.0
+content_margin_bottom = 24.0
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -150,9 +154,33 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_j7ch3")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_i8a73")
 text = "Quit Game"
 
-[node name="Scoreboard" type="Control" parent="HBoxContainer"]
+[node name="Scoreboard" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/Scoreboard"]
+layout_mode = 2
+
+[node name="LeaderboardVBox" type="VBoxContainer" parent="HBoxContainer/Scoreboard/PanelContainer"]
+layout_mode = 2
+
+[node name="LeaderboardLabel" type="Label" parent="HBoxContainer/Scoreboard/PanelContainer/LeaderboardVBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mf1hs")
+text = "Leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerScores" type="GridContainer" parent="HBoxContainer/Scoreboard/PanelContainer/LeaderboardVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -10,9 +10,11 @@ app.get('/', (req, res) => {
 
 app.get('/leaderboard', async (req, res) => {
     try {
-        const allPlayers = await Player.find();
-        res.json(allPlayers);
-        
+        const topPlayers = await Player.find()
+            .sort({ score : -1 })
+            .limit(8);
+
+        res.json(topPlayers);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
