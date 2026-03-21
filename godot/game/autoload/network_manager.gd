@@ -6,14 +6,17 @@ func _ready() -> void:
 	http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(_on_request_completed)
+	
+	get_leaderboard()
 
 
 func _on_request_completed(result, response_code, headers, body):
-	var text = body.get_string_from_utf8()
-	print("Response:", text)
+	var res = body.get_string_from_utf8()
+	print(res)
+
 
 # add a guard for no internet, same with get_leaderboard()
-func post_player_result(player_name: String, player_email: String, score: int):
+func post_player_result(player_name: String, score: int):
 	var url = "http://localhost:3000/submit" # change to custom url
 	var body = JSON.stringify({
 		"player_name": player_name,
@@ -25,4 +28,5 @@ func post_player_result(player_name: String, player_email: String, score: int):
 
 
 func get_leaderboard():
-	pass
+	var url = "https://gamified-cybersecurity-awareness-training.onrender.com/leaderboard"
+	http_request.request(url)

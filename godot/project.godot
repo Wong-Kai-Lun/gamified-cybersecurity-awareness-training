@@ -27,6 +27,7 @@ SaveloadServiceInstance="*res://game/autoload/saveload_service.gd"
 EmailServiceInstance="*res://game/autoload/email_service.gd"
 EmailDatabaseInstance="*res://game/autoload/email_database.gd"
 FileDatabaseInstance="*res://game/autoload/file_database.gd"
+NetworkManagerInstance="*res://game/autoload/network_manager.gd"
 
 [display]
 

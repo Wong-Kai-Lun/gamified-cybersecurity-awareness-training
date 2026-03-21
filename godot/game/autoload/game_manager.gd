@@ -34,6 +34,11 @@ func stop_game() -> void:
 	get_tree().change_scene_to_file("res://game/main_menu/main_menu.tscn")
 
 
+func post_player_result() -> void:
+	var final_score = LevelServiceInstance.getFinalScore()
+	NetworkManagerInstance.post_player_result(_player_name, final_score)
+
+
 #region Save / Load Data
 func get_data_for_save() -> Dictionary:
 	return {

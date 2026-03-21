@@ -24,6 +24,8 @@ var _total_false_reports: int = 0
 var _correct_purchase_orders: int = 0
 var _total_correct_reports: int = 0
 #endregion
+var _final_score: int = 0
+
 
 func reset() -> void:
 	_current_day = Day.MONDAY
@@ -124,8 +126,17 @@ func calcCorrectFilesScore() -> int:
 
 func calcFinalScore() -> int:
 	var cfs = calcCorrectFilesScore()
+	var local_final_score = 0
 	
 	if _total_correct_reports == 0:
-		return  cfs * _BASE_CORRECT_REPORT_MULT
+		local_final_score = cfs * _BASE_CORRECT_REPORT_MULT
+		_final_score = local_final_score
+		return local_final_score
 	else:
-		return  cfs * _total_correct_reports
+		local_final_score = cfs * _total_correct_reports
+		_final_score = local_final_score
+		return local_final_score
+
+
+func getFinalScore() -> int:
+	return _final_score
