@@ -1,14 +1,14 @@
 [gd_scene load_steps=20 format=3 uid="uid://d0ag6c742vmi1"]
 
-[ext_resource type="Texture2D" uid="uid://cqw41ovssu3t3" path="res://assets/desktop_bg.jpg" id="1_nvliw"]
 [ext_resource type="Script" path="res://game/main_game/desktop.gd" id="1_v1sjp"]
+[ext_resource type="Texture2D" uid="uid://cwd4rlc8q4di3" path="res://assets/desktop_bg_new.jpg" id="2_o2a28"]
 [ext_resource type="Texture2D" uid="uid://bg5mv1f75hk1j" path="res://assets/gear_icon.png" id="4_s03b3"]
 [ext_resource type="Texture2D" uid="uid://cf0s11ouqcywc" path="res://assets/folder_icon.png" id="4_wxhr2"]
 [ext_resource type="Texture2D" uid="uid://b27dov07fyuyp" path="res://assets/email_icon.png" id="5_u6npt"]
 [ext_resource type="Texture2D" uid="uid://b1bdlukr08p1b" path="res://assets/recycling_bin_icon.png" id="6_66vak"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oeun7"]
-texture = ExtResource("1_nvliw")
+texture = ExtResource("2_o2a28")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y22f8"]
 bg_color = Color(0, 0, 0.533333, 1)

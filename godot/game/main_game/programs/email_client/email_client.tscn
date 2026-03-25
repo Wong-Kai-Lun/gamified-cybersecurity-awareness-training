@@ -55,15 +55,28 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_qixmq")
 
-[node name="CategoriesContainer" type="VBoxContainer" parent="WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/Categories" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/Categories" index="0"]
 layout_mode = 2
-size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/Categories" index="1"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="WindowPanel/Structure/Content/EmailClientPanelContainer/HBoxContainer/Categories/MarginContainer" index="0"]
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[b]Controls[/b] :
+
+Scroll down for new emails everyday.
+
+Report emails with signs of phishing.
+
+Submit PO to Nazrin to proceed to next day."
 fit_content = true
 selection_enabled = true
 drag_and_drop_selection_enabled = false

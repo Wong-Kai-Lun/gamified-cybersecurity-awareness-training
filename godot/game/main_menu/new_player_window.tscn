@@ -159,8 +159,9 @@ text = "Play"
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
-text = "*Note: Do not enter your actual email address."
+theme_override_font_sizes/font_size = 14
+text = "*Note: Do not use actual names and email addresses.
+Usernames will be used for leaderboard display."
 horizontal_alignment = 1
 
 [connection signal="pressed" from="WindowPanel/Structure/Content/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
