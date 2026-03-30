@@ -18,6 +18,10 @@ func save_game() -> void:
 
 func load_game() -> void:
 	var file := FileAccess.open("user://save_file.json", FileAccess.READ)
+	
+	if not file:
+		push_warning("save file not found!")
+	
 	var content = file.get_as_text()
 	var loaded_dict = JSON.parse_string(content)
 	
